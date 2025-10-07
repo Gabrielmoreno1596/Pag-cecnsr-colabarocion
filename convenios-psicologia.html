@@ -1,107 +1,462 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CECNSR | [TÍTULO DE LA PÁGINA]</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/style-pi-4pe.css" />
+    <link rel="stylesheet" href="assets/css/style-convenios.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <header class="main-header">
-        <div class="logo">
-            <img src="logo-cecnsr.png" alt="Logo CECNSR" class="logo-img">
-            <h1>CECNSR</h1>
-        </div>
-        <nav class="main-nav" id="main-nav">
-            <ul>
-                <li><a href="index.html#hero">Inicio</a></li> 
-                <li><a href="index.html#filosofia">Filosofía y Valores</a></li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="oferta-toggle">Oferta Académica <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="oferta-inicial.html">Inicial y Parvularia</a></li>
-                        <li><a href="oferta-ciclo1.html">I Ciclo</a></li>
-                        <li><a href="oferta-ciclo2.html">II Ciclo</a></li>
-                        <li><a href="oferta-ciclo3.html">III Ciclo</a></li>
-                        <li><a href="oferta-bachillerato.html">Bachillerato (General, Diplomados y Técnicos)</a></li>
-                    </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="convenios-toggle">Convenios <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="convenios-pasch.html">Colegios PASCH</a></li>
-                        <li><a href="convenios-dual.html">Proyecto DUAL</a></li>
-                        <li><a href="convenios-psicologia.html">Equipo Líder en Psicología Individual</a></li>
-                        <li><a href="convenios-integracion.html">Proyecto de Integración</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="proceso-admision.html" class="btn-cta-nav">Nuevo Ingreso <i class="fas fa-user-plus"></i></a></li>
+      <div class="logo">
+        <img src="logo-cecnsr.png" alt="Logo CECNSR" class="logo-img" />
+        <h1>CECNSR</h1>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html#hero">Inicio</a></li>
+          <li><a href="index.html#filosofia">Filosofía y Valores</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" id="oferta-toggle"
+              >Oferta Académica <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="oferta-inicial.html">Inicial y Parvularia</a></li>
+              <li><a href="oferta-ciclo1.html">I Ciclo</a></li>
+              <li><a href="oferta-ciclo2.html">II Ciclo</a></li>
+              <li><a href="oferta-ciclo3.html">III Ciclo</a></li>
+              <li>
+                <a href="oferta-bachillerato.html"
+                  >Bachillerato (General, Diplomados y Técnicos)</a
+                >
+              </li>
             </ul>
-        </nav>
-        <button class="nav-toggle" aria-label="Abrir menú" id="nav-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" id="convenios-toggle"
+              >Convenios <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="convenios-pasch.html">Colegios PASCH</a></li>
+              <li><a href="convenios-dual.html">Proyecto DUAL</a></li>
+              <li>
+                <a href="convenios-psicologia.html"
+                  >Equipo Líder en Psicología Individual</a
+                >
+              </li>
+              <li>
+                <a href="convenios-integracion.html">Proyecto de Integración</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="proceso-admision.html" class="btn-cta-nav"
+              >Nuevo Ingreso <i class="fas fa-user-plus"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Abrir menú" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
-    <div class="page-header">
-        <h1>[TÍTULO DE LA PÁGINA]</h1>
-        <p>Aquí puedes colocar una frase que resuma el objetivo de este nivel o convenio.</p>
-    </div>
 
-    <section class="main-content">
-        
-        <div class="content-section">
-            <h2 class="sub-title">Bienvenida y Componentes Clave</h2>
-            <p>Aquí va el texto principal que describe el nivel académico o el convenio. Describe su metodología, los objetivos de aprendizaje o el propósito central del programa.</p>
-            
-            <div class="media-placeholder">
-                [Espacio para FOTOGRAFÍA del Aula o del Equipo de Trabajo]
-                </div>
+    <!-- main content -->
+
+    <!-- ===== HERO: Psicología Individual & 4 Puntos Esenciales ===== -->
+    <section class="pi-hero" aria-labelledby="pi-title">
+      <div class="pi-hero__content">
+        <p class="pi-eyebrow">Formación humana | Convivencia pacífica</p>
+        <h1 id="pi-title">
+          Psicología Individual &<br /><span class="pi-mark"
+            >4 Puntos Esenciales</span
+          >
+        </h1>
+        <p class="pi-lead">
+          Una propuesta formativa basada en Alfred Adler para fortalecer el
+          bienestar personal, la responsabilidad social y una convivencia
+          armónica.
+        </p>
+
+        <ul class="pi-badges" aria-label="4 Puntos Esenciales">
+          <li>
+            <i class="fa-solid fa-person-running"></i> Disciplina Personal
+            (PDíS)
+          </li>
+          <li>
+            <i class="fa-solid fa-hand-holding-heart"></i> Grado de Servicio
+            (PServ)
+          </li>
+          <li>
+            <i class="fa-solid fa-id-card-clip"></i> Tarjeta de Presentación
+            (PVisit)
+          </li>
+          <li>
+            <i class="fa-solid fa-shield-heart"></i> Prevención Personal (PPäri)
+          </li>
+        </ul>
+
+        <div class="pi-cta">
+          <a class="btn-pill" href="#pi-que-es">Qué es el programa</a>
+          <a class="btn-outline" href="#pi-experiencias">Experiencias</a>
+        </div>
+      </div>
+
+      <div class="pi-hero__photo">
+        <div class="pi-hero__photo">
+          <!-- Cinta de aliados sobre la foto -->
+          <div class="ally-ribbon" aria-label="Aliados del programa">
+            <span class="ally-ribbon__label">Con aval de</span>
+            <img src="assets/1_CECNSR.png" alt="CECNSR" />
+            <img
+              src="assets/16_08_18_BIB_International_nur_Logo.png"
+              alt="BIB International"
+            />
+            <img src="assets/pasch.png" alt="PASCH" />
+          </div>
+
+          <div class="pi-hero__float">
+            <img
+              src="assets/pi-4pe-img2.jpeg"
+              alt="Participantes durante taller"
+            />
+            <img src="assets/pi-4pe-img3.jpeg" alt="Equipo docente y aliados" />
+            <img src="assets/pi-4pe-img4.jpeg" alt="Presentación en aula" />
+          </div>
         </div>
 
-        <div class="content-section">
-            <h2 class="sub-title">Beneficios y Enfoque</h2>
-            <p>Detalle los puntos fuertes de este programa en específico:</p>
-            <ul>
-                <li><i class="fas fa-check-circle" style="color: var(--cecns-gold);"></i> **Pilar 1:** Descripción detallada del primer punto fuerte.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--cecns-gold);"></i> **Pilar 2:** Descripción detallada del segundo punto fuerte.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--cecns-gold);"></i> **Pilar 3:** Descripción detallada del tercer punto fuerte.</li>
-            </ul>
-        </div>
-        
-        <div class="content-section">
-            <h2 class="sub-title">Galería y Testimonios</h2>
-            <div class="media-placeholder" style="min-height: 400px; background: #ccc;">
-                [Espacio para VIDEO o Galería de Fotos del Programa]
-                </div>
-        </div>
+        <!-- fin logos -->
 
+        <img
+          src="assets/pi-4pe-img1.jpeg"
+          alt="Sesión formativa de Psicología Individual en el CECNSR"
+        />
+        <div class="pi-hero__float">
+          <img
+            src="assets/pi-4pe-img2.jpeg"
+            alt="Participantes durante taller"
+          />
+          <img src="assets/pi-4pe-img3.jpeg" alt="Equipo docente y aliados" />
+          <img src="assets/pi-4pe-img4.jpeg" alt="Presentación en aula" />
+        </div>
+      </div>
     </section>
 
+    <!-- =================== ¿QUÉ ES? =================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title xl">
+          ¿Qué es Psicología Individual & los 4 Puntos Esenciales?
+        </h2>
+        <p class="lead">
+          Línea formativa inspirada en Alfred Adler que coloca a la persona, sus
+          metas y su aporte al bien común en el centro. Ofrece herramientas para
+          el autocontrol, la comunicación empática, la prevención de conflictos
+          y el servicio comunitario. Se estructura en cuatro prácticas: PDÍS,
+          PServ, PVisit y PPäri.
+        </p>
+
+        <!-- 4 PUNTOS con logos oficiales -->
+        <div class="grid-4 pe-cards">
+          <article class="pe-card">
+            <img class="pe-logo" src="assets/logos/pdis.png" alt="PDÍS" />
+            <div>
+              <h3>PDÍS — Disciplina Personal</h3>
+              <p>
+                Autogobierno y hábitos que reducen “pérdidas por fricción” en la
+                vida diaria.
+              </p>
+            </div>
+          </article>
+
+          <article class="pe-card">
+            <img class="pe-logo" src="assets/logos/pserv.png" alt="PServ" />
+            <div>
+              <h3>PServ — Grado de Servicio</h3>
+              <p>
+                Aporte al bien común: mejora la convivencia y el clima
+                institucional.
+              </p>
+            </div>
+          </article>
+
+          <article class="pe-card">
+            <img class="pe-logo" src="assets/logos/pvisit.png" alt="PVisit" />
+            <div>
+              <h3>PVisit — Tarjeta de Presentación</h3>
+              <p>
+                Coherencia entre valores y expresión: trato, estilo, lenguaje y
+                presencia.
+              </p>
+            </div>
+          </article>
+
+          <article class="pe-card">
+            <img class="pe-logo" src="assets/logos/ppari.png" alt="PPäri" />
+            <div>
+              <h3>PPäri — Prevención Personal</h3>
+              <p>
+                Rutas concretas para reducir conflictos cotidianos y fortalecer
+                la salud mental.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== ITINERARIO (timeline) =================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Itinerario formativo</h2>
+        <ol class="timeline modern">
+          <li>
+            <span class="badge">1</span>
+            <div>
+              <h4>Diagnóstico y objetivos</h4>
+              <p>Autoevaluación y contrato de metas.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge">2</span>
+            <div>
+              <h4>Laboratorio de habilidades</h4>
+              <p>
+                Comunicación empática, resolución creativa de conflictos y
+                servicio.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="badge">3</span>
+            <div>
+              <h4>Aplicación guiada</h4>
+              <p>
+                Prácticas PDÍS, PServ, PVisit y PPäri en situaciones reales.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="badge">4</span>
+            <div>
+              <h4>Cierre y proyección</h4>
+              <p>Evidencias, bitácora personal y plan de continuidad.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================== EXPERIENCIAS =================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Experiencias</h2>
+
+        <div class="media-stack">
+          <article class="media">
+            <img src="assets/dual-img2.jpeg" alt="Juventud" />
+            <div class="body">
+              <h3>Juventud — Convivencia y liderazgo</h3>
+              <p>
+                Jornadas de convivencia, proyectos de servicio y hábitos de
+                estudio.
+              </p>
+              <a class="btn-pill" href="#" target="_blank">Ver bitácoras</a>
+            </div>
+          </article>
+
+          <article class="media">
+            <img src="assets/dual-img3-24.jpeg" alt="Familias" />
+            <div class="body">
+              <h3>Familias — Acompañamiento</h3>
+              <p>Vínculos, límites sanos y hábitos de prevención.</p>
+              <a class="btn-pill" href="#" target="_blank">Ver testimonios</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== SEMINARIOS / PRÓXIMAS FECHAS =================== -->
+    <section class="section seminars">
+      <div class="container">
+        <div class="seminar-card">
+          <div class="seminar-media">
+            <img
+              src="assets/poster-seminario-2025.jpg"
+              alt="Afiche seminario 2025"
+            />
+          </div>
+          <div class="seminar-content">
+            <h2 class="section-title">
+              Seminario: Reducción de conflictos sociales
+            </h2>
+            <ul class="bullets">
+              <li>
+                <strong>Fechas:</strong> 6, 7, 8 y 9 de noviembre 2025 — 8:00
+                a.m. a 3:30 p.m.
+              </li>
+              <li>
+                <strong>Inversión:</strong> $40.00 (incluye refrigerio,
+                almuerzo, materiales y diploma).
+              </li>
+              <li>
+                <strong>Sede:</strong> Centro de Comunicaciones Salvadoreño
+                Alemán Karlheinz Wolfgang.
+              </li>
+            </ul>
+            <div class="cta-row">
+              <a
+                class="btn-solid"
+                href="assets/poster-seminario-2025.jpg"
+                download
+                >Descargar afiche</a
+              >
+              <a class="btn-outline" href="#form-contacto"
+                >Quiero más información</a
+              >
+            </div>
+            <div class="ally-strip">
+              <img src="assets/1_CECNSR.png" alt="CECNSR" />
+              <img
+                src="assets/16_08_18_BIB_International_nur_Logo.png"
+                alt="BIB"
+              />
+              <img src="assets/pasch.png" alt="PASCH" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== GALERÍA =================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Galería</h2>
+        <div class="gallery masonry">
+          <a href="assets/pi-4pe-img1.jpeg"
+            ><img src="assets/pi-4pe-img1.jpeg" alt=""
+          /></a>
+          <a href="assets/pi-4pe-img2.jpeg"
+            ><img src="assets/pi-4pe-img2.jpeg" alt=""
+          /></a>
+          <a href="assets/pi-4pe-img3.jpeg"
+            ><img src="assets/pi-4pe-img3.jpeg" alt=""
+          /></a>
+          <a href="assets/pi-4pe-img4.jpeg"
+            ><img src="assets/pi-4pe-img4.jpeg" alt=""
+          /></a>
+          <a href="assets/dual-img5.jpeg"
+            ><img src="assets/dual-img5.jpeg" alt=""
+          /></a>
+          <a href="assets/dual-img6.jpeg"
+            ><img src="assets/dual-img6.jpeg" alt=""
+          /></a>
+        </div>
+        <p class="credits">
+          Créditos de imágenes: CECNSR / Programa PI & 4PE (uso educativo).
+        </p>
+      </div>
+    </section>
+
+    <!-- =================== FORMULARIO =================== -->
+    <section class="section" id="form-contacto">
+      <div class="container">
+        <h2 class="section-title">¿Tienes dudas o quieres inscribirte?</h2>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-grid">
+            <label
+              >Nombre completo
+              <input type="text" name="nombre" required />
+            </label>
+            <label
+              >Correo electrónico
+              <input type="email" name="email" required />
+            </label>
+            <label
+              >Teléfono
+              <input type="tel" name="telefono" />
+            </label>
+            <label
+              >Interés
+              <select name="interes">
+                <option>Seminario</option>
+                <option>Programa PI & 4PE</option>
+                <option>Taller para jóvenes</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label class="full"
+              >Mensaje
+              <textarea
+                name="mensaje"
+                rows="4"
+                placeholder="Cuéntanos un poco tu necesidad…"
+              ></textarea>
+            </label>
+          </div>
+          <button class="btn-solid">Enviar consulta</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- fin main -->
+
     <footer id="contacto" class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h4>Contacto</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Calle 15 de Septiembre Av. San José No. 286, San Marcos, San Salvador</p>
-                <p><i class="fas fa-phone"></i> 2503-1970 / 2220-6927</p>
-                <p><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</p>
-                <p>Atención al Público: Lunes a Viernes de 7:00 AM a 4:00 PM</p>
-            </div>
-            <div class="footer-social">
-                <h4>Síguenos</h4>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
+      <div class="footer-grid">
+        <div class="footer-info">
+          <h4>Contacto</h4>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Calle 15 de Septiembre Av. San
+            José No. 286, San Marcos, San Salvador
+          </p>
+          <p><i class="fas fa-phone"></i> 2503-1970 / 2220-6927</p>
+          <p><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</p>
+          <p>Atención al Público: Lunes a Viernes de 7:00 AM a 4:00 PM</p>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 CECNSR. Todos los derechos reservados. Desarrollado con 💙 en El Salvador.</p>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
+      </div>
+      <div class="copyright">
+        <p>
+          &copy; 2025 CECNSR. Todos los derechos reservados. Desarrollado con 💙
+          en El Salvador.
+        </p>
+      </div>
     </footer>
     <script src="script.js"></script>
-</body>
+    <script>
+      (function () {
+        const header = document.querySelector(".main-header");
+        const set = () =>
+          document.documentElement.style.setProperty(
+            "--header-h",
+            header?.offsetHeight + "px"
+          );
+        window.addEventListener("load", set, { once: true });
+        window.addEventListener("resize", set);
+      })();
+    </script>
+  </body>
 </html>
