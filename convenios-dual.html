@@ -1,107 +1,307 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CECNSR | [TÍTULO DE LA PÁGINA]</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/style-dual.css" />
+    <link rel="stylesheet" href="assets/css/style-convenios.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <header class="main-header">
-        <div class="logo">
-            <img src="logo-cecnsr.png" alt="Logo CECNSR" class="logo-img">
-            <h1>CECNSR</h1>
-        </div>
-        <nav class="main-nav" id="main-nav">
-            <ul>
-                <li><a href="index.html#hero">Inicio</a></li> 
-                <li><a href="index.html#filosofia">Filosofía y Valores</a></li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="oferta-toggle">Oferta Académica <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="oferta-inicial.html">Inicial y Parvularia</a></li>
-                        <li><a href="oferta-ciclo1.html">I Ciclo</a></li>
-                        <li><a href="oferta-ciclo2.html">II Ciclo</a></li>
-                        <li><a href="oferta-ciclo3.html">III Ciclo</a></li>
-                        <li><a href="oferta-bachillerato.html">Bachillerato (General, Diplomados y Técnicos)</a></li>
-                    </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="convenios-toggle">Convenios <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="convenios-pasch.html">Colegios PASCH</a></li>
-                        <li><a href="convenios-dual.html">Proyecto DUAL</a></li>
-                        <li><a href="convenios-psicologia.html">Equipo Líder en Psicología Individual</a></li>
-                        <li><a href="convenios-integracion.html">Proyecto de Integración</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="proceso-admision.html" class="btn-cta-nav">Nuevo Ingreso <i class="fas fa-user-plus"></i></a></li>
+      <div class="logo">
+        <img src="logo-cecnsr.png" alt="Logo CECNSR" class="logo-img" />
+        <h1>CECNSR</h1>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html#hero">Inicio</a></li>
+          <li><a href="index.html#filosofia">Filosofía y Valores</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" id="oferta-toggle"
+              >Oferta Académica <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="oferta-inicial.html">Inicial y Parvularia</a></li>
+              <li><a href="oferta-ciclo1.html">I Ciclo</a></li>
+              <li><a href="oferta-ciclo2.html">II Ciclo</a></li>
+              <li><a href="oferta-ciclo3.html">III Ciclo</a></li>
+              <li>
+                <a href="oferta-bachillerato.html"
+                  >Bachillerato (General, Diplomados y Técnicos)</a
+                >
+              </li>
             </ul>
-        </nav>
-        <button class="nav-toggle" aria-label="Abrir menú" id="nav-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" id="convenios-toggle"
+              >Convenios <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="convenios-pasch.html">Colegios PASCH</a></li>
+              <li><a href="convenios-dual.html">Proyecto DUAL</a></li>
+              <li>
+                <a href="convenios-psicologia.html"
+                  >Equipo Líder en Psicología Individual</a
+                >
+              </li>
+              <li>
+                <a href="convenios-integracion.html">Proyecto de Integración</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="proceso-admision.html" class="btn-cta-nav"
+              >Nuevo Ingreso <i class="fas fa-user-plus"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Abrir menú" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
-    <div class="page-header">
-        <h1>[TÍTULO DE LA PÁGINA]</h1>
-        <p>Aquí puedes colocar una frase que resuma el objetivo de este nivel o convenio.</p>
-    </div>
+
+    <!-- HERO / ENCABEZADO PROYECTO DUAL -->
+    <section class="dual-hero">
+      <div class="dual-hero__content">
+        <span class="dual-hero__kicker"
+          >Convenios • Formación Técnica en Alemania</span
+        >
+        <h1 class="dual-hero__title">Proyecto Dual CECNSR</h1>
+        <p class="dual-hero__text">
+          Itinerario que conecta a nuestros egresados con la formación técnica y
+          la inserción laboral en Alemania, integrando estudio y trabajo,
+          crecimiento personal y apertura intercultural.
+        </p>
+        <div class="dual-hero__cta">
+          <a class="btn-link" href="#itinerario">Ver itinerario</a>
+          <a class="btn-outline" href="#requisitos">Requisitos</a>
+        </div>
+      </div>
+      <div class="dual-hero__photo">
+        <!-- usa una foto horizontal del grupo rumbo a Alemania -->
+        <img
+          src="assets/dual-hero.jpg"
+          alt="Estudiantes del CECNSR rumbo a formación dual en Alemania"
+        />
+      </div>
+    </section>
 
     <section class="main-content">
-        
-        <div class="content-section">
-            <h2 class="sub-title">Bienvenida y Componentes Clave</h2>
-            <p>Aquí va el texto principal que describe el nivel académico o el convenio. Describe su metodología, los objetivos de aprendizaje o el propósito central del programa.</p>
-            
-            <div class="media-placeholder">
-                [Espacio para FOTOGRAFÍA del Aula o del Equipo de Trabajo]
-                </div>
-        </div>
+      <!-- ¿QUÉ ES EL PROYECTO DUAL? -->
+      <section class="content-section">
+        <h2 class="sub-title">¿Qué es el Proyecto Dual?</h2>
+        <p>
+          El Proyecto Dual articula <strong>formación técnica</strong> con
+          <strong>experiencia laboral</strong> en Alemania. A través de
+          convenios y acompañamiento institucional, nuestros egresados pueden
+          continuar su desarrollo profesional en empresas y centros de
+          formación, fortaleciendo competencia técnica, <em>Deutsch</em> y
+          habilidades para la vida.
+        </p>
+        <p class="note">
+          En CECNSR impulsamos esta oportunidad desde 2018 como parte de
+          nuestros valores agregados.
+        </p>
+      </section>
 
-        <div class="content-section">
-            <h2 class="sub-title">Beneficios y Enfoque</h2>
-            <p>Detalle los puntos fuertes de este programa en específico:</p>
-            <ul>
-                <li><i class="fas fa-check-circle" style="color: var(--cecns-gold);"></i> **Pilar 1:** Descripción detallada del primer punto fuerte.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--cecns-gold);"></i> **Pilar 2:** Descripción detallada del segundo punto fuerte.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--cecns-gold);"></i> **Pilar 3:** Descripción detallada del tercer punto fuerte.</li>
-            </ul>
+      <!-- VALOR DIFERENCIAL -->
+      <section class="content-section highlight">
+        <h2 class="sub-title">¿Por qué elegir el Dual?</h2>
+        <div class="cards-3">
+          <article class="card">
+            <h3>Aprender haciendo</h3>
+            <p>
+              Formación en aula + práctica en empresa: las competencias se
+              construyen en contextos reales.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Ruta internacional</h3>
+            <p>
+              Alemania como entorno formativo: idioma, cultura del trabajo y
+              empleabilidad global.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Acompañamiento CECNSR</h3>
+            <p>
+              Tutoría, documentación y preparación previa: disciplina, servicio,
+              presentación y prevención.
+            </p>
+          </article>
         </div>
-        
-        <div class="content-section">
-            <h2 class="sub-title">Galería y Testimonios</h2>
-            <div class="media-placeholder" style="min-height: 400px; background: #ccc;">
-                [Espacio para VIDEO o Galería de Fotos del Programa]
-                </div>
-        </div>
+      </section>
 
+      <!-- ITINERARIO / PASOS -->
+      <section id="itinerario" class="content-section">
+        <h2 class="sub-title">Itinerario del postulante</h2>
+        <ol class="steps">
+          <li>
+            <strong>Convocatoria:</strong> publicación de plazas/empresas y
+            perfiles solicitados.
+          </li>
+          <li>
+            <strong>Postulación:</strong> entrega de CV, carta de motivación y
+            documentos.
+          </li>
+          <li>
+            <strong>Selección:</strong> entrevista y verificación de requisitos.
+          </li>
+          <li>
+            <strong>Preparación:</strong> nivelación de alemán, cultura laboral
+            y logística.
+          </li>
+          <li>
+            <strong>Inicio en Alemania:</strong> contrato de formación y
+            alternancia estudio-empresa.
+          </li>
+        </ol>
+        <p class="note">*Los pasos pueden variar según empresa y región.</p>
+      </section>
+
+      <!-- REQUISITOS -->
+      <section id="requisitos" class="content-section">
+        <h2 class="sub-title">Requisitos generales</h2>
+        <ul class="checklist">
+          <li>
+            Ser egresado/a del CECNSR y cumplir el perfil técnico solicitado.
+          </li>
+          <li>
+            Motivación por aprender alemán (nivel requerido según convocatoria).
+          </li>
+          <li>
+            Documentación vigente (pasaporte, certificados, CV en formato
+            europeo recomendado).
+          </li>
+          <li>
+            Disponibilidad para residencia y adaptación cultural en Alemania.
+          </li>
+        </ul>
+      </section>
+
+      <!-- GALERÍA -->
+      <section class="content-section">
+        <h2 class="sub-title">Galería</h2>
+        <div class="gallery">
+          <!-- coloca tus fotos, usa nombres reales -->
+          <a href="assets/dual-01.jpg"
+            ><img src="assets/dual-01.jpg" alt="Presentación del proyecto dual"
+          /></a>
+          <a href="assets/dual-02.jpg"
+            ><img src="assets/dual-02.jpg" alt="Despedida de estudiantes"
+          /></a>
+          <a href="assets/dual-03.jpg"
+            ><img src="assets/dual-03.jpg" alt="Sesión informativa familias"
+          /></a>
+          <a href="assets/dual-04.jpg"
+            ><img src="assets/dual-04.jpg" alt="Taller de preparación cultural"
+          /></a>
+          <a href="assets/dual-05.jpg"
+            ><img src="assets/dual-05.jpg" alt="Revisión documental"
+          /></a>
+          <a href="assets/dual-06.jpg"
+            ><img src="assets/dual-06.jpg" alt="Clases de alemán"
+          /></a>
+        </div>
+      </section>
+
+      <!-- TESTIMONIOS / CITAS CORTAS -->
+      <section class="content-section">
+        <h2 class="sub-title">Voces de la comunidad</h2>
+        <div class="cards-3">
+          <article class="card quote">
+            <p>
+              “El dual me permitió aprender y trabajar al mismo tiempo. Fue un
+              reto y una gran oportunidad.”
+            </p>
+            <span class="q-author">— Egresado CECNSR</span>
+          </article>
+          <article class="card quote">
+            <p>
+              “La preparación previa fue clave: idioma, orden personal y
+              mentalidad de servicio.”
+            </p>
+            <span class="q-author">— Familia CECNSR</span>
+          </article>
+          <article class="card quote">
+            <p>
+              “La experiencia internacional transforma el proyecto de vida de
+              los jóvenes.”
+            </p>
+            <span class="q-author">— Coordinación Académica</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- RECURSOS -->
+      <section class="content-section resources">
+        <h2 class="sub-title">Recursos y orientación</h2>
+        <ul>
+          <li>
+            <a
+              href="https://europa.eu/europass/es/create-europass-cv"
+              target="_blank"
+              rel="noopener"
+              >CV formato Europass</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.goethe.de/ins/bo/es/spr/eng/bda.html"
+              target="_blank"
+              rel="noopener"
+              >Info general sobre formación dual (Goethe)</a
+            >
+          </li>
+          <li>
+            <a href="mailto:CECNSROSARIO@HOTMAIL.COM"
+              >Contacto CECNSR para dudas</a
+            >
+          </li>
+        </ul>
+      </section>
     </section>
 
     <footer id="contacto" class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h4>Contacto</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Calle 15 de Septiembre Av. San José No. 286, San Marcos, San Salvador</p>
-                <p><i class="fas fa-phone"></i> 2503-1970 / 2220-6927</p>
-                <p><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</p>
-                <p>Atención al Público: Lunes a Viernes de 7:00 AM a 4:00 PM</p>
-            </div>
-            <div class="footer-social">
-                <h4>Síguenos</h4>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
+      <div class="footer-grid">
+        <div class="footer-info">
+          <h4>Contacto</h4>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Calle 15 de Septiembre Av. San
+            José No. 286, San Marcos, San Salvador
+          </p>
+          <p><i class="fas fa-phone"></i> 2503-1970 / 2220-6927</p>
+          <p><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</p>
+          <p>Atención al Público: Lunes a Viernes de 7:00 AM a 4:00 PM</p>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 CECNSR. Todos los derechos reservados. Desarrollado con 💙 en El Salvador.</p>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
+      </div>
+      <div class="copyright">
+        <p>
+          &copy; 2025 CECNSR. Todos los derechos reservados. Desarrollado con 💙
+          en El Salvador.
+        </p>
+      </div>
     </footer>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

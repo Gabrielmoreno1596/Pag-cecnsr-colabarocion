@@ -1,13 +1,23 @@
 :root {
-  --cecns-burgundy: #7f2d3c; /* franja CECNSR */
-  --cecns-gold: #e0b13a; /* borde dorado */
-  --cecns-navy: #15334a; /* fondo azul escudo */
-  --cecns-sun: #ffffff; /* sol */
-  --cecns-green: #2d8c3c; /* verde oscuro */
-  --cecns-lime: #b7d35a; /* verde claro */
-  --cecns-ink: #1e1e1e; /* texto */
-  --cecns-muted: #6b7280; /* texto secundario */
-  --cecns-bg: #f7f8fa; /* fondo claro */
+  /* neutrales y superficies */
+  --surface: #ffffff;
+  --surface-alt: #f5f7fb; /* fondo claro del hero */
+  --stroke: #e5e7eb; /* bordes sutiles */
+  --text: #0f172a; /* casi negro */
+  --text-muted: #475569;
+
+  /* ya existentes (se mantienen) */
+  --cecns-burgundy: #7f2d3c;
+  --cecns-gold: #e0b13a;
+  --cecns-navy: #15334a;
+  --cecns-green: #2d8c3c;
+  --cecns-lime: #b7d35a;
+  --cecns-sun: #fff;
+  --cecns-ink: #1e1e1e;
+  --cecns-muted: #6b7280;
+  --cecns-bg: #f7f8fa;
+
+  --header-h: 88px;
 }
 
 /* ===== PASCH PAGE ===== */
@@ -18,18 +28,39 @@
 .pasch-hero {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   align-items: center;
+  min-height: calc(100svh - var(--header-h));
+  box-sizing: border-box;
   padding: clamp(1.5rem, 3vw, 3rem);
+
+  /* FONDO MINIMAL neutro en lugar del gradiente */
+  background: #6b7280;
   background: linear-gradient(
-    120deg,
-    var(--cecns-burgundy) 0%,
-    var(--cecns-navy) 60%,
-    var(--cecns-green) 120%
+    90deg,
+    rgba(107, 114, 128, 1) 0%,
+    rgba(71, 85, 105, 1) 100%
   );
-  color: #fff;
-  border-bottom: 6px solid var(--cecns-gold);
+  border-bottom: 1px solid var(--stroke);
 }
+
+.pasch-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalmente el texto */
+  min-height: 100%;
+}
+
+.pasch-hero__photo {
+  height: 100%;
+}
+
+.pasch-hero__photo img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% center; /* la imagen llena el alto */
+}
+
 .pasch-hero__kicker {
   font-size: 0.9rem;
   letter-spacing: 0.06em;
@@ -55,6 +86,33 @@
   border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   object-fit: cover;
+}
+
+.cred-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  width: max-content;
+  backdrop-filter: blur(6px);
+}
+.cred-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.cred-logo {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) contrast(0.9) opacity(0.9);
+  transition: filter 0.2s ease;
+}
+.cred-logo:hover {
+  filter: none;
 }
 
 .main-content {

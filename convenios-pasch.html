@@ -68,6 +68,7 @@
         <i class="fas fa-bars"></i>
       </button>
     </header>
+
     <div class="pasch-hero">
       <div class="pasch-hero__content">
         <div class="pasch-hero__kicker">Convenios y Alianzas</div>
@@ -81,12 +82,10 @@
           aprendizaje del alemán, el intercambio intercultural y oportunidades
           formativas para nuestros estudiantes.
         </p>
-        <div class="pasch-hero__badges">
-          <img
-            src="assets/pasch.png"
-            alt="PASCH – Schulen: Partner der Zukunft"
-          />
-          <img src="assets/1_CECNSR.png" alt="CECNSR" />
+        <div class="cred-bar" aria-label="Organizaciones asociadas">
+          <span class="cred-label">Con el apoyo de</span>
+          <img src="assets/pasch.png" alt="PASCH" class="cred-logo" />
+          <img src="assets/1_CECNSR.png" alt="CECNSR" class="cred-logo" />
         </div>
       </div>
       <div class="pasch-hero__photo">
@@ -385,5 +384,16 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const header = document.querySelector(".main-header");
+        const setHeaderVar = () => {
+          const h = header ? header.offsetHeight : 0;
+          document.documentElement.style.setProperty("--header-h", `${h}px`);
+        };
+        setHeaderVar();
+        window.addEventListener("resize", setHeaderVar);
+      });
+    </script>
   </body>
 </html>
