@@ -18,6 +18,7 @@ body.pi-page {
   gap: 2rem;
   grid-template-columns: 1.1fr 1fr;
   padding: clamp(1.2rem, 3vw, 2.2rem);
+  padding: 0 5rem 0 5rem;
   min-height: calc(100svh - var(--header-h, 88px));
   box-sizing: border-box;
   align-items: center;
@@ -274,7 +275,7 @@ body.pi-page {
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 1.2rem;
 }
 .pe-card {
   display: flex;
