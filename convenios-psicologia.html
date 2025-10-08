@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="assets/css/style-pi-4pe.css" />
     <link rel="stylesheet" href="assets/css/style-convenios.css" />
+    <link rel="shortcut icon" href="assets/1_CECNSR.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -19,7 +20,7 @@
   <body>
     <header class="main-header">
       <div class="logo">
-        <img src="logo-cecnsr.png" alt="Logo CECNSR" class="logo-img" />
+        <img src="assets/1_CECNSR.png" alt="Logo CECNSR" class="logo-img" />
         <h1>CECNSR</h1>
       </div>
       <nav class="main-nav" id="main-nav">
@@ -93,19 +94,40 @@
 
         <ul class="pi-badges" aria-label="4 Puntos Esenciales">
           <li>
-            <i class="fa-solid fa-person-running"></i> Disciplina Personal
-            (PDíS)
+            <img
+              width="34"
+              height="34"
+              src="assets/Pdis-Disciplina-personal.png"
+              alt="Logo Disciplina Personal"
+            />
+            <i class="fa-solid"></i> Disciplina Personal (PDíS)
           </li>
           <li>
-            <i class="fa-solid fa-hand-holding-heart"></i> Grado de Servicio
-            (PServ)
+            <img
+              width="34"
+              height="34"
+              src="assets/PServ-Grado-de-servicio.png"
+              alt="Logo Grado de Servicio"
+            />
+            <i class="fa-solid"></i> Grado de Servicio (PServ)
           </li>
           <li>
-            <i class="fa-solid fa-id-card-clip"></i> Tarjeta de Presentación
-            (PVisit)
+            <img
+              width="34"
+              height="34"
+              src="assets/PVisit-Tarjeta-de-presentacion.png"
+              alt="Logo Tarjeta de Presentación"
+            />
+            <i class="fa-solid"></i> Tarjeta de Presentación (PVisit)
           </li>
           <li>
-            <i class="fa-solid fa-shield-heart"></i> Prevención Personal (PPäri)
+            <img
+              width="34"
+              height="34"
+              src="assets/PPrav-Prevencion-personal.png"
+              alt="Logo Prevención Personal"
+            />
+            <i class="fa-solid"></i> Prevención Personal (PPäri)
           </li>
         </ul>
 
@@ -151,6 +173,7 @@
         <h2 class="section-title xl">
           ¿Qué es Psicología Individual & los 4 Puntos Esenciales?
         </h2>
+        <div class="title-divider" aria-hidden="true"></div>
         <p class="lead">
           Línea formativa inspirada en Alfred Adler que coloca a la persona, sus
           metas y su aporte al bien común en el centro. Ofrece herramientas para
@@ -162,7 +185,11 @@
         <!-- 4 PUNTOS con logos oficiales -->
         <div class="grid-4 pe-cards">
           <article class="pe-card">
-            <img class="pe-logo" src="assets/logos/pdis.png" alt="PDÍS" />
+            <img
+              class="pe-logo"
+              src="assets/Pdis-Disciplina-personal.png"
+              alt="PDÍS"
+            />
             <div>
               <h3>PDÍS — Disciplina Personal</h3>
               <p>
@@ -173,7 +200,11 @@
           </article>
 
           <article class="pe-card">
-            <img class="pe-logo" src="assets/logos/pserv.png" alt="PServ" />
+            <img
+              class="pe-logo"
+              src="assets/PServ-Grado-de-servicio.png"
+              alt="PServ"
+            />
             <div>
               <h3>PServ — Grado de Servicio</h3>
               <p>
@@ -184,7 +215,11 @@
           </article>
 
           <article class="pe-card">
-            <img class="pe-logo" src="assets/logos/pvisit.png" alt="PVisit" />
+            <img
+              class="pe-logo"
+              src="assets/PVisit-Tarjeta-de-presentacion.png"
+              alt="PVisit"
+            />
             <div>
               <h3>PVisit — Tarjeta de Presentación</h3>
               <p>
@@ -195,7 +230,11 @@
           </article>
 
           <article class="pe-card">
-            <img class="pe-logo" src="assets/logos/ppari.png" alt="PPäri" />
+            <img
+              class="pe-logo"
+              src="assets/PPrav-Prevencion-personal.png"
+              alt="PPäri"
+            />
             <div>
               <h3>PPäri — Prevención Personal</h3>
               <p>
@@ -212,6 +251,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section-title">Itinerario formativo</h2>
+        <div class="title-divider" aria-hidden="true"></div>
         <ol class="timeline modern">
           <li>
             <span class="badge">1</span>
@@ -254,6 +294,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section-title">Experiencias</h2>
+        <div class="title-divider" aria-hidden="true"></div>
 
         <div class="media-stack">
           <article class="media">
@@ -281,54 +322,129 @@
     </section>
 
     <!-- =================== SEMINARIOS / PRÓXIMAS FECHAS =================== -->
-    <section class="section seminars">
+
+    <!-- =================== SEMINARIOS / PRÓXIMAS FECHAS =================== -->
+    <section
+      class="section seminars"
+      aria-labelledby="seminar-title"
+      data-state="active"
+      data-start="2025-11-06"
+      data-end="2025-11-09"
+    >
+      <!-- Cambia active, upcoming,  past -->
+      <!-- opcional, para auto -->
+      <!-- opcional, para auto -->
+
       <div class="container">
-        <div class="seminar-card">
-          <div class="seminar-media">
-            <img
-              src="assets/poster-seminario-2025.jpg"
-              alt="Afiche seminario 2025"
-            />
-          </div>
-          <div class="seminar-content">
-            <h2 class="section-title">
-              Seminario: Reducción de conflictos sociales
-            </h2>
-            <ul class="bullets">
+        <!-- Estado ACTIVO (se muestra cuando data-state="active") -->
+        <article class="seminar" role="article">
+          <figure class="seminar__media">
+            <a
+              href="assets/poster-seminario-2025.jpg"
+              target="_blank"
+              aria-label="Ver afiche en ventana nueva"
+            >
+              <img
+                src="assets/4pe/afiche-invitacion.png"
+                alt="Afiche del Seminario 2025: Reducción de conflictos sociales"
+              />
+            </a>
+            <figcaption class="seminar__badge">2025</figcaption>
+          </figure>
+
+          <div class="seminar__details">
+            <header>
+              <p class="seminar__eyebrow">Seminario / Formación continua</p>
+              <h2 id="seminar-title" class="section-title">
+                Seminario: Reducción de conflictos sociales
+              </h2>
+              <div class="seminar__divider" aria-hidden="true"></div>
+            </header>
+
+            <ul class="info-list" role="list">
               <li>
-                <strong>Fechas:</strong> 6, 7, 8 y 9 de noviembre 2025 — 8:00
-                a.m. a 3:30 p.m.
+                <span class="info-list__icon" aria-hidden="true">📅</span>
+                <div>
+                  <strong>Fechas:</strong> 6, 7, 8 y 9 de noviembre 2025 — 8:00
+                  a. m. a 3:30 p. m.
+                </div>
               </li>
               <li>
-                <strong>Inversión:</strong> $40.00 (incluye refrigerio,
-                almuerzo, materiales y diploma).
+                <span class="info-list__icon" aria-hidden="true">💵</span>
+                <div>
+                  <strong>Inversión:</strong> $40.00
+                  <small
+                    >(incluye refrigerio, almuerzo, materiales y diploma)</small
+                  >.
+                </div>
               </li>
               <li>
-                <strong>Sede:</strong> Centro de Comunicaciones Salvadoreño
-                Alemán Karlheinz Wolfgang.
+                <span class="info-list__icon" aria-hidden="true">📍</span>
+                <div>
+                  <strong>Sede:</strong> Centro de Comunicaciones Salvadoreño
+                  Alemán Karlheinz Wolfgang.
+                </div>
               </li>
             </ul>
-            <div class="cta-row">
+
+            <div class="seminar__cta">
               <a
                 class="btn-solid"
                 href="assets/poster-seminario-2025.jpg"
                 download
-                >Descargar afiche</a
               >
-              <a class="btn-outline" href="#form-contacto"
-                >Quiero más información</a
-              >
+                Descargar afiche
+              </a>
+              <a class="btn-outline" href="#form-contacto">
+                Quiero más información
+              </a>
             </div>
-            <div class="ally-strip">
+
+            <div class="ally-strip" aria-label="Aliados">
               <img src="assets/1_CECNSR.png" alt="CECNSR" />
               <img
                 src="assets/16_08_18_BIB_International_nur_Logo.png"
-                alt="BIB"
+                alt="BIB International"
               />
               <img src="assets/pasch.png" alt="PASCH" />
             </div>
           </div>
-        </div>
+        </article>
+
+        <!-- Estado ANUNCIO (se muestra cuando data-state="upcoming" o "past") -->
+        <aside class="seminar-announce" role="status" aria-live="polite">
+          <div class="announce__head">
+            <span class="status-chip" data-kind="upcoming">Próximamente</span>
+            <!-- si es pasado, el CSS cambia el color con data-kind="past" -->
+          </div>
+          <h3 class="announce__title">
+            Seminario: Reducción de conflictos sociales
+          </h3>
+          <p class="announce__lead">
+            Estamos preparando próximas fechas. Déjanos tus datos para enviarte
+            la convocatoria y resolver cualquier consulta.
+          </p>
+          <div class="announce__cta">
+            <a class="btn-solid" href="#form-contacto"
+              >Quiero más información</a
+            >
+            <a
+              class="btn-outline"
+              href="assets/poster-seminario-2025.jpg"
+              download
+            >
+              Descargar afiche anterior
+            </a>
+          </div>
+          <div class="ally-strip">
+            <img src="assets/1_CECNSR.png" alt="CECNSR" />
+            <img
+              src="assets/16_08_18_BIB_International_nur_Logo.png"
+              alt="BIB International"
+            />
+            <img src="assets/pasch.png" alt="PASCH" />
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -336,6 +452,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section-title">Galería</h2>
+        <div class="title-divider" aria-hidden="true"></div>
         <div class="gallery masonry">
           <a href="assets/pi-4pe-img1.jpeg"
             ><img src="assets/pi-4pe-img1.jpeg" alt=""
@@ -366,6 +483,7 @@
     <section class="section" id="form-contacto">
       <div class="container">
         <h2 class="section-title">¿Tienes dudas o quieres inscribirte?</h2>
+        <div class="title-divider" aria-hidden="true"></div>
         <form class="contact-form" action="#" method="post">
           <div class="form-grid">
             <label
@@ -446,6 +564,36 @@
           );
         window.addEventListener("load", set, { once: true });
         window.addEventListener("resize", set);
+      })();
+    </script>
+    <script>
+      (function () {
+        const sec = document.querySelector(".seminars");
+        if (!sec) return;
+
+        const start = sec.getAttribute("data-start");
+        const end = sec.getAttribute("data-end");
+        if (!start || !end) return; // si no hay fechas, respeta el data-state manual
+
+        const today = new Date();
+        const s = new Date(start + "T00:00:00");
+        const e = new Date(end + "T23:59:59");
+
+        let state = "upcoming";
+        if (today >= s && today <= e) state = "active";
+        else if (today > e) state = "past";
+
+        sec.setAttribute("data-state", state);
+
+        // Cambia el chip del anuncio según corresponda:
+        const chip = sec.querySelector(".status-chip");
+        if (chip) {
+          chip.setAttribute(
+            "data-kind",
+            state === "past" ? "past" : "upcoming"
+          );
+          chip.textContent = state === "past" ? "Finalizado" : "Próximamente";
+        }
       })();
     </script>
   </body>

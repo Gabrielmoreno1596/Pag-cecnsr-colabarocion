@@ -3,7 +3,7 @@
   min-height: calc(100svh - var(--header-h, 88px));
   display: flex;
   align-items: center;
-  background: #0f1f33; /* azul sobrio como en el hero PASCH actualizado */
+  background: #004080; /* azul sobrio como en el hero PASCH actualizado */
   color: #fff;
   border-bottom: 4px solid var(--cecns-gold);
 }
@@ -28,13 +28,43 @@
   line-height: 1.12;
   font-size: clamp(1.9rem, 3.2vw, 2.8rem);
 }
-.dual-hero__divider {
+/* .dual-hero__divider {
   width: 72px;
   height: 4px;
   background: var(--cecns-gold);
   border-radius: 999px;
   margin: 0.75rem 0 1rem;
+} */
+
+/* Animation  */
+
+.dual-hero__divider {
+  width: 100%; /* ocupará todo el contenedor, pero “comprimida” al inicio */
+  height: 4px;
+  background: var(--cecns-gold);
+  border-radius: 999px;
+  transform-origin: left center;
+  transform: scaleX(
+    0.2
+  ); /* ~72px si el contenedor es 400px -> ajusta el 0.18 a tu gusto */
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  margin: 0.75rem 0 1rem;
 }
+
+/* Al “tocar” (hover/focus) se expande a todo el ancho */
+.dual-hero__divider:hover,
+.dual-hero__divider:focus-visible,
+.dual-hero:hover .dual-hero__divider {
+  transform: scaleX(1);
+}
+
+/* Accesibilidad: menos movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .dual-hero__divider {
+    transition: none;
+  }
+}
+
 .dual-hero__lead {
   color: #dce4ef;
   line-height: 1.7;
@@ -84,8 +114,8 @@
   width: 72px;
   height: 4px;
   border-radius: 999px;
-  background: var(--cecns-gold);
-  margin: 0.6rem auto 0;
+  background: white;
+  margin: 0.2rem auto 0;
   opacity: 0.9;
 }
 

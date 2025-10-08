@@ -500,3 +500,232 @@ body.pi-page {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== SEMINAR CARD ===== */
+.seminar {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+  background: linear-gradient(180deg, #fff, #fcfdff);
+  border: 1px solid #e6ebf1;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.6vw, 1.6rem);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  align-items: start;
+}
+
+.seminar__media {
+  margin: 0;
+  position: relative;
+}
+.seminar__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #e6ebf1;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.seminar__media a:hover img {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+}
+.seminar__badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(9, 32, 67, 0.9);
+  color: #fff;
+  padding: 0.28rem 0.55rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+/* Detalles */
+.seminar__details header {
+  margin-bottom: 0.35rem;
+}
+.seminar__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  font-size: 0.78rem;
+  margin: 0 0 0.15rem;
+}
+.seminar__divider {
+  width: 72px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--cecns-gold, #d4a017);
+  margin: 0.55rem 0 1rem;
+  transform-origin: left center;
+  transform: scaleX(0.25);
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.seminar:hover .seminar__divider,
+.seminar:focus-within .seminar__divider {
+  transform: scaleX(1);
+}
+
+/* Lista de info */
+.info-list {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+.info-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed #e6ebf1;
+}
+.info-list li:last-child {
+  border-bottom: 0;
+}
+.info-list__icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+  font-size: 1rem;
+}
+
+/* CTA */
+.seminar__cta {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 0.75rem;
+}
+.btn-solid {
+  display: inline-block;
+  background: var(--cecns-navy, #0c3a66);
+  color: #fff;
+  border: 2px solid var(--cecns-navy, #0c3a66);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+}
+.btn-solid:hover {
+  filter: brightness(1.05);
+}
+.btn-outline {
+  display: inline-block;
+  border: 2px solid var(--cecns-navy, #0c3a66);
+  color: var(--cecns-navy, #0c3a66);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+}
+.btn-outline:hover {
+  background: var(--cecns-navy, #0c3a66);
+  color: #fff;
+}
+
+/* Aliados */
+.ally-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid #e6ebf1;
+  margin-top: 0.35rem;
+}
+.ally-strip img {
+  height: 30px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .seminar {
+    grid-template-columns: 460px 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .seminar {
+    grid-template-columns: 1fr;
+  }
+  .seminar__media {
+    order: -1;
+  }
+}
+
+/* Mostrar/ocultar según estado */
+.seminars[data-state="active"] .seminar-announce {
+  display: none;
+}
+.seminars[data-state="upcoming"] .seminar {
+  display: none;
+}
+.seminars[data-state="past"] .seminar {
+  display: none;
+}
+
+/* Bloque “anuncio” */
+.seminar-announce {
+  background: linear-gradient(180deg, #fff, #fcfdff);
+  border: 1px solid #e6ebf1;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.6vw, 1.6rem);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  max-width: 980px;
+}
+
+.announce__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.status-chip {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 2px solid transparent;
+}
+
+/* colores según tipo */
+.status-chip[data-kind="upcoming"] {
+  background: #fff7e6;
+  color: #9a6b00;
+  border-color: #ffd58a;
+}
+.status-chip[data-kind="past"] {
+  background: #eef2f5;
+  color: #48566a;
+  border-color: #d6dee8;
+}
+
+.announce__title {
+  margin: 0.35rem 0 0.4rem;
+  color: var(--cecns-navy, #0c3a66);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+.announce__lead {
+  color: #374151;
+  margin: 0 0 0.8rem;
+}
+
+.announce__cta {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Reusar tira de aliados */
+.seminar-announce .ally-strip {
+  margin-top: 0.8rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #e6ebf1;
+}
