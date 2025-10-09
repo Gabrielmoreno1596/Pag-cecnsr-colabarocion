@@ -394,6 +394,89 @@ body.pi-page {
   }
 }
 
+/* midifired - img del hero */
+
+/* Contenedor de la cinta */
+.pi-hero__reel {
+  position: absolute;
+  right: 0;
+  bottom: -10%;
+  width: min(520px, 90%);
+  overflow: hidden;
+  border: 1px solid var(--pi-line);
+  border-radius: 12px;
+  background: rgba(95, 53, 75, 0);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 0.35rem;
+}
+
+/* Pista */
+.reel-track {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  animation: reel-scroll 22s linear infinite;
+}
+.reel-track img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--pi-line);
+  flex: 0 0 auto;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.reel-track img:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Loop infinito (la pista está duplicada) */
+@keyframes reel-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  } /* mitad porque duplicamos */
+}
+
+/* Pausa en hover y respeto a accesibilidad */
+.pi-hero__reel:hover .reel-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reel-track {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  .pi-hero__reel {
+    position: static;
+    width: 100%;
+    margin-top: 0.7rem;
+  }
+}
+
+/* Fade cuando cambia la foto principal */
+.pi-hero__main {
+  transition: opacity 0.35s ease;
+}
+.pi-hero__main.is-swapping {
+  opacity: 0;
+}
+
+/* Estado visual de miniatura activa (opcional) */
+.reel-track img[aria-current="true"] {
+  outline: 3px solid var(--cecns-gold);
+  outline-offset: 2px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* fin modifired img del hero  */
+
 /* fin del heroo  */
 
 /* =========================================================

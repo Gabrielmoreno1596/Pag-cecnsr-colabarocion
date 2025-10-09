@@ -138,31 +138,49 @@
       </div>
 
       <div class="pi-hero__photo">
-        <div class="pi-hero__photo">
-          <!-- Cinta de aliados sobre la foto -->
-          <div class="ally-ribbon" aria-label="Aliados del programa">
-            <img src="assets/1_CECNSR.png" alt="CECNSR" />
-            <img
-              src="assets/16_08_18_BIB_International_nur_Logo.png"
-              alt="BIB International"
-            />
-            <!--   <img src="assets/pasch.png" alt="PASCH" /> -->
-          </div>
+        <!-- cinta de aliados igual -->
+        <div class="ally-ribbon" aria-label="Aliados del programa">
+          <img src="assets/1_CECNSR.png" alt="CECNSR" />
+          <img
+            src="assets/16_08_18_BIB_International_nur_Logo.png"
+            alt="BIB International"
+          />
         </div>
 
-        <!-- fin logos -->
-
+        <!-- FOTO PRINCIPAL -->
         <img
+          class="pi-hero__main"
           src="assets/pi-4pe-img1.jpeg"
           alt="Sesión formativa de Psicología Individual en el CECNSR"
         />
-        <div class="pi-hero__float">
-          <img
-            src="assets/pi-4pe-img2.jpeg"
-            alt="Participantes durante taller"
-          />
-          <img src="assets/pi-4pe-img3.jpeg" alt="Equipo docente y aliados" />
-          <img src="assets/pi-4pe-img4.jpeg" alt="Presentación en aula" />
+
+        <!-- REEL animado -->
+        <div class="pi-hero__reel" aria-label="Galería de momentos">
+          <div class="reel-track">
+            <!-- Lista original -->
+            <img
+              src="assets/pi-4pe-img2.jpeg"
+              alt="Participantes durante taller"
+              role="button"
+              tabindex="0"
+            />
+            <img
+              src="assets/pi-4pe-img3.jpeg"
+              alt="Equipo docente y aliados"
+              role="button"
+              tabindex="0"
+            />
+            <img
+              src="assets/pi-4pe-img4.jpeg"
+              alt="Presentación en aula"
+              role="button"
+              tabindex="0"
+            />
+            <!-- Duplicados para loop perfecto (sin foco, sin lector) -->
+            <img src="assets/pi-4pe-img2.jpeg" alt="" aria-hidden="true" />
+            <img src="assets/pi-4pe-img3.jpeg" alt="" aria-hidden="true" />
+            <img src="assets/pi-4pe-img4.jpeg" alt="" aria-hidden="true" />
+          </div>
         </div>
       </div>
     </section>
@@ -563,6 +581,105 @@
           );
           chip.textContent = state === "past" ? "Finalizado" : "Próximamente";
         }
+      })();
+    </script>
+
+    <!-- animacion hero -->
+
+    <script>
+      (function () {
+        const hero = document.querySelector(".pi-hero__photo");
+        if (!hero) return;
+
+        const mainImg = hero.querySelector(".pi-hero__main");
+        const reel = hero.querySelector(".pi-hero__reel .reel-track");
+        if (!mainImg || !reel) return;
+
+        // Miniaturas "reales" (evita duplicados con aria-hidden)
+        const thumbs = Array.from(
+          reel.querySelectorAll('img:not([aria-hidden="true"])')
+        );
+
+        function swapTo(thumb) {
+          if (!thumb) return;
+
+          // Marca visual (opcional)
+          thumbs.forEach((t) => t.removeAttribute("aria-current"));
+          thumb.setAttribute("aria-current", "true");
+
+          // Usa data-full si existe, si no, el src mismo
+          const nextSrc = thumb.getAttribute("data-full") || thumb.src;
+          const nextAlt = thumb.alt || mainImg.alt;
+
+          // Pre-carga y transición suave
+          const img = new Image();
+          img.onload = () => {
+            mainImg.classList.add("is-swapping");
+            // pequeño delay para que el fade funcione en cambio rápido
+            requestAnimationFrame(() => {
+              mainImg.src = nextSrc;
+              mainImg.alt = nextAlt;
+              // Quita el fade después de que el navegador pinte el nuevo frame
+              requestAnimationFrame(() => {
+                mainImg.classList.remove("is-swapping");
+              });
+            });
+          };
+          img.src = nextSrc;
+        }
+
+        // Click / teclado
+        function handleActivate(ev, thumb) {
+          ev.preventDefault();
+          swapTo(thumb);
+        }
+
+        thumbs.forEach((thumb) => {
+          thumb.addEventListener("click", (e) => handleActivate(e, thumb));
+          thumb.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") handleActivate(e, thumb);
+          });
+        });
+
+        // Opcional: inicia marcada la 1ª miniatura si la principal coincide
+        const active = thumbs.find(
+          (t) => (t.getAttribute("data-full") || t.src) === mainImg.src
+        );
+        if (active) active.setAttribute("aria-current", "true");
+      })();
+    </script>
+    <script>
+      (function () {
+        const track = document.querySelector(".pi-hero__reel .reel-track");
+        const thumbs = Array.from(
+          document.querySelectorAll(
+            '.pi-hero__reel .reel-track img:not([aria-hidden="true"])'
+          )
+        );
+        if (!track || thumbs.length < 2) return;
+
+        let idx = 0,
+          timer;
+        const fire = () => thumbs[idx % thumbs.length].click();
+        const start = () =>
+          (timer = setInterval(() => {
+            idx++;
+            fire();
+          }, 8000));
+        const stop = () => clearInterval(timer);
+
+        // Arranca
+        start();
+
+        // Pausa si el usuario interactúa con el reel (hover/click)
+        track.addEventListener("mouseenter", stop);
+        track.addEventListener("mouseleave", start);
+        track.addEventListener("click", () => {
+          idx =
+            thumbs.indexOf(
+              document.querySelector('.reel-track img[aria-current="true"]')
+            ) || 0;
+        });
       })();
     </script>
   </body>
