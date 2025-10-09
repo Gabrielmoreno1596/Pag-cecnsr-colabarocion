@@ -48,12 +48,18 @@
 .btn-solid:hover {
   filter: brightness(1.05);
 }
-.btn-outline {
+.btn-outline-int {
   border: 2px solid var(--cecns-gold);
   color: var(--bg-white);
-  color: #111;
+  color: var(--bg-light);
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
 }
-.btn-outline:hover {
+.btn-outline-int:hover {
+  background: var(--cecns-gold);
+  color: var(--cecns-gold);
   background: var(--cecns-gold);
   color: #111;
 }
@@ -61,6 +67,7 @@
   display: flex;
   gap: 0.7rem;
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 /* HERO */
@@ -214,6 +221,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 0.25rem;
+  background: var(--cecns-blue);
+  padding: 2rem;
+  border-radius: 20px;
 }
 .track {
   background: #fff;
@@ -221,6 +231,7 @@
   border-radius: 14px;
   padding: 1rem;
   box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+  padding-left: 2rem;
 }
 .track h3 {
   color: var(--cecns-wine);
@@ -234,12 +245,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8rem;
+  background: var(--cecns-gold);
+  padding: 2rem;
+  border-radius: 20px;
 }
 .act {
   background: #fff;
   border: 1px solid #e6ebf1;
   border-radius: 12px;
   padding: 0.8rem;
+  padding-left: 1.3rem;
 }
 .poster {
   margin: 1rem 0 0.3rem;
