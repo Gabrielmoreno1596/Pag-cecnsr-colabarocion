@@ -89,7 +89,7 @@ body.pi-page {
 
 .btn-pill-pi {
   display: inline-block;
-  border: 2px solid var(--cecns-navy);
+  border: 2px solid var(--pi-soft);
   color: var(--cecns-navy);
   border-radius: 999px;
   padding: 0.55rem 1rem;
@@ -97,8 +97,8 @@ body.pi-page {
 }
 
 .btn-pill-pi:hover {
-  background: var(--cecns-navy);
-  color: var(--cecns-blue);
+  background: var(--pi-bg);
+  color: #153249;
 }
 
 .btn-pill {
@@ -249,6 +249,152 @@ body.pi-page {
   object-fit: contain;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.07));
 }
+
+/* ===== Badges del hero: grid fluido, cards elegantes ===== */
+.pi-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pi-badges li {
+  /* card */
+  background: #fff;
+  border: 1.5px solid rgba(12, 58, 102, 0.12); /* navy muy suave */
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: 42px 1fr; /* icono + texto */
+  align-items: center;
+  gap: 0.75rem;
+  color: #1f2937;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pi-badges li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.1);
+  border-color: rgba(12, 58, 102, 0.22);
+}
+
+/* icono con “aro” (se lee bien sobre fondos dorados) */
+.pi-badges img {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55); /* aro anti-fondo */
+  object-fit: contain;
+}
+
+/* si el hero tiene fondo dorado, refuerzo del contraste del texto */
+.pi-hero .pi-badges li {
+  color: #0c3a66;
+  font-weight: 600;
+}
+.pi-hero .pi-badges li i {
+  display: none;
+} /* ya no necesitas el <i> */
+
+/* CTA bajo las cards mejor alineado en grid */
+.pi-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+.pi-cta > a {
+  flex: 0 0 auto;
+}
+
+/* ---------- Responsivo fino ---------- */
+@media (max-width: 1024px) {
+  .pi-badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .pi-badges {
+    grid-template-columns: 1fr;
+  }
+  .pi-badges li {
+    padding: 0.8rem 0.9rem;
+  }
+}
+
+.pi-hero {
+  background: linear-gradient(180deg, #dcae27 0%, #d4a41f 35%, #c99917 100%);
+}
+
+.pi-hero {
+  padding: clamp(20px, 3vw, 28px) clamp(24px, 4vw, 48px);
+}
+.pi-hero__content {
+  padding-top: 0.2rem;
+}
+
+.pi-hero h1 {
+  max-width: 20ch;
+  line-height: 1.08;
+}
+.pi-mark {
+  padding: 0.14rem 0.5rem;
+  border-radius: 12px;
+}
+
+.pi-badges {
+  grid-auto-rows: 84px;
+}
+.pi-badges li {
+  align-items: center;
+}
+.pi-badges img {
+  width: 40px;
+  height: 40px;
+}
+
+.pi-hero__float {
+  right: 0;
+  bottom: -10%;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  border: 1px solid rgba(230, 235, 241, 0.8);
+}
+
+.ally-ribbon {
+  left: 0.85rem;
+  top: 0.85rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 1024px) {
+  .pi-hero {
+    grid-template-columns: 1fr;
+  }
+  .pi-cta {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .pi-hero__float {
+    display: none;
+  }
+  .pi-badges {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* fin del heroo  */
 
 /* =========================================================
    5) BLOQUES GENERALES
