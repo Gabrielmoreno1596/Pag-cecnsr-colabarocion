@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CECNSR | [TÍTULO DE LA PÁGINA]</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="assets/css/style-integracion.css" />
     <link rel="stylesheet" href="assets/css/style-convenios.css" />
+    <link rel="stylesheet" href="assets/css/style-integracion.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -98,7 +99,7 @@
             alianzas familia–escuela–comunidad.
           </p>
           <div class="cta-row">
-            <a class="btn-solid" href="#ruta">Ver ruta de trabajo</a>
+            <a class="btn-solid-int" href="#ruta">Ver ruta de trabajo</a>
             <a class="btn-outline-int" href="#becas"
               >Becas · Generación que Florece</a
             >
@@ -207,7 +208,7 @@
           </div>
 
           <header class="scholar-head">
-            <h2 id="beca-title" class="section-title">
+            <h2 id="beca-title" class="section-title__gob">
               Becas · Generación que Florece
             </h2>
             <div class="title-divider" aria-hidden="true"></div>
@@ -216,8 +217,8 @@
               <p class="muted">
                 Requisitos orientativos para postular (según trayectoria).
                 Verifica siempre la convocatoria vigente en el sitio oficial:
-                <a
-                  class="link btn-outline-int"
+                     <a
+                  class="link btn-outline-int text-color__gob"
                   href="https://integracion.gob.sv/proceso-formativo/"
                   target="_blank"
                   rel="noopener"
@@ -225,10 +226,14 @@
                   integracion.gob.sv/proceso-formativo </a
                 >.
               </p>
-              <figure class="about-media">
-                <img src="assets/integra-img1.jpeg" alt="" />
-                <figcaption></figcaption>
-              </figure>
+                <figure class="about-media">
+                  <img
+                    src="assets/integracion/logo-direccion-integracion.png"
+                    alt=""
+                  />
+                  <figcaption></figcaption>
+                </figure>
+              </p>
             </div>
           </header>
 
@@ -238,7 +243,7 @@
           <div class="cta-switch">
             <!-- ACTIVA -->
             <div class="state-cta state-active">
-              <a class="btn-solid" href="#contacto"
+              <a class="btn-solid-int" href="#contacto"
                 >Quiero postular / más info</a
               >
               <a
@@ -251,24 +256,24 @@
 
             <!-- PRÓXIMAMENTE -->
             <div class="state-cta state-upcoming">
-              <a class="btn-solid" href="#contacto">Avísenme cuando abra</a>
-              <a
-                class="btn-outline"
+              <a class="btn-solid-int" href="#contacto">Avísenme cuando abra</a>
+          <!--     <a
+                class="btn-outline-int text-color"
                 href="https://integracion.gob.sv/proceso-formativo/"
                 target="_blank"
                 rel="noopener"
               >
                 Ver detalles oficiales
-              </a>
+              </a> -->
             </div>
 
             <!-- CERRADA -->
             <div class="state-cta state-closed">
-              <a class="btn-solid" href="#contacto"
+              <a class="btn-solid-int" href="#contacto"
                 >Consultar próximas fechas</a
               >
               <a
-                class="btn-outline text-color"
+                class="btn-outline-int text-color"
                 href="https://integracion.gob.sv/proceso-formativo/"
                 target="_blank"
                 rel="noopener"
@@ -371,7 +376,9 @@
           </figure> -->
 
           <div class="cta-row">
-            <a class="btn-solid" href="#contacto">Quiero postular / más info</a>
+            <a class="btn-solid-int" href="#contacto"
+              >Quiero postular / más info</a
+            >
             <a
               class="btn-outline-int text-color"
               href="assets/afiche-gf.jpg"
@@ -441,7 +448,7 @@
                   ></textarea>
                 </label>
               </div>
-              <button class="btn-solid">Enviar consulta</button>
+              <button class="btn-solid-int">Enviar consulta</button>
             </form>
           </div>
         </div>
