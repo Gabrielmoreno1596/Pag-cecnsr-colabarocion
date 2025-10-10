@@ -2,8 +2,6 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/cecnsros/public_html
-    - rsync -a --delete \
-        --exclude '.git' \
-        --exclude '.gitignore' \
-        --exclude '.cpanel.yml' \
-        ./ $DEPLOYPATH/
+    - rm -rf $DEPLOYPATH/*
+    - cp -r ./ $DEPLOYPATH/
+    - rm -f $DEPLOYPATH/.cpanel.yml $DEPLOYPATH/.gitignore
