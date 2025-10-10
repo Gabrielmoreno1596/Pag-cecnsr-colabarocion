@@ -2,6 +2,10 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/cecnsros/public_html
-    - rm -rf $DEPLOYPATH/*
-    - cp -r ./ $DEPLOYPATH/
-    - rm -f $DEPLOYPATH/.cpanel.yml $DEPLOYPATH/.gitignore
+    - mkdir -p "$DEPLOYPATH"
+    # Limpia todo menos cgi-bin (algunos hostings fallan si se borra)
+    - find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 ! -name 'cgi-bin' -exec rm -rf {} +
+    # Copia todos los archivos del repo al docroot
+    - cp -r ./* "$DEPLOYPATH"/
+    # No publiques estos archivos
+    - rm -f "$DEPLOYPATH/.cpanel.yml" "$DEPLOYPATH/.gitignore" || true
