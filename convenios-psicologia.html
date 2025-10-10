@@ -133,7 +133,7 @@
 
         <div class="pi-cta">
           <a class="btn-pill-pi" href="#pi-que-es">Qué es el programa</a>
-          <a class="btn-outline" href="#mas info">mas información</a>
+          <a class="btn-outline-pi" href="#mas info">mas información</a>
         </div>
       </div>
 
@@ -487,7 +487,7 @@
       class="section seminars"
       aria-labelledby="seminar-title"
       data-state="active"
-      data-start="2025-11-06"
+      data-start="2025-10-06"
       data-end="2025-11-09"
     >
       <!-- Cambia active, upcoming,  past -->
@@ -498,18 +498,70 @@
         <!-- Estado ACTIVO (se muestra cuando data-state="active") -->
         <article class="seminar" role="article">
           <figure class="seminar__media">
-            <a
-              href="assets/poster-seminario-2025.jpg"
-              target="_blank"
-              aria-label="Ver afiche en ventana nueva"
+            <button
+              class="poster-thumb"
+              data-poster="assets/4pe/seminario-noviembre.jpeg"
+              aria-labelledby="poster-title"
             >
               <img
                 src="assets/4pe/afiche-invitacion.png"
                 alt="Afiche del Seminario 2025: Reducción de conflictos sociales"
+                loading="lazy"
               />
-            </a>
-            <figcaption class="seminar__badge">2025</figcaption>
+              <span class="thumb-veil" aria-hidden="true">
+                <i
+                  class="fa-solid fa-magnifying-glass-plus"
+                  aria-hidden="true"
+                ></i>
+                Ver afiche
+              </span>
+            </button>
+            <figcaption id="poster-title" class="seminar__badge">
+              2025
+            </figcaption>
           </figure>
+
+          <!-- Modal flotante -->
+          <div
+            class="poster-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="poster-modal-title"
+            hidden
+          >
+            <div class="poster-modal__backdrop" data-close></div>
+            <div class="poster-modal__dialog">
+              <header class="poster-modal__head">
+                <h3 id="poster-modal-title">Afiche del seminario</h3>
+                <button
+                  class="poster-modal__close"
+                  aria-label="Cerrar"
+                  data-close
+                >
+                  ✕
+                </button>
+              </header>
+              <div class="poster-modal__body">
+                <img
+                  src=""
+                  alt="Afiche del Seminario 2025"
+                  id="poster-modal-img"
+                />
+              </div>
+              <footer class="poster-modal__foot">
+                <a id="poster-modal-download" class="btn-solid" download
+                  >Descargar afiche</a
+                >
+                <a
+                  id="poster-modal-newtab"
+                  class="btn-outline-pi"
+                  target="_blank"
+                  rel="noopener"
+                  >Abrir en nueva pestaña</a
+                >
+              </footer>
+            </div>
+          </div>
 
           <div class="seminar__details">
             <header>
@@ -517,7 +569,8 @@
               <h2 id="seminar-title" class="section-title">
                 Seminario: Reducción de conflictos sociales
               </h2>
-              <div class="seminar__divider" aria-hidden="true"></div>
+
+              <div class="title-divider" aria-hidden="true"></div>
             </header>
 
             <ul class="info-list" role="list">
@@ -554,19 +607,10 @@
               >
                 Descargar afiche
               </a>
-              <a class="btn-outline" href="#form-contacto">
+              <a class="btn-outline-pi" href="#form-contacto">
                 Quiero más información
               </a>
             </div>
-
-            <!--             <div class="ally-strip" aria-label="Aliados">
-              <img src="assets/1_CECNSR.png" alt="CECNSR" />
-              <img
-                src="assets/16_08_18_BIB_International_nur_Logo.png"
-                alt="BIB International"
-              />
-              <img src="assets/pasch.png" alt="PASCH" />
-            </div> -->
           </div>
         </article>
 
@@ -588,7 +632,7 @@
               >Quiero más información</a
             >
             <a
-              class="btn-outline"
+              class="btn-outline-pi"
               href="assets/poster-seminario-2025.jpg"
               download
             >
@@ -1010,6 +1054,75 @@
         // Inicia con el primer elemento (por si el HTML inicial es otro)
         swap(0);
         start();
+      })();
+    </script>
+
+    <!-- AFICHE (modal) -->
+    <script>
+      (() => {
+        const thumb = document.querySelector(".poster-thumb");
+        const modal = document.querySelector(".poster-modal");
+        if (!thumb || !modal) return;
+
+        const img = modal.querySelector("#poster-modal-img");
+        const dl = modal.querySelector("#poster-modal-download");
+        const nt = modal.querySelector("#poster-modal-newtab");
+        const backdrop = modal.querySelector(".poster-modal__backdrop");
+        const closes = modal.querySelectorAll("[data-close]");
+        let lastFocus = null;
+
+        function openModal(src) {
+          lastFocus = document.activeElement;
+          img.removeAttribute("src"); // evita parpadeo
+          img.src = src; // carga real
+          dl.href = src;
+          nt.href = src;
+          modal.hidden = false;
+          document.body.classList.add("modal-open"); // bloquea scroll del fondo
+          setTimeout(
+            () => modal.querySelector(".poster-modal__close").focus(),
+            0
+          );
+          document.addEventListener("keydown", onKey);
+        }
+
+        function closeModal() {
+          modal.hidden = true;
+          img.removeAttribute("src");
+          document.body.classList.remove("modal-open");
+          document.removeEventListener("keydown", onKey);
+          if (lastFocus) lastFocus.focus();
+        }
+
+        function onKey(e) {
+          if (e.key === "Escape") closeModal();
+
+          // Tab trapping básico
+          if (e.key === "Tab") {
+            const focusables = modal.querySelectorAll(
+              'a,button,[tabindex]:not([tabindex="-1"])'
+            );
+            const f = [...focusables].filter((el) => !el.disabled);
+            if (!f.length) return;
+            const first = f[0],
+              last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              last.focus();
+              e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              first.focus();
+              e.preventDefault();
+            }
+          }
+        }
+
+        thumb.addEventListener("click", (e) => {
+          const src = e.currentTarget.getAttribute("data-poster"); // <- ya corregida
+          if (src) openModal(src);
+        });
+
+        backdrop.addEventListener("click", closeModal);
+        closes.forEach((b) => b.addEventListener("click", closeModal));
       })();
     </script>
   </body>
