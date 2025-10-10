@@ -211,45 +211,76 @@
       </section>
 
       <!-- PREPARACIÓN EN EL CECNSR (evidencia local) -->
-      <section class="section">
+      <section class="section prep" id="preparacion">
         <div class="card">
           <h2 class="section-title">Preparación en el CECNSR</h2>
           <div class="title-divider" aria-hidden="true"></div>
-          <div class="media-grid">
-            <article class="media-card">
-              <img
-                src="assets/dual-img7.jpeg"
-                alt="Planificación con coordinación"
-              />
-              <div class="media-info">
-                <h3>Coordinación y asesoría</h3>
-                <p>
-                  Reuniones de planificación y seguimiento académico con el
-                  equipo institucional.
-                </p>
+
+          <div class="prep-grid">
+            <!-- Card 1 -->
+            <article class="prep-card">
+              <div class="prep-media">
+                <img
+                  class="main"
+                  src="assets/dual-img7.jpeg"
+                  alt="Planificación con coordinación"
+                />
+                <img
+                  class="thumb"
+                  src="assets/dual-img11.jpeg"
+                  alt="Planificación con coordinación"
+                />
               </div>
+              <h3 class="prep-title">Coordinación y asesoría</h3>
+              <p class="prep-text">
+                Reuniones de planificación y seguimiento académico con el equipo
+                institucional.
+              </p>
             </article>
-            <article class="media-card">
-              <img
-                src="assets/dual-img6.jpeg"
-                alt="Clase de alemán en el CECNSR"
-              />
-              <div class="media-info">
-                <h3>Clases de alemán</h3>
-                <p>
-                  Entrenamiento lingüístico continuo y simulación de
-                  entrevistas.
-                </p>
+
+            <!-- Card 2 -->
+            <article class="prep-card">
+              <div class="prep-media">
+                <img
+                  class="main"
+                  src="assets/dual-img12.jpeg"
+                  alt="Clase de alemán en el CECNSR"
+                />
+                <img
+                  class="thumb"
+                  src="assets/dual-img13.jpeg"
+                  alt="Clase de alemán en el CECNSR"
+                />
+                <img
+                  class="thumb"
+                  src="assets/dual-img5.jpeg"
+                  alt="Clase de alemán en el CECNSR"
+                />
               </div>
+              <h3 class="prep-title">Clases de alemán</h3>
+              <p class="prep-text">
+                Entrenamiento lingüístico continuo y simulación de entrevistas.
+              </p>
             </article>
-            <article class="media-card">
-              <img src="assets/dual-img5.jpeg" alt="Comunidad de apoyo" />
-              <div class="media-info">
-                <h3>Red de apoyo</h3>
-                <p>
-                  Acompañamiento a estudiantes y familias durante el proceso.
-                </p>
+
+            <!-- Card 3 -->
+            <article class="prep-card">
+              <div class="prep-media">
+                <img
+                  class="main"
+                  src="assets/dual-img1.jpg"
+                  alt="Comunidad de apoyo"
+                />
+                <img
+                  class="thumb"
+                  src="assets/dual-img3-24.jpeg"
+                  alt="Comunidad de apoyo"
+                />
               </div>
+              <h3 class="prep-title">Red de apoyo</h3>
+              <p class="prep-text">
+                Acompañamiento a estudiantes y familias durante el proceso.
+              </p>
             </article>
           </div>
         </div>
@@ -347,5 +378,92 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+      (function () {
+        const ROTATE_MS = 5500; // ← tiempo entre cambios (ms)
+
+        function initPrepCard(card) {
+          const media = card.querySelector(".prep-media");
+          if (!media) return;
+
+          // A11y: permitir foco/teclado
+          media.setAttribute("role", "group");
+          media.setAttribute("aria-label", "Galería de evidencias");
+          media.querySelectorAll("img").forEach((img, i) => {
+            img.setAttribute("tabindex", i === 0 ? "0" : "-1");
+            img.setAttribute("draggable", "false");
+          });
+
+          const swapWithMain = (target) => {
+            if (!target || target.classList.contains("main")) return;
+            const main = media.querySelector(".main");
+            // swap clases (no movemos el DOM; CSS resuelve la cuadrícula)
+            main.classList.remove("main");
+            main.classList.add("thumb");
+            target.classList.remove("thumb");
+            target.classList.add("main");
+
+            // a11y foco y marca visual
+            media
+              .querySelectorAll("img")
+              .forEach((img) => img.removeAttribute("aria-current"));
+            target.setAttribute("aria-current", "true");
+            target.focus({ preventScroll: true });
+          };
+
+          // Click/tap en miniaturas
+          media.addEventListener("click", (e) => {
+            const t = e.target.closest("img");
+            if (t && t.classList.contains("thumb")) swapWithMain(t);
+          });
+
+          // Teclado (Enter/Espacio sobre miniaturas)
+          media.addEventListener("keydown", (e) => {
+            const t = e.target.closest("img");
+            if (!t) return;
+            if (
+              (e.key === "Enter" || e.key === " ") &&
+              t.classList.contains("thumb")
+            ) {
+              e.preventDefault();
+              swapWithMain(t);
+            }
+          });
+
+          // Auto–rotación
+          const next = () => {
+            const main = media.querySelector(".main");
+            const thumbs = [...media.querySelectorAll("img.thumb")];
+            if (thumbs.length === 0) return;
+            // toma la primera miniatura disponible
+            swapWithMain(thumbs[0]);
+          };
+
+          // Manejo de pausa/reanudar (hover, focus, touch)
+          let timer = null;
+          const start = () => {
+            if (timer) return;
+            timer = setInterval(next, ROTATE_MS);
+          };
+          const stop = () => {
+            if (!timer) return;
+            clearInterval(timer);
+            timer = null;
+          };
+
+          card.addEventListener("mouseenter", stop);
+          card.addEventListener("mouseleave", start);
+          card.addEventListener("focusin", stop);
+          card.addEventListener("focusout", start);
+          card.addEventListener("touchstart", stop, { passive: true });
+          card.addEventListener("touchend", start, { passive: true });
+
+          // arranca con un pequeño desfase para que no todas cambien a la vez
+          setTimeout(start, Math.random() * 1200 + 300);
+        }
+
+        document.querySelectorAll(".prep-card").forEach(initPrepCard);
+      })();
+    </script>
   </body>
 </html>

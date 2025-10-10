@@ -73,14 +73,24 @@
         <i class="fas fa-bars"></i>
       </button>
     </header>
-    <section class="hero hero--elegant">
+
+    <!-- main -->
+    <section class="hero hero--signature" aria-labelledby="hero-pasch-title">
       <div class="hero__container">
+        <!-- Columna texto -->
         <div class="hero__col hero__col--text">
+          <div class="hero__creds" aria-label="Organizaciones asociadas">
+            <!-- <span>Con el apoyo de</span> -->
+            <img src="assets/pasch/pasch.png" alt="PASCH" />
+            <img src="assets/1_CECNSR.png" alt="CECNSR" />
+          </div>
           <p class="hero__eyebrow">Convenios y Alianzas</p>
-          <h1 class="hero__title">
-            Colegios PASCH – Alianza para el alemán y el intercambio cultural
+          <h1 id="hero-pasch-title" class="hero__title">
+            Colegios PASCH — alianza para el alemán y el intercambio cultural
           </h1>
-          <div class="hero__divider"></div>
+
+          <div class="title-divider-hero title-divider"></div>
+
           <p class="hero__lead">
             El CECNSR forma parte de las instituciones
             <strong>asociadas</strong> a la iniciativa
@@ -89,24 +99,53 @@
             formativas para nuestros estudiantes.
           </p>
 
-          <!-- barra de credenciales, discreta -->
-          <div class="hero__creds" aria-label="Organizaciones asociadas">
-            <span>Con el apoyo de</span>
-            <img src="assets/pasch.png" alt="PASCH" />
-            <img src="assets/1_CECNSR.png" alt="CECNSR" />
+          <div class="hero__cta">
+            <a class="btn-solid" href="#CECNSR">Ver mas info</a>
+            <a class="btn-outline" href="#experiencias">Experiencias</a>
           </div>
+
+          <!-- credenciales -->
         </div>
 
+        <!-- Columna media -->
         <div class="hero__col hero__col--media">
-          <figure class="hero__figure">
-            <img
-              src="assets/pasch-vijaron.jpeg"
-              alt="Estudiantes CECNSR en programa PASCH"
-            />
-          </figure>
+          <div class="glass-card" id="sig-viewport">
+            <figure class="hero__figure">
+              <img
+                id="sig-img"
+                src="assets/pasch/pasch-vijaron.jpeg"
+                alt="Estudiantes CECNSR en programa PASCH"
+                decoding="async"
+              />
+              <figcaption
+                id="sig-caption"
+                class="hero__caption"
+                aria-live="polite"
+              ></figcaption>
+
+              <!-- barra de progreso -->
+              <div class="progress">
+                <div id="sig-progress" class="progress__bar"></div>
+              </div>
+            </figure>
+
+            <!-- Thumbs verticales -->
+            <div
+              class="thumbs"
+              role="tablist"
+              aria-label="Seleccionar imagen"
+              id="sig-thumbs"
+            >
+              <!-- Se rellenan por JS -->
+            </div>
+          </div>
+
+          <!-- blob decorativo -->
+          <div class="hero__blob" aria-hidden="true"></div>
         </div>
       </div>
     </section>
+
     <!-- CONTENT -->
     <section class="main-content">
       <!-- ¿QUÉ ES PASCH? -->
@@ -140,7 +179,7 @@
       </section>
 
       <!-- RELACIÓN CECNSR – PASCH -->
-      <section class="section">
+      <section class="section" id="CECNSR">
         <div class="card card--accent">
           <h2 class="section-title">CECNSR como escuela asociada</h2>
           <div class="title-divider" aria-hidden="true"></div>
@@ -247,13 +286,31 @@
       </section>
 
       <!-- EXPERIENCIAS -->
-      <section class="section">
+      <section class="section" id="experiencias">
         <div class="card">
           <h2 class="section-title">Experiencias CECNSR</h2>
           <div class="title-divider" aria-hidden="true"></div>
+
           <div class="grid-3 media-grid">
-            <article class="media-card">
-              <img src="img/exp-alex.jpg" alt="Alex en curso juvenil" />
+            <!-- Tarjeta 1 -->
+            <article class="media-card xp-card">
+              <div class="xp-media">
+                <img
+                  class="main"
+                  src="assets/pasch/pasch-img2.jpeg"
+                  alt="Alex en curso juvenil"
+                />
+                <img
+                  class="thumb"
+                  src="assets/pasch/pasch-img5.png"
+                  alt="Alex en curso juvenil"
+                />
+                <img
+                  class="thumb"
+                  src="assets/pasch/pasch-img6.png"
+                  alt="Alex en curso juvenil"
+                />
+              </div>
               <div class="media-info">
                 <h3>Alex — Curso juvenil (A1)</h3>
                 <p>
@@ -268,11 +325,26 @@
                 >
               </div>
             </article>
-            <article class="media-card">
-              <img
-                src="img/exp-valeria.jpg"
-                alt="Valeria en campamento PASCH"
-              />
+
+            <!-- Tarjeta 2 -->
+            <article class="media-card xp-card">
+              <div class="xp-media">
+                <img
+                  class="main"
+                  src="assets/pasch/pasch-valeria2.png"
+                  alt="Valeria en campamento PASCH"
+                />
+                <img
+                  class="thumb"
+                  src="assets/pasch/pasch-valeria1.png"
+                  alt="Valeria en campamento PASCH"
+                />
+                <img
+                  class="thumb"
+                  src="assets/pasch/pasch-valeria3.png"
+                  alt="Valeria en campamento PASCH"
+                />
+              </div>
               <div class="media-info">
                 <h3>Valeria — Campamento PASCH (A1)</h3>
                 <p>
@@ -281,14 +353,32 @@
                 </p>
                 <a
                   class="btn-link"
-                  href="docs/Logbuch_Valeria_Melendez.pdf"
+                  href="assets/pdf/pasch -Logbuch-Valeria-Meléndez-2APS.pdf"
                   target="_blank"
                   >Ver logbuch</a
                 >
               </div>
             </article>
-            <article class="media-card">
-              <img src="img/exp-mateo.jpg" alt="Mateo en Jungenkurs" />
+
+            <!-- Tarjeta 3 -->
+            <article class="media-card xp-card">
+              <div class="xp-media">
+                <img
+                  class="main"
+                  src="assets/pasch/pasch-vijaron.jpeg"
+                  alt="Mateo en Jungenkurs"
+                />
+                <img
+                  class="thumb"
+                  src="assets/pasch/pasch-mateo1.png"
+                  alt="Mateo en Jungenkurs"
+                />
+                <img
+                  class="thumb"
+                  src="assets/pasch/pasch-mateo2.png"
+                  alt="Mateo en Jungenkurs"
+                />
+              </div>
               <div class="media-info">
                 <h3>Mateo — Jungenkurs (A2)</h3>
                 <p>
@@ -297,7 +387,7 @@
                 </p>
                 <a
                   class="btn-link"
-                  href="docs/Memoria_de_viaje_Mateo.pdf"
+                  href="assets/pdf/paschMemoria-de-viaje-Mateo.pdf"
                   target="_blank"
                   >Ver memoria</a
                 >
@@ -313,23 +403,29 @@
           <h2 class="section-title">Galería</h2>
           <div class="title-divider" aria-hidden="true"></div>
           <div class="gallery">
-            <a href="assets/pasch-img2.jpeg"
-              ><img src="assets/pasch-img2.jpeg" alt="Actividad 1"
+            <a href="assets/pasch/pasch-img2.jpeg"
+              ><img src="assets/pasch/pasch-img2.jpeg" alt="Actividad 1"
             /></a>
-            <a href="assets/pasch-img3.jpeg"
-              ><img src="assets/pasch-img3.jpeg" alt="Actividad 2"
+            <a href="assets/pasch/pasch-img3.jpeg"
+              ><img src="assets/pasch/pasch-img3.jpeg" alt="Actividad 2"
             /></a>
-            <a href="assets/pasch-img4.png"
-              ><img src="assets/pasch-img4.png" alt="Actividad 3"
+            <a href="assets/pasch/pasch-img4.png"
+              ><img src="assets/pasch/pasch-img4.png" alt="Actividad 3"
             /></a>
-            <a href="assets/pasch-img5.png"
-              ><img src="assets/pasch-img5.png" alt="Actividad 4"
+            <a href="assets/pasch/pasch-img5.png"
+              ><img src="assets/pasch/pasch-img5.png" alt="Actividad 4"
             /></a>
-            <a href="assets/pasch-img6.png"
-              ><img src="assets/pasch-img6.png" alt="Actividad 5"
+            <a href="assets/pasch/pasch-img6.png"
+              ><img src="assets/pasch/pasch-img6.png" alt="Actividad 5"
             /></a>
-            <a href="assets/pasch-img7.png"
-              ><img src="assets/pasch-img7.png" alt="Actividad 6"
+            <a href="assets/pasch/pasch-img7.png"
+              ><img src="assets/pasch/pasch-img7.png" alt="Actividad 6"
+            /></a>
+            <a href="assets/pasch-mateo1.png"
+              ><img src="assets/pasch/pasch-mateo1.png" alt="Actividad 6"
+            /></a>
+            <a href="assets/pasch/pasch-mateo2.png"
+              ><img src="assets/pasch/pasch-mateo2.png" alt="Actividad 6"
             /></a>
           </div>
           <p class="note">
@@ -339,7 +435,7 @@
       </section>
 
       <!-- RECURSOS -->
-      <section class="section">
+      <!--       <section class="section">
         <div class="card">
           <h2 class="section-title">Recursos útiles</h2>
           <div class="title-divider" aria-hidden="true"></div>
@@ -374,7 +470,7 @@
             </ul>
           </div>
         </div>
-      </section>
+      </section> -->
     </section>
 
     <footer id="contacto" class="main-footer">
@@ -418,6 +514,235 @@
         setHeaderVar();
         window.addEventListener("resize", setHeaderVar);
       });
+    </script>
+
+    <script>
+      (function () {
+        const ROTATE_MS = 5500; // tiempo entre cambios
+
+        function initXpCard(card) {
+          const media = card.querySelector(".xp-media");
+          if (!media) return;
+
+          // A11y
+          media.setAttribute("role", "group");
+          media.setAttribute("aria-label", "Galería de experiencia");
+          media.querySelectorAll("img").forEach((img, i) => {
+            img.setAttribute("tabindex", i === 0 ? "0" : "-1");
+            img.setAttribute("draggable", "false");
+          });
+          // marca activa inicial
+          const mainInit = media.querySelector("img.main");
+          if (mainInit) mainInit.setAttribute("aria-current", "true");
+
+          const swapWithMain = (target) => {
+            if (!target || target.classList.contains("main")) return;
+            const main = media.querySelector("img.main");
+            // swap clases
+            main.classList.remove("main");
+            main.classList.add("thumb");
+            target.classList.remove("thumb");
+            target.classList.add("main");
+            // marca y foco
+            media
+              .querySelectorAll("img")
+              .forEach((img) => img.removeAttribute("aria-current"));
+            target.setAttribute("aria-current", "true");
+            target.focus({ preventScroll: true });
+          };
+
+          // Interacción (clic/teclado)
+          media.addEventListener("click", (e) => {
+            const t = e.target.closest("img");
+            if (t && t.classList.contains("thumb")) swapWithMain(t);
+          });
+          media.addEventListener("keydown", (e) => {
+            const t = e.target.closest("img");
+            if (!t) return;
+            if (
+              (e.key === "Enter" || e.key === " ") &&
+              t.classList.contains("thumb")
+            ) {
+              e.preventDefault();
+              swapWithMain(t);
+            }
+          });
+
+          // Auto–rotación
+          const next = () => {
+            const thumbs = media.querySelectorAll("img.thumb");
+            if (!thumbs.length) return;
+            swapWithMain(thumbs[0]); // primera miniatura sube a principal
+          };
+
+          let timer = null;
+          const start = () => {
+            if (!timer) timer = setInterval(next, ROTATE_MS);
+          };
+          const stop = () => {
+            if (timer) {
+              clearInterval(timer);
+              timer = null;
+            }
+          };
+
+          card.addEventListener("mouseenter", stop);
+          card.addEventListener("mouseleave", start);
+          card.addEventListener("focusin", stop);
+          card.addEventListener("focusout", start);
+          card.addEventListener("touchstart", stop, { passive: true });
+          card.addEventListener("touchend", start, { passive: true });
+
+          // desfasar inicio para que no cambien a la vez
+          setTimeout(start, Math.random() * 1200 + 300);
+        }
+
+        document.querySelectorAll(".xp-card").forEach(initXpCard);
+      })();
+    </script>
+
+    <!-- hero -->
+    <script>
+      (() => {
+        const slides = [
+          {
+            src: "assets/pasch/pasch-vijaron.jpeg",
+            alt: "Estudiantes CECNSR en programa PASCH",
+            caption: "Jungenkurs PASCH — participación CECNSR.",
+          },
+          {
+            src: "assets/pasch/pasch-img2.jpeg",
+            alt: "Visita y convivencia multicultural",
+            caption: "Convivencia multicultural y visitas guiadas.",
+          },
+          {
+            src: "assets/pasch/pasch-img3.jpeg",
+            alt: "Actividades y clausura",
+            caption: "Actividades de integración y clausura del programa.",
+          },
+          {
+            src: "assets/pasch/pasch-img7.png",
+            alt: "Grupo internacional PASCH",
+            caption: "Trabajo colaborativo con jóvenes de diversos países.",
+          },
+          {
+            src: "assets/pasch/pasch-mateo1.png",
+            alt: "Goethe-Institut Bamberg A2",
+            caption: "Curso A2 en Goethe-Institut Bamberg.",
+          },
+          {
+            src: "assets/pasch/pasch-mateo3.png",
+            alt: "Talleres y práctica del idioma",
+            caption: "Talleres creativos y práctica del idioma.",
+          },
+        ];
+
+        const mainImg = document.getElementById("sig-img");
+        const captionEl = document.getElementById("sig-caption");
+        const bar = document.getElementById("sig-progress");
+        const thumbsEl = document.getElementById("sig-thumbs");
+        const viewport = document.getElementById("sig-viewport");
+
+        // Crear thumbs
+        thumbsEl.innerHTML = slides
+          .map(
+            (s, i) => `
+    <button class="thumb${
+      i === 0 ? " is-active" : ""
+    }" role="tab" aria-selected="${i === 0}">
+      <img src="${s.src}" alt="${s.alt}">
+    </button>`
+          )
+          .join("");
+        const thumbs = [...thumbsEl.querySelectorAll("button")];
+
+        let i = 0,
+          timer = null,
+          hover = false,
+          touchStartX = 0,
+          reduced = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+        const DURATION = 6000;
+
+        function render(idx) {
+          i = (idx + slides.length) % slides.length;
+          const s = slides[i];
+          if (!mainImg.src.endsWith(s.src)) mainImg.src = s.src;
+          mainImg.alt = s.alt;
+          captionEl.textContent = s.caption;
+
+          thumbs.forEach((b, k) => {
+            const on = k === i;
+            b.classList.toggle("is-active", on);
+            b.setAttribute("aria-selected", on ? "true" : "false");
+          });
+
+          // progreso
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+          // Reflow
+          void bar.offsetWidth;
+          if (!reduced) {
+            // sólo animamos si no hay reduce motion
+            bar.style.transition = `width ${DURATION}ms linear`;
+            bar.style.width = "100%";
+          }
+        }
+
+        function next() {
+          render(i + 1);
+        }
+        function start() {
+          if (reduced) return;
+          clearInterval(timer);
+          timer = setInterval(() => {
+            if (!hover) next();
+          }, DURATION);
+        }
+
+        // Eventos
+        thumbs.forEach((b, idx) =>
+          b.addEventListener("click", () => {
+            render(idx);
+            start();
+          })
+        );
+        ["mouseenter", "mouseleave"].forEach((ev) => {
+          viewport.addEventListener(ev, () => (hover = ev === "mouseenter"));
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") {
+            render(i + 1);
+            start();
+          }
+          if (e.key === "ArrowLeft") {
+            render(i - 1);
+            start();
+          }
+        });
+        // Swipe móvil
+        viewport.addEventListener(
+          "touchstart",
+          (e) => (touchStartX = e.touches[0].clientX),
+          { passive: true }
+        );
+        viewport.addEventListener(
+          "touchend",
+          (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 40) {
+              render(dx < 0 ? i + 1 : i - 1);
+              start();
+            }
+          },
+          { passive: true }
+        );
+
+        // Primer frame
+        render(0);
+        start();
+      })();
     </script>
   </body>
 </html>
