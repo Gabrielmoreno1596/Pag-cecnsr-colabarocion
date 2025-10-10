@@ -102,12 +102,46 @@
         </div>
 
         <div class="dual-hero__col dual-hero__col--media">
-          <!-- usa cualquiera de tus mejores fotos del dual -->
-          <figure class="dual-hero__figure">
+          <figure
+            class="dual-hero__figure dual-carousel"
+            data-interval="5000"
+            aria-labelledby="dual-caption"
+          >
             <img
+              id="dual-slide"
               src="assets/dual-img2.jpeg"
               alt="Estudiantes CECNSR rumbo al programa dual"
             />
+            <figcaption
+              class="dual-hero__caption"
+              id="dual-caption"
+            ></figcaption>
+
+            <!-- Controles -->
+            <button
+              class="dual-carousel__btn dual-carousel__btn--prev"
+              aria-label="Imagen anterior"
+            >
+              ‹
+            </button>
+            <button
+              class="dual-carousel__btn dual-carousel__btn--next"
+              aria-label="Imagen siguiente"
+            >
+              ›
+            </button>
+
+            <!-- Indicadores (dots) -->
+            <div
+              class="dual-carousel__dots"
+              role="tablist"
+              aria-label="Galería Proyecto DUAL"
+            >
+              <button role="tab" aria-selected="true" data-index="0"></button>
+              <button role="tab" aria-selected="false" data-index="1"></button>
+              <button role="tab" aria-selected="false" data-index="2"></button>
+              <button role="tab" aria-selected="false" data-index="3"></button>
+            </div>
           </figure>
         </div>
       </div>
@@ -222,12 +256,17 @@
               <div class="prep-media">
                 <img
                   class="main"
-                  src="assets/dual-img7.jpeg"
+                  src="assets/dual-img10.jpeg"
                   alt="Planificación con coordinación"
                 />
                 <img
                   class="thumb"
                   src="assets/dual-img11.jpeg"
+                  alt="Planificación con coordinación"
+                />
+                <img
+                  class="thumb"
+                  src="assets/dual-img8.jpeg"
                   alt="Planificación con coordinación"
                 />
               </div>
@@ -276,6 +315,11 @@
                   src="assets/dual-img3-24.jpeg"
                   alt="Comunidad de apoyo"
                 />
+                <img
+                  class="thumb"
+                  src="assets/dual-img4-24.jpeg"
+                  alt="Clase de alemán en el CECNSR"
+                />
               </div>
               <h3 class="prep-title">Red de apoyo</h3>
               <p class="prep-text">
@@ -311,16 +355,23 @@
             <a href="assets/dual-img7.jpeg"
               ><img src="assets/dual-img7.jpeg" alt="Reunión de coordinación"
             /></a>
-            <a href="assets/dual-img2.jpeg"
-              ><img src="assets/dual-img2.jpeg" alt="Equipo listo para el reto"
+            <a href="assets/dual-img10.jpeg"
+              ><img
+                src="assets/dual-img10.jpeg"
+                alt="Equipo listo para el reto"
             /></a>
-            <a href="assets/dual-img2.jpeg"
-              ><img src="assets/dual-img2.jpeg" alt="Equipo listo para el reto"
+            <a href="assets/dual-img12.jpeg"
+              ><img
+                src="assets/dual-img12.jpeg"
+                alt="Equipo listo para el reto"
+            /></a>
+            <a href="assets/dual-img9.jpeg"
+              ><img src="assets/dual-img9.jpeg" alt="Equipo listo para el reto"
             /></a>
           </div>
-          <p class="note">
+          <!-- <p class="note">
             Créditos: Comunidad educativa CECNSR (uso institucional).
-          </p>
+          </p> -->
         </div>
       </section>
 
@@ -334,7 +385,7 @@
               <i class="fas fa-user"></i> Coordinación Académica CECNSR
             </div>
             <a class="contact__item" href="mailto:CECNSROSARIO@HOTMAIL.COM"
-              ><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</a
+              ><i class="fas fa-envelope"></i> cecnsrosario@ggmail.com</a
             >
             <div class="contact__item">
               <i class="fas fa-phone"></i> 2503-1970 / 2220-6927
@@ -463,6 +514,120 @@
         }
 
         document.querySelectorAll(".prep-card").forEach(initPrepCard);
+      })();
+    </script>
+
+    <!-- IMG para el hero -->
+    <script>
+      (function () {
+        const slides = [
+          {
+            src: "assets/dual-img2.jpeg",
+            alt: "Estudiantes CECNSR rumbo al programa dual",
+            /* cap: "Salida al aeropuerto rumbo a Alemania", */
+          },
+          {
+            src: "assets/dual-img3-24.jpeg",
+            alt: "Grupo con bandera en aeropuerto",
+            /* cap: "Despedida junto a familias y docentes", */
+          },
+          {
+            src: "assets/dual-img4-24.jpeg",
+            alt: "Equipo DUAL con bandera",
+            /* cap: "Cohorte Proyecto DUAL 2024", */
+          },
+          {
+            src: "assets/dual-img1.jpg",
+            alt: "Estudiantes antes del abordaje",
+            /* cap: "Itinerario de inicio del programa", */
+          },
+        ];
+
+        const root = document.querySelector(".dual-carousel");
+        if (!root) return;
+
+        const img = root.querySelector("#dual-slide");
+        const caption = root.querySelector("#dual-caption");
+        const dots = [...root.querySelectorAll(".dual-carousel__dots button")];
+        const prevBtn = root.querySelector(".dual-carousel__btn--prev");
+        const nextBtn = root.querySelector(".dual-carousel__btn--next");
+        const intervalMs = +root.dataset.interval || 6000;
+
+        let i = 0,
+          timer = null,
+          touchStartX = 0;
+
+        function render(index, withFade = true) {
+          i = (index + slides.length) % slides.length;
+          const s = slides[i];
+          if (withFade) root.classList.add("is-fading");
+          // Preload next
+          const preload = new Image();
+          preload.src = s.src;
+
+          requestAnimationFrame(() => {
+            img.src = s.src;
+            img.alt = s.alt;
+            caption.textContent = s.cap;
+            dots.forEach((d, di) =>
+              d.setAttribute("aria-selected", di === i ? "true" : "false")
+            );
+            if (withFade)
+              setTimeout(() => root.classList.remove("is-fading"), 160);
+          });
+        }
+
+        function next() {
+          render(i + 1);
+        }
+        function prev() {
+          render(i - 1);
+        }
+
+        function start() {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+            return;
+          stop();
+          timer = setInterval(next, intervalMs);
+        }
+        function stop() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+
+        // Eventos
+        nextBtn.addEventListener("click", next);
+        prevBtn.addEventListener("click", prev);
+        dots.forEach((d) =>
+          d.addEventListener("click", (e) =>
+            render(+e.currentTarget.dataset.index)
+          )
+        );
+
+        // teclado
+        root.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") next();
+          if (e.key === "ArrowLeft") prev();
+        });
+        // hover pausa
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", start);
+        // touch swipe
+        root.addEventListener(
+          "touchstart",
+          (e) => (touchStartX = e.touches[0].clientX),
+          { passive: true }
+        );
+        root.addEventListener("touchend", (e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+        });
+
+        // init
+        render(0, false);
+        start();
       })();
     </script>
   </body>

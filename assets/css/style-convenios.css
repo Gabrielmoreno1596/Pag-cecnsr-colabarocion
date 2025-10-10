@@ -695,3 +695,8 @@
     margin-top: 0.4rem; /* acerca las miniaturas a la imagen */
   }
 }
+
+/* opcional, más compacto en desktop */
+.glass-card {
+  block-size: clamp(350px, 10vh, 520px);
+}

@@ -378,3 +378,132 @@
 .prep-media img[aria-current="true"] {
   box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.5);
 }
+
+/* ===== Carrusel Dual — estilos ===== */
+.dual-carousel {
+  position: relative;
+}
+.dual-carousel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% center;
+  transition: opacity 0.35s ease;
+}
+.dual-carousel.is-fading img {
+  opacity: 0.35;
+}
+
+.dual-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  inline-size: 42px;
+  block-size: 42px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(8, 32, 56, 0.35);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.dual-carousel__btn:hover {
+  background: rgba(8, 32, 56, 0.6);
+}
+.dual-carousel__btn:focus-visible {
+  outline: 3px solid var(--cecns-gold);
+  outline-offset: 2px;
+}
+.dual-carousel__btn--prev {
+  left: 10px;
+}
+.dual-carousel__btn--next {
+  right: 10px;
+}
+
+.dual-carousel__dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.dual-carousel__dots button {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  background: transparent;
+  cursor: pointer;
+}
+.dual-carousel__dots button[aria-selected="true"] {
+  background: var(--cecns-gold);
+  border-color: var(--cecns-gold);
+}
+
+/* Pausa auto-rotación si el usuario pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .dual-carousel__btn,
+  .dual-carousel__dots button {
+    transition: none;
+  }
+}
+
+/* ===== Viñetas pro para dual-hero ===== */
+.dual-hero__points {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+}
+.dual-hero__points li {
+  position: relative;
+  padding-left: 1.9rem;
+  margin: 0.45rem 0;
+  color: #e7eef6;
+}
+
+/* Disco con aro navy y check dorado */
+.dual-hero__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  border-radius: 999px;
+  background: radial-gradient(
+        circle at center,
+        var(--cecns-gold) 65%,
+        transparent 66%
+      )
+      center/100% 100% no-repeat,
+    conic-gradient(from 0deg, transparent 0 0); /* placeholder */
+  box-shadow: 0 0 0 2px rgba(21, 51, 74, 0.9); /* aro navy */
+  /* Check en SVG como máscara */
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9.2 16.2 5.5 12.5 4 14l5.2 5.2L20 8.4 18.5 7z"/></svg>');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 62%;
+  -webkit-mask-position: center;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9.2 16.2 5.5 12.5 4 14l5.2 5.2L20 8.4 18.5 7z"/></svg>');
+  mask-repeat: no-repeat;
+  mask-size: 62%;
+  mask-position: center;
+}
+
+/* fallback cross-browser (si algún navegador no soporta mask) */
+@supports not (mask-image: url("")) {
+  .dual-hero__points li::before {
+    background: var(--cecns-gold)
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%230b3a66" d="M9.2 16.2 5.5 12.5 4 14l5.2 5.2L20 8.4 18.5 7z"/></svg>')
+      center/66% 66% no-repeat;
+    box-shadow: 0 0 0 2px rgba(21, 51, 74, 0.9);
+  }
+}
