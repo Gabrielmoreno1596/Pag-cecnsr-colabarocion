@@ -766,3 +766,91 @@ body {
     max-width: 100%;
   }
 }
+
+/* GMORENO */
+
+/* ====== NAV MÓVIL: panel y submenús colapsables ====== */
+@media (max-width: 992px) {
+  :root {
+    --header-h: 64px;
+  } /* fallback */
+
+  .main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .main-nav {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: var(--header-h); /* se ajusta por JS */
+    background: var(--cecns-blue);
+    z-index: 999;
+    width: 100%;
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+  }
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  .main-nav ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .main-nav a {
+    padding: 0.9rem 1rem;
+    color: #fff;
+    text-align: left;
+  }
+
+  /* limpiar herencias de desktop */
+  .dropdown-menu {
+    position: static;
+    background: #002c5c;
+    width: 100%;
+    min-width: 0; /* <- quita min-width:350px */
+    border-radius: 0;
+    box-shadow: none;
+    /* colapsable */
+    display: block; /* usamos max-height para abrir/cerrar */
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.28s ease;
+    opacity: 1;
+    visibility: visible; /* sin transiciones de visibilidad */
+  }
+  .dropdown.open .dropdown-menu {
+    max-height: 600px; /* suficiente para tus items */
+  }
+  .dropdown-menu li a {
+    padding: 0.8rem 1rem 0.8rem 2.75rem;
+  }
+
+  /* icono caret con feedback */
+  .dropdown > .dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dropdown > .dropdown-toggle i {
+    transition: transform 0.25s ease;
+  }
+  .dropdown.open > .dropdown-toggle i {
+    transform: rotate(180deg);
+  }
+
+  /* evitar que el body haga scroll detrás del panel */
+  body.nav-open {
+    overflow: hidden;
+  }
+}
