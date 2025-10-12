@@ -1411,6 +1411,7 @@ video {
   box-shadow: 0 12px 30px rgba(2, 8, 23, 0.12);
   transform-origin: center;
   transition: transform 0.35s ease, box-shadow 0.3s ease;
+  padding: 0;
 }
 .infinite-reel .card:hover {
   transform: translateY(-4px) rotate(0deg);

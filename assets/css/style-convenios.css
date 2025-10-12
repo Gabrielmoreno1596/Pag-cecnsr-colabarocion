@@ -493,6 +493,7 @@
   padding: 0.2rem;
   max-block-size: 100%;
   overflow: auto;
+  width: 7rem;
 }
 .thumbs button {
   border: 2px solid transparent;
@@ -604,6 +605,7 @@
     overflow-y: hidden;
     gap: 0.5rem;
     max-block-size: none;
+    width: 100%;
   }
   .btn-outline {
     padding-top: 1rem;
@@ -703,4 +705,354 @@
 /* opcional, más compacto en desktop */
 .glass-card {
   block-size: clamp(350px, 10vh, 520px);
+}
+
+/* ========== PDF Lightbox ========== */
+.pdf-modal[hidden] {
+  display: none;
+}
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+}
+.pdf-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 30, 0.7);
+  backdrop-filter: blur(2px);
+}
+.pdf-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 96vw);
+  height: min(90svh, 900px);
+  background: #0b1726;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(230, 235, 241, 0.35);
+}
+.pdf-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+.pdf-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+.pdf-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.pdf-body {
+  flex: 1 1 auto;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#pdfFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #111;
+}
+.pdf-fallback {
+  color: #cbd5e1;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Botón que dispara (opcional): apariencia link */
+a.btn-link[data-pdf] {
+  cursor: pointer;
+}
+
+/* Scroll del <body> bloqueado cuando el modal está abierto */
+body.pdf-open {
+  overflow: hidden;
+}
+
+/* Evita que aparezcan controles del usuario del navegador al seleccionar/arrastrar */
+.pdf-dialog,
+.pdf-body {
+  user-select: none;
+}
+
+/* Asegura que nada “se salga” durante el intercambio */
+.xp-media {
+  overflow: hidden;
+}
+
+/* Galleria flotante para Experiencias  */
+
+/* Lightbox base */
+.xp-lightbox[hidden] {
+  display: none;
+}
+.xp-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+.xp-lb__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 12, 20, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+/* contenedor */
+.xp-lb__dialog {
+  position: relative;
+  width: min(1080px, 94vw);
+  color: #fff;
+}
+.xp-lb__head {
+  position: absolute;
+  top: -44px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+.xp-lb__count {
+  margin-right: auto;
+  opacity: 0.9;
+}
+.xp-lb__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* escenario */
+.xp-lb__stage {
+  position: relative;
+  padding: 0.5rem;
+  display: grid;
+  place-items: center;
+  max-height: 86vh;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+.xp-lb__stage img {
+  max-width: 100%;
+  max-height: 86vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* navegación */
+.xp-lb__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  cursor: pointer;
+}
+.xp-lb__nav.prev {
+  left: -56px;
+}
+.xp-lb__nav.next {
+  right: -56px;
+}
+.xp-lb__nav:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 720px) {
+  .xp-lb__nav.prev {
+    left: 8px;
+  }
+  .xp-lb__nav.next {
+    right: 8px;
+  }
+}
+
+/* util a11y */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Por si hay micro-reflujos, recorta dentro del marco */
+.xp-media {
+  overflow: hidden;
+}
+
+/* Galería nuevo diseño */
+
+/* ===== Quilt elegante ===== */
+.gal-quilt {
+  --min: 180px; /* tamaño mínimo de bloque */
+  --gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min), 1fr));
+  grid-auto-rows: 140px; /* “altura base” del mosaico */
+  gap: var(--gap);
+  grid-auto-flow: dense; /* relleno inteligente */
+}
+
+.gal-quilt .tile {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-1);
+  isolation: isolate; /* para filtros */
+  transform: translateZ(0); /* suaviza animaciones */
+  grid-row: span 1;
+  grid-column: span 1;
+}
+.gal-quilt .tile.wide {
+  grid-column: span 2;
+}
+.gal-quilt .tile.tall {
+  grid-row: span 2;
+}
+
+@media (max-width: 640px) {
+  .gal-quilt {
+    --min: 46vw;
+    grid-auto-rows: 120px;
+  }
+  .gal-quilt .tile.wide {
+    grid-column: span 1;
+  } /* simplifica en móvil */
+  .gal-quilt .tile.tall {
+    grid-row: span 1;
+  }
+}
+
+.gal-quilt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.02) contrast(1.02);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Vignette + caption en hover/focus */
+.gal-quilt .tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    140% 90% at 50% 120%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gal-quilt .cap {
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.5rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* micro-parallax */
+.gal-quilt .tile:hover img,
+.gal-quilt .tile:focus-visible img {
+  transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.05);
+}
+.gal-quilt .tile:hover::after,
+.gal-quilt .tile:focus-visible::after {
+  opacity: 1;
+}
+.gal-quilt .tile:hover .cap,
+.gal-quilt .tile:focus-visible .cap {
+  opacity: 1;
+  transform: none;
+}
+
+/* Accesibilidad: foco visible */
+.gal-quilt .tile:focus-visible {
+  outline: 3px solid var(--cecns-gold);
+  outline-offset: 2px;
+}
+
+/.xp-lb__stage {
+  position: relative; /* ya lo tienes */
+}
+
+.xp-lb__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+.xp-lb__nav.prev {
+  left: 8px;
+} /* <-- antes -56px */
+.xp-lb__nav.next {
+  right: 8px;
+} /* <-- antes -56px */
+.xp-lb__nav:hover {
+  background: rgba(0, 0, 0, 0.6);
 }
