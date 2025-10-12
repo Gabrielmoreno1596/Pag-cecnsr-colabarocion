@@ -289,7 +289,7 @@
           <h2 class="section-title">Itinerario formativo</h2>
           <div class="title-divider" aria-hidden="true"></div>
 
-          <ol class="timeline modern itn__timeline" role="list">
+          <ol class="timeline-pi modern itn__timeline-pi" role="list">
             <!-- 1. Sentido, diagnóstico y objetivos -->
             <li class="reveal itn-item">
               <span class="badge">1</span>
@@ -307,20 +307,18 @@
                     Los 4 Puntos Esenciales como <em>epicentro</em> de los
                     conflictos y su solución.
                   </p>
-                  <ul class="bullets">
+                  <ul class="bullets-pi">
                     <li>
                       Curva de la comunicación; normas de convivencia y agenda
                       común.
                     </li>
                     <li>
-                      Autoconocimiento:
-                      <strong>“Todo lo que es bueno para mí”</strong> → aprecio
+                      Autoconocimiento: “Todo lo que es bueno para mí” → aprecio
                       y filtro positivo.
                     </li>
                     <li>
-                      Tesis guía:
-                      <strong>“No es el viento, sino la vela”</strong> — actuar
-                      con responsabilidad y proactividad.
+                      Tesis guía: “No es el viento, sino la vela” — actuar con
+                      responsabilidad y proactividad.
                     </li>
                     <li>
                       Micro–diagnóstico + micro–solución: identificar cargas y
@@ -339,16 +337,16 @@
                   class="itn-toggle"
                   tabindex="0"
                   aria-expanded="false"
-                  aria-controls="itn-panel-1"
+                  aria-controls="itn-panel-2"
                 >
                   Pacificación personal & hábitos (PDÍS)
                 </h4>
-                <div class="itn-more" id="itn-panel-1" hidden>
+                <div class="itn-more" id="itn-panel-2" hidden>
                   <p class="itn__kicker">
                     Autodisciplina para reducir la carga mental y ordenar la
                     vida cotidiana.
                   </p>
-                  <ul class="bullets">
+                  <ul class="bullets-pi">
                     <li>
                       “Catástrofe mental”: por qué acumulamos cargas y cómo
                       desactivarlas.
@@ -378,27 +376,27 @@
                   class="itn-toggle"
                   tabindex="0"
                   aria-expanded="false"
-                  aria-controls="itn-panel-1"
+                  aria-controls="itn-panel-3"
                 >
                   Servicio a los demás & Tarjeta de Presentación
                 </h4>
-                <div class="itn-more" id="itn-panel-1" hidden>
+                <div class="itn-more" id="itn-panel-3" hidden>
                   <p class="itn__kicker">
                     Mi aporte visible a la comunidad y mi posicionamiento
                     personal.
                   </p>
-                  <ul class="bullets">
+                  <ul class="bullets-pi">
                     <li>
-                      <strong>PServ</strong>: “Servir es vivir” — mi
-                      contribución mejora la convivencia y consolida mi lugar.
+                      PServ: “Servir es vivir” — mi contribución mejora la
+                      convivencia y consolida mi lugar.
                     </li>
                     <li>
                       Principio económico del actuar: hacer visible el peso de
                       mis aportes diarios.
                     </li>
                     <li>
-                      <strong>Tarjeta de Presentación</strong>: lenguaje,
-                      hábitos y coherencia como marca personal.
+                      Tarjeta de Presentación: lenguaje, hábitos y coherencia
+                      como marca personal.
                     </li>
                     <li>
                       Niveles de reconocimiento <strong>A–B–C</strong>: persona,
@@ -417,15 +415,15 @@
                   class="itn-toggle"
                   tabindex="0"
                   aria-expanded="false"
-                  aria-controls="itn-panel-1"
+                  aria-controls="itn-panel-4"
                 >
                   Prevención personal & proyección
                 </h4>
-                <div class="itn-more" id="itn-panel-1" hidden>
+                <div class="itn-more" id="itn-panel-4" hidden>
                   <p class="itn__kicker">
                     Evitar que los pequeños problemas se vuelvan grandes.
                   </p>
-                  <ul class="itn__bullets">
+                  <ul class="itn__bullets bullets-pi">
                     <li>
                       Definición y sentido de prevenir: anticiparse para ahorrar
                       tiempo, energía y conflictos.
@@ -651,33 +649,127 @@
       </div>
     </section>
 
-    <!-- =================== GALERÍA =================== -->
-    <section class="section">
+    <!-- =================== GALERÍA / REEL =================== -->
+
+    <!-- ========== GALERÍA · COLLAGE "QUILT" ========== -->
+    <!-- ========== CARRUSEL INFINITO + LIGHTBOX ========== -->
+    <section class="section inf-carousel">
       <div class="container">
-        <h2 class="section-title">Galería</h2>
+        <p class="eyebrow-pi">Galería</p>
+        <h2 class="ic-title">Momentos del Programa PI & 4PE</h2>
         <div class="title-divider" aria-hidden="true"></div>
-        <div class="gallery masonry">
-          <a href="assets/pi-4pe-img1.jpeg"
-            ><img src="assets/pi-4pe-img1.jpeg" alt=""
-          /></a>
-          <a href="assets/pi-4pe-img2.jpeg"
-            ><img src="assets/pi-4pe-img2.jpeg" alt=""
-          /></a>
-          <a href="assets/pi-4pe-img3.jpeg"
-            ><img src="assets/pi-4pe-img3.jpeg" alt=""
-          /></a>
-          <a href="assets/pi-4pe-img4.jpeg"
-            ><img src="assets/pi-4pe-img4.jpeg" alt=""
-          /></a>
-          <a href="assets/pi-4pe-img5.jpeg"
-            ><img src="assets/pi-4pe-img5.jpeg" alt=""
-          /></a>
+
+        <div
+          class="infinite-reel"
+          id="infinite-reel"
+          aria-label="Carrusel de imágenes"
+        >
+          <div class="track">
+            <!-- Bloque A (original) -->
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img1.jpeg"
+                data-full="assets/pi-4pe-img1.jpeg"
+                alt="Sesión formativa 1"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img2.jpeg"
+                data-full="assets/pi-4pe-img2.jpeg"
+                alt="Sesión formativa 2"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img3.jpeg"
+                data-full="assets/pi-4pe-img3.jpeg"
+                alt="Exposición de trabajo"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img4.jpeg"
+                data-full="assets/pi-4pe-img4.jpeg"
+                alt="Equipo docente"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img5.jpeg"
+                data-full="assets/pi-4pe-img5.jpeg"
+                alt="Entrega de diplomas"
+              />
+            </figure>
+
+            <!-- Bloque B (duplicado para bucle perfecto) -->
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img1.jpeg"
+                data-full="assets/pi-4pe-img1.jpeg"
+                alt="Sesión formativa 1 (duplicada)"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img2.jpeg"
+                data-full="assets/pi-4pe-img2.jpeg"
+                alt="Sesión formativa 2 (duplicada)"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img3.jpeg"
+                data-full="assets/pi-4pe-img3.jpeg"
+                alt="Exposición de trabajo (duplicada)"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img4.jpeg"
+                data-full="assets/pi-4pe-img4.jpeg"
+                alt="Equipo docente (duplicada)"
+              />
+            </figure>
+            <figure class="card">
+              <img
+                src="assets/pi-4pe-img5.jpeg"
+                data-full="assets/pi-4pe-img5.jpeg"
+                alt="Entrega de diplomas (duplicada)"
+              />
+            </figure>
+          </div>
         </div>
-        <p class="credits">
-          Créditos de imágenes: CECNSR / Programa PI & 4PE (uso educativo).
-        </p>
+      </div>
+
+      <!-- Lightbox -->
+      <div
+        class="lightbox"
+        id="glightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="glb-title"
+        hidden
+      >
+        <div class="lightbox__backdrop" data-close></div>
+        <div class="lightbox__dialog">
+          <header class="lightbox__head">
+            <h3 id="glb-title" class="sr-only">Vista ampliada</h3>
+            <div class="lightbox__count" aria-live="polite"></div>
+            <button class="lightbox__close" aria-label="Cerrar" data-close>
+              ✕
+            </button>
+          </header>
+          <div class="lightbox__stage">
+            <button class="nav prev" aria-label="Anterior">‹</button>
+            <img id="glb-img" alt="" />
+            <button class="nav next" aria-label="Siguiente">›</button>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ===== fin GALERÍA ===== -->
 
     <!-- =================== FORMULARIO =================== -->
     <section class="section" id="form-contacto">
@@ -914,7 +1006,7 @@
     </script>
     <script>
       (function () {
-        const items = document.querySelectorAll(".itn__timeline .itn-item");
+        const items = document.querySelectorAll(".itn__timeline-pi .itn-item");
 
         items.forEach((item, idx) => {
           const btn = item.querySelector(".itn-toggle");
@@ -1123,6 +1215,210 @@
 
         backdrop.addEventListener("click", closeModal);
         closes.forEach((b) => b.addEventListener("click", closeModal));
+      })();
+    </script>
+
+    <!-- GALERIA -->
+
+    <script>
+      (() => {
+        const reel = document.querySelector("#infinite-reel");
+        const modal = document.querySelector("#glightbox");
+        if (!reel || !modal) return;
+
+        const imgs = [...reel.querySelectorAll("img[data-full]")];
+        const imgEl = modal.querySelector("#glb-img");
+        const count = modal.querySelector(".lightbox__count");
+        const prevBt = modal.querySelector(".nav.prev");
+        const nextBt = modal.querySelector(".nav.next");
+        const closers = modal.querySelectorAll("[data-close]");
+
+        // ——— Abrir lightbox (nos quedamos con el índice del bloque A, no el duplicado) ———
+        const visibleSet = imgs.length / 2; // 5 si tienes 5 originales
+        let i = 0,
+          lastFocus = null,
+          touchX = null;
+
+        function normIndex(idx) {
+          // Colapsa índices duplicados a su original (0..visibleSet-1)
+          return ((idx % visibleSet) + visibleSet) % visibleSet;
+        }
+
+        function resetZoom() {
+          scale = 1;
+          tx = 0;
+          ty = 0;
+          imgEl.classList.remove("is-zoomed");
+          imgEl.style.transform = "";
+          imgEl.style.cursor = "zoom-in";
+        }
+        function set(n) {
+          i = normIndex(n);
+          const src = imgs[i].dataset.full; // usa el original
+          resetZoom();
+          imgEl.src = src;
+          imgEl.alt = imgs[i].alt || "Imagen ampliada";
+          if (count) count.textContent = `${i + 1} / ${visibleSet}`;
+        }
+        function open(idx) {
+          lastFocus = document.activeElement;
+          set(idx);
+          modal.hidden = false;
+          setTimeout(() => nextBt?.focus(), 0);
+          document.addEventListener("keydown", onKey);
+        }
+        function close() {
+          modal.hidden = true;
+          imgEl.src = "";
+          document.removeEventListener("keydown", onKey);
+          if (lastFocus) lastFocus.focus();
+        }
+        function next() {
+          set(i + 1);
+        }
+        function prev() {
+          set(i - 1);
+        }
+        function onKey(e) {
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowRight") next();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "Tab") {
+            const f = modal.querySelectorAll("button,[data-close]");
+            const first = f[0],
+              last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              last.focus();
+              e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              first.focus();
+              e.preventDefault();
+            }
+          }
+        }
+
+        imgs.forEach((im, idx) =>
+          im.addEventListener("click", () => open(normIndex(idx)))
+        );
+        closers.forEach((b) => b.addEventListener("click", close));
+        modal
+          .querySelector(".lightbox__backdrop")
+          .addEventListener("click", close);
+        prevBt.addEventListener("click", prev);
+        nextBt.addEventListener("click", next);
+
+        // swipe cambio
+        imgEl.addEventListener(
+          "touchstart",
+          (e) => (touchX = e.changedTouches[0].clientX),
+          { passive: true }
+        );
+        imgEl.addEventListener(
+          "touchend",
+          (e) => {
+            if (touchX == null) return;
+            const dx = e.changedTouches[0].clientX - touchX;
+            if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+            touchX = null;
+          },
+          { passive: true }
+        );
+
+        // bloquear menú contexto (desalentar descarga)
+        modal.addEventListener("contextmenu", (e) => e.preventDefault());
+
+        // ——— Zoom + Pan ———
+        let scale = 1,
+          tx = 0,
+          ty = 0;
+        const MIN = 1,
+          MAX = 3,
+          STEP = 0.25;
+        function apply() {
+          imgEl.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+        }
+        function zoomAt(px, py, delta) {
+          const rect = imgEl.getBoundingClientRect();
+          const cx = px - rect.left,
+            cy = py - rect.top;
+          const prev = scale;
+          scale = Math.min(MAX, Math.max(MIN, scale + delta));
+          if (scale === prev) return;
+          const k = scale / prev - 1;
+          tx -= (cx - rect.width / 2) * k;
+          ty -= (cy - rect.height / 2) * k;
+          imgEl.classList.toggle("is-zoomed", scale > 1);
+          imgEl.style.cursor = scale > 1 ? "grab" : "zoom-in";
+          if (scale === 1) {
+            tx = 0;
+            ty = 0;
+            imgEl.style.cursor = "zoom-in";
+          }
+          apply();
+        }
+
+        // doble click/tap alterna zoom
+        let tap = 0;
+        imgEl.addEventListener("click", (e) => {
+          const now = Date.now();
+          if (now - tap < 300) {
+            scale === 1 ? zoomAt(e.clientX, e.clientY, 1.25) : resetZoom();
+          }
+          tap = now;
+        });
+        imgEl.addEventListener(
+          "wheel",
+          (e) => {
+            e.preventDefault();
+            zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? -STEP : STEP);
+          },
+          { passive: false }
+        );
+
+        // pan con drag
+        let drag = false,
+          sx = 0,
+          sy = 0;
+        imgEl.addEventListener("mousedown", (e) => {
+          if (scale === 1) return;
+          drag = true;
+          sx = e.clientX - tx;
+          sy = e.clientY - ty;
+          imgEl.classList.add("is-zoomed");
+        });
+        window.addEventListener("mousemove", (e) => {
+          if (!drag) return;
+          tx = e.clientX - sx;
+          ty = e.clientY - sy;
+          apply();
+        });
+        window.addEventListener("mouseup", () => (drag = false));
+
+        // pan táctil
+        let touchPan = null;
+        imgEl.addEventListener(
+          "touchstart",
+          (e) => {
+            if (e.touches.length !== 1 || scale === 1) return;
+            const t = e.touches[0];
+            touchPan = { ox: t.clientX - tx, oy: t.clientY - ty };
+          },
+          { passive: true }
+        );
+        imgEl.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!touchPan || e.touches.length !== 1) return;
+            const t = e.touches[0];
+            tx = t.clientX - touchPan.ox;
+            ty = t.clientY - touchPan.oy;
+            apply();
+          },
+          { passive: true }
+        );
+        imgEl.addEventListener("touchend", () => (touchPan = null), {
+          passive: true,
+        });
       })();
     </script>
   </body>

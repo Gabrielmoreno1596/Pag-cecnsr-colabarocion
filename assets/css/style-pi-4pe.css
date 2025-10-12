@@ -53,10 +53,10 @@
   font-size: clamp(1.02rem, 1.4vw, 1.1rem);
   max-width: 70ch;
 }
-.bullets {
+.bullets-pi {
   margin: 0.5rem 0 0 1rem;
 }
-.bullets li {
+.bullets-pi li {
   margin: 0.25rem 0;
 }
 .credits {
@@ -159,8 +159,10 @@
   background-clip: padding-box, border-box;
   border: 2px solid transparent;
   border-radius: 12px;
-  padding: 0.14rem 0.5rem;
+  padding: 0.4rem 0.5rem;
   color: var(--pi-line);
+  display: block;
+  margin-top: 0.09rem;
 }
 .pi-lead {
   color: #1f2937;
@@ -529,19 +531,19 @@
 }
 
 /* Timeline */
-.timeline {
+.timeline-pi {
   list-style: none;
   margin: 0;
   padding: 0;
   border-left: 3px solid #e6ebf1;
 }
-.timeline.modern li {
+.timeline-pi.modern li {
   position: relative;
   display: flex;
   gap: 0.8rem;
   padding: 0.6rem 0 0.6rem 1rem;
 }
-.timeline.modern li::before {
+.timeline-pi.modern li::before {
   content: "";
   position: absolute;
   left: -6px;
@@ -552,7 +554,7 @@
   background: var(--cecns-gold);
   box-shadow: 0 0 0 3px #fff;
 }
-.timeline .badge {
+.timeline-pi .badge {
   background: var(--cecns-wine);
   color: #fff;
   border: 2px solid var(--cecns-gold);
@@ -563,7 +565,7 @@
   place-items: center;
   font-weight: 700;
 }
-.timeline h4 {
+.timeline-pi h4 {
   margin: 0.1rem 0 0.25rem;
   color: var(--cecns-navy);
 }
@@ -888,8 +890,12 @@ video {
     grid-template-columns: 1fr 1fr;
   }
 
-  .timeline.modern li {
+  .timeline-pi.modern li {
     padding-left: 0.9rem;
+    width: 89%;
+  }
+  .itn-toggle {
+    width: 89%;
   }
 }
 
@@ -933,8 +939,8 @@ video {
     height: 200px;
   }
 
-  .timeline .badge {
-    width: 26px;
+  .timeline-pi .badge {
+    width: 29px;
     height: 26px;
   }
 
@@ -1005,7 +1011,7 @@ video {
   gap: clamp(1rem, 3vw, 2rem);
   align-items: start;
 }
-.itn__timeline {
+.itn__timeline-pi {
   margin-top: 0.25rem;
 }
 .reveal {
@@ -1080,6 +1086,9 @@ video {
   .itn__days {
     grid-template-columns: 1fr;
   }
+  .itn__aside {
+    width: 90%;
+  }
 }
 
 /* utilidades suaves para el timeline */
@@ -1105,17 +1114,21 @@ video {
   cursor: pointer;
   position: relative;
   padding-right: 1.5rem;
+  position: relative;
+  padding-right: 1.6rem; /* deja espacio al icono */
+  cursor: pointer;
 }
 .itn-toggle::after {
-  content: "▾";
+  content: "+"; /* <— en lugar de la flecha */
   position: absolute;
-  right: 0;
-  top: 0.1rem;
-  font-size: 1rem;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 800;
+  font-size: 1.1rem;
   line-height: 1;
-  transform: rotate(-90deg);
-  transition: transform 0.25s ease;
   color: var(--cecns-navy);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .itn-item.is-open .itn-toggle::after {
   transform: rotate(0deg);
@@ -1194,7 +1207,7 @@ video {
 #itnCaption,
 #itnQuote {
   transition: opacity 0.35s ease;
-  color: var(--pi-bg);
+  color: #111;
 }
 .is-swapping {
   opacity: 0;
@@ -1348,4 +1361,492 @@ video {
 .poster-thumb:focus-visible {
   outline: 3px solid var(--cecns-gold);
   outline-offset: 2px;
+}
+
+/* galeria */
+/* ===== Carrusel infinito ===== */
+.inf-carousel {
+  background: #fbf8f2;
+  border-radius: 24px;
+  padding: clamp(1.6rem, 3vw, 2.4rem) 0;
+}
+.ic-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  color: #0f172a;
+  font-weight: 800;
+  margin: 0.25rem 0 1rem;
+}
+
+.infinite-reel {
+  --gap: clamp(0.75rem, 2vw, 1rem);
+  --card-w: clamp(180px, 22vw, 260px);
+  --card-h: clamp(220px, 28vw, 320px);
+  --duration: 38s; /* velocidad del scroll */
+  overflow: hidden;
+  position: relative;
+  padding: 0.5rem 0;
+}
+.infinite-reel .track {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  width: calc((var(--card-w) + var(--gap)) * 10); /* 10 cards (5 + 5) */
+  animation: ic-scroll var(--duration) linear infinite;
+}
+@keyframes ic-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * (var(--card-w) + var(--gap)) * 5));
+  } /* avanza el ancho del bloque A */
+}
+
+.infinite-reel .card {
+  flex: 0 0 var(--card-w);
+  height: var(--card-h);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #d9ab24;
+  box-shadow: 0 12px 30px rgba(2, 8, 23, 0.12);
+  transform-origin: center;
+  transition: transform 0.35s ease, box-shadow 0.3s ease;
+}
+.infinite-reel .card:hover {
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: 0 18px 44px rgba(2, 8, 23, 0.18);
+}
+.infinite-reel .card:nth-child(odd) {
+  transform: rotate(0deg);
+}
+.infinite-reel .card:nth-child(even) {
+  transform: rotate(0deg);
+}
+
+.infinite-reel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: zoom-in;
+}
+
+/* Pausar animación al pasar el mouse o enfocar dentro */
+.infinite-reel:hover .track,
+.infinite-reel:focus-within .track {
+  animation-play-state: paused;
+}
+
+/* Respeta preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .infinite-reel .track {
+    animation: none;
+  }
+  .infinite-reel {
+    overflow-x: auto;
+  }
+}
+
+/* ===== Lightbox (reutiliza tu estilo refinado) ===== */
+.lightbox[hidden] {
+  display: none;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 12, 20, 0.75);
+  backdrop-filter: blur(2px);
+}
+.lightbox__dialog {
+  position: relative;
+  width: min(1080px, 94vw);
+  color: #fff;
+}
+.lightbox__head {
+  position: absolute;
+  top: -44px;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+.lightbox__count {
+  margin-right: auto;
+  opacity: 0.9;
+}
+.lightbox__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  cursor: pointer;
+}
+
+.lightbox__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  max-height: 86vh;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+.lightbox__stage img {
+  max-width: 100%;
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  cursor: zoom-in;
+}
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.nav.prev {
+  left: -56px;
+}
+.nav.next {
+  right: -56px;
+}
+@media (max-width: 720px) {
+  .nav.prev {
+    left: 8px;
+  }
+  .nav.next {
+    right: 8px;
+  }
+}
+
+/* Zoom estados */
+.lightbox__stage img.is-zoomed {
+  cursor: grab;
+  will-change: transform;
+}
+.lightbox__stage img.is-zoomed:active {
+  cursor: grabbing;
+}
+
+/* util */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ====== Layout base ====== */
+.itn {
+  overflow-x: hidden;
+}
+.itn__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1rem, 3vw, 1.6rem);
+  align-items: start;
+}
+
+/* Columna izquierda (timeline) */
+.timeline-pi.itn__timeline-pi {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+.itn-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.6rem;
+  align-items: start;
+  padding: 0.6rem 0.25rem;
+  border-bottom: 1px solid #eaeef3;
+}
+.itn-item:last-child {
+  border-bottom: 0;
+}
+
+/* Badge (número) */
+.badge {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 999px;
+  background: #800020;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 2px #ffc300 inset;
+  margin-top: 0.2rem;
+}
+
+/* Título/Toggle */
+.itn-toggle {
+  position: relative;
+  font-weight: 800;
+  line-height: 1.28;
+  font-size: clamp(1.02rem, 2.8vw, 1.12rem);
+  padding-right: 1.6rem; /* espacio para caret */
+  min-height: 44px; /* buen tap-target */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.itn-toggle::after {
+  content: "+";
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 0.65;
+  transition: transform 0.18s ease;
+}
+.itn-toggle[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Icono abierto: − (signo menos verdadero U+2212) */
+.itn-toggle[aria-expanded="true"]::after {
+  content: "\2212"; /* − */
+}
+
+/* (opcional) pequeño efecto al abrir/cerrar */
+.itn-toggle:active::after {
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Cuerpo ocultable */
+.itn-more {
+  margin-top: 0.4rem;
+  font-size: 0.96rem;
+  color: #374151;
+}
+.itn__kicker {
+  margin-bottom: 0.35rem;
+  color: #1f2937;
+}
+.bullets-pi,
+.itn__bullets {
+  padding-left: 1.05rem;
+  margin: 0.25rem 0 0;
+}
+.bullets-pi li,
+.itn__bullets li {
+  margin: 0.22rem 0;
+}
+
+/* Columna derecha (aside) */
+.itn__aside {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+}
+.itn__media {
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(2, 8, 23, 0.08);
+}
+.itn__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16/9; /* evita desbordes altos en móviles */
+  object-fit: cover;
+}
+.itn__media figcaption {
+  font-size: 0.9rem;
+  color: #374151;
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+.itn__credits {
+  display: block;
+  color: #6b7280;
+  font-size: 0.78rem;
+  padding: 0 0.75rem 0.6rem;
+}
+
+/* Frase */
+.itn__quote {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  background: #f8f9fb;
+  border: 1px solid #e6ebf1;
+  border-radius: 12px;
+  color: #0f172a;
+}
+.itn__quote p {
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+.itn__quote footer {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* ====== Breakpoints ====== */
+@media (max-width: 980px) {
+  .itn__grid {
+    grid-template-columns: 1fr;
+  }
+  .itn__aside {
+    order: 2;
+  } /* opcional si quieres el aside abajo */
+}
+
+@media (max-width: 420px) {
+  /* Galaxy S8 y similares */
+  .itn__grid {
+    gap: 0.9rem;
+  }
+  .badge {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    font-size: 0.85rem;
+  }
+  .itn-toggle {
+    font-size: 1rem;
+    padding-right: 1.4rem;
+  }
+  .itn-more {
+    font-size: 0.94rem;
+    margin-left: -2rem;
+  }
+  .bullets-pi,
+  .itn__bullets {
+    padding-left: 0.95rem;
+  }
+  .section-title {
+    font-size: 1.25rem;
+  } /* si usas una clase genérica */
+  .title-divider {
+    transform: scale(0.9);
+    transform-origin: left;
+  }
+  .itn__media figcaption {
+    font-size: 0.86rem;
+  }
+  .itn__credits {
+    font-size: 0.75rem;
+  }
+  .itn__quote {
+    padding: 0.8rem 0.85rem;
+  }
+}
+
+/* --- FIX 1: que el timeline use todo el ancho en móvil --- */
+@media (max-width: 1024px) {
+  .timeline-pi.modern li,
+  .itn-toggle {
+    width: auto; /* anula el 89% */
+    max-width: 100%;
+  }
+}
+
+/* Botón/área del acordeón: caret y tap target sin forzar ancho */
+.itn-toggle {
+  padding-right: 1.25rem;
+}
+
+/* --- FIX 2: evitar cualquier scroll horizontal accidental --- */
+/* No debería ser necesario si no hay anchos fijos, pero sirve de red */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* --- FIX 3: detalles de compactación para <= 420 px (S8) --- */
+@media (max-width: 420px) {
+  .container {
+    padding-inline: 14px;
+  }
+
+  .pi-hero {
+    padding-inline: 14px;
+  }
+
+  .pi-cta > a {
+    flex: 1 1 100%;
+    text-align: center;
+  } /* CTAs apilados */
+
+  /* aside e imagen del itinerario bien contenidas */
+  .itn__aside {
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .itn__media img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .itn__media figcaption {
+    font-size: 0.86rem;
+  }
+
+  /* carrusel infinito: cartas un poco más pequeñas en móviles muy estrechos */
+  .infinite-reel {
+    --card-w: clamp(150px, 62vw, 200px);
+    --card-h: clamp(200px, 40vw, 260px);
+  }
+}
+
+/* 1) No recortar el contenido horizontal del bloque */
+.itn {
+  overflow-x: visible;
+} /* o eliminar la regla overflow-x: hidden; */
+
+/* 2) Bullets consistentes y dentro del contenedor */
+.bullets-pi,
+.itn__bullets {
+  list-style: disc;
+  list-style-position: inside; /* evita que el marcador quede fuera y se corte */
+  padding-left: 0.5rem; /* pequeño sangrado interno */
+  margin-left: 0; /* sin margen que empuje hacia el borde */
+}
+
+/* Color del marcador (si el navegador soporta ::marker) */
+@supports selector(li::marker) {
+  .bullets-pi li::marker,
+  .itn__bullets li::marker {
+    color: var(--cecns-gold);
+  }
+}
+
+.eyebrow-pi {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+  font-size: 1.7rem;
 }
