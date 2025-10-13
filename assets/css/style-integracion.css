@@ -16,6 +16,7 @@
   max-width: 1180px;
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 1.25rem);
+  margin-top: 1rem;
 }
 
 .section-title {
@@ -92,11 +93,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 14, 14, 0.173),
-    rgba(45, 45, 45, 0.65)
-  );
+  background: linear-gradient(180deg, rgb(14 14 14 / 0%), rgb(45 45 45));
 }
 .int-hero__inner {
   position: relative;
@@ -306,7 +303,7 @@
 }
 .int-gallery img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
   border: 1px solid #e6ebf1;
@@ -630,3 +627,122 @@ main .btn-outline-int:focus-visible {
   outline: 3px solid var(--cecns-gold);
   outline-offset: 2px;
 }
+
+/* FLOAT */
+
+/* ===== Lightbox genérico ===== */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 20, 30, 0.82);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.lb.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lb__figure {
+  max-width: min(92vw, 1400px);
+  max-height: 86svh;
+  margin: 0;
+}
+.lb__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(86svh - 48px);
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+.lb__cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #eaf0f6;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.25rem 0;
+}
+.lb__text {
+  opacity: 0.95;
+}
+.lb__count {
+  opacity: 0.75;
+}
+
+/* Controles */
+.lb__close,
+.lb__nav {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: rgba(8, 32, 56, 0.45);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.lb__close {
+  top: 14px;
+  right: 14px;
+  font-size: 18px;
+}
+.lb__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+.lb__prev {
+  left: 14px;
+}
+.lb__next {
+  right: 14px;
+}
+.lb__close:hover,
+.lb__nav:hover {
+  background: rgba(8, 32, 56, 0.75);
+}
+
+/* Menos movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .lb {
+    transition: none;
+  }
+}
+
+/* Evitar scroll del fondo cuando está abierto */
+body.lb-open {
+  overflow: hidden;
+}
+
+/* HEader  */
+
+/* Capas internas para el slideshow del hero */
+.int-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.int-hero__bg .slide {
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  will-change: opacity;
+}
+.int-hero__bg .slide.is-on {
+  opacity: 1;
+}
+
+/* (sigue vigente tu regla mobile que cambia background-attachment) */

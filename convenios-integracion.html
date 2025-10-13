@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CECNSR | [TÍTULO DE LA PÁGINA]</title>
+    <title>CECNSR - Proyecto de Integración</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="assets/css/style-convenios.css" />
     <link rel="stylesheet" href="assets/css/style-integracion.css" />
@@ -80,12 +80,19 @@
     <main id="integracion-site">
       <!-- HERO -->
       <section class="int-hero" aria-labelledby="int-hero-title">
+        <!-- Fondo con 2 capas para el crossfade -->
         <div
           class="int-hero__bg"
-          style="background-image: url('assets/integra-img1.jpeg')"
           role="img"
           aria-label="Estudiantes en sesión formativa"
-        ></div>
+        >
+          <span
+            class="slide is-on"
+            style="background-image: url('assets/integra-img1.jpeg')"
+          ></span>
+          <span class="slide" aria-hidden="true"></span>
+        </div>
+
         <div class="int-hero__overlay"></div>
 
         <div class="container int-hero__inner">
@@ -149,7 +156,7 @@
               src="assets/integra-img2.jpeg"
               alt="Sesión plenaria con estudiantes"
             />
-            <figcaption>Formación para el encuentro y el servicio</figcaption>
+            <!-- <figcaption>Formación para el encuentro y el servicio</figcaption> -->
           </figure>
         </div>
       </section>
@@ -217,7 +224,7 @@
               <p class="muted">
                 Requisitos orientativos para postular (según trayectoria).
                 Verifica siempre la convocatoria vigente en el sitio oficial:
-                     <a
+                <a
                   class="link btn-outline-int text-color__gob"
                   href="https://integracion.gob.sv/proceso-formativo/"
                   target="_blank"
@@ -226,14 +233,13 @@
                   integracion.gob.sv/proceso-formativo </a
                 >.
               </p>
-                <figure class="about-media">
-                  <img
-                    src="assets/integracion/logo-direccion-integracion.png"
-                    alt=""
-                  />
-                  <figcaption></figcaption>
-                </figure>
-              </p>
+              <figure class="about-media">
+                <img
+                  src="assets/integracion/logo-direccion-integracion.png"
+                  alt=""
+                />
+                <figcaption></figcaption>
+              </figure>
             </div>
           </header>
 
@@ -256,8 +262,10 @@
 
             <!-- PRÓXIMAMENTE -->
             <div class="state-cta state-upcoming">
-              <a class="btn-solid-int" href="#contacto">Avisarme próximas fechas</a>
-          <!--     <a
+              <a class="btn-solid-int" href="#contacto"
+                >Avisarme próximas fechas</a
+              >
+              <!--     <a
                 class="btn-outline-int text-color"
                 href="https://integracion.gob.sv/proceso-formativo/"
                 target="_blank"
@@ -376,16 +384,14 @@
           </figure> -->
 
           <div class="cta-row">
-            <a class="btn-solid-int" href="#contacto"
-              >Más información</a
-            >
+            <a class="btn-solid-int" href="#contacto">Más información</a>
             <!-- <a
               class="btn-outline-int text-color"
               href="assets/afiche-gf.jpg"
               download
               >Descargar afiche</a
-            >
-          </div> -->
+            > -->
+          </div>
         </div>
       </section>
 
@@ -411,6 +417,28 @@
           <p class="credits">
             Créditos: CECNSR / Proyecto de Integración (uso educativo).
           </p>
+        </div>
+
+        <div
+          id="lb"
+          class="lb"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Visor de imágenes"
+        >
+          <button class="lb__close" aria-label="Cerrar (Esc)">✕</button>
+
+          <figure class="lb__figure">
+            <img class="lb__img" alt="" />
+            <figcaption class="lb__cap">
+              <span class="lb__text"></span>
+              <span class="lb__count"></span>
+            </figcaption>
+          </figure>
+
+          <button class="lb__nav lb__prev" aria-label="Anterior">‹</button>
+          <button class="lb__nav lb__next" aria-label="Siguiente">›</button>
         </div>
       </section>
 
@@ -487,9 +515,9 @@
         </p>
       </div>
     </footer>
+
     <!-- HEADER -->
-     
-     
+
     <script src="script.js"></script>
     <script>
       (() => {
@@ -550,7 +578,203 @@
       })();
     </script>
 
+    <!-- FLoat -->
+    <script>
+      /* Lightbox para .int-gallery .gallery */
+      (function () {
+        const thumbs = document.querySelectorAll(".int-gallery .gallery a");
+        if (!thumbs.length) return;
 
+        const lb = document.getElementById("lb");
+        const img = lb.querySelector(".lb__img");
+        const cap = lb.querySelector(".lb__text");
+        const count = lb.querySelector(".lb__count");
+        const btnPrev = lb.querySelector(".lb__prev");
+        const btnNext = lb.querySelector(".lb__next");
+        const btnClose = lb.querySelector(".lb__close");
 
+        const items = Array.from(thumbs).map((a) => ({
+          src: a.getAttribute("href") || a.querySelector("img")?.src,
+          alt: a.dataset.caption || a.querySelector("img")?.alt || "",
+          el: a,
+        }));
+
+        let idx = 0,
+          startX = 0,
+          moving = false;
+
+        function preload(i) {
+          const it = items[(i + items.length) % items.length];
+          if (!it) return;
+          const n = new Image();
+          n.src = it.src;
+        }
+
+        function show(i) {
+          idx = (i + items.length) % items.length;
+          const { src, alt } = items[idx];
+          img.src = src;
+          img.alt = alt;
+          cap.textContent = alt;
+          count.textContent = `${idx + 1} / ${items.length}`;
+          preload(idx + 1);
+          preload(idx - 1);
+        }
+
+        function open(i) {
+          show(i);
+          lb.classList.add("is-open");
+          lb.setAttribute("aria-hidden", "false");
+          document.body.classList.add("lb-open");
+          btnClose.focus();
+          document.addEventListener("keydown", onKey);
+        }
+
+        function close() {
+          lb.classList.remove("is-open");
+          lb.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("lb-open");
+          document.removeEventListener("keydown", onKey);
+        }
+
+        function onKey(e) {
+          if (e.key === "Escape") close();
+          else if (e.key === "ArrowRight") show(idx + 1);
+          else if (e.key === "ArrowLeft") show(idx - 1);
+        }
+
+        // Abrir desde miniaturas
+        items.forEach((it, i) => {
+          it.el.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            open(i);
+          });
+        });
+
+        // Controles
+        btnPrev.addEventListener("click", () => show(idx - 1));
+        btnNext.addEventListener("click", () => show(idx + 1));
+        btnClose.addEventListener("click", close);
+
+        // Cerrar clicando el fondo
+        lb.addEventListener("click", (e) => {
+          if (e.target === lb) close();
+        });
+
+        // Swipe en móvil
+        lb.addEventListener(
+          "touchstart",
+          (e) => {
+            if (!e.touches[0]) return;
+            startX = e.touches[0].clientX;
+            moving = true;
+          },
+          { passive: true }
+        );
+        lb.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!moving || !e.touches[0]) return;
+            const dx = e.touches[0].clientX - startX;
+            if (Math.abs(dx) > 60) {
+              moving = false;
+              if (dx < 0) show(idx + 1);
+              else show(idx - 1);
+            }
+          },
+          { passive: true }
+        );
+        lb.addEventListener("touchend", () => (moving = false));
+      })();
+    </script>
+
+    <!-- Header , animados  -->
+
+    <script>
+      (function () {
+        // ==== CONFIGURA AQUÍ TUS IMÁGENES ====
+        const IMAGES = [
+          "assets/integra-img1.jpeg",
+          "assets/integra-img2.jpeg",
+          "assets/integra-img3.jpeg",
+          "assets/integracion/integra-img5-salon.jpeg",
+        ];
+        const INTERVAL_MS = 6000; // tiempo que cada foto permanece
+        const FADE_MS = 1200; // duración del crossfade (igual a la del CSS)
+
+        // Respeta "reducir movimiento"
+        const prefersReduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+        if (prefersReduce || IMAGES.length < 2) return; // se queda con la primera
+
+        const bg = document.querySelector(".int-hero__bg");
+        if (!bg) return;
+        const slides = bg.querySelectorAll(".slide");
+        if (slides.length < 2) return;
+
+        let idx = 0;
+        let timer = null;
+
+        // Preload para evitar flashes
+        const cache = new Set();
+        const preload = (src) => {
+          if (cache.has(src)) return;
+          const img = new Image();
+          img.src = src;
+          cache.add(src);
+        };
+
+        // Inicial: asegura primera imagen y precarga la segunda
+        slides[0].style.backgroundImage = `url('${IMAGES[0]}')`;
+        preload(IMAGES[1]);
+
+        function next() {
+          const nextIdx = (idx + 1) % IMAGES.length;
+
+          // capa visible y capa oculta
+          const visible = bg.querySelector(".slide.is-on");
+          const hidden = Array.from(slides).find((s) => s !== visible);
+
+          // cargar siguiente imagen en la capa oculta
+          hidden.style.backgroundImage = `url('${IMAGES[nextIdx]}')`;
+
+          // crossfade
+          visible.classList.remove("is-on");
+          hidden.classList.add("is-on");
+
+          // avanzar índice y precargar la que viene
+          idx = nextIdx;
+          preload(IMAGES[(idx + 1) % IMAGES.length]);
+        }
+
+        function start() {
+          stop();
+          timer = setInterval(next, INTERVAL_MS);
+        }
+        function stop() {
+          if (timer) clearInterval(timer);
+        }
+
+        // Pausa cuando la pestaña no está visible (ahorra batería)
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) stop();
+          else start();
+        });
+
+        // Pausa si el usuario pasa el mouse sobre el hero (por si quiere leer tranquilo)
+        const hero = document.querySelector(".int-hero");
+        if (hero) {
+          hero.addEventListener("mouseenter", stop);
+          hero.addEventListener("mouseleave", start);
+        }
+
+        // Arrancar
+        start();
+
+        // Exponer una API mínima (opcional, por si luego quieres controlar desde botones)
+        window.CECNSRHeroSlider = { next, start, stop };
+      })();
+    </script>
   </body>
 </html>
