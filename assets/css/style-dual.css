@@ -21,6 +21,7 @@
   opacity: 0.85;
   font-size: 0.9rem;
   margin: 0 0 0.25rem;
+  margin-top: 1.5rem;
 }
 .dual-hero__title {
   margin: 0;
@@ -98,13 +99,13 @@
 }
 
 /* ========= SECCIONES (reuso de tu sistema) ========= */
-.section > .grid-3,
+/* .section > .grid-3,
 .section > .gallery,
 .section > .resources-split {
   max-width: 1100px;
   margin-inline: auto;
 }
-
+ */
 .section-title {
   position: relative;
 }
@@ -220,7 +221,7 @@
 }
 
 /* Galería */
-.gallery {
+/* .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 0.75rem;
@@ -238,7 +239,7 @@
   width: 100%;
   height: 190px;
   object-fit: cover;
-}
+} */
 
 /* Contacto */
 .contact {
@@ -268,9 +269,9 @@
   .feature {
     min-height: unset;
   }
-  .gallery img {
+  /*   .gallery img {
     height: 170px;
-  }
+  } */
 }
 
 /* ===== Preparación en el CECNSR ===== */
@@ -506,4 +507,193 @@
       center/66% 66% no-repeat;
     box-shadow: 0 0 0 2px rgba(21, 51, 74, 0.9);
   }
+}
+
+/* ===== Galería (quilt elegante) para .gallery existente ---------------------------- ===== */
+
+/* V2 galería  */
+/* ==== Galería DUAL en una sola pantalla (alto controlado + scroll lateral) ==== */
+.galleryDual {
+  --gap: 0.75rem;
+  --cols-min: 260px; /* ancho base de “tarjeta” */
+  height: clamp(420px, 70svh, 720px); /* bloquea el alto a viewport */
+  display: grid;
+  gap: var(--gap);
+
+  /* Rejilla horizontal: más columnas hacia la derecha */
+  grid-auto-flow: row;
+  grid-auto-columns: minmax(var(--cols-min), 1fr);
+
+  /* 2 ó 3 filas fijas dentro del alto */
+  grid-template-columns: repeat(
+    7,
+    1fr
+  ); /* sube a 3 si quieres piezas más bajas */
+
+  padding-bottom: 0.25rem; /* margen para evitar recorte de sombra */
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* UX suave y “carrusel” natural */
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Tarjeta base */
+.galleryDual .tile {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e6ebf1;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+
+  /* ocupa 1 columna x 1 fila por defecto */
+  grid-row: span 1;
+  grid-column: span 1;
+
+  /* que cada ítem pueda “anclarse” al snap */
+  scroll-snap-align: start;
+}
+
+/* Variantes de composición */
+.galleryDual .wide {
+  grid-column: span 2;
+} /* ancha (2 columnas) */
+.galleryDual .tall {
+  grid-row: span 2;
+} /* alta (ocupa las 2 filas) */
+
+/* Imágenes siempre cubriendo el cuadro */
+.galleryDual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+.galleryDual a:hover img,
+.galleryDual a:focus-visible img {
+  transform: scale(1.02);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1100px) {
+  .galleryDual {
+    --cols-min: 220px;
+  }
+}
+@media (max-width: 900px) {
+  .galleryDual {
+    --cols-min: 200px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .galleryDual {
+    height: clamp(320px, 60svh, 520px);
+    grid-template-rows: 1fr; /* una sola fila en móvil */
+  }
+  .galleryDual .tall {
+    grid-row: span 1;
+  } /* sin piezas “altas” en 1 fila */
+  .galleryDual .wide {
+    grid-column: span 1;
+  } /* quepan mejor en móvil */
+}
+
+/* Float */
+
+/* ===== Lightbox ===== */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 20, 30, 0.82);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.lb.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lb__figure {
+  max-width: min(92vw, 1400px);
+  max-height: 86svh;
+  margin: 0;
+}
+.lb__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(86svh - 48px);
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+.lb__cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #eaf0f6;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.25rem 0;
+}
+.lb__text {
+  opacity: 0.95;
+}
+.lb__count {
+  opacity: 0.75;
+}
+
+/* Controles */
+.lb__close,
+.lb__nav {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: rgba(8, 32, 56, 0.45);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.lb__close {
+  top: 14px;
+  right: 14px;
+  font-size: 18px;
+}
+.lb__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+}
+.lb__prev {
+  left: 14px;
+}
+.lb__next {
+  right: 14px;
+}
+.lb__close:hover,
+.lb__nav:hover {
+  background: rgba(8, 32, 56, 0.75);
+}
+
+/* Accesibilidad: menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .lb {
+    transition: none;
+  }
+}
+
+/* Evita scroll de fondo cuando está abierto */
+body.lb-open {
+  overflow: hidden;
 }
