@@ -1298,3 +1298,35 @@ body {
   margin-right: calc(var(--card-pad) * -1);
   /* al tener overflow-x: clip en .card, no saldrá del viewport */
 }
+
+/* ===== Galería: 2 columnas en móvil ===== */
+@media (max-width: 640px) {
+  .gal-quilt {
+    /* dos columnas iguales */
+    grid-template-columns: repeat(2, 1fr);
+    /* alto de cada fila -> 3:2 aprox; cambia a 1fr si prefieres libre */
+    grid-auto-rows: 38vw; /* ~relación 3:2 en la mayoría de pantallas */
+    gap: 0.6rem; /* separador un poco menor en móvil */
+  }
+
+  /* anula los spans para que TODO ocupe 1x1 bloque */
+  .gal-quilt .tile.wide {
+    grid-column: span 1;
+  }
+  .gal-quilt .tile.tall {
+    grid-row: span 1;
+  }
+
+  /* asegura que la imagen se recorte correctamente al alto de la celda */
+  .gal-quilt .tile,
+  .gal-quilt img {
+    height: 100%;
+  }
+}
+
+/* Si prefieres miniaturas cuadradas en móviles muy pequeños: */
+@media (max-width: 420px) {
+  .gal-quilt {
+    grid-auto-rows: 45vw;
+  } /* casi 1:1 */
+}
