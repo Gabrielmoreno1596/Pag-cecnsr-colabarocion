@@ -431,34 +431,6 @@
         </div>
 
         <!-- FOTOS -->
-
-        <!-- ===== Lightbox experiencias ===== -->
-        <div
-          class="xp-lightbox"
-          id="xpLightbox"
-          hidden
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="xpLbTitle"
-        >
-          <div class="xp-lb__backdrop" data-close></div>
-
-          <div class="xp-lb__dialog">
-            <header class="xp-lb__head">
-              <h3 id="xpLbTitle" class="sr-only">Vista ampliada</h3>
-              <div class="xp-lb__count" aria-live="polite"></div>
-              <button class="xp-lb__close" data-close aria-label="Cerrar">
-                ✕
-              </button>
-            </header>
-
-            <div class="xp-lb__stage">
-              <button class="xp-lb__nav prev" aria-label="Anterior">‹</button>
-              <img id="xpLbImg" alt="" />
-              <button class="xp-lb__nav next" aria-label="Siguiente">›</button>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- GALERÍA -->
@@ -1183,102 +1155,6 @@
         if (e.key === "ArrowLeft") render(index - 1);
         if (e.key === "ArrowRight") render(index + 1);
       });
-    </script>
-
-    <script>
-      (() => {
-        const modal = document.getElementById("xpLightbox");
-        const imgEl = document.getElementById("xpLbImg");
-        const countEl = document.getElementById("xpLbCount");
-        const prevBtn = document.getElementById("xpPrev");
-        const nextBtn = document.getElementById("xpNext");
-
-        let items = [];
-        let index = 0;
-        let keyHandler,
-          startX = null;
-
-        const clamp = (i, len) => ((i % len) + len) % len;
-
-        function render(i) {
-          if (!items.length) return;
-          index = clamp(i, items.length);
-          const it = items[index];
-
-          imgEl.style.opacity = "0";
-          const tmp = new Image();
-          tmp.onload = () => {
-            imgEl.src = it.src;
-            imgEl.alt = it.alt || "Imagen";
-            imgEl.style.opacity = "1";
-            countEl.textContent = `${index + 1} / ${items.length}`;
-
-            // Preload vecinos
-            new Image().src = items[clamp(index + 1, items.length)].src;
-            new Image().src = items[clamp(index - 1, items.length)].src;
-          };
-          tmp.src = it.src;
-        }
-
-        function close() {
-          modal.hidden = true;
-          document.body.classList.remove("pdf-open");
-          window.removeEventListener("keydown", keyHandler);
-          prevBtn.onclick = nextBtn.onclick = null;
-          imgEl.replaceWith(imgEl.cloneNode(true)); // limpia listeners touch si hiciera falta
-        }
-
-        function openFromArray(arr, start = 0) {
-          items = arr || [];
-          if (!items.length) return;
-
-          modal.hidden = false;
-          document.body.classList.add("pdf-open");
-          render(start);
-
-          // teclado
-          keyHandler = (e) => {
-            if (e.key === "Escape") close();
-            else if (e.key === "ArrowRight") render(index + 1);
-            else if (e.key === "ArrowLeft") render(index - 1);
-          };
-          window.addEventListener("keydown", keyHandler);
-
-          // clicks
-          prevBtn.onclick = () => render(index - 1);
-          nextBtn.onclick = () => render(index + 1);
-          modal.addEventListener("click", (e) => {
-            if (e.target.closest("[data-close]")) close();
-          });
-
-          // swipe básico
-          imgEl.addEventListener(
-            "touchstart",
-            (e) => {
-              startX = e.touches[0].clientX;
-            },
-            { passive: true }
-          );
-          imgEl.addEventListener(
-            "touchend",
-            (e) => {
-              if (startX == null) return;
-              const dx = e.changedTouches[0].clientX - startX;
-              if (Math.abs(dx) > 40)
-                dx < 0 ? render(index + 1) : render(index - 1);
-              startX = null;
-            },
-            { passive: true }
-          );
-
-          // anti-descarga básica
-          imgEl.addEventListener("contextmenu", (e) => e.preventDefault());
-          imgEl.setAttribute("draggable", "false");
-        }
-
-        // expón para la galería
-        window.openXpLightbox = openFromArray;
-      })();
     </script>
 
     <!-- PDF FLOTANTES -->
