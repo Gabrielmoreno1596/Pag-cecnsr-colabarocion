@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CECNSR - PI y 4PE</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="assets/css/style-pi-4pe.css?v=3" />
+  <link rel="stylesheet" href="assets/css/style-convenios.css?v=3" />
+  <link rel="shortcut icon" href="assets/1_CECNSR.png" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/assets/partials/header.php'; ?>
+
+  <!-- main content -->
+
+  <!-- ===== HERO: Psicología Individual & 4 Puntos Esenciales ===== -->
+  <section class="pi-hero" aria-labelledby="pi-title">
+    <div class="pi-hero__content">
+      <p class="pi-eyebrow">Formación humana | Convivencia pacífica</p>
+      <h1 id="pi-title">
+        Psicología Individual &<br /><span class="pi-mark">4 Puntos Esenciales</span>
+      </h1>
+      <p class="pi-lead">
+        Una propuesta formativa basada en Alfred Adler para fortalecer el
+        bienestar personal, la responsabilidad social y una convivencia
+        armónica.
+      </p>
+
+      <ul class="pi-badges" aria-label="4 Puntos Esenciales">
+        <li>
+          <img
+            width="34"
+            height="34"
+            src="assets/Pdis-Disciplina-personal.png"
+            alt="Logo Disciplina Personal" />
+          <i class="fa-solid"></i> Disciplina Personal (PDíS)
+        </li>
+        <li>
+          <img
+            width="34"
+            height="34"
+            src="assets/PServ-Grado-de-servicio.png"
+            alt="Logo Grado de Servicio" />
+          <i class="fa-solid"></i> Grado de Servicio (PServ)
+        </li>
+        <li>
+          <img
+            width="34"
+            height="34"
+            src="assets/PVisit-Tarjeta-de-presentacion.png"
+            alt="Logo Tarjeta de Presentación" />
+          <i class="fa-solid"></i> Tarjeta de Presentación (PVisit)
+        </li>
+        <li>
+          <img
+            width="34"
+            height="34"
+            src="assets/PPrav-Prevencion-personal.png"
+            alt="Logo Prevención Personal" />
+          <i class="fa-solid"></i> Prevención Personal (PPäri)
+        </li>
+      </ul>
+
+      <div class="pi-cta">
+        <a class="btn-pill-pi" href="#pi-que-es">Qué es el programa</a>
+        <a class="btn-outline-pi" href="#mas info">mas información</a>
+      </div>
+    </div>
+
+    <div class="pi-hero__photo">
+      <!-- cinta de aliados igual -->
+      <div class="ally-ribbon" aria-label="Aliados del programa">
+        <img src="assets/1_CECNSR.png" alt="CECNSR" />
+        <img
+          src="assets/16_08_18_BIB_International_nur_Logo.png"
+          alt="BIB International" />
+      </div>
+
+      <!-- FOTO PRINCIPAL -->
+      <img
+        class="pi-hero__main"
+        src="assets/pi-4pe-img1.jpeg"
+        alt="Sesión formativa de Psicología Individual en el CECNSR" />
+
+      <!-- REEL animado -->
+      <div class="pi-hero__reel" aria-label="Galería de momentos">
+        <div class="reel-track">
+          <!-- Lista original -->
+          <img
+            src="assets/pi-4pe-img2.jpeg"
+            alt="Participantes durante taller"
+            role="button"
+            tabindex="0" />
+          <img
+            src="assets/pi-4pe-img3.jpeg"
+            alt="Equipo docente y aliados"
+            role="button"
+            tabindex="0" />
+          <img
+            src="assets/pi-4pe-img4.jpeg"
+            alt="Presentación en aula"
+            role="button"
+            tabindex="0" />
+          <img
+            src="assets/pi-4pe-img5.jpeg"
+            alt="Presentación en aula"
+            role="button"
+            tabindex="0" />
+          <img
+            src="assets/pi-4pe-img1.jpeg"
+            alt="Presentación en aula"
+            role="button"
+            tabindex="0" />
+          <img
+            src="assets/pi-4pe-img2.jpeg"
+            alt="Presentación en aula"
+            role="button"
+            tabindex="0" />
+          <!-- Duplicados para loop perfecto (sin foco, sin lector) -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== ¿QUÉ ES? =================== -->
+  <section id="pi-que-es" class="section">
+    <div class="container">
+      <h2 class="section-title xl">
+        ¿Qué es Psicología Individual & los 4 Puntos Esenciales?
+      </h2>
+      <div class="title-divider" aria-hidden="true"></div>
+      <p class="lead">
+        Línea formativa inspirada en Alfred Adler que coloca a la persona, sus
+        metas y su aporte al bien común en el centro. Ofrece herramientas para
+        el autocontrol, la comunicación empática, la prevención de conflictos
+        y el servicio comunitario. Se estructura en cuatro prácticas: PDÍS,
+        PServ, PVisit y PPäri.
+      </p>
+
+      <!-- 4 PUNTOS con logos oficiales -->
+      <div class="grid-4 pe-cards">
+        <article class="pe-card">
+          <h3 class="pe-title">
+            <img
+              class="pe-icon"
+              src="assets/Pdis-Disciplina-personal.png"
+              alt="PDÍS" />
+            <span>PDÍS — <em>Disciplina Personal</em></span>
+          </h3>
+          <p>
+            Autogobierno y hábitos que reducen “pérdidas por fricción” en la
+            vida diaria.
+          </p>
+        </article>
+
+        <article class="pe-card">
+          <h3 class="pe-title">
+            <img
+              class="pe-icon"
+              src="assets/PServ-Grado-de-servicio.png"
+              alt="PServ" />
+            <span>PServ — <em>Grado de Servicio</em></span>
+          </h3>
+          <p>
+            Aporte al bien común: mejora la convivencia y el clima
+            institucional.
+          </p>
+        </article>
+
+        <article class="pe-card">
+          <h3 class="pe-title">
+            <img
+              class="pe-icon"
+              src="assets/PVisit-Tarjeta-de-presentacion.png"
+              alt="PVisit" />
+            <span>PVisit — <em>Tarjeta de Presentación</em></span>
+          </h3>
+          <p>
+            Coherencia entre valores y expresión: trato, estilo, lenguaje y
+            presencia.
+          </p>
+        </article>
+
+        <article class="pe-card">
+          <h3 class="pe-title">
+            <img
+              class="pe-icon"
+              src="assets/PPrav-Prevencion-personal.png"
+              alt="PPäri" />
+            <span>PPäri — <em>Prevención Personal</em></span>
+          </h3>
+          <p>
+            Rutas concretas para reducir conflictos cotidianos y fortalecer la
+            salud mental.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== ITINERARIO (timeline) =================== -->
+
+  <section class="section itn" id="itinerario">
+    <div class="container itn__grid">
+      <!-- Columna izquierda: timeline -->
+      <div class="itn__body">
+        <h2 class="section-title">Itinerario formativo</h2>
+        <div class="title-divider" aria-hidden="true"></div>
+
+        <ol class="timeline-pi modern itn__timeline-pi" role="list">
+          <!-- 1. Sentido, diagnóstico y objetivos -->
+          <li class="reveal itn-item">
+            <span class="badge">1</span>
+            <div>
+              <h4
+                class="itn-toggle"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="itn-panel-1">
+                Sentido del seminario, diagnóstico y objetivos
+              </h4>
+              <div class="itn-more" id="itn-panel-1" hidden>
+                <p class="itn__kicker">
+                  Los 4 Puntos Esenciales como <em>epicentro</em> de los
+                  conflictos y su solución.
+                </p>
+                <ul class="bullets-pi">
+                  <li>
+                    Curva de la comunicación; normas de convivencia y agenda
+                    común.
+                  </li>
+                  <li>
+                    Autoconocimiento: “Todo lo que es bueno para mí” → aprecio
+                    y filtro positivo.
+                  </li>
+                  <li>
+                    Tesis guía: “No es el viento, sino la vela” — actuar con
+                    responsabilidad y proactividad.
+                  </li>
+                  <li>
+                    Micro–diagnóstico + micro–solución: identificar cargas y
+                    rutas de mejora.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- 2. Pacificación personal (PDÍS) -->
+          <li class="reveal itn-item">
+            <span class="badge">2</span>
+            <div>
+              <h4
+                class="itn-toggle"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="itn-panel-2">
+                Pacificación personal & hábitos (PDÍS)
+              </h4>
+              <div class="itn-more" id="itn-panel-2" hidden>
+                <p class="itn__kicker">
+                  Autodisciplina para reducir la carga mental y ordenar la
+                  vida cotidiana.
+                </p>
+                <ul class="bullets-pi">
+                  <li>
+                    “Catástrofe mental”: por qué acumulamos cargas y cómo
+                    desactivarlas.
+                  </li>
+                  <li>
+                    Objetivo primario: confiabilidad vivida; coherencia
+                    palabra–acción.
+                  </li>
+                  <li>
+                    Organización, planificación y gestión de prioridades → más
+                    claridad y tranquilidad.
+                  </li>
+                  <li>
+                    Disciplina como base del rendimiento sostenido y la paz
+                    interior.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3. Servicio y presentación (PServ + Tarjeta) -->
+          <li class="reveal itn-item">
+            <span class="badge">3</span>
+            <div>
+              <h4
+                class="itn-toggle"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="itn-panel-3">
+                Servicio a los demás & Tarjeta de Presentación
+              </h4>
+              <div class="itn-more" id="itn-panel-3" hidden>
+                <p class="itn__kicker">
+                  Mi aporte visible a la comunidad y mi posicionamiento
+                  personal.
+                </p>
+                <ul class="bullets-pi">
+                  <li>
+                    PServ: “Servir es vivir” — mi contribución mejora la
+                    convivencia y consolida mi lugar.
+                  </li>
+                  <li>
+                    Principio económico del actuar: hacer visible el peso de
+                    mis aportes diarios.
+                  </li>
+                  <li>
+                    Tarjeta de Presentación: lenguaje, hábitos y coherencia
+                    como marca personal.
+                  </li>
+                  <li>
+                    Niveles de reconocimiento <strong>A–B–C</strong>: persona,
+                    grupo, comunidad/global.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <!-- 4. Prevención personal (PPäri) y proyección -->
+          <li class="reveal itn-item">
+            <span class="badge">4</span>
+            <div>
+              <h4
+                class="itn-toggle"
+                tabindex="0"
+                aria-expanded="false"
+                aria-controls="itn-panel-4">
+                Prevención personal & proyección
+              </h4>
+              <div class="itn-more" id="itn-panel-4" hidden>
+                <p class="itn__kicker">
+                  Evitar que los pequeños problemas se vuelvan grandes.
+                </p>
+                <ul class="itn__bullets bullets-pi">
+                  <li>
+                    Definición y sentido de prevenir: anticiparse para ahorrar
+                    tiempo, energía y conflictos.
+                  </li>
+                  <li>
+                    Diseño de procesos de mejora personal y manejo de campos
+                    de interferencia.
+                  </li>
+                  <li>
+                    Actitud positiva y responsable hacia personas y entorno
+                    común.
+                  </li>
+                  <li>
+                    Cierre: evidencias, acuerdos y plan de
+                    continuidad/seguimiento.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Columna derecha: imagen/quote -->
+      <aside class="itn__aside">
+        <figure class="itn__media" id="itnReel" aria-live="polite">
+          <img
+            id="itnImg"
+            src="assets/pi-4pe-img3.jpeg"
+            alt="Sesión de trabajo colaborativo" />
+          <figcaption id="itnCaption">
+            Trabajo colaborativo y servicio al bien común.
+          </figcaption>
+
+          <!-- Créditos / derechos -->
+          <small class="itn__credits" id="itnCredits">
+            © CECNSR — Centro de Comunicaciones Salvadoreño-Alemán. Uso
+            académico interno.
+          </small>
+        </figure>
+
+        <blockquote class="itn__quote" id="itnQuote">
+          <p>
+            “Quien resuelve constantemente pequeños problemas no tiene grandes
+            problemas”.
+          </p>
+          <footer>Prevención personal — PPäri</footer>
+        </blockquote>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =================== SEMINARIOS / PRÓXIMAS FECHAS =================== -->
+
+  <!-- =================== SEMINARIOS / PRÓXIMAS FECHAS =================== -->
+  <section
+    id="mas info"
+    class="section seminars"
+    aria-labelledby="seminar-title"
+    data-state="active"
+    data-start="2025-10-06"
+    data-end="2025-11-09">
+    <!-- Cambia active, upcoming,  past -->
+    <!-- opcional, para auto -->
+    <!-- opcional, para auto -->
+
+    <div class="container container-color-pi">
+      <!-- Estado ACTIVO (se muestra cuando data-state="active") -->
+      <article class="seminar" role="article">
+        <figure class="seminar__media">
+          <button
+            class="poster-thumb"
+            data-poster="assets/4pe/seminario-noviembre.jpeg"
+            aria-labelledby="poster-title">
+            <img
+              src="assets/4pe/afiche-invitacion.png"
+              alt="Afiche del Seminario 2025: Reducción de conflictos sociales"
+              loading="lazy" />
+            <span class="thumb-veil" aria-hidden="true">
+              <i
+                class="fa-solid fa-magnifying-glass-plus"
+                aria-hidden="true"></i>
+              Ver afiche
+            </span>
+          </button>
+          <figcaption id="poster-title" class="seminar__badge">
+            2025
+          </figcaption>
+        </figure>
+
+        <!-- Modal flotante -->
+        <div
+          class="poster-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="poster-modal-title"
+          hidden>
+          <div class="poster-modal__backdrop" data-close></div>
+          <div class="poster-modal__dialog">
+            <header class="poster-modal__head">
+              <h3 id="poster-modal-title">Afiche del seminario</h3>
+              <button
+                class="poster-modal__close"
+                aria-label="Cerrar"
+                data-close>
+                ✕
+              </button>
+            </header>
+            <div class="poster-modal__body">
+              <img
+                src=""
+                alt="Afiche del Seminario 2025"
+                id="poster-modal-img" />
+            </div>
+            <footer class="poster-modal__foot">
+              <a id="poster-modal-download" class="btn-solid" download>Descargar afiche</a>
+              <a
+                id="poster-modal-newtab"
+                class="btn-outline-pi"
+                target="_blank"
+                rel="noopener">Abrir en nueva pestaña</a>
+            </footer>
+          </div>
+        </div>
+
+        <div class="seminar__details">
+          <header>
+            <p class="seminar__eyebrow">Seminario / Formación continua</p>
+            <h2 id="seminar-title" class="section-title">
+              Seminario: Reducción de conflictos sociales
+            </h2>
+
+            <div class="title-divider" aria-hidden="true"></div>
+          </header>
+
+          <ul class="info-list" role="list">
+            <li>
+              <span class="info-list__icon" aria-hidden="true">📅</span>
+              <div>
+                <strong>Fechas:</strong> 6, 7, 8 y 9 de noviembre 2025 — 8:00
+                a. m. a 3:30 p. m.
+              </div>
+            </li>
+            <li>
+              <span class="info-list__icon" aria-hidden="true">💵</span>
+              <div>
+                <strong>Inversión:</strong> $40.00
+                <small>(incluye refrigerio, almuerzo, materiales y diploma)</small>.
+              </div>
+            </li>
+            <li>
+              <span class="info-list__icon" aria-hidden="true">📍</span>
+              <div>
+                <strong>Sede:</strong> Centro de Comunicaciones Salvadoreño
+                Alemán Karlheinz Wolfgang.
+              </div>
+            </li>
+          </ul>
+
+          <div class="seminar__cta">
+            <a
+              class="btn-solid"
+              href="assets/4pe/afiche-invitacion.png"
+              download>
+              Descargar afiche
+            </a>
+            <a class="btn-outline-pi" href="#form-contacto">
+              Quiero más información
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Estado ANUNCIO (se muestra cuando data-state="upcoming" o "past") -->
+      <aside class="seminar-announce" role="status" aria-live="polite">
+        <div class="announce__head">
+          <span class="status-chip" data-kind="upcoming">Próximamente</span>
+          <!-- si es pasado, el CSS cambia el color con data-kind="past" -->
+        </div>
+        <h3 class="announce__title">
+          Seminario: Reducción de conflictos sociales
+        </h3>
+        <p class="announce__lead">
+          Estamos preparando próximas fechas. Déjanos tus datos para enviarte
+          la convocatoria y resolver cualquier consulta.
+        </p>
+        <div class="announce__cta">
+          <a class="btn-solid" href="#form-contacto">Quiero más información</a>
+          <a
+            class="btn-outline-pi"
+            href="assets/poster-seminario-2025.jpg"
+            download>
+            Descargar afiche anterior
+          </a>
+        </div>
+        <!--           <div class="ally-strip">
+            <img src="assets/1_CECNSR.png" alt="CECNSR" />
+            <img
+              src="assets/16_08_18_BIB_International_nur_Logo.png"
+              alt="BIB International"
+            />
+            <img src="assets/pasch.png" alt="PASCH" />
+          </div> -->
+      </aside>
+    </div>
+  </section>
+
+  <!-- =================== GALERÍA / REEL =================== -->
+
+  <!-- ========== GALERÍA · COLLAGE "QUILT" ========== -->
+  <!-- ========== CARRUSEL INFINITO + LIGHTBOX ========== -->
+  <section class="section inf-carousel">
+    <div class="container">
+      <p class="eyebrow-pi">Galería</p>
+      <h2 class="ic-title">Momentos del Programa PI & 4PE</h2>
+      <div class="title-divider" aria-hidden="true"></div>
+
+      <div
+        class="infinite-reel"
+        id="infinite-reel"
+        aria-label="Carrusel de imágenes">
+        <div class="track">
+          <!-- Bloque A (original) -->
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img1.jpeg"
+              data-full="assets/pi-4pe-img1.jpeg"
+              alt="Sesión formativa 1" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img2.jpeg"
+              data-full="assets/pi-4pe-img2.jpeg"
+              alt="Sesión formativa 2" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img3.jpeg"
+              data-full="assets/pi-4pe-img3.jpeg"
+              alt="Exposición de trabajo" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img4.jpeg"
+              data-full="assets/pi-4pe-img4.jpeg"
+              alt="Equipo docente" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img5.jpeg"
+              data-full="assets/pi-4pe-img5.jpeg"
+              alt="Entrega de diplomas" />
+          </figure>
+
+          <!-- Bloque B (duplicado para bucle perfecto) -->
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img1.jpeg"
+              data-full="assets/pi-4pe-img1.jpeg"
+              alt="Sesión formativa 1 (duplicada)" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img2.jpeg"
+              data-full="assets/pi-4pe-img2.jpeg"
+              alt="Sesión formativa 2 (duplicada)" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img3.jpeg"
+              data-full="assets/pi-4pe-img3.jpeg"
+              alt="Exposición de trabajo (duplicada)" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img4.jpeg"
+              data-full="assets/pi-4pe-img4.jpeg"
+              alt="Equipo docente (duplicada)" />
+          </figure>
+          <figure class="card">
+            <img
+              src="assets/pi-4pe-img5.jpeg"
+              data-full="assets/pi-4pe-img5.jpeg"
+              alt="Entrega de diplomas (duplicada)" />
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div
+      class="lightbox"
+      id="glightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="glb-title"
+      hidden>
+      <div class="lightbox__backdrop" data-close></div>
+      <div class="lightbox__dialog">
+        <header class="lightbox__head">
+          <h3 id="glb-title" class="sr-only">Vista ampliada</h3>
+          <div class="lightbox__count" aria-live="polite"></div>
+          <button class="lightbox__close" aria-label="Cerrar" data-close>
+            ✕
+          </button>
+        </header>
+        <div class="lightbox__stage">
+          <button class="nav prev" aria-label="Anterior">‹</button>
+          <img id="glb-img" alt="" />
+          <button class="nav next" aria-label="Siguiente">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== fin GALERÍA ===== -->
+
+  <!-- =================== FORMULARIO =================== -->
+  <section class="section" id="form-contacto">
+    <div class="container">
+      <h2 class="section-title">¿Tienes dudas o quieres inscribirte?</h2>
+      <div class="title-divider" aria-hidden="true"></div>
+      <form class="contact-form" action="#" method="post">
+        <div class="form-grid">
+          <label>Nombre completo
+            <input type="text" name="nombre" required />
+          </label>
+          <label>Correo electrónico
+            <input type="email" name="email" required />
+          </label>
+          <label>Teléfono
+            <input type="tel" name="telefono" />
+          </label>
+          <label>Interés
+            <select name="interes">
+              <option>Seminario</option>
+              <option>Programa PI & 4PE</option>
+              <option>Taller para jóvenes</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label class="full">Mensaje
+            <textarea
+              name="mensaje"
+              rows="4"
+              placeholder="Cuéntanos un poco tu necesidad…"></textarea>
+          </label>
+        </div>
+        <button class="btn-solid">Enviar consulta</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- fin main -->
+
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/assets/partials/footer.php'; ?>
+
+
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      const header = document.querySelector(".main-header");
+      const set = () =>
+        document.documentElement.style.setProperty(
+          "--header-h",
+          header?.offsetHeight + "px"
+        );
+      window.addEventListener("load", set, {
+        once: true
+      });
+      window.addEventListener("resize", set);
+    })();
+  </script>
+  <script>
+    (function() {
+      const sec = document.querySelector(".seminars");
+      if (!sec) return;
+
+      const start = sec.getAttribute("data-start");
+      const end = sec.getAttribute("data-end");
+      if (!start || !end) return; // si no hay fechas, respeta el data-state manual
+
+      const today = new Date();
+      const s = new Date(start + "T00:00:00");
+      const e = new Date(end + "T23:59:59");
+
+      let state = "upcoming";
+      if (today >= s && today <= e) state = "active";
+      else if (today > e) state = "past";
+
+      sec.setAttribute("data-state", state);
+
+      // Cambia el chip del anuncio según corresponda:
+      const chip = sec.querySelector(".status-chip");
+      if (chip) {
+        chip.setAttribute(
+          "data-kind",
+          state === "past" ? "past" : "upcoming"
+        );
+        chip.textContent = state === "past" ? "Finalizado" : "Próximamente";
+      }
+    })();
+  </script>
+
+  <!-- animacion hero -->
+
+  <script>
+    (function() {
+      const hero = document.querySelector(".pi-hero__photo");
+      if (!hero) return;
+
+      const mainImg = hero.querySelector(".pi-hero__main");
+      const reel = hero.querySelector(".pi-hero__reel .reel-track");
+      if (!mainImg || !reel) return;
+
+      // Miniaturas "reales" (evita duplicados con aria-hidden)
+      const thumbs = Array.from(
+        reel.querySelectorAll('img:not([aria-hidden="true"])')
+      );
+
+      function swapTo(thumb) {
+        if (!thumb) return;
+
+        // Marca visual (opcional)
+        thumbs.forEach((t) => t.removeAttribute("aria-current"));
+        thumb.setAttribute("aria-current", "true");
+
+        // Usa data-full si existe, si no, el src mismo
+        const nextSrc = thumb.getAttribute("data-full") || thumb.src;
+        const nextAlt = thumb.alt || mainImg.alt;
+
+        // Pre-carga y transición suave
+        const img = new Image();
+        img.onload = () => {
+          mainImg.classList.add("is-swapping");
+          // pequeño delay para que el fade funcione en cambio rápido
+          requestAnimationFrame(() => {
+            mainImg.src = nextSrc;
+            mainImg.alt = nextAlt;
+            // Quita el fade después de que el navegador pinte el nuevo frame
+            requestAnimationFrame(() => {
+              mainImg.classList.remove("is-swapping");
+            });
+          });
+        };
+        img.src = nextSrc;
+      }
+
+      // Click / teclado
+      function handleActivate(ev, thumb) {
+        ev.preventDefault();
+        swapTo(thumb);
+      }
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener("click", (e) => handleActivate(e, thumb));
+        thumb.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") handleActivate(e, thumb);
+        });
+      });
+
+      // Opcional: inicia marcada la 1ª miniatura si la principal coincide
+      const active = thumbs.find(
+        (t) => (t.getAttribute("data-full") || t.src) === mainImg.src
+      );
+      if (active) active.setAttribute("aria-current", "true");
+    })();
+  </script>
+  <script>
+    (function() {
+      const track = document.querySelector(".pi-hero__reel .reel-track");
+      const thumbs = Array.from(
+        document.querySelectorAll(
+          '.pi-hero__reel .reel-track img:not([aria-hidden="true"])'
+        )
+      );
+      if (!track || thumbs.length < 2) return;
+
+      let idx = 0,
+        timer;
+      const fire = () => thumbs[idx % thumbs.length].click();
+      const start = () =>
+        (timer = setInterval(() => {
+          idx++;
+          fire();
+        }, 8000));
+      const stop = () => clearInterval(timer);
+
+      // Arranca
+      start();
+
+      // Pausa si el usuario interactúa con el reel (hover/click)
+      track.addEventListener("mouseenter", stop);
+      track.addEventListener("mouseleave", start);
+      track.addEventListener("click", () => {
+        idx =
+          thumbs.indexOf(
+            document.querySelector('.reel-track img[aria-current="true"]')
+          ) || 0;
+      });
+    })();
+  </script>
+
+  <!-- itinirerio -->
+
+  <script>
+    (function() {
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("is-in");
+          });
+        }, {
+          threshold: 0.15
+        }
+      );
+      els.forEach((el) => io.observe(el));
+    })();
+  </script>
+  <script>
+    (function() {
+      const items = document.querySelectorAll(".itn__timeline-pi .itn-item");
+
+      items.forEach((item, idx) => {
+        const btn = item.querySelector(".itn-toggle");
+        const panel = item.querySelector(".itn-more");
+
+        if (!btn || !panel) return;
+
+        function toggle(force) {
+          const willOpen =
+            force !== undefined ? force : !item.classList.contains("is-open");
+          item.classList.toggle("is-open", willOpen);
+          btn.setAttribute("aria-expanded", String(willOpen));
+          panel.toggleAttribute("hidden", !willOpen);
+        }
+
+        // Abre/cierra con click
+        btn.addEventListener("click", () => toggle());
+        // Teclado accesible (Enter/Espacio)
+        btn.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter" || ev.key === " ") {
+            ev.preventDefault();
+            toggle();
+          }
+          if (ev.key === "ArrowDown") {
+            items[idx + 1]?.querySelector(".itn-toggle")?.focus();
+          }
+          if (ev.key === "ArrowUp") {
+            items[idx - 1]?.querySelector(".itn-toggle")?.focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- animación al aside de itinerario -->
+
+  <script>
+    (() => {
+      // --- Configuración: usa tus imágenes existentes del sitio ---
+      const slides = [{
+          src: "assets/pi-4pe-img3.jpeg",
+          alt: "Sesión de trabajo colaborativo",
+          caption: "Trabajo colaborativo y servicio al bien común.",
+          credits: "© CECNSR — Centro de Comunicaciones Salvadoreño-Alemán. Uso académico interno.",
+          quote: {
+            text: "“Quien resuelve constantemente pequeños problemas no tiene grandes problemas”.",
+            by: "Prevención personal — PPäri",
+          },
+        },
+        {
+          src: "assets/pi-4pe-img2.jpeg",
+          alt: "Participantes en dinámica grupal",
+          caption: "Aprendizaje activo con enfoque en convivencia.",
+          credits: "© CECNSR — Archivo de formación. Uso académico interno.",
+          quote: {
+            text: "“Todo lo que es bueno para mí”",
+            by: "Autoconocimiento — IP & 4PE",
+          },
+        },
+        {
+          src: "assets/pi-4pe-img1.jpeg",
+          alt: "Exposición de contenidos y diálogo",
+          caption: "Intercambio de ideas y práctica guiada.",
+          credits: "© CECNSR — Archivo institucional. Uso académico interno.",
+          quote: {
+            text: "“Superar las dificultades te lleva a la valentía, el respeto por ti mismo y a conocerte mejor”.",
+            by: "Alfred Adler",
+          },
+        },
+      ];
+
+      const imgEl = document.getElementById("itnImg");
+      const capEl = document.getElementById("itnCaption");
+      const credEl = document.getElementById("itnCredits");
+      const quoteEl = document.getElementById("itnQuote");
+      const reelEl = document.getElementById("itnReel");
+
+      if (!imgEl || !capEl || !credEl || !quoteEl) return;
+
+      let i = 0,
+        timer = null;
+      const DURATION = 7000; // ms entre cambios
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      function swap(to) {
+        const s = slides[to];
+        // Fade out
+        [imgEl, capEl, quoteEl].forEach((el) =>
+          el.classList.add("is-swapping")
+        );
+
+        // Cambiar contenido después del fade
+        window.setTimeout(
+          () => {
+            imgEl.src = s.src;
+            imgEl.alt = s.alt;
+            capEl.textContent = s.caption;
+            credEl.textContent = s.credits;
+            // quote
+            quoteEl.innerHTML = `<p>${s.quote.text}</p><footer>${s.quote.by}</footer>`;
+            // Fade in
+            [imgEl, capEl, quoteEl].forEach((el) =>
+              el.classList.remove("is-swapping")
+            );
+          },
+          prefersReduced ? 0 : 220
+        );
+      }
+
+      function next() {
+        i = (i + 1) % slides.length;
+        swap(i);
+      }
+
+      function start() {
+        if (prefersReduced) return; // No autoplay si el usuario lo pide
+        if (timer) clearInterval(timer);
+        timer = setInterval(next, DURATION);
+      }
+
+      function stop() {
+        if (timer) clearInterval(timer);
+      }
+
+      // Pausar al pasar el mouse o focusear (mejora UX)
+      [reelEl, quoteEl].forEach((el) => {
+        if (!el) return;
+        el.addEventListener("mouseenter", stop);
+        el.addEventListener("mouseleave", start);
+        el.addEventListener("focusin", stop);
+        el.addEventListener("focusout", start);
+      });
+
+      // Inicia con el primer elemento (por si el HTML inicial es otro)
+      swap(0);
+      start();
+    })();
+  </script>
+
+  <!-- AFICHE (modal) -->
+  <script>
+    (() => {
+      const thumb = document.querySelector(".poster-thumb");
+      const modal = document.querySelector(".poster-modal");
+      if (!thumb || !modal) return;
+
+      const img = modal.querySelector("#poster-modal-img");
+      const dl = modal.querySelector("#poster-modal-download");
+      const nt = modal.querySelector("#poster-modal-newtab");
+      const backdrop = modal.querySelector(".poster-modal__backdrop");
+      const closes = modal.querySelectorAll("[data-close]");
+      let lastFocus = null;
+
+      function openModal(src) {
+        lastFocus = document.activeElement;
+        img.removeAttribute("src"); // evita parpadeo
+        img.src = src; // carga real
+        dl.href = src;
+        nt.href = src;
+        modal.hidden = false;
+        document.body.classList.add("modal-open"); // bloquea scroll del fondo
+        setTimeout(
+          () => modal.querySelector(".poster-modal__close").focus(),
+          0
+        );
+        document.addEventListener("keydown", onKey);
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        img.removeAttribute("src");
+        document.body.classList.remove("modal-open");
+        document.removeEventListener("keydown", onKey);
+        if (lastFocus) lastFocus.focus();
+      }
+
+      function onKey(e) {
+        if (e.key === "Escape") closeModal();
+
+        // Tab trapping básico
+        if (e.key === "Tab") {
+          const focusables = modal.querySelectorAll(
+            'a,button,[tabindex]:not([tabindex="-1"])'
+          );
+          const f = [...focusables].filter((el) => !el.disabled);
+          if (!f.length) return;
+          const first = f[0],
+            last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+          }
+        }
+      }
+
+      thumb.addEventListener("click", (e) => {
+        const src = e.currentTarget.getAttribute("data-poster"); // <- ya corregida
+        if (src) openModal(src);
+      });
+
+      backdrop.addEventListener("click", closeModal);
+      closes.forEach((b) => b.addEventListener("click", closeModal));
+    })();
+  </script>
+
+  <!-- GALERIA -->
+
+  <script>
+    (() => {
+      const reel = document.querySelector("#infinite-reel");
+      const modal = document.querySelector("#glightbox");
+      if (!reel || !modal) return;
+
+      const imgs = [...reel.querySelectorAll("img[data-full]")];
+      const imgEl = modal.querySelector("#glb-img");
+      const count = modal.querySelector(".lightbox__count");
+      const prevBt = modal.querySelector(".nav.prev");
+      const nextBt = modal.querySelector(".nav.next");
+      const closers = modal.querySelectorAll("[data-close]");
+
+      // ——— Abrir lightbox (nos quedamos con el índice del bloque A, no el duplicado) ———
+      const visibleSet = imgs.length / 2; // 5 si tienes 5 originales
+      let i = 0,
+        lastFocus = null,
+        touchX = null;
+
+      function normIndex(idx) {
+        // Colapsa índices duplicados a su original (0..visibleSet-1)
+        return ((idx % visibleSet) + visibleSet) % visibleSet;
+      }
+
+      function resetZoom() {
+        scale = 1;
+        tx = 0;
+        ty = 0;
+        imgEl.classList.remove("is-zoomed");
+        imgEl.style.transform = "";
+        imgEl.style.cursor = "zoom-in";
+      }
+
+      function set(n) {
+        i = normIndex(n);
+        const src = imgs[i].dataset.full; // usa el original
+        resetZoom();
+        imgEl.src = src;
+        imgEl.alt = imgs[i].alt || "Imagen ampliada";
+        if (count) count.textContent = `${i + 1} / ${visibleSet}`;
+      }
+
+      function open(idx) {
+        lastFocus = document.activeElement;
+        set(idx);
+        modal.hidden = false;
+        setTimeout(() => nextBt?.focus(), 0);
+        document.addEventListener("keydown", onKey);
+      }
+
+      function close() {
+        modal.hidden = true;
+        imgEl.src = "";
+        document.removeEventListener("keydown", onKey);
+        if (lastFocus) lastFocus.focus();
+      }
+
+      function next() {
+        set(i + 1);
+      }
+
+      function prev() {
+        set(i - 1);
+      }
+
+      function onKey(e) {
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+        if (e.key === "Tab") {
+          const f = modal.querySelectorAll("button,[data-close]");
+          const first = f[0],
+            last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+          }
+        }
+      }
+
+      imgs.forEach((im, idx) =>
+        im.addEventListener("click", () => open(normIndex(idx)))
+      );
+      closers.forEach((b) => b.addEventListener("click", close));
+      modal
+        .querySelector(".lightbox__backdrop")
+        .addEventListener("click", close);
+      prevBt.addEventListener("click", prev);
+      nextBt.addEventListener("click", next);
+
+      // swipe cambio
+      imgEl.addEventListener(
+        "touchstart",
+        (e) => (touchX = e.changedTouches[0].clientX), {
+          passive: true
+        }
+      );
+      imgEl.addEventListener(
+        "touchend",
+        (e) => {
+          if (touchX == null) return;
+          const dx = e.changedTouches[0].clientX - touchX;
+          if (Math.abs(dx) > 40)(dx < 0 ? next : prev)();
+          touchX = null;
+        }, {
+          passive: true
+        }
+      );
+
+      // bloquear menú contexto (desalentar descarga)
+      modal.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      // ——— Zoom + Pan ———
+      let scale = 1,
+        tx = 0,
+        ty = 0;
+      const MIN = 1,
+        MAX = 3,
+        STEP = 0.25;
+
+      function apply() {
+        imgEl.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+      }
+
+      function zoomAt(px, py, delta) {
+        const rect = imgEl.getBoundingClientRect();
+        const cx = px - rect.left,
+          cy = py - rect.top;
+        const prev = scale;
+        scale = Math.min(MAX, Math.max(MIN, scale + delta));
+        if (scale === prev) return;
+        const k = scale / prev - 1;
+        tx -= (cx - rect.width / 2) * k;
+        ty -= (cy - rect.height / 2) * k;
+        imgEl.classList.toggle("is-zoomed", scale > 1);
+        imgEl.style.cursor = scale > 1 ? "grab" : "zoom-in";
+        if (scale === 1) {
+          tx = 0;
+          ty = 0;
+          imgEl.style.cursor = "zoom-in";
+        }
+        apply();
+      }
+
+      // doble click/tap alterna zoom
+      let tap = 0;
+      imgEl.addEventListener("click", (e) => {
+        const now = Date.now();
+        if (now - tap < 300) {
+          scale === 1 ? zoomAt(e.clientX, e.clientY, 1.25) : resetZoom();
+        }
+        tap = now;
+      });
+      imgEl.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+          zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? -STEP : STEP);
+        }, {
+          passive: false
+        }
+      );
+
+      // pan con drag
+      let drag = false,
+        sx = 0,
+        sy = 0;
+      imgEl.addEventListener("mousedown", (e) => {
+        if (scale === 1) return;
+        drag = true;
+        sx = e.clientX - tx;
+        sy = e.clientY - ty;
+        imgEl.classList.add("is-zoomed");
+      });
+      window.addEventListener("mousemove", (e) => {
+        if (!drag) return;
+        tx = e.clientX - sx;
+        ty = e.clientY - sy;
+        apply();
+      });
+      window.addEventListener("mouseup", () => (drag = false));
+
+      // pan táctil
+      let touchPan = null;
+      imgEl.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.touches.length !== 1 || scale === 1) return;
+          const t = e.touches[0];
+          touchPan = {
+            ox: t.clientX - tx,
+            oy: t.clientY - ty
+          };
+        }, {
+          passive: true
+        }
+      );
+      imgEl.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!touchPan || e.touches.length !== 1) return;
+          const t = e.touches[0];
+          tx = t.clientX - touchPan.ox;
+          ty = t.clientY - touchPan.oy;
+          apply();
+        }, {
+          passive: true
+        }
+      );
+      imgEl.addEventListener("touchend", () => (touchPan = null), {
+        passive: true,
+      });
+    })();
+  </script>
+</body>
+
+</html>
