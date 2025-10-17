@@ -31,7 +31,7 @@
         aria-label="Estudiantes en sesión formativa">
         <span
           class="slide is-on"
-          style="background-image: url('assets/integra-img1.jpeg')"></span>
+          style="background-image: url('assets/integracion/integra-img1.jpeg')"></span>
         <span class="slide" aria-hidden="true"></span>
       </div>
 
@@ -93,7 +93,7 @@
         </div>
         <figure class="about-media">
           <img
-            src="assets/integra-img2.jpeg"
+            src="assets/integracion/integra-img2.jpeg"
             alt="Sesión plenaria con estudiantes" />
           <!-- <figcaption>Formación para el encuentro y el servicio</figcaption> -->
         </figure>
@@ -327,10 +327,10 @@
         <h2 class="section-title">Galería</h2>
         <div class="title-divider" aria-hidden="true"></div>
         <div class="gallery">
-          <a href="assets/integra-img1.jpeg"><img src="assets/integra-img1.jpeg" alt="" /></a>
-          <a href="assets/integra-img2.jpeg"><img src="assets/integra-img2.jpeg" alt="" /></a>
-          <a href="assets/integra-img3.jpeg"><img src="assets/integra-img3.jpeg" alt="" /></a>
-          <a href="assets/integra-img4.jpeg"><img src="assets/integra-img4.jpeg" alt="" /></a>
+          <a href="assets/integracion/integra-img1.jpeg"><img src="assets/integracion/integra-img1.jpeg" alt="" /></a>
+          <a href="assets/integracion/integra-img2.jpeg"><img src="assets/integracion/integra-img2.jpeg" alt="" /></a>
+          <a href="assets/integracion/integra-img3.jpeg"><img src="assets/integracion/integra-img3.jpeg" alt="" /></a>
+          <a href="assets/integracion/integra-img4.jpeg"><img src="assets/integracion/integra-img4.jpeg" alt="" /></a>
         </div>
         <p class="credits">
           Créditos: CECNSR / Proyecto de Integración (uso educativo).
@@ -587,9 +587,9 @@
     (function() {
       // ==== CONFIGURA AQUÍ TUS IMÁGENES ====
       const IMAGES = [
-        "assets/integra-img1.jpeg",
-        "assets/integra-img2.jpeg",
-        "assets/integra-img3.jpeg",
+        "assets/integracion/integra-img1.jpeg",
+        "assets/integracion/integra-img2.jpeg",
+        "assets/integracion/integra-img3.jpeg",
         "assets/integracion/integra-img5-salon.jpeg",
       ];
       const INTERVAL_MS = 6000; // tiempo que cada foto permanece

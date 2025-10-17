@@ -7,8 +7,8 @@
                 José No. 286, San Marcos, San Salvador
             </p>
             <p><i class="fas fa-phone"></i> 2503-1970 / 2220-6927</p>
-            <p><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</p>
-            <p>Atención al Público: Lunes a Viernes de 7:00 AM a 4:00 PM</p>
+            <p><i class="fas fa-envelope"></i> cecnsrosario@hotmail.com</p>
+            <p>Atención al Público: Lunes a Viernes de 7:00 a.m. - 1:00 p.m. y 2:00 p.m. - 4:00 p.m.</p>
         </div>
         <div class="footer-social">
             <h4>Síguenos</h4>

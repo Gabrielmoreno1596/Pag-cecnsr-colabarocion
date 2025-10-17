@@ -22,7 +22,6 @@
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/assets/partials/header.php'; ?>
 
   <!-- main content -->
-
   <!-- ===== HERO: Psicología Individual & 4 Puntos Esenciales ===== -->
   <section class="pi-hero" aria-labelledby="pi-title">
     <div class="pi-hero__content">
@@ -41,7 +40,7 @@
           <img
             width="34"
             height="34"
-            src="assets/Pdis-Disciplina-personal.png"
+            src="assets/4pe/Pdis-Disciplina-personal.png"
             alt="Logo Disciplina Personal" />
           <i class="fa-solid"></i> Disciplina Personal (PDíS)
         </li>
@@ -49,7 +48,7 @@
           <img
             width="34"
             height="34"
-            src="assets/PServ-Grado-de-servicio.png"
+            src="assets/4pe/PServ-Grado-de-servicio.png"
             alt="Logo Grado de Servicio" />
           <i class="fa-solid"></i> Grado de Servicio (PServ)
         </li>
@@ -57,7 +56,7 @@
           <img
             width="34"
             height="34"
-            src="assets/PVisit-Tarjeta-de-presentacion.png"
+            src="assets/4pe/PVisit-Tarjeta-de-presentacion.png"
             alt="Logo Tarjeta de Presentación" />
           <i class="fa-solid"></i> Tarjeta de Presentación (PVisit)
         </li>
@@ -65,7 +64,7 @@
           <img
             width="34"
             height="34"
-            src="assets/PPrav-Prevencion-personal.png"
+            src="assets/4pe/PPrav-Prevencion-personal.png"
             alt="Logo Prevención Personal" />
           <i class="fa-solid"></i> Prevención Personal (PPäri)
         </li>
@@ -89,7 +88,7 @@
       <!-- FOTO PRINCIPAL -->
       <img
         class="pi-hero__main"
-        src="assets/pi-4pe-img1.jpeg"
+        src="assets/4pe/pi-4pe-img1.jpeg"
         alt="Sesión formativa de Psicología Individual en el CECNSR" />
 
       <!-- REEL animado -->
@@ -97,32 +96,32 @@
         <div class="reel-track">
           <!-- Lista original -->
           <img
-            src="assets/pi-4pe-img2.jpeg"
+            src="assets/4pe/pi-4pe-img2.jpeg"
             alt="Participantes durante taller"
             role="button"
             tabindex="0" />
           <img
-            src="assets/pi-4pe-img3.jpeg"
+            src="assets/4pe/pi-4pe-img3.jpeg"
             alt="Equipo docente y aliados"
             role="button"
             tabindex="0" />
           <img
-            src="assets/pi-4pe-img4.jpeg"
+            src="assets/4pe/pi-4pe-img4.jpeg"
             alt="Presentación en aula"
             role="button"
             tabindex="0" />
           <img
-            src="assets/pi-4pe-img5.jpeg"
+            src="assets/4pe/pi-4pe-img5.jpeg"
             alt="Presentación en aula"
             role="button"
             tabindex="0" />
           <img
-            src="assets/pi-4pe-img1.jpeg"
+            src="assets/4pe/pi-4pe-img1.jpeg"
             alt="Presentación en aula"
             role="button"
             tabindex="0" />
           <img
-            src="assets/pi-4pe-img2.jpeg"
+            src="assets/4pe/pi-4pe-img2.jpeg"
             alt="Presentación en aula"
             role="button"
             tabindex="0" />
@@ -153,7 +152,7 @@
           <h3 class="pe-title">
             <img
               class="pe-icon"
-              src="assets/Pdis-Disciplina-personal.png"
+              src="assets/4pe/Pdis-Disciplina-personal.png"
               alt="PDÍS" />
             <span>PDÍS — <em>Disciplina Personal</em></span>
           </h3>
@@ -167,7 +166,7 @@
           <h3 class="pe-title">
             <img
               class="pe-icon"
-              src="assets/PServ-Grado-de-servicio.png"
+              src="assets/4pe/PServ-Grado-de-servicio.png"
               alt="PServ" />
             <span>PServ — <em>Grado de Servicio</em></span>
           </h3>
@@ -181,7 +180,7 @@
           <h3 class="pe-title">
             <img
               class="pe-icon"
-              src="assets/PVisit-Tarjeta-de-presentacion.png"
+              src="assets/4pe/PVisit-Tarjeta-de-presentacion.png"
               alt="PVisit" />
             <span>PVisit — <em>Tarjeta de Presentación</em></span>
           </h3>
@@ -195,7 +194,7 @@
           <h3 class="pe-title">
             <img
               class="pe-icon"
-              src="assets/PPrav-Prevencion-personal.png"
+              src="assets/4pe/PPrav-Prevencion-personal.png"
               alt="PPäri" />
             <span>PPäri — <em>Prevención Personal</em></span>
           </h3>
@@ -376,7 +375,7 @@
         <figure class="itn__media" id="itnReel" aria-live="polite">
           <img
             id="itnImg"
-            src="assets/pi-4pe-img3.jpeg"
+            src="assets/4pe/pi-4pe-img3.jpeg"
             alt="Sesión de trabajo colaborativo" />
           <figcaption id="itnCaption">
             Trabajo colaborativo y servicio al bien común.
@@ -573,64 +572,64 @@
           <!-- Bloque A (original) -->
           <figure class="card">
             <img
-              src="assets/pi-4pe-img1.jpeg"
-              data-full="assets/pi-4pe-img1.jpeg"
+              src="assets/4pe/pi-4pe-img1.jpeg"
+              data-full="assets/4pe/pi-4pe-img1.jpeg"
               alt="Sesión formativa 1" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img2.jpeg"
-              data-full="assets/pi-4pe-img2.jpeg"
+              src="assets/4pe/pi-4pe-img2.jpeg"
+              data-full="assets/4pe/pi-4pe-img2.jpeg"
               alt="Sesión formativa 2" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img3.jpeg"
-              data-full="assets/pi-4pe-img3.jpeg"
+              src="assets/4pe/pi-4pe-img3.jpeg"
+              data-full="assets/4pe/pi-4pe-img3.jpeg"
               alt="Exposición de trabajo" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img4.jpeg"
-              data-full="assets/pi-4pe-img4.jpeg"
+              src="assets/4pe/pi-4pe-img4.jpeg"
+              data-full="assets/4pe/pi-4pe-img4.jpeg"
               alt="Equipo docente" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img5.jpeg"
-              data-full="assets/pi-4pe-img5.jpeg"
+              src="assets/4pe/pi-4pe-img5.jpeg"
+              data-full="assets/4pe/pi-4pe-img5.jpeg"
               alt="Entrega de diplomas" />
           </figure>
 
           <!-- Bloque B (duplicado para bucle perfecto) -->
           <figure class="card">
             <img
-              src="assets/pi-4pe-img1.jpeg"
-              data-full="assets/pi-4pe-img1.jpeg"
+              src="assets/4pe/pi-4pe-img1.jpeg"
+              data-full="assets/4pe/pi-4pe-img1.jpeg"
               alt="Sesión formativa 1 (duplicada)" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img2.jpeg"
-              data-full="assets/pi-4pe-img2.jpeg"
+              src="assets/4pe/pi-4pe-img2.jpeg"
+              data-full="assets/4pe/pi-4pe-img2.jpeg"
               alt="Sesión formativa 2 (duplicada)" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img3.jpeg"
-              data-full="assets/pi-4pe-img3.jpeg"
+              src="assets/4pe/pi-4pe-img3.jpeg"
+              data-full="assets/4pe/pi-4pe-img3.jpeg"
               alt="Exposición de trabajo (duplicada)" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img4.jpeg"
-              data-full="assets/pi-4pe-img4.jpeg"
+              src="assets/4pe/pi-4pe-img4.jpeg"
+              data-full="assets/4pe/pi-4pe-img4.jpeg"
               alt="Equipo docente (duplicada)" />
           </figure>
           <figure class="card">
             <img
-              src="assets/pi-4pe-img5.jpeg"
-              data-full="assets/pi-4pe-img5.jpeg"
+              src="assets/4pe/pi-4pe-img5.jpeg"
+              data-full="assets/4pe/pi-4pe-img5.jpeg"
               alt="Entrega de diplomas (duplicada)" />
           </figure>
         </div>
@@ -911,7 +910,7 @@
     (() => {
       // --- Configuración: usa tus imágenes existentes del sitio ---
       const slides = [{
-          src: "assets/pi-4pe-img3.jpeg",
+          src: "assets/4pe/pi-4pe-img3.jpeg",
           alt: "Sesión de trabajo colaborativo",
           caption: "Trabajo colaborativo y servicio al bien común.",
           credits: "© CECNSR — Centro de Comunicaciones Salvadoreño-Alemán. Uso académico interno.",
@@ -921,7 +920,7 @@
           },
         },
         {
-          src: "assets/pi-4pe-img2.jpeg",
+          src: "assets/4pe/pi-4pe-img2.jpeg",
           alt: "Participantes en dinámica grupal",
           caption: "Aprendizaje activo con enfoque en convivencia.",
           credits: "© CECNSR — Archivo de formación. Uso académico interno.",
@@ -931,7 +930,7 @@
           },
         },
         {
-          src: "assets/pi-4pe-img1.jpeg",
+          src: "assets/4pe/pi-4pe-img1.jpeg",
           alt: "Exposición de contenidos y diálogo",
           caption: "Intercambio de ideas y práctica guiada.",
           credits: "© CECNSR — Archivo institucional. Uso académico interno.",

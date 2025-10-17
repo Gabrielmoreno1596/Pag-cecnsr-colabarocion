@@ -433,22 +433,22 @@
   <script>
     (function() {
       const slides = [{
-          src: "assets/dual-img2.jpeg",
+          src: "assets/dual/dual-img2.jpeg",
           alt: "Estudiantes CECNSR rumbo al programa dual",
           /* cap: "Salida al aeropuerto rumbo a Alemania", */
         },
         {
-          src: "assets/dual-img3-24.jpeg",
+          src: "assets/dual/dual-img3-24.jpeg",
           alt: "Grupo con bandera en aeropuerto",
           /* cap: "Despedida junto a familias y docentes", */
         },
         {
-          src: "assets/dual-img4-24.jpeg",
+          src: "assets/dual/dual-img4-24.jpeg",
           alt: "Equipo DUAL con bandera",
           /* cap: "Cohorte Proyecto DUAL 2024", */
         },
         {
-          src: "assets/dual-img1.jpg",
+          src: "assets/dual/dual-img1.jpg",
           alt: "Estudiantes antes del abordaje",
           /* cap: "Itinerario de inicio del programa", */
         },

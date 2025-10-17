@@ -1,24 +1,41 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/config.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CECNSR - Colegios PASCH</title>
-  <link
-    rel="stylesheet"
+
+  <!-- Normalize primero -->
+  <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style-convenios.css?v=3" />
-  <link rel="shortcut icon" href="assets/1_CECNSR.png" type="image/x-icon" />
-  <link
-    rel="stylesheet"
+
+  <!-- Tus hojas -->
+  <link rel="stylesheet" href="<?= asset('styles.css') ?>">
+  <link rel="stylesheet" href="<?= asset('assets/css/style-convenios.css') ?>">
+
+  <!-- Iconos -->
+  <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png') ?>" type="image/x-icon" />
+
+  <!-- SEO/OG -->
+  <link rel="canonical" href="https://www.cecnsrosariosv.com/contribuciones/sitececnsr/pasch.php">
+  <meta name="description" content="El CECNSR participa en PASCH: alemán, interculturalidad y oportunidades para estudiantes.">
+  <meta property="og:title" content="CECNSR — Colegios PASCH">
+  <meta property="og:description" content="Aprendizaje de alemán, interculturalidad y oportunidades PASCH.">
+  <meta property="og:image" content="<?= asset('assets/og/pasch-cover.jpg') ?>">
+  <meta property="og:url" content="https://www.cecnsrosariosv.com/contribuciones/sitececnsr/pasch.php">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
 
-  <?php include $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/assets/partials/header.php'; ?>
+  <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
+
 
   <!-- main -->
   <section class="hero hero--signature" aria-labelledby="hero-pasch-title">
@@ -525,32 +542,10 @@
       </section> -->
   </section>
 
-  <footer id="contacto" class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-info">
-        <h4>Contacto</h4>
-        <p>
-          <i class="fas fa-map-marker-alt"></i> Calle 15 de Septiembre Av. San
-          José No. 286, San Marcos, San Salvador
-        </p>
-        <p><i class="fas fa-phone"></i> 2503-1970 / 2220-6927</p>
-        <p><i class="fas fa-envelope"></i> CECNSROSARIO@HOTMAIL.COM</p>
-        <p>Atención al Público: Lunes a Viernes de 7:00 AM a 4:00 PM</p>
-      </div>
-      <div class="footer-social">
-        <h4>Síguenos</h4>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>
-        &copy; 2025 CECNSR. Todos los derechos reservados. Desarrollado con 💙
-        en El Salvador.
-      </p>
-    </div>
-  </footer>
+
+  <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
+
+
   <script src="script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
