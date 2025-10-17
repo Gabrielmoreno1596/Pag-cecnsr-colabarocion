@@ -1,0 +1,713 @@
+/* ========================================================================= */
+/* === [1] CONFIGURACIÓN GLOBAL Y UTILIDADES === */
+/* ========================================================================= */
+
+/* --- [1.1] Variables CSS (Paleta de Colores) --- */
+:root {
+    --cecns-blue: #004080; /* Azul Primario Institucional (Escuela) */
+    --cecns-gold: #FFC300; /* Dorado de Acento (Contraste) */
+    --cecns-wine: #800020; /* Color Vino Oscuro para fondos de Misión/Visión */
+    --text-color: #333; /* Color de texto principal */
+    --bg-light: #f8f9fa; /* Color de fondo claro */
+    --bg-white: #fff; /* Color de fondo blanco */
+    --link-color: var(--cecns-blue);
+}
+
+/* --- [1.2] Base y Reset --- */
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6; 
+    color: var(--text-color); 
+    background-color: var(--bg-white); 
+}
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: var(--cecns-gold);
+}
+
+/* --- [1.3] Utilidades Generales --- */
+.section-padding {
+    padding: 3rem 10%; 
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--bg-light); 
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--cecns-gold);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--cecns-gold);
+    border-radius: 2px;
+}
+.sub-title {
+    color: var(--cecns-gold);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+
+/* ========================================================================= */
+/* === [2] ESTRUCTURA PRINCIPAL (HEADER, NAV Y HERO) === */
+/* ========================================================================= */
+
+/* --- [2.1] Encabezado y Navegación --- */
+.main-header {
+    background: var(--bg-white);
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-img {
+    height: 40px;
+}
+.logo h1 {
+    color: var(--cecns-blue);
+    font-size: 1.5rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 1rem 1.2rem;
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
+    font-weight: 600;
+}
+.main-nav a:hover,
+.dropdown-menu a:hover {
+    color: white;
+    background-color: var(--cecns-blue);
+}
+
+/* Botón CTA en la Navegación */
+.btn-cta-nav {
+    background-color: var(--cecns-gold) !important;
+    color: var(--cecns-blue) !important;
+    border-radius: 5px;
+    padding: 0.7rem 1.2rem !important;
+    margin-left: 10px;
+}
+.btn-cta-nav:hover {
+    background-color: var(--cecns-blue) !important;
+    color: var(--cecns-gold) !important;
+}
+
+/* --- [2.2] Menú Desplegable (Dropdown) --- */
+.dropdown {
+    position: relative;
+    z-index: 2000; 
+}
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: var(--cecns-blue);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    min-width: 350px; 
+    list-style: none;
+    padding: 0;
+    border-radius: 5px;
+    z-index: 2001; 
+    display: none; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.dropdown-menu li a {
+    color: white;
+    padding: 10px 15px;
+    font-weight: 400;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+}
+.dropdown-menu li a:hover {
+    background-color: var(--cecns-gold);
+    color: var(--cecns-blue);
+}
+
+/* Mostrar dropdown en hover para escritorio */
+@media (min-width: 993px) {
+    .dropdown:hover .dropdown-menu {
+        display: block !important; 
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Botón de Menú Móvil (Hamburguesa) */
+.nav-toggle {
+    display: none; /* Oculto en escritorio */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--cecns-blue);
+}
+
+/* --- [2.3] Sección Hero (Portada) --- */
+.hero {
+    background: var(--cecns-blue);
+    color: #fff;
+    padding: 3rem 5% 2rem 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    z-index: 2;
+    position: relative;
+}
+.hero-slogan {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    z-index: 2;
+    position: relative;
+}
+
+/* Estilo para todos los Botones Primarios */
+.btn-primary {
+    display: inline-block;
+    background: var(--cecns-gold);
+    color: var(--cecns-blue);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+    z-index: 2;
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: #ffdb60;
+}
+
+/* ========================================================================= */
+/* === [3] BLOQUES DE CONTENIDO (PÁGINA PRINCIPAL) === */
+/* ========================================================================= */
+
+/* --- [3.1] Filosofía (Misión/Visión/Valores) --- */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.mission-vision-card {
+    background: var(--cecns-wine);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    color: white;
+}
+.mission-vision-card h3,
+.mission-vision-card p {
+    color: white;
+}
+.mission-vision-card i {
+    font-size: 2.5rem;
+    color: var(--cecns-gold);
+    margin-bottom: 1rem;
+}
+.mission-vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjetas de Valores */
+.values-card {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    color: var(--text-color);
+}
+.values-list {
+    list-style: none;
+    text-align: left;
+    margin-top: 1rem;
+}
+.values-list li {
+    padding: 5px 0;
+    color: var(--cecns-blue);
+    font-weight: bold;
+}
+.values-list li i {
+    color: var(--cecns-gold);
+    margin-right: 8px;
+}
+.media-placeholder {
+    min-height: 300px;
+    background: #eee;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    border-radius: 8px;
+    color: #666;
+}
+
+/* --- [3.2] Bloque de Historia --- */
+.history-flex-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px;
+    align-items: center; 
+    text-align: left; 
+    margin-bottom: 3rem;
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.history-text-block {
+    flex: 1; 
+    min-width: 450px; 
+    background-color: var(--cecns-blue); 
+    color: white; 
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+}
+.history-text-block h3 {
+    color: var(--cecns-gold); 
+    margin-bottom: 1.5rem;
+}
+.history-text-block p {
+    margin-bottom: 1rem;
+    color: white; 
+    font-size: 1.05rem;
+}
+.history-text-block ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.history-text-block ul li {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    padding-left: 0; 
+    display: flex;
+    align-items: flex-start;
+}
+.history-text-block ul li i {
+    margin-right: 10px;
+    color: var(--cecns-gold); 
+    font-size: 1.2rem;
+    margin-top: 3px; 
+}
+
+/* --- [3.3] Carrusel de Historia (5 Imágenes) --- */
+.history-carousel-container {
+    flex: 1; 
+    min-width: 400px; 
+    height: 450px; 
+    overflow: hidden; 
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    background-color: #f0f0f0; 
+}
+.history-carousel-track {
+    display: flex;
+    width: fit-content; 
+    height: 100%;
+    animation: slide-carousel 20s infinite linear; 
+}
+.history-carousel-img {
+    width: 400px; /* Sincronizado con el salto de Keyframes */
+    height: 100%;
+    object-fit: cover; 
+    flex-shrink: 0; 
+    border-radius: 10px;
+}
+/* Keyframes para el Carrusel de Historia */
+@keyframes slide-carousel {
+    0% { transform: translateX(0); }
+    15% { transform: translateX(0); } 
+    20% { transform: translateX(-400px); } 
+    35% { transform: translateX(-400px); }
+    40% { transform: translateX(-800px); } 
+    55% { transform: translateX(-800px); }
+    60% { transform: translateX(-1200px); } 
+    75% { transform: translateX(-1200px); }
+    80% { transform: translateX(-1600px); } 
+    95% { transform: translateX(-1600px); }
+    100% { transform: translateX(0); } 
+}
+
+/* --- [3.4] Carrusel de Infraestructura (7 Imágenes) - LENTITUD AJUSTADA a 25s --- */
+.infra-carousel-container {
+    min-width: 400px; 
+    height: 350px; 
+    overflow: hidden; 
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    background-color: #f0f0f0; 
+    margin-bottom: 2rem; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px; 
+    width: 90%; 
+}
+.infra-carousel-track {
+    display: flex;
+    width: 700%; 
+    height: 100%;
+    /* Velocidad: 25 segundos para 7 imágenes */
+    animation: infra-slide-carousel 25s infinite linear; 
+}
+.infra-carousel-img {
+    width: calc(100% / 7); 
+    height: 100%;
+    object-fit: cover; 
+    flex-shrink: 0; 
+    border-radius: 10px;
+}
+/* Keyframes para el Carrusel de Infraestructura (7 imágenes) */
+@keyframes infra-slide-carousel {
+    0% { transform: translateX(0%); } 
+    16% { transform: translateX(-14.2857%); } 
+    32% { transform: translateX(-28.5714%); } 
+    48% { transform: translateX(-42.8571%); } 
+    64% { transform: translateX(-57.1428%); } 
+    80% { transform: translateX(-71.4285%); } 
+    96% { transform: translateX(-85.7142%); } 
+    100% { transform: translateX(0%); } 
+}
+
+/* --- [3.5] Galería de Fotos (Rollo Scroll Horizontal) --- */
+.photo-roll-container {
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.photo-roll {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 0 5%;
+    width: max-content;
+}
+.photo-item {
+    flex-shrink: 0;
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+.photo-item:hover {
+    transform: scale(1.03);
+}
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.photo-roll-container::-webkit-scrollbar {
+    height: 8px;
+}
+.photo-roll-container::-webkit-scrollbar-thumb {
+    background: var(--cecns-gold);
+    border-radius: 10px;
+}
+.photo-roll-container::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+/* --- [3.6] Formulario de Admisión --- */
+.admission-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--cecns-blue);
+}
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--cecns-gold);
+    outline: none;
+}
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ========================================================================= */
+/* === [5] PIE DE PÁGINA (FOOTER) === */
+/* ========================================================================= */
+
+.main-footer {
+    background: var(--cecns-blue);
+    color: white;
+    padding: 2rem 10%;
+    text-align: left;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+.footer-info p {
+    margin-bottom: 8px;
+}
+.footer-info i {
+    margin-right: 10px;
+    color: var(--cecns-gold);
+}
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+.footer-social a:hover {
+    color: var(--cecns-gold);
+}
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 1rem;
+}
+
+
+/* ========================================================================= */
+/* === [6] MEDIA QUERIES (RESPONSIVE) === */
+/* ========================================================================= */
+
+@media (max-width: 992px) {
+    /* AJUSTE: Relleno y encabezado reducido en móvil */
+    .section-padding {
+        padding: 2rem 5%;
+    }
+    .main-header {
+        padding: 1rem 5%;
+    }
+
+    /* --- [6.1] Estructura General y Grids --- */
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+    .history-flex-container {
+        flex-direction: column; 
+        gap: 20px;
+    }
+    .history-text-block {
+        min-width: unset; 
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    /* Galería Móvil: Ajusta el tamaño de las fotos para el rollo */
+    .photo-item {
+        width: 250px;
+        height: 150px;
+    }
+
+    /* --- [6.2] Navegación Móvil --- */
+    .nav-toggle {
+        display: block !important; 
+    }
+    .main-nav {
+        display: none; 
+        width: 100%;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background: var(--cecns-blue);
+        flex-direction: column;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+        z-index: 2000;
+    }
+    .main-nav.active {
+        display: flex !important; 
+    }
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    .main-nav ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .main-nav a {
+        padding: 1rem;
+        color: white;
+        text-align: left; 
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+    }
+    /* Submenú en móvil */
+    .dropdown-menu {
+        position: static !important; 
+        background: #002c5c; 
+        width: 100%;
+        border-radius: 0;
+        display: none !important; 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    .dropdown.open .dropdown-menu {
+        display: block !important; 
+    }
+    .dropdown-menu li a {
+        padding-left: 3rem; 
+    }
+    .btn-cta-nav {
+        display: block;
+        text-align: center;
+        margin: 1rem; 
+        width: auto;
+    }
+
+    /* --- [6.3] Carruseles Responsive --- */
+    /* Historia Móvil */
+    .history-carousel-container {
+        min-width: unset;
+        width: 100%;
+        height: 300px; 
+    }
+    .history-carousel-img {
+        width: 100%; 
+    }
+    @keyframes slide-carousel {
+        0% { transform: translateX(0%); }
+        15% { transform: translateX(0%); }
+        20% { transform: translateX(-100%); }
+        35% { transform: translateX(-100%); }
+        40% { transform: translateX(-200%); }
+        55% { transform: translateX(-200%); }
+        60% { transform: translateX(-300%); }
+        75% { transform: translateX(-300%); }
+        80% { transform: translateX(-400%); }
+        95% { transform: translateX(-400%); }
+        100% { transform: translateX(0%); }
+    }
+    
+    /* Infraestructura Móvil (Lentitud Ajustada) */
+    .infra-carousel-container {
+        min-width: unset;
+        width: 100%;
+        height: 250px; 
+        margin: 0;
+        max-width: 100%;
+    }
+    .infra-carousel-track {
+        width: 700%; 
+        /* Velocidad: 25 segundos para 7 imágenes */
+        animation: infra-slide-carousel 25s infinite linear; 
+    }
+    .infra-carousel-img {
+        width: calc(100% / 7) !important; 
+    }
+    
+    @keyframes infra-slide-carousel {
+        0% { transform: translateX(0%); } 
+        16% { transform: translateX(-14.2857%); } 
+        32% { transform: translateX(-28.5714%); } 
+        48% { transform: translateX(-42.8571%); } 
+        64% { transform: translateX(-57.1428%); } 
+        80% { transform: translateX(-71.4285%); } 
+        96% { transform: translateX(-85.7142%); } 
+        100% { transform: translateX(0%); } 
+    }
+}

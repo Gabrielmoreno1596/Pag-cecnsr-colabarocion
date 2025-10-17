@@ -514,7 +514,7 @@
             pointer-events: none;
             background: radial-gradient(120% 52px at 50% -2px, rgba(0, 0, 0, .12), transparent 60%);
             opacity: .08;
-            mix-blend-multiply;
+
         }
 
         .wave--top {

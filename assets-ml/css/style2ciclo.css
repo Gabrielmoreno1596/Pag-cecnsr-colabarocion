@@ -1,0 +1,329 @@
+/* ========================================================================= */
+/* === [1] CONFIGURACIÓN GLOBAL, PALETA Y UTILIDADES === */
+/* ========================================================================= */
+
+:root {
+    --cecns-blue: #004080; /* Azul Primario Institucional */
+    --cecns-gold: #FFC300; /* Dorado de Acento */
+    --cecns-wine: #800020; /* Color Vino Oscuro */
+    --text-color: #333; 
+    --bg-light: #f8f9fa; 
+    --bg-white: #fff; 
+    --link-color: var(--cecns-blue);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Arial', sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-white); }
+a { color: var(--link-color); text-decoration: none; transition: color 0.3s; }
+a:hover { color: var(--cecns-gold); }
+.content-wrapper { max-width: 1100px; margin: 0 auto; text-align: left; padding: 0 5%; }
+.section-padding { padding: 3.5rem 0; }
+.bg-light { background-color: var(--bg-light); }
+.bg-blue-accent { background-color: var(--cecns-blue); color: white; }
+.text-gold { color: var(--cecns-gold) !important; }
+.text-white { color: var(--bg-white) !important; }
+.section-title { font-size: 2.2rem; color: var(--cecns-blue); margin-bottom: 2rem; text-align: center; }
+.section-title i { color: var(--cecns-gold); margin-right: 10px; }
+.section-title::after {
+    content: ''; display: block; width: 60px; height: 3px; background-color: var(--cecns-gold); margin: 10px auto 0; border-radius: 2px;
+}
+
+/* ========================================================================= */
+/* === [2] ESTRUCTURA PRINCIPAL (HEADER, NAV Y DROP DOWNS) === */
+/* ========================================================================= */
+.main-header {
+    background: var(--bg-white); padding: 0.5rem 5%; display: flex; justify-content: flex-start; align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-img { height: 45px; }
+.logo h1 { color: var(--cecns-blue); font-size: 1.5rem; font-weight: bold; }
+.nav-toggle {
+    display: none; background: none; border: none; font-size: 1.8rem; color: var(--cecns-blue); 
+    cursor: pointer; padding: 0; z-index: 1001; margin-left: auto; 
+}
+.main-nav { margin-left: auto; }
+.main-nav ul { list-style: none; display: flex; align-items: center; }
+.main-nav a {
+    text-decoration: none; color: var(--text-color); padding: 1rem 1rem; display: block; 
+    transition: color 0.3s, background-color 0.3s; font-weight: 500;
+}
+.main-nav a:hover { color: var(--cecns-blue); background-color: var(--bg-light); }
+.btn-cta-nav {
+    background-color: var(--cecns-gold) !important; color: var(--cecns-blue) !important; border-radius: 5px;
+    padding: 0.8rem 1.5rem !important; font-weight: bold; margin-left: 15px; 
+}
+.btn-cta-nav:hover { background-color: var(--cecns-blue) !important; color: var(--cecns-gold) !important; }
+.dropdown { position: relative; z-index: 2000; }
+
+/* FIX 1: Ocultar el menú desplegable por defecto */
+.dropdown-menu {
+    position: absolute; top: 100%; left: 0; background-color: var(--cecns-blue);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); min-width: 350px; list-style: none; padding: 0;
+    border-radius: 5px; z-index: 2001; 
+    display: none; 
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; 
+}
+.dropdown-toggle i { margin-left: 5px; font-size: 0.8em; transition: transform 0.3s ease; }
+.dropdown-menu li a { color: white; padding: 10px 15px; font-weight: 400; }
+.dropdown-menu li a:hover { background-color: var(--cecns-gold); color: var(--cecns-blue); }
+
+@media (min-width: 901px) {
+    /* Muestra solo al pasar el ratón en desktop */
+    .dropdown:hover .dropdown-menu { 
+        display: block; 
+        opacity: 1; 
+        visibility: visible; 
+        pointer-events: auto; 
+    }
+}
+.main-footer { background: var(--cecns-blue); color: white; padding: 2rem 5%; text-align: center; font-size: 0.9rem; }
+
+
+/* ========================================================================= */
+/* === [3] ESTILOS ESPECÍFICOS: SEGUNDO CICLO (II CICLO) === */
+/* ========================================================================= */
+
+/* --- [3.1] Hero Banner de Nivel: II Ciclo --- */
+.second-cycle-hero {
+    background: linear-gradient(rgba(0, 100, 0, 0.8), rgba(0, 100, 0, 0.8)), 
+                url('ruta/a/imagen_fondo_iiciclo.jpg') center/cover;
+    padding: 5rem 5%; color: white; text-align: center;
+}
+.second-cycle-hero .level-hero-title {
+    color: var(--cecns-gold);
+    font-size: 4.5rem; 
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- [3.2] Metas del Nivel + Carrusel --- */
+.goal-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* --- [3.3] Estilos de Pestañas (Tabs) --- */
+.tabs-container { max-width: 900px; margin: 0 auto; border: 1px solid var(--bg-light); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); }
+.tabs-buttons { display: flex; justify-content: center; border-bottom: 2px solid var(--bg-light); }
+.tab-button { flex-grow: 1; padding: 1rem 1.5rem; font-size: 1.1rem; font-weight: 600; cursor: pointer; border: none; background-color: var(--bg-white); color: var(--cecns-blue); border-bottom: 3px solid transparent; transition: all 0.3s ease; }
+.tab-button.active { background-color: var(--cecns-blue); color: var(--cecns-gold); border-bottom-color: var(--cecns-gold); }
+.tab-content { padding: 30px; background-color: var(--bg-white); border-radius: 0 0 8px 8px; display: none; } 
+.tab-content.active { display: block; } 
+.tab-content h3 { color: var(--cecns-wine); margin-bottom: 15px; border-bottom: 1px dashed var(--bg-light); padding-bottom: 10px; }
+.requirements-list-enhanced { list-style: none; padding-left: 0; margin-top: 20px; }
+.requirements-list-enhanced li { padding: 8px 0; font-size: 1rem; border-bottom: 1px dashed var(--bg-light); display: flex; align-items: center; }
+.requirements-list-enhanced li i { color: var(--cecns-wine); margin-right: 15px; font-size: 1.2rem; }
+
+
+/* --- [3.4] Estilos de Acordeón (Proceso de Admisión) --- */
+.accordion-container { 
+    max-width: 800px; margin: 0 auto; 
+    border-radius: 8px; overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+}
+.accordion-header {
+    background-color: var(--bg-white); 
+    color: var(--cecns-blue); 
+    cursor: pointer; 
+    padding: 18px 25px; 
+    width: 100%; 
+    text-align: left; 
+    border: none; 
+    outline: none; 
+    transition: background-color 0.4s, color 0.4s, border-left 0.4s;
+    font-size: 1.2rem; 
+    font-weight: bold;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--bg-light);
+    border-left: 10px solid var(--cecns-gold); 
+}
+.accordion-header:hover { background-color: var(--bg-light); }
+.accordion-icon { transition: transform 0.4s; }
+.accordion-header.active { 
+    background-color: var(--cecns-wine); 
+    color: var(--bg-white); 
+    border-left: 10px solid var(--bg-white); 
+}
+.accordion-content {
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.4s ease-out; 
+    padding: 0 30px; 
+    background-color: var(--bg-white); 
+    border-radius: 0 0 8px 8px; 
+    border: 1px solid var(--bg-light);
+    border-top: none;
+}
+.accordion-content.show {
+    max-height: 500px; 
+    padding: 20px 30px; 
+}
+.age-notice { background-color: var(--cecns-gold); color: var(--cecns-blue); padding: 10px; border-radius: 5px; margin-bottom: 20px;}
+.document-list { list-style: none; padding-left: 0; }
+.document-list li { padding: 5px 0; border-bottom: 1px dashed var(--bg-light); display: flex; align-items: center; }
+.document-list li i { color: var(--cecns-blue); margin-right: 15px; }
+
+
+/* --- [3.5] Valores Agregados (3 Columnas en Desktop) --- */
+.service-circles-grid.full-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
+    margin: 3.5rem auto 0 auto;
+}
+
+/* --- [3.6] Estilos para el Carrusel de Fotos (CSS Puro) - FIX METAS --- */
+.photo-carousel-container {
+    margin-top: 3.5rem;
+    text-align: center;
+}
+.carousel-title {
+    color: var(--cecns-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--cecns-gold);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.photo-roll-wrapper {
+    overflow-x: auto; 
+    overflow-y: hidden;
+    white-space: nowrap; 
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+}
+.photo-roll {
+    display: flex; 
+    gap: 15px;
+    padding-bottom: 10px; 
+}
+.photo-item {
+    flex-shrink: 0; 
+    width: 300px; 
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+.photo-item img:hover {
+    transform: scale(1.05);
+}
+.carousel-caption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* ========================================================================= */
+/* === [4] RESPONSIVE Y MENU MÓVIL (NAVBAR HAMBURGUESA) - CORREGIDO === */
+/* ========================================================================= */
+@media (max-width: 900px) { 
+    .main-header {
+        justify-content: space-between;
+    }
+    /* Titulo en móvil */
+    .first-cycle-hero .level-hero-title {
+        font-size: 3rem; 
+    }
+    
+    /* 1. Mostrar el botón de hamburguesa */
+    .nav-toggle {
+        display: block !important; 
+    }
+    
+    /* 2. Ocultar la navegación por defecto */
+    .main-nav {
+        display: none !important; 
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--cecns-blue);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        margin-left: 0;
+    }
+    
+    /* 3. Mostrar la navegación cuando se activa con JS */
+    .main-nav.active {
+        display: block !important;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .main-nav a {
+        color: var(--bg-white);
+        padding: 12px 20px;
+        width: 100%;
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Ocultar el botón CTA en móvil */
+    .btn-cta-nav {
+        display: none;
+    }
+
+    /* ESTILOS DEL SUBMENÚ DESPLEGABLE EN MÓVIL (CLASE .open) */
+    .dropdown-menu {
+        position: static !important; 
+        background-color: #002c5c; 
+        box-shadow: none;
+        min-width: unset;
+        border-radius: 0;
+        display: none !important; 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block !important;
+        padding: 0; 
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 30px; 
+        background-color: #002c5c;
+    }
+    
+    /* Metas + Carrusel a una sola columna */
+    .level-goals-carousel-grid {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+    .goals-list-container .profile-item-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .goals-list-container .profile-item-card h4, 
+    .goals-list-container .profile-item-card p {
+        text-align: center;
+    }
+    /* Tabs en móvil a una columna */
+    .tabs-buttons {
+        flex-direction: column;
+    }
+}

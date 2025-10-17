@@ -1,0 +1,412 @@
+/* ========================================================================= */
+/* === [0] VARIABLES GLOBALES DE COLOR (INSTITUCIONAL y III CICLO) === */
+/* ========================================================================= */
+:root {
+    --cecns-wine: #800020; /* Vino Oscuro (Color acento III Ciclo) */
+    --cecns-gold: #FFC300; /* Amarillo/Oro (Acento Institucional) */
+    --cecns-blue: #004AAD; /* Azul Institucional (Principal del Header/Menú) */
+    --bg-white: #ffffff;
+    --text-color: #333;
+    --text-color-light: #666;
+    --bg-light: #f8f8f8; /* Nueva variable añadida para consistencia */
+    
+    --iii-ciclo-color: var(--cecns-wine); 
+    --header-height: 65px; /* Usaremos esta altura como referencia */
+}
+
+/* ========================================================================= */
+/* === [A] AJUSTES BASE Y TIPOGRAFÍA === */
+/* ========================================================================= */
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+body {
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6; 
+    color: var(--text-color); 
+    background-color: var(--bg-white); 
+    scroll-behavior: smooth; 
+}
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+p { margin-bottom: 1rem; }
+.section-padding { padding: 3rem 5%; text-align: center; }
+.bg-light { background-color: var(--bg-light); }
+.content-wrapper { max-width: 1000px; margin: 0 auto; }
+.text-gold { color: var(--cecns-gold) !important; }
+
+/* Títulos y Listas */
+.section-title { font-size: 2.2rem; color: var(--iii-ciclo-color); margin-bottom: 0.5rem; font-weight: 700; }
+.section-title i { color: var(--cecns-gold); margin-right: 10px; }
+.section-subtitle { font-size: 1.1rem; color: var(--text-color-light); margin-bottom: 2rem; }
+.requirements-list-enhanced { list-style: none; padding: 0; margin-top: 15px; text-align: left; }
+.requirements-list-enhanced li { padding: 10px 0; font-size: 1.05rem; border-bottom: 1px dashed #eee; }
+.requirements-list-enhanced li i { margin-right: 10px; color: var(--cecns-blue); }
+
+/* Empuje del contenido principal */
+main { padding-top: var(--header-height); }
+
+
+/* ========================================================================= */
+/* === [B] HEADER Y NAVEGACIÓN (Tus reglas corregidas) === */
+/* ========================================================================= */
+.main-header {
+    /* Usamos sticky para mantenerlo arriba, pero fixed para el responsive */
+    background: var(--bg-white); 
+    padding: 0.5rem 5%; 
+    display: flex; 
+    justify-content: flex-start; /* Alinea logo a la izquierda */
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    position: sticky; /* Mantener sticky como base */
+    top: 0; 
+    z-index: 1000;
+    /* Para manejar el padding-top del main, usaremos el JS o media queries para ajustar a 60-65px */
+}
+.logo { display: flex; align-items: center; gap: 10px; z-index: 1001; }
+.logo-img { height: 45px; } /* CLAVE: El tamaño del logo está controlado aquí */
+.logo h1 { color: var(--cecns-blue); font-size: 1.5rem; font-weight: bold; }
+
+.nav-toggle {
+    display: none; 
+    background: none; 
+    border: none; 
+    font-size: 1.8rem; 
+    color: var(--cecns-blue); 
+    cursor: pointer; 
+    padding: 0; 
+    z-index: 1001; 
+    margin-left: auto; /* Empuja el toggle a la derecha */
+}
+.main-nav { margin-left: auto; } /* Empuja la navegación al centro/derecha */
+.main-nav ul { list-style: none; display: flex; align-items: center; }
+.main-nav a {
+    text-decoration: none; 
+    color: var(--text-color); 
+    padding: 1rem 1rem; 
+    display: block; 
+    transition: color 0.3s, background-color 0.3s; 
+    font-weight: 500;
+}
+.main-nav a:hover { color: var(--cecns-blue); background-color: var(--bg-light); }
+.btn-cta-nav {
+    background-color: var(--cecns-gold) !important; 
+    color: var(--cecns-blue) !important; 
+    border-radius: 5px;
+    padding: 0.8rem 1.5rem !important; 
+    font-weight: bold; 
+    margin-left: 15px; 
+}
+.btn-cta-nav:hover { background-color: var(--cecns-blue) !important; color: var(--cecns-gold) !important; }
+
+/* --- Dropdown (Submenú - Desktop/Base) --- */
+.dropdown { position: relative; z-index: 2000; }
+.dropdown-menu {
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    background-color: var(--cecns-blue);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+    min-width: 350px; 
+    list-style: none; 
+    padding: 0;
+    border-radius: 5px; 
+    z-index: 2001; 
+    display: none; 
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; 
+}
+.dropdown-toggle i { margin-left: 5px; font-size: 0.8em; transition: transform 0.3s ease; }
+.dropdown-menu li a { color: white; padding: 10px 15px; font-weight: 400; }
+.dropdown-menu li a:hover { background-color: var(--cecns-gold); color: var(--cecns-blue); }
+
+
+/* ========================================================================= */
+/* === [C] SECCIÓN HERO (III CICLO - VINO OSCURO) === */
+/* ========================================================================= */
+.third-cycle-hero {
+    background: var(--cecns-wine); 
+    padding: 4rem 5%; 
+    color: white; 
+    text-align: center;
+}
+.level-hero-title {
+    color: var(--cecns-gold); 
+    font-size: 3.2rem; 
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+.level-hero-slogan {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+/* ========================================================================= */
+/* === [D] VALORES AGREGADOS (GRID DE TARJETAS) - Mantenido === */
+/* ========================================================================= */
+.value-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.value-card {
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+    background-color: var(--bg-white);
+}
+.value-card:hover { transform: translateY(-5px); }
+.value-icon { font-size: 2.8rem; margin-bottom: 15px; display: block; }
+.color-blue { color: var(--cecns-blue); }
+.color-gold { color: var(--cecns-gold); }
+.color-wine { color: var(--cecns-wine); }
+.value-card h4 { color: var(--cecns-blue); margin-bottom: 10px; font-size: 1.2rem; }
+.value-card p { font-size: 0.95rem; color: var(--text-color-light); }
+
+
+/* ========================================================================= */
+/* === [E] TABS (PERFIL ESTUDIANTE) - Mantenido === */
+/* ========================================================================= */
+.tabs-container {
+    margin: 40px auto;
+    border: 1px solid var(--iii-ciclo-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.tabs-buttons { display: flex; background-color: #e9e9e9; border-bottom: 1px solid var(--iii-ciclo-color); }
+.tab-button {
+    flex-grow: 1;
+    padding: 18px 10px;
+    border: none;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--iii-ciclo-color);
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.tab-button.active {
+    background-color: var(--iii-ciclo-color); 
+    color: var(--cecns-gold); 
+    border-bottom-color: var(--cecns-gold); 
+    font-weight: bold;
+}
+.tab-content { padding: 30px; display: none; background-color: var(--bg-white); text-align: left; }
+.tab-content.active { display: block; }
+.tab-content h3 { color: var(--iii-ciclo-color); margin-bottom: 15px; font-size: 1.5rem; }
+
+
+/* ========================================================================= */
+/* === [F] CARRUSEL DE FOTOS (ACTIVIDADES DESTACADAS) - Mantenido === */
+/* ========================================================================= */
+.photo-carousel-container { margin: 40px auto; max-width: 900px; text-align: center; }
+.carousel-title { color: var(--iii-ciclo-color); margin-bottom: 15px; font-size: 1.8rem; font-weight: 600; }
+.photo-roll-wrapper { overflow: hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); margin-bottom: 10px; }
+.photo-roll { display: flex; width: 600%; animation: photo-slide 25s infinite linear; }
+.photo-item { width: calc(100% / 5); flex-shrink: 0; }
+.photo-item img { width: 100%; height: 350px; object-fit: cover; display: block; }
+.carousel-caption { font-style: italic; color: var(--text-color-light); font-size: 0.9rem; }
+
+@keyframes photo-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% * 4 / 5)); } 
+}
+
+
+/* ========================================================================= */
+/* === [G] ACORDEÓN (PROCESO ADMISIÓN) - Mantenido === */
+/* ========================================================================= */
+.accordion-container { margin: 30px auto; max-width: 800px; }
+.accordion-header {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 18px;
+    border-left: 10px solid var(--iii-ciclo-color); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.4s;
+}
+.accordion-header.active {
+    background-color: var(--cecns-blue); 
+    color: var(--bg-white); 
+    border-left: 10px solid var(--cecns-gold); 
+}
+.accordion-header.active .accordion-icon { transform: rotate(180deg); }
+.accordion-icon { transition: transform 0.3s ease; margin-left: 15px; }
+.accordion-header i:first-child { margin-right: 15px; color: var(--iii-ciclo-color); transition: color 0.4s; }
+.accordion-header.active i:first-child { color: var(--cecns-gold); }
+
+.accordion-content {
+    background-color: var(--bg-white);
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    padding: 0 18px; 
+    text-align: left;
+}
+.accordion-header.active + .accordion-content {
+    padding-top: 15px; 
+    padding-bottom: 15px;
+    margin-bottom: 10px; 
+}
+.document-list { list-style: none; padding: 0; }
+.document-list li { padding: 8px 0; }
+.document-list li i { margin-right: 10px; color: var(--iii-ciclo-color); }
+.age-notice {
+    background-color: #fff3cd; 
+    padding: 15px;
+    border-left: 5px solid var(--cecns-gold);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #856404;
+}
+
+
+/* ========================================================================= */
+/* === [H] PIE DE PÁGINA (FOOTER) - Mantenido === */
+/* ========================================================================= */
+.main-footer {
+    background: var(--cecns-blue);
+    color: white;
+    padding: 1.5rem 5%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.main-footer a { color: var(--cecns-gold); transition: color 0.3s; }
+.main-footer a:hover { color: var(--bg-white); }
+
+
+/* ========================================================================= */
+/* === [I] RESPONSIVE Y MENU MÓVIL (Tus reglas corregidas y optimizadas) === */
+/* ========================================================================= */
+
+/* --- Escritorio/Dropdown con Hover --- */
+@media (min-width: 901px) {
+    /* Muestra solo al pasar el ratón en desktop */
+    .dropdown:hover .dropdown-menu { 
+        display: block !important; /* Forzar visibilidad en desktop (Hover) */
+        opacity: 1; 
+        visibility: visible; 
+        pointer-events: auto; 
+    }
+    /* CLAVE: Asegura que la clase .open del JS no interfiera en desktop */
+    .dropdown.open .dropdown-menu {
+        display: none !important;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* --- Móvil (max-width: 900px) --- */
+@media (max-width: 900px) { 
+    
+    /* === HEADER BASE EN MÓVIL === */
+    .main-header {
+        justify-content: space-between !important; /* CLAVE para separar logo y toggle */
+        position: fixed !important; /* Fija el encabezado en móvil */
+        height: 60px;
+        padding: 5px 5%;
+    }
+    main { padding-top: 60px !important; }
+
+    /* 1. Mostrar el botón de hamburguesa */
+    .nav-toggle {
+        display: block !important; 
+    }
+    
+    /* 2. Ocultar la navegación por defecto */
+    .main-nav {
+        display: none !important; 
+        position: absolute;
+        top: 60px; /* Bajo el header de 60px */
+        left: 0;
+        width: 100%;
+        background-color: var(--cecns-blue);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        margin-left: 0;
+        overflow-y: auto;
+        max-height: calc(100vh - 60px);
+    }
+    
+    /* 3. Mostrar la navegación cuando se activa con JS */
+    .main-nav.active {
+        display: block !important;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .main-nav a {
+        color: var(--bg-white);
+        padding: 12px 20px;
+        width: 100%;
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Ocultar el botón CTA en móvil */
+    .btn-cta-nav {
+        display: none;
+    }
+
+    /* ESTILOS DEL SUBMENÚ DESPLEGABLE EN MÓVIL (CLASE .open) */
+    .dropdown-menu {
+        position: static !important; 
+        background-color: #002c5c; 
+        box-shadow: none;
+        min-width: unset;
+        border-radius: 0;
+        display: none !important; 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block !important; /* CLAVE: Visible solo con JS */
+        padding: 0; 
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 30px; 
+        background-color: #002c5c;
+    }
+    
+    /* Resto de estilos responsive de otras secciones */
+    .first-cycle-hero .level-hero-title { font-size: 3rem; }
+    .level-goals-carousel-grid { grid-template-columns: 1fr; gap: 30px; }
+    .goals-list-container .profile-item-card { flex-direction: column; text-align: center; }
+    .goals-list-container .profile-item-card h4, 
+    .goals-list-container .profile-item-card p { text-align: center; }
+    .tabs-buttons { flex-direction: column; }
+}
