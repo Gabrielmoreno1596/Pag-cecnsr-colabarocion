@@ -7,11 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CECNSR - Colegios PASCH</title>
 
-  <!-- Normalize primero -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 
-  <!-- Tus hojas -->
+
   <link rel="stylesheet" href="<?= asset('styles.css') ?>">
   <link rel="stylesheet" href="<?= asset('assets/css/style-convenios.css') ?>">
 

@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/config.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,19 +9,32 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style-pi-4pe.css?v=3" />
-  <link rel="stylesheet" href="assets/css/style-convenios.css?v=3" />
+
+
+  <link rel="stylesheet" href="<?= asset('styles.css') ?>">
+  <link rel="stylesheet" href="<?= asset('assets/css/style-pi-4pe.css') ?>">
+  <link rel="stylesheet" href="<?= asset('assets/css/style-convenios.css') ?>">
+
   <link rel="shortcut icon" href="assets/1_CECNSR.png" type="image/x-icon" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+
+  <!-- SEO/OG -->
+  <link rel="canonical" href="https://www.cecnsrosariosv.com/contribuciones/sitececnsr/pasch.php">
+  <meta name="description" content="El CECNSR participa en PASCH: alemán, interculturalidad y oportunidades para estudiantes.">
+  <meta property="og:title" content="CECNSR — Colegios PASCH">
+  <meta property="og:description" content="Aprendizaje de alemán, interculturalidad y oportunidades PASCH.">
+  <meta property="og:image" content="<?= asset('assets/og/pasch-cover.jpg') ?>">
+  <meta property="og:url" content="https://www.cecnsrosariosv.com/contribuciones/sitececnsr/pasch.php">
+  <meta name="twitter:card" content="summary_large_image">
+
 </head>
 
 <body>
 
-  <?php include $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/assets/partials/header.php'; ?>
-
+  <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
   <!-- main content -->
   <!-- ===== HERO: Psicología Individual & 4 Puntos Esenciales ===== -->
   <section class="pi-hero" aria-labelledby="pi-title">
@@ -702,8 +716,7 @@
 
   <!-- fin main -->
 
-  <?php include $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/assets/partials/footer.php'; ?>
-
+  <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
 
   <script src="script.js"></script>
   <script>
