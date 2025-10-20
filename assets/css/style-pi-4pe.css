@@ -1207,7 +1207,7 @@ video {
 #itnCaption,
 #itnQuote {
   transition: opacity 0.35s ease;
-  color: #111;
+  color: #f5f5f5;
 }
 .is-swapping {
   opacity: 0;
@@ -1673,8 +1673,8 @@ video {
   gap: 0.8rem;
 }
 .itn__media {
-  background: #fff;
-  border: 1px solid #e6ebf1;
+  background: #ffffff00;
+  border: 1px solid #e6ebf100;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(2, 8, 23, 0.08);
@@ -1702,8 +1702,8 @@ video {
 .itn__quote {
   margin: 0;
   padding: 0.9rem 1rem;
-  background: #f8f9fb;
-  border: 1px solid #e6ebf1;
+  background: #f8f9fb00;
+  border: 1px solid #e6ebf100;
   border-radius: 12px;
   color: #0f172a;
 }
@@ -1850,4 +1850,33 @@ body {
   letter-spacing: 0.08em;
   opacity: 0.9;
   font-size: 1.7rem;
+}
+
+/* Itinirario */
+
+/* ---- Acordeón suave para .itn-more ---- */
+.itn-more {
+  overflow: clip; /* recorta durante la animación */
+  height: 0; /* cerrado por defecto */
+  opacity: 0; /* sutil fade */
+  transition: height 0.28s ease, opacity 0.24s ease;
+  will-change: height, opacity;
+}
+
+/* Cuando está abierta, la opacidad queda a 1 (la altura la maneja JS) */
+.itn-item.is-open .itn-more {
+  opacity: 1;
+}
+
+/* Respeta preferencias de usuario */
+@media (prefers-reduced-motion: reduce) {
+  .itn-more {
+    transition: none !important;
+  }
+}
+
+/* Hotfix: si el Observer no corre, que .reveal NO oculte el contenido */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }

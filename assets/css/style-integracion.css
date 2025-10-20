@@ -259,7 +259,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8rem;
-  background: var(--cecns-gold);
+  background: #e0b13a;
   padding: 2rem;
   border-radius: 20px;
 }

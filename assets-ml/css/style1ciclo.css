@@ -211,7 +211,7 @@ a:hover {
 /* --- [3.1] Hero Banner de Nivel: I Ciclo (Título más grande) --- */
 .first-cycle-hero {
   background: linear-gradient(rgba(128, 0, 32, 0.75), rgba(128, 0, 32, 0.75)),
-    url("../i-ciclo/ic1.jpg") center/cover;
+    url("/i-ciclo/ic1.jpg") center/cover;
   padding: 5rem 5%;
   color: white;
   text-align: center;

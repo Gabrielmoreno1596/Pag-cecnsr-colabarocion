@@ -136,64 +136,109 @@
       </div>
     </section>
 
-    <!-- RELACIÓN CECNSR – PASCH -->
-    <section class="section" id="CECNSR">
+    <section class="section" id="pasch-hub" aria-label="Información PASCH en CECNSR">
       <div class="card card--accent">
-        <h2 class="section-title">CECNSR como escuela asociada</h2>
+        <h2 class="section-title">CECNSR & PASCH — Centro de información</h2>
         <div class="title-divider" aria-hidden="true"></div>
-        <p>
-          Nuestro colegio participa como
-          <strong>institución asociada</strong>, lo que nos permite integrar
-          el alemán como
-          <strong>competencia lingüística y cultural</strong> en proyectos
-          formativos, postular a <strong>estancias de inmersión</strong>
-          y crear espacios para que nuestros estudiantes amplíen sus
-          horizontes académicos y personales.
-        </p>
-        <ul class="bullets">
-          <li>Proyectos y talleres con enfoque intercultural.</li>
-          <li>
-            Postulación a <strong>cursos juveniles</strong> (Goethe-Institut /
-            PASCH).
-          </li>
-          <li>Acceso a recursos didácticos y comunidad internacional.</li>
-        </ul>
-      </div>
-    </section>
 
-    <!-- OPORTUNIDADES -->
-    <section class="section">
-      <div class="card">
-        <h2 class="section-title">Oportunidades para estudiantes</h2>
-        <div class="title-divider" aria-hidden="true"></div>
-        <div class="grid-3">
-          <article class="feature">
-            <i class="fas fa-users"></i>
-            <h3>Cursos y campamentos</h3>
-            <p>
-              Programas intensivos en Alemania con trabajo en equipo, deporte
-              y cultura.
-            </p>
-          </article>
-          <article class="feature">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Becas y apoyo</h3>
-            <p>
-              Posibilidad de financiamiento parcial/total según convocatoria y
-              desempeño.
-            </p>
-          </article>
-          <article class="feature">
-            <i class="fas fa-globe-europe"></i>
-            <h3>Red internacional</h3>
-            <p>
-              Conexión con jóvenes de múltiples países y desarrollo de
-              habilidades globales.
-            </p>
-          </article>
+        <!-- NAV TABS -->
+        <div class="ihub__tabs" role="tablist" aria-label="Secciones de información">
+          <button class="ihub__tab is-active" role="tab" aria-selected="true" aria-controls="panel-asociacion" id="tab-asociacion">Asociación</button>
+          <button class="ihub__tab" role="tab" aria-selected="false" aria-controls="panel-oportunidades" id="tab-oportunidades">Oportunidades</button>
+          <button class="ihub__tab" role="tab" aria-selected="false" aria-controls="panel-faq" id="tab-faq">FAQ</button>
+        </div>
+
+        <!-- PANEL: ASOCIACIÓN -->
+        <div class="ihub__panel is-active" id="panel-asociacion" role="tabpanel" aria-labelledby="tab-asociacion">
+          <p>
+            Nuestro colegio participa como <strong>institución asociada</strong>, integrando el alemán como
+            <strong>competencia lingüística y cultural</strong> en proyectos formativos, postulando a
+            <strong>estancias de inmersión</strong> y abriendo espacios para ampliar horizontes académicos.
+          </p>
+
+          <ul class="bullets">
+            <li>Proyectos y talleres con enfoque intercultural.</li>
+            <li>Postulación a <strong>cursos juveniles</strong> (Goethe-Institut / PASCH).</li>
+            <li>Acceso a recursos didácticos y comunidad internacional.</li>
+          </ul>
+
+          <details class="ihub__dl">
+            <summary><strong>Ver línea de tiempo breve</strong></summary>
+            <ul class="timeline">
+              <li><span class="dot">1</span>
+                <div class="tl-body">Integración al programa PASCH.</div>
+              </li>
+              <li><span class="dot">2</span>
+                <div class="tl-body">Implementación de proyectos y clubes.</div>
+              </li>
+              <li><span class="dot">3</span>
+                <div class="tl-body">Convocatorias a campamentos y cursos.</div>
+              </li>
+            </ul>
+          </details>
+
+          <a class="btn-link" href="#convocatorias" aria-label="Ir a convocatorias y requisitos">Ver convocatorias</a>
+        </div>
+
+        <!-- PANEL: OPORTUNIDADES (sin filtro) -->
+        <div class="ihub__panel" id="panel-oportunidades" role="tabpanel" aria-labelledby="tab-oportunidades">
+          <div class="grid-3 ihub__cards">
+            <article class="feature ihub__card">
+              <i class="fas fa-users" aria-hidden="true"></i>
+              <h3>Cursos y campamentos</h3>
+              <p>Programas intensivos en Alemania con trabajo en equipo, deporte y cultura.</p>
+              <details>
+                <summary class="ihub__more">Requisitos y frecuencia</summary>
+                <p>Postulación anual. Nivel de alemán recomendado: A2+ (según convocatoria). Carta de motivación.</p>
+              </details>
+            </article>
+
+            <article class="feature ihub__card">
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+              <h3>Becas y apoyo</h3>
+              <p>Posibilidad de financiamiento parcial/total según convocatoria y desempeño.</p>
+              <details>
+                <summary class="ihub__more">Cómo aplicar</summary>
+                <p>Presenta expediente académico, participación en proyectos y recomendaciones docentes.</p>
+              </details>
+            </article>
+
+            <article class="feature ihub__card">
+              <i class="fas fa-globe-europe" aria-hidden="true"></i>
+              <h3>Red internacional</h3>
+              <p>Conexión con jóvenes de múltiples países y desarrollo de habilidades globales.</p>
+              <details>
+                <summary class="ihub__more">Beneficios</summary>
+                <p>Intercambios virtuales, proyectos colaborativos y acceso a recursos del Goethe-Institut.</p>
+              </details>
+            </article>
+          </div>
+
+          <!--    <div class="ihub__cta">
+            <a id="convocatorias" class="btn-solid" data-pdf="pasch_convocatoria_2025.pdf">Guía rápida (PDF)</a>
+            <a class="btn-link" href="#contacto-pasch">Contacto PASCH en CECNSR</a>
+          </div> -->
+        </div>
+
+        <!-- PANEL: FAQ -->
+        <div class="ihub__panel" id="panel-faq" role="tabpanel" aria-labelledby="tab-faq">
+          <details class="ihub__faq">
+            <summary>¿Qué nivel de alemán necesito para postular?</summary>
+            <p>Depende de la convocatoria. Muchas piden A2 o superior; revisa cada llamada específica.</p>
+          </details>
+          <details class="ihub__faq">
+            <summary>¿Hay costos adicionales?</summary>
+            <p>Pueden existir costos de pasaporte, visado o seguro. Algunas becas los cubren total o parcialmente.</p>
+          </details>
+          <details class="ihub__faq">
+            <summary>¿Cómo demuestro participación?</summary>
+            <p>Incluye constancias de proyectos, clubes y talleres certificados por CECNSR.</p>
+          </details>
         </div>
       </div>
     </section>
+
+
 
     <!-- REQUISITOS (TIMELINE) -->
     <section class="section">
@@ -389,7 +434,7 @@
               loading="lazy"
               src="assets/pasch/pasch-img2.jpeg"
               alt="Reunión con el equipo" />
-            <span class="cap">Reunión con el equipo</span>
+            <!-- <span class="cap">Reunión con el equipo</span> -->
           </a>
 
           <a
@@ -400,7 +445,7 @@
               loading="lazy"
               src="assets/pasch/pasch-img3.jpeg"
               alt="Grupo con bandera" />
-            <span class="cap">Grupo con bandera</span>
+            <!-- <span class="cap">Grupo con bandera</span> -->
           </a>
 
           <a
@@ -411,7 +456,7 @@
               loading="lazy"
               src="assets/pasch/pasch-img4.png"
               alt="Actividad creativa" />
-            <span class="cap">Actividad creativa</span>
+            <!-- <span class="cap">Actividad creativa</span> -->
           </a>
 
           <a
@@ -422,7 +467,7 @@
               loading="lazy"
               src="assets/pasch/pasch-mateo2.png"
               alt="Mateo 2" />
-            <span class="cap">Mateo 2</span>
+            <!-- <span class="cap">Mateo 2</span> -->
           </a>
 
           <a
@@ -433,7 +478,7 @@
               loading="lazy"
               src="assets/pasch/pasch-img5.png"
               alt="Amistades" />
-            <span class="cap">Amistades</span>
+            <!-- <span class="cap">Amistades</span> -->
           </a>
 
           <a
@@ -444,7 +489,7 @@
               loading="lazy"
               src="assets/pasch/pasch-img6.png"
               alt="Clases y juegos" />
-            <span class="cap">Clases y juegos</span>
+            <!-- <span class="cap">Clases y juegos</span> -->
           </a>
 
           <a
@@ -455,7 +500,7 @@
               loading="lazy"
               src="assets/pasch/pasch-img7.png"
               alt="Encuentro con estudiantes" />
-            <span class="cap">Encuentro con estudiantes</span>
+            <!-- <span class="cap">Encuentro con estudiantes</span> -->
           </a>
 
           <a
@@ -466,7 +511,7 @@
               loading="lazy"
               src="assets/pasch/pasch-mateo1.png"
               alt="Mateo 1" />
-            <span class="cap">Mateo 1</span>
+            <!-- <span class="cap">Mateo 1</span> -->
           </a>
         </div>
       </div>
@@ -564,32 +609,32 @@
       const slides = [{
           src: "assets/pasch/pasch-vijaron.jpeg",
           alt: "Estudiantes CECNSR en programa PASCH",
-          caption: "Jungenkurs PASCH — participación CECNSR.",
+          /* caption: "Jungenkurs PASCH — participación CECNSR.", */
         },
         {
           src: "assets/pasch/pasch-img2.jpeg",
           alt: "Visita y convivencia multicultural",
-          caption: "Convivencia multicultural y visitas guiadas.",
+          /* caption: "Convivencia multicultural y visitas guiadas.", */
         },
         {
           src: "assets/pasch/pasch-img3.jpeg",
           alt: "Actividades y clausura",
-          caption: "Actividades de integración y clausura del programa.",
+          /* caption: "Actividades de integración y clausura del programa.", */
         },
         {
           src: "assets/pasch/pasch-img7.png",
           alt: "Grupo internacional PASCH",
-          caption: "Trabajo colaborativo con jóvenes de diversos países.",
+          /* caption: "Trabajo colaborativo con jóvenes de diversos países.", */
         },
         {
           src: "assets/pasch/pasch-mateo1.png",
           alt: "Goethe-Institut Bamberg A2",
-          caption: "Curso A2 en Goethe-Institut Bamberg.",
+          /* caption: "Curso A2 en Goethe-Institut Bamberg.", */
         },
         {
           src: "assets/pasch/pasch-mateo3.png",
           alt: "Talleres y práctica del idioma",
-          caption: "Talleres creativos y práctica del idioma.",
+          /* caption: "Talleres creativos y práctica del idioma.", */
         },
       ];
 
@@ -1157,6 +1202,58 @@
       });
     })();
   </script>
+
+  <script>
+    (() => {
+      const hub = document.querySelector('#pasch-hub');
+      if (!hub) return;
+
+      // Tabs
+      const tabs = hub.querySelectorAll('.ihub__tab');
+      const panels = hub.querySelectorAll('.ihub__panel');
+
+      function activateTab(tab) {
+        tabs.forEach(t => {
+          const selected = t === tab;
+          t.classList.toggle('is-active', selected);
+          t.setAttribute('aria-selected', String(selected));
+        });
+        panels.forEach(p => p.classList.toggle('is-active', p.id === tab.getAttribute('aria-controls')));
+      }
+
+      tabs.forEach(t => {
+        t.addEventListener('click', () => activateTab(t));
+        t.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            const order = Array.from(tabs);
+            const i = order.indexOf(t);
+            const next = e.key === 'ArrowRight' ? order[(i + 1) % order.length] : order[(i - 1 + order.length) % order.length];
+            next.focus();
+            activateTab(next);
+          }
+        });
+      });
+
+      // Hook PDF (usa tu modal si existe)
+      hub.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-pdf]');
+        if (!btn) return;
+        e.preventDefault();
+        const file = btn.getAttribute('data-pdf');
+        const modal = document.querySelector('.pdf-modal');
+        const frame = document.querySelector('#pdfFrame');
+        if (modal && frame) {
+          frame.src = file;
+          modal.hidden = false;
+          document.body.classList.add('pdf-open');
+        } else {
+          window.open(file, '_blank', 'noopener');
+        }
+      });
+    })();
+  </script>
+
+
 </body>
 
 </html>

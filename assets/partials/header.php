@@ -24,7 +24,7 @@ if (in_array($curSlug, $OFERTA_CHILDREN))    $openSub = 'oferta';
 if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
 ?>
 
-<header id="header-global" class="cecnsr-header" role="banner" data-open-sub="<?= htmlspecialchars($openSub, ENT_QUOTES) ?>">
+<header id="header-global" class="cecnsr-header" data-header role="banner" data-open-sub="<?= htmlspecialchars($openSub, ENT_QUOTES) ?>">
   <div class="cecnsr-header__inner">
     <a class="cecnsr-logo" href="index.php#hero" aria-label="CECNSR - Inicio">
       <img src="assets/1_CECNSR.png" alt="Logo CECNSR" class="cecnsr-logo__img" />
@@ -65,7 +65,7 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
         </li>
 
         <li class="cecnsr-nav__item">
-          <a class="cecnsr-nav__link<?= is_current('index#filosofia', $curSlug); ?>" href="index.php#filosofia">Pastoral Educativa</a>
+          <a class="cecnsr-nav__link<?= is_current('pastoral-educativa', $curSlug); ?>" href="pastoral-educativa.php">Pastoral Educativa</a>
         </li>
 
         <li class="cecnsr-nav__item cecnsr-nav__item--cta">
@@ -139,7 +139,21 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
       background: var(--h-bg);
       border-bottom: 1px solid var(--h-border);
       box-shadow: var(--h-shadow);
+      /* position: relative; */
     }
+
+    #header-global.cecnsr-header {
+      /* …tus variables… */
+      position: sticky;
+      /* <-- mantener */
+      top: 0;
+      z-index: 1000;
+      background: var(--h-bg);
+      border-bottom: 1px solid var(--h-border);
+      box-shadow: var(--h-shadow);
+      /* QUITAR esta línea: position: relative; */
+    }
+
 
     /* Contenedor */
     #header-global .cecnsr-header__inner {
@@ -404,6 +418,8 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
       align-items: center;
       gap: 10px;
       min-height: 56px;
+
+
     }
 
     #header-global .cecnsr-subbar__list {
@@ -444,6 +460,173 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
     @media (max-width: 992px) {
       #header-global .cecnsr-subbar {
         display: none !important;
+      }
+
+      #header-global .cecnsr-nav {
+        position: fixed;
+        /* top: calc(var(--header-h) + 10px); */
+        /* ok */
+        right: 12px;
+        /* ... */
+      }
+    }
+
+
+    /* Nuevos estilos  */
+
+    /* ====== OVERRIDES DE COLOR (pegado al final) ====== */
+    #header-global.cecnsr-header {
+      /* variables nuevas para que sea fácil retocar luego */
+      --nav-hover-bg: #004080;
+      --nav-hover-text: #ffffff;
+
+      /* Activo: si quieres que el activo sea SOLO subrayado, deja estas y comenta la regla .cecnsr-nav__link.is-current de abajo */
+      --nav-active-bg: #004080;
+      --nav-active-text: #ffffff;
+
+      /* Submenú (píldoras) */
+      --subpill-bg: #004080;
+      --subpill-text: #ffffff;
+      --subpill-hover-bg: #ffffff;
+      --subpill-hover-text: #000000;
+
+      /* subrayado sigue dorado; cámbialo aquí si lo quieres azul también */
+      /* --h-accent-underline: #004080; */
+    }
+
+    /* ---------- MENÚ PRINCIPAL ---------- */
+    #header-global .cecnsr-nav__link:hover {
+      background: var(--nav-hover-bg) !important;
+      color: var(--nav-hover-text) !important;
+    }
+
+    #header-global .cecnsr-nav__link:hover::after {
+      background: var(--h-accent-underline) !important;
+      /* dorado */
+      transform: scaleX(1);
+    }
+
+    /* Activo (queda del color solicitado + subrayado) */
+    #header-global .cecnsr-nav__link.is-current {
+      background: var(--nav-active-bg) !important;
+      /* <— comenta esta línea para “solo subrayado” */
+      color: var(--nav-active-text) !important;
+      /* <— y esta también */
+    }
+
+    #header-global .cecnsr-nav__link.is-current::after {
+      background: var(--h-accent-underline) !important;
+      transform: scaleX(1);
+    }
+
+    /* El padre activo (Oferta/Convenios) queda más sutil; si lo quieres igual que activo, usa las mismas var de arriba */
+    #header-global .cecnsr-dropdown.is-current-parent>.cecnsr-dropdown__toggle {
+      background: color-mix(in srgb, var(--nav-hover-bg) 12%, #fff 88%) !important;
+      color: var(--h-text) !important;
+    }
+
+    /* ---------- SUBMENÚ HORIZONTAL (PÍLDORAS) ---------- */
+    #header-global .cecnsr-subbar__link {
+      background: var(--subpill-bg) !important;
+      color: var(--subpill-text) !important;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .04);
+    }
+
+    #header-global .cecnsr-subbar__link:hover {
+      background: var(--subpill-hover-bg) !important;
+      color: var(--subpill-hover-text) !important;
+      transform: translateY(-1px);
+    }
+
+    #header-global .cecnsr-subbar__link.is-current {
+      /* mantén la píldora en azul y dale un leve realce */
+      background: var(--subpill-bg) !important;
+      color: var(--subpill-text) !important;
+      box-shadow: 0 8px 20px rgba(0, 64, 128, .25) !important;
+    }
+
+    /* ---------- DROPDOWN (MÓVIL) ---------- */
+    #header-global .cecnsr-dropdown__link:hover {
+      background: var(--nav-hover-bg) !important;
+      color: var(--nav-hover-text) !important;
+    }
+
+
+    /* ===== SUBMENÚ: fondo azul global + texto blanco; activo en blanco/negro ===== */
+    #header-global .cecnsr-subbar {
+      background: #004080 !important;
+      /* contenedor del submenú */
+      border-top: none !important;
+    }
+
+    #header-global .cecnsr-subbar__inner {
+      padding: 12px 16px !important;
+    }
+
+    /* Estado base de cada pill del submenú */
+    #header-global .cecnsr-subbar__link {
+      background: transparent !important;
+      /* sin píldora, sobre el fondo azul */
+      color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    /* Hover opcional (sutil) sin invertir colores */
+    #header-global .cecnsr-subbar__link:hover {
+      background: rgba(255, 255, 255, .12) !important;
+      /* ligero realce */
+      color: #ffffff !important;
+      transform: translateY(0);
+      /* sin “saltito” si no lo quieres */
+    }
+
+    /* ACTIVO: píldora blanca con texto negro */
+    #header-global .cecnsr-subbar__link.is-current {
+      background: #ffffff !important;
+      color: #000000 !important;
+      box-shadow: none !important;
+    }
+
+    /* Versión móvil  */
+
+    /* ===== SUBMENÚ EN MÓVIL (<=992px): fondo azul global + texto blanco; activo blanco/negro ===== */
+    @media (max-width: 992px) {
+
+      /* Panel del submenú (la UL del acordeón) */
+      #header-global .cecnsr-dropdown__menu {
+        background: #004080 !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 1px !important;
+        padding: 10px 10px 12px !important;
+      }
+
+      /* Separación entre los <li> */
+      #header-global .cecnsr-dropdown__menu li+li {
+        margin-top: 6px !important;
+      }
+
+      /* Enlaces del submenú */
+      #header-global .cecnsr-dropdown__link {
+        background: transparent !important;
+        /* se ve el azul de fondo */
+        color: #ffffff !important;
+        border-radius: 999px !important;
+        padding: 10px 12px !important;
+        box-shadow: none !important;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Hover/tap sutil en azul */
+      #header-global .cecnsr-dropdown__link:hover {
+        background: rgba(255, 255, 255, 0.14) !important;
+        color: #ffffff !important;
+      }
+
+      /* ACTIVO (la página actual): píldora blanca con texto negro */
+      #header-global .cecnsr-dropdown__link.is-current {
+        background: #ffffff !important;
+        color: #000000 !important;
       }
     }
   </style>
@@ -628,13 +811,31 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
       });
 
       // Cierra al click fuera
+      /*       document.addEventListener('click', (e) => {
+              if (!isDesktop() || !subbar || subbar.hidden) return;
+              if (root.contains(e.target)) return; // clic dentro del header
+              hideSub();
+            }); */
+
       document.addEventListener('click', (e) => {
         if (!isDesktop() || !subbar || subbar.hidden) return;
-        if (root.contains(e.target)) return; // clic dentro del header
-        hideSub();
+        // si el clic fue en un enlace del submenú o en los toggles, deja actuar;
+        // si fue "afuera", NO cierres automáticamente (evita cierres inesperados)
       });
-
       // Reset al pasar a móvil
+
+      /*   const phpOpen = root.getAttribute('data-open-sub'); // 'oferta' | 'convenios' | ''
+        if (isDesktop() && phpOpen) {
+          // Garantiza que NO esté hidden y que se muestre la lista correcta
+          if (subbar) {
+            subbar.hidden = false;
+            lists.forEach(ul => ul.hidden = (ul.dataset.sub !== phpOpen));
+            root.querySelectorAll('.cecnsr-dropdown').forEach(li => li.classList.remove('is-current-parent'));
+            root.querySelector(`.cecnsr-dropdown__toggle[data-sub="${phpOpen}"]`)?.closest('.cecnsr-dropdown')?.classList.add('is-current-parent');
+          }
+        } */
+
+
       let rTO;
       window.addEventListener('resize', () => {
         clearTimeout(rTO);
@@ -642,6 +843,36 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
           if (!isDesktop()) hideSub();
         }, 120);
       });
+    })();
+  </script>
+
+
+  <script>
+    (function() {
+      const root = document.documentElement.style;
+
+      function findHeader() {
+        return document.querySelector('[data-header]') ||
+          document.querySelector('.site-header') ||
+          document.querySelector('header');
+      }
+
+      function isFixedOrSticky(el) {
+        if (!el) return false;
+        const pos = getComputedStyle(el).position;
+        return pos === 'fixed' || pos === 'sticky';
+      }
+
+      function setHeaderH() {
+        const header = findHeader();
+        const h = header && isFixedOrSticky(header) ? header.offsetHeight : 0;
+        root.setProperty('--header-h', h + 'px');
+      }
+
+      window.addEventListener('DOMContentLoaded', setHeaderH);
+      window.addEventListener('load', setHeaderH);
+      window.addEventListener('resize', setHeaderH);
+      window.addEventListener('orientationchange', setHeaderH);
     })();
   </script>
 </header>

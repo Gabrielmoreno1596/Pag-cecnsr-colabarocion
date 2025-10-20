@@ -864,58 +864,116 @@
   </script>
 
   <!-- itinirerio -->
-
   <script>
-    (function() {
-      const els = document.querySelectorAll(".reveal");
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("is-in");
-          });
-        }, {
-          threshold: 0.15
+    (() => {
+      const items = Array.from(document.querySelectorAll(".itn__timeline-pi .itn-item"));
+      if (!items.length) return;
+
+      const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function heightTo(el, px, after) {
+        el.style.height = px + "px";
+        if (prefersReduced) {
+          after?.();
+          return;
         }
-      );
-      els.forEach((el) => io.observe(el));
-    })();
-  </script>
-  <script>
-    (function() {
-      const items = document.querySelectorAll(".itn__timeline-pi .itn-item");
+        el.addEventListener("transitionend", function te(e) {
+          if (e.propertyName !== "height") return;
+          el.removeEventListener("transitionend", te);
+          after?.();
+        }, {
+          once: true
+        });
+        // fuerza reflow si el navegador “salta”
+        void el.offsetWidth;
+      }
 
-      items.forEach((item, idx) => {
+      function closeItem(item) {
+        try {
+          const btn = item.querySelector(".itn-toggle");
+          const panel = item.querySelector(".itn-more");
+          if (!btn || !panel) return;
+
+          if (!item.classList.contains("is-open")) return;
+
+          // de altura actual a 0
+          const from = panel.scrollHeight || 0;
+          panel.style.height = from + "px";
+          void panel.offsetWidth;
+          item.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          heightTo(panel, 0, () => {
+            panel.setAttribute("hidden", "");
+            panel.style.height = "";
+          });
+        } catch (_) {}
+      }
+
+      function openItem(item) {
+        try {
+          const btn = item.querySelector(".itn-toggle");
+          const panel = item.querySelector(".itn-more");
+          if (!btn || !panel) return;
+
+          if (item.classList.contains("is-open")) return;
+
+          panel.removeAttribute("hidden");
+          panel.style.height = "0px";
+          void panel.offsetWidth;
+
+          const to = panel.scrollHeight || 0;
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+
+          heightTo(panel, to, () => {
+            panel.style.height = "auto";
+          });
+        } catch (_) {}
+      }
+
+      function toggleExclusive(item) {
+        if (item.classList.contains("is-open")) {
+          closeItem(item);
+        } else {
+          items.forEach(it => it !== item && closeItem(it));
+          openItem(item);
+        }
+      }
+
+      // Estado inicial coherente (respeta aria/hidden del HTML)
+      items.forEach(item => {
         const btn = item.querySelector(".itn-toggle");
         const panel = item.querySelector(".itn-more");
-
         if (!btn || !panel) return;
 
-        function toggle(force) {
-          const willOpen =
-            force !== undefined ? force : !item.classList.contains("is-open");
-          item.classList.toggle("is-open", willOpen);
-          btn.setAttribute("aria-expanded", String(willOpen));
-          panel.toggleAttribute("hidden", !willOpen);
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        if (expanded) {
+          item.classList.add("is-open");
+          panel.removeAttribute("hidden");
+          panel.style.height = "auto";
+        } else {
+          item.classList.remove("is-open");
+          panel.setAttribute("hidden", "");
+          panel.style.height = "0px";
         }
 
-        // Abre/cierra con click
-        btn.addEventListener("click", () => toggle());
-        // Teclado accesible (Enter/Espacio)
+        btn.addEventListener("click", () => toggleExclusive(item));
         btn.addEventListener("keydown", (ev) => {
+          const i = items.indexOf(item);
           if (ev.key === "Enter" || ev.key === " ") {
             ev.preventDefault();
-            toggle();
+            toggleExclusive(item);
           }
-          if (ev.key === "ArrowDown") {
-            items[idx + 1]?.querySelector(".itn-toggle")?.focus();
-          }
-          if (ev.key === "ArrowUp") {
-            items[idx - 1]?.querySelector(".itn-toggle")?.focus();
-          }
+          if (ev.key === "ArrowDown") items[i + 1]?.querySelector(".itn-toggle")?.focus();
+          if (ev.key === "ArrowUp") items[i - 1]?.querySelector(".itn-toggle")?.focus();
+          if (ev.key === "Home") items[0]?.querySelector(".itn-toggle")?.focus();
+          if (ev.key === "End") items[items.length - 1]?.querySelector(".itn-toggle")?.focus();
+          if (ev.key === "Escape") closeItem(item);
         });
       });
     })();
   </script>
+
 
   <!-- animación al aside de itinerario -->
 

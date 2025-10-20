@@ -178,11 +178,12 @@
               Requisitos orientativos para postular (según trayectoria).
               Verifica siempre la convocatoria vigente en el sitio oficial:
               <a
-                class="link btn-outline-int text-color__gob"
+                class="btn-outline-int text-color"
                 href="https://integracion.gob.sv/proceso-formativo/"
                 target="_blank"
                 rel="noopener">
-                integracion.gob.sv/proceso-formativo </a>.
+                Ver detalles oficiales
+              </a>
             </p>
             <figure class="about-media">
               <img
@@ -199,39 +200,32 @@
         <div class="cta-switch">
           <!-- ACTIVA -->
           <div class="state-cta state-active">
-            <a class="btn-solid-int" href="#contacto">Quiero postular / más info</a>
+            <!--    <a class="btn-solid-int" href="#contacto">Quiero postular / más info</a>
             <a
               class="btn-outline text-color"
               href="assets/afiche-gf.jpg"
               download>Descargar afiche</a>
-          </div>
+          </div> -->
 
-          <!-- PRÓXIMAMENTE -->
-          <div class="state-cta state-upcoming">
-            <a class="btn-solid-int" href="#contacto">Avisarme próximas fechas</a>
-            <!--     <a
+            <!-- PRÓXIMAMENTE -->
+            <div class="state-cta state-upcoming">
+              <a class="btn-solid-int" href="#contacto">Avisarme próximas fechas</a>
+
+            </div>
+
+            <!-- CERRADA -->
+            <!--  <div class="state-cta state-closed">
+              <a class="btn-solid-int" href="#contacto">Consultar próximas fechas</a>
+              <a
                 class="btn-outline-int text-color"
                 href="https://integracion.gob.sv/proceso-formativo/"
                 target="_blank"
-                rel="noopener"
-              >
-                Ver detalles oficiales
-              </a> -->
-          </div>
-
-          <!-- CERRADA -->
-          <div class="state-cta state-closed">
-            <a class="btn-solid-int" href="#contacto">Consultar próximas fechas</a>
-            <a
-              class="btn-outline-int text-color"
-              href="https://integracion.gob.sv/proceso-formativo/"
-              target="_blank"
-              rel="noopener">
-              Requisitos y procesos
-            </a>
+                rel="noopener">
+                Requisitos y procesos
+              </a>
+            </div> -->
           </div>
         </div>
-      </div>
     </section>
     <section class="section int-scholar-body" aria-labelledby="req-title">
       <div class="container">
@@ -394,8 +388,8 @@
               <label>Interés
                 <select>
                   <option>Proyecto de Integración</option>
-                  <option>Generación que Florece</option>
-                  <option>Refuerzos / Tutorías</option>
+                  <!-- <option>Generación que Florece</option>
+                  <option>Refuerzos / Tutorías</option> -->
                   <option>Otro</option>
                 </select>
               </label>
