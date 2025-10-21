@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/config.php'; ?>
+<?php require_once __DIR__ . '/config.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,7 +33,7 @@
 
 <body>
 
-  <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/header.php'; ?>
 
 
   <!-- main -->
@@ -587,7 +587,7 @@
   </section>
 
 
-  <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/footer.php'; ?>
 
 
   <script src="script.js"></script>

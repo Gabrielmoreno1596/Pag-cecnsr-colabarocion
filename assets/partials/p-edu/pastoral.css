@@ -212,7 +212,7 @@ body {
 .hero__subtitle {
   font-size: clamp(1rem, 1.2vw, 1.25rem);
   color: #f2f6fb;
-  margin-bottom: 1.25rem;
+  margin-bottom: 3rem;
   text-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
   animation: fadeUp 0.7s ease-out 0.22s both;
 }
@@ -221,6 +221,7 @@ body {
   gap: 0.8rem;
   flex-wrap: wrap;
   animation: fadeUp 0.7s ease-out 0.34s both;
+  justify-content: center;
 }
 
 /* Botón secundario en hero */
@@ -244,10 +245,10 @@ body {
   gap: 0.8rem;
   padding: 0.9rem 1.2rem;
   border-radius: 18px;
-  background: rgb(255 255 255 / 0.18);
+  /* background: rgb(255 255 255 / 0.18);
   border: 1px solid rgb(255 255 255 / 0.28);
   backdrop-filter: blur(8px) saturate(120%);
-  box-shadow: 0 12px 30px rgb(0 0 0 / 0.18);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.18); */
   z-index: 3;
 }
 .hero__badge-logo {
@@ -283,8 +284,8 @@ body {
 
 /* Contenedor del logo (cuadro blanco) */
 .hero__badge-logo {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 14px;
   background: #ffffff00;
   display: grid;
@@ -442,6 +443,68 @@ body {
   }
   to {
     transform: scale(1.08);
+  }
+}
+
+/* SubTitulo HERO ---------------------- */
+.eyebrow-sub {
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--cecns-gold);
+  display: inline-block;
+  margin: 0rem 0 3rem 0;
+  font-style: italic;
+}
+
+.hero__title-sub {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+  margin: 0.25rem 0 0.75rem;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.35);
+  animation: fadeUp 0.7s ease-out 0.1s both;
+  color: var(--blanco);
+}
+
+/* Color texto animado */
+.sheen-gold {
+  font-weight: 900;
+  font-size: clamp(28px, 7vw, 72px);
+  letter-spacing: 0.6px;
+  line-height: 1.05;
+
+  /* Pintamos el texto con fondos recortados a los glifos */
+  color: transparent !important;
+  background-image:
+    /* Capa base: dorado sólido */ linear-gradient(
+      0deg,
+      #e0b13af0,
+      rgba(224, 177, 58, 0.927)
+    ),
+    /* Capa brillo: franja con bordes suaves */
+      linear-gradient(
+        90deg,
+        transparent 10%,
+        rgb(255, 255, 255) 100%,
+        transparent 10%
+      );
+  background-clip: text, text;
+  -webkit-background-clip: text, text; /* Chrome/Safari */
+  -webkit-text-fill-color: transparent; /* Chrome/Safari */
+
+  /* Animación visible */
+  background-size: 100% 100%, 240% 100%;
+  background-position: 0 0, -160% 0;
+  animation: sheenMove 7s linear infinite;
+  will-change: background-position;
+
+  /* Opcional: un leve halo mejora el “metal” sobre fondos oscuros */
+  filter: drop-shadow(0 0.4px 0 rgba(0, 0, 0, 0.374));
+}
+
+@keyframes sheenMove {
+  to {
+    background-position: 0 0, 160% 0;
   }
 }
 
@@ -1651,4 +1714,151 @@ body {
     animation: none;
     background-position: 0 0, 0 0;
   }
+}
+
+/* Responsivo para el HERO */
+/* TOOOODO */
+
+/* Badge responsivo con clamp */
+/* Badge responsivo con clamp */
+.hero__badge-logo {
+  width: clamp(96px, 38vw, 160px);
+  height: clamp(96px, 38vw, 160px);
+}
+
+/* Centrar textos y limitar ancho de línea para lectura */
+@media (max-width: 768px) {
+  .hero__content {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 36ch; /* lectura relajada */
+  }
+  .hero__actions {
+    align-items: center;
+  }
+}
+
+/* Safe-area (iOS notch) para indicadores y flecha */
+@media (max-width: 768px) {
+  .hero__indicators {
+    bottom: calc(clamp(18px, 4vw, 42px) + env(safe-area-inset-bottom, 0px));
+  }
+  .hero__scroll {
+    bottom: calc(clamp(18px, 4vw, 46px) + env(safe-area-inset-bottom, 0px));
+    margin-bottom: 2rem;
+  }
+  .eyebrow-sub {
+    margin: 0;
+  }
+  .hero__title-sub {
+    font-size: 1.7rem;
+  }
+  .hero__title {
+    font-size: 2.8rem;
+  }
+}
+
+/* Área de toque sin cambiar el punto visual */
+.hero__indicator {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.hero__indicator::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 28px;
+}
+@media (max-width: 768px) {
+  .hero__indicators {
+    gap: 0.8rem;
+  }
+}
+@media (max-width: 800px) {
+  .oferta__media {
+    height: 220px;
+  } /* ya reduces a 240px; este ajuste es opcional */
+  .timeline__body img {
+    max-height: 360px;
+    object-fit: cover;
+  }
+}
+
+/* ===== Reveal on Scroll (estados iniciales) ===== */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* SCROLLL */
+/* Variantes: usa data-reveal="up|down|left|right|scale|fade" */
+[data-reveal="down"] {
+  transform: translateY(-14px);
+}
+[data-reveal="left"] {
+  transform: translateX(18px);
+}
+[data-reveal="right"] {
+  transform: translateX(-18px);
+}
+[data-reveal="scale"] {
+  transform: scale(0.96);
+}
+[data-reveal="fade"] {
+  transform: none;
+}
+
+/* Stagger por atributo: data-reveal-delay="100|200|300..." */
+[data-reveal].is-in {
+  transition-delay: var(--rev-delay, 0ms);
+}
+
+/* Preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== Reveal on Scroll (solo si hay JS) ===== */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: opacity, transform;
+}
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variantes (pueden quedarse igual, o también prefijarlas con html.js) */
+[data-reveal="down"] {
+  transform: translateY(-14px);
+}
+[data-reveal="left"] {
+  transform: translateX(18px);
+}
+[data-reveal="right"] {
+  transform: translateX(-18px);
+}
+[data-reveal="scale"] {
+  transform: scale(0.96);
+}
+[data-reveal="fade"] {
+  transform: none;
+}
+
+html.js [data-reveal].is-in {
+  transition-delay: var(--rev-delay, 0ms);
 }

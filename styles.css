@@ -288,43 +288,6 @@ body {
   font-size: 1.8rem;
 }
 
-/* === PIE DE PÁGINA (Footer) === */
-.main-footer {
-  background: var(--cecns-blue);
-  color: white;
-  padding: 2rem 10%;
-  text-align: left;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 1.5rem;
-  margin-bottom: 1rem;
-}
-.footer-info p {
-  margin-bottom: 8px;
-}
-.footer-info i {
-  margin-right: 10px;
-  color: var(--cecns-gold);
-}
-.footer-social a {
-  color: white;
-  font-size: 1.5rem;
-  margin-right: 15px;
-  transition: color 0.3s;
-}
-.footer-social a:hover {
-  color: var(--cecns-gold);
-}
-.copyright {
-  text-align: center;
-  font-size: 0.8rem;
-  padding-top: 1rem;
-}
-
 /* === SECCIÓN: GALERÍA DE FOTOS (ROLLO) === */
 .photo-roll-container {
   max-width: 100%;

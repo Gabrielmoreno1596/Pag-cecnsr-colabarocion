@@ -633,3 +633,87 @@ document.addEventListener('click', (e) => {
     window.addEventListener('touchmove', onMove, { passive: true });
 })();
 
+
+/* btns.forEach((b, i) =>
+    b.addEventListener('click', () => { setActive(i); index = i; restartHold(); })
+); */
+
+let index = 0, timer = null, holdTimer = null;
+const DUR = 4000, HOLD = 5000;
+
+function play() { if (timer) return; timer = setInterval(() => { index = (index + 1) % DATA.length; setActive(index); }, DUR); }
+function stop() { if (!timer) return; clearInterval(timer); timer = null; }
+function restart() { stop(); play(); }
+function restartHold() {
+    stop();
+    if (holdTimer) clearTimeout(holdTimer);
+    holdTimer = setTimeout(() => play(), HOLD);
+}
+
+
+
+/* =========================
+   Scroll-Reveal + Lazy Init
+   ========================= */
+/* ===== Reveal on Scroll + Lazy helpers ===== */
+(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 2.1) REVEAL: observar cualquier [data-reveal]
+    const $els = [...document.querySelectorAll('[data-reveal]')];
+    if (!reduce && $els.length) {
+        const io = new IntersectionObserver((entries, obs) => {
+            for (const e of entries) {
+                if (!e.isIntersecting) continue;
+                const el = e.target;
+                // delay opcional (en ms) → variable CSS
+                const d = Number(el.getAttribute('data-reveal-delay') || 0);
+                if (d) el.style.setProperty('--rev-delay', `${d}ms`);
+                el.classList.add('is-in');
+                obs.unobserve(el);
+            }
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+        $els.forEach(el => io.observe(el));
+    } else {
+        // sin animaciones
+        $els.forEach(el => el.classList.add('is-in'));
+    }
+
+    // 2.2) LAZY IMG con data-src/srcset (complementa loading="lazy")
+    const lazyImgs = [...document.querySelectorAll('img[data-src], img[data-srcset]')];
+    if (lazyImgs.length) {
+        const ioImg = new IntersectionObserver((entries, obs) => {
+            for (const e of entries) {
+                if (!e.isIntersecting) continue;
+                const img = e.target;
+                const src = img.getAttribute('data-src');
+                const srcset = img.getAttribute('data-srcset');
+                if (srcset) img.srcset = srcset;
+                if (src) img.src = src;
+                img.removeAttribute('data-src'); img.removeAttribute('data-srcset');
+                obs.unobserve(img);
+            }
+        }, { rootMargin: '200px 0px', threshold: 0.01 });
+        lazyImgs.forEach(i => ioImg.observe(i));
+    }
+
+    // 2.3) LAZY “background-image” (para tarjetas con imagen de fondo)
+    const lazyBg = [...document.querySelectorAll('[data-bg]')];
+    if (lazyBg.length) {
+        const ioBg = new IntersectionObserver((entries, obs) => {
+            for (const e of entries) {
+                if (!e.isIntersecting) continue;
+                const el = e.target;
+                const url = el.getAttribute('data-bg');
+                el.style.backgroundImage = `url('${url}')`;
+                el.removeAttribute('data-bg');
+                obs.unobserve(el);
+            }
+        }, { rootMargin: '200px 0px', threshold: 0.01 });
+        lazyBg.forEach(el => ioBg.observe(el));
+    }
+
+    // 2.4) START/STOP de componentes pesados al entrar/salir (ejemplo)
+    //    — si en el futuro quisieras iniciar un carrusel/contador sólo cuando se vea
+    //    — ahora no es necesario porque tu slider/rotators ya autogestionan visibilidad.
+})();
