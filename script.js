@@ -23,24 +23,21 @@ navToggle.addEventListener('click', () => {
 dropdownToggles.forEach(toggle => {
     toggle.addEventListener('click', e => {
 
-        // CLAVE: Solo ejecuta la lógica de alternar clases si estamos en modo móvil o tablet
+
         if (window.innerWidth <= MOBILE_BREAKPOINT) {
 
-            // Evita que el navegador siga el enlace del menú principal en móvil
+
             e.preventDefault();
 
-            // Cierra otros submenús abiertos para tener solo uno activo a la vez
             dropdownToggles.forEach(other => {
                 if (other !== toggle) {
                     other.parentElement.classList.remove('open');
                 }
             });
-
-            // Alterna la clase 'open' en el elemento padre <li>.dropdown
             const parentDropdown = toggle.parentElement;
             parentDropdown.classList.toggle('open');
         }
-        // En escritorio, el evento de click es ignorado, permitiendo que el CSS :hover funcione.
+
     });
 });
 
