@@ -15,7 +15,11 @@
   <link rel="stylesheet" href="<?= asset('assets/css/style-convenios.css') ?>">
   <link rel="stylesheet" href="<?= asset('assets/css/style-integracion.css') ?>">
 
-  <link rel="shortcut icon" href="assets/1_CECNSR.png" type="image/x-icon" />
+  <!-- Favicon básico (PNG) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
+  <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
+  <meta name="theme-color" content="#7f2d3c">
 
   <link
     rel="stylesheet"
