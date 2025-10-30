@@ -67,6 +67,7 @@
   </header> -->
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
 
   <main>
     <section class="level-hero second-cycle-hero">
@@ -202,12 +203,16 @@
             </p>
             <ul class="requirements-list-enhanced">
               <li>
+                <i class="fas fa-check"></i> **Enfoque Institucional:**
+                Pendiente.
+              </li>
+              <li>
                 <i class="fas fa-check"></i> **Enfoque Principal:**
                 Razonamiento abstracto, uso de fracciones y decimales.
               </li>
               <li>
-                <i class="fas fa-check"></i> **Idioma Alemán:** Desarrollo de
-                la comunicación simple y cultura alemana.
+                <i class="fas fa-check"></i> **Bilingüe:** Desarrollo de
+                la comunicación y cultura básica en Alemán e Inglés.
               </li>
               <li>
                 <i class="fas fa-check"></i> **Habilidad Clave:** Tutorías

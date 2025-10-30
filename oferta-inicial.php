@@ -67,6 +67,7 @@
   </header> -->
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
 
   <section class="level-hero parvularia-hero">
     <div class="level-hero-content">

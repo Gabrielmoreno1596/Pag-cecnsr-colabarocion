@@ -50,6 +50,8 @@
 <body>
 
     <?php require_once PROJECT_PATH . 'assets/partials/header.php'; ?>
+    <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+
     <?php require_once PROJECT_PATH . 'assets/partials/ui/under-dev.php'; ?>
     <?php require_once PROJECT_PATH . 'assets/partials/footer.php'; ?>
 

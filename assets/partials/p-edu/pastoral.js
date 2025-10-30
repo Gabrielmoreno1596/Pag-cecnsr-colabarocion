@@ -717,3 +717,12 @@ function restartHold() {
     //    — si en el futuro quisieras iniciar un carrusel/contador sólo cuando se vea
     //    — ahora no es necesario porque tu slider/rotators ya autogestionan visibilidad.
 })();
+
+
+// Marca el embed como "cargado" para ocultar el skeleton
+document.querySelectorAll('.video-embed iframe').forEach((f) => {
+    f.addEventListener('load', () => {
+        f.parentElement.classList.remove('is-loading');
+        f.parentElement.classList.add('is-loaded');
+    });
+});

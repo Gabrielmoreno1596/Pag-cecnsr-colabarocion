@@ -67,6 +67,7 @@
   </header> -->
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
 
   <main>
     <section class="level-hero third-cycle-hero" id="inicio">

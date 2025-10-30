@@ -384,10 +384,12 @@
   </main>
 
   <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
 
 
 
 
+  <script src="assets-ml/script/script2c.js"></script>
   <script src="assets-ml/script/script1.js"></script>
 
 

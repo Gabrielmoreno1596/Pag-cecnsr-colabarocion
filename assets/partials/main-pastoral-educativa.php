@@ -49,7 +49,7 @@
             <div class="hero__badge" data-reveal="down" data-reveal-delay="100">
                 <div class="hero__badge-logo">
                     <img class="hero__badge-logo"
-                        src="<?= asset('assets/pastoralEducativa/celebraciones/pe-logo.png'); ?>"
+                        src="<?= asset('assets/1_CECNSR.png'); ?>"
                         alt="Logotipo Pastoral Educativa CECNSR">
                 </div>
             </div>
@@ -105,10 +105,10 @@
 
             <ul class="meta-pills" role="list" data-reveal="up" data-reveal-delay="150">
                 <li class="pill btn btn--gold btn--shine">
-                    <a href="#desempenos">Integrar <strong>fe, cultura y vida</strong></a>
+                    <a href="#desempenos" class="btn-mision">Integrar <strong>fe, cultura y vida</strong></a>
                 </li>
-                <li class="pill btn--burgundy btn--shine">Seis desempeños: <strong>aprender, conocer, hacer, sentir, ser, convivir</strong></li>
-                <li class="pill btn--burgundy btn--shine">Cuatro puntos: <strong>disciplina, tarjeta, servicio, prevención</strong></li>
+                <li class="pill btn--burgundy btn--shine"><a href="#desempenos" class="btn-mision">Seis desempeños: <strong>aprender, conocer, hacer, sentir, ser, convivir</strong></a></li>
+                <li class="pill btn--burgundy btn--shine"><a href="#desempenos" class="btn-mision">Cuatro puntos: <strong>disciplina, tarjeta, servicio, prevención</strong></a></li>
             </ul>
 
             <!-- ===== Layout misión: contenido + aside ===== -->
@@ -313,24 +313,24 @@
 
             <ol class="timeline" data-oferta>
                 <!-- 1. Inicial & Parvularia -->
-                <li class="timeline__item is-open" data-reveal="up" data-reveal-delay="100">
+                <li class="timeline__item is-open" data-reveal="up" data-reveal-delay="50">
                     <button class="timeline__head" type="button">Educación Inicial y Parvularia</button>
                     <div class="timeline__body">
                         <div class="oferta">
                             <div class="oferta__media">
                                 <div class="rotator" data-interval="3800">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/san-francisco-edu-inicial-parvularia.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-dramatizacion2.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-gradas-derecha.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/procesion-coro-acolitos.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/parv/cancha-parvularia-nivel.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/parv/est-parv-prof_Dina.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/parv/parv-salon-p4a.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/parv/parv-liliana-p425.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/parv/parv-cancha-nivel2.jpeg'); ?>" alt="">
                                 </div>
                             </div>
                             <div class="oferta__text">
                                 <p>Desarrollo de habilidades básicas, socialización y descubrimiento del entorno desde el juego, la creatividad y la fe.</p>
                                 <ul class="bullet">
                                     <li>Psicomotricidad, lenguaje y pensamiento lógico.</li>
-                                    <li>Rutinas y hábitos con sentido de autocuidado.</li>
+                                    <li>Rutinas y hábitos con sentido de autocuido.</li>
                                     <li>Ambientes lúdicos y celebrativos.</li>
                                 </ul>
                             </div>
@@ -338,31 +338,56 @@
                     </div>
                 </li>
 
-                <!-- 2. Primer y Segundo Ciclo -->
-                <li class="timeline__item" data-reveal="up" data-reveal-delay="150">
-                    <button class="timeline__head" type="button">Primer y Segundo Ciclo</button>
+
+                <!-- 2. Primer Ciclo (1.º a 3.º) -->
+                <li class="timeline__item" data-reveal="up" data-reveal-delay="120">
+                    <button class="timeline__head" type="button">Primer Ciclo</button>
                     <div class="timeline__body">
                         <div class="oferta">
                             <div class="oferta__media">
-                                <div class="rotator" data-interval="4000">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-dramatizacion2.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-gradas-derecha.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/todos-docentes.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/coro-institucional-cecnsr-iglesia-san-marcos.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/docentes-trabajo-cola.jpeg'); ?>" alt="">
+                                <div class="rotator" data-interval="3800">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/primerCiclo/primer-ciclo-primer-grado.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/primerCiclo/est-3er-grado-madre-iris.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/primerCiclo/2-2do-visit-mineducyt.jpeg'); ?>" alt="">
                                 </div>
+
                             </div>
                             <div class="oferta__text">
-                                <p>Conocimientos fundamentales, hábitos de estudio y vivencia de principios y valores.</p>
+                                <p>Consolidación de la lectoescritura, pensamiento lógico y hábitos de estudio con acompañamiento cercano.</p>
                                 <ul class="bullet">
-                                    <li>Lectoescritura, matemática, ciencias y arte.</li>
-                                    <li>Trabajo colaborativo y disciplina personal.</li>
+                                    <li>Lenguaje, Matemática, Ciencias y Arte como base.</li>
+                                    <li>Rutinas de trabajo y autonomía progresiva.</li>
                                     <li>Proyecto de aula con enfoque pastoral.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </li>
+
+                <!-- 3. Segundo Ciclo (4.º a 6.º) -->
+                <li class="timeline__item" data-reveal="up" data-reveal-delay="160">
+                    <button class="timeline__head" type="button">Segundo Ciclo</button>
+                    <div class="timeline__body">
+                        <div class="oferta">
+                            <div class="oferta__media">
+                                <div class="rotator" data-interval="3800">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/segundoCiclo/ii-ciclo-sexto-grado.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/segundoCiclo/ii-ciclo-sexto-grado2.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/segundoCiclo/cuarto-grado-visita-inge-Katia.jpeg'); ?>" alt="">
+                                </div>
+                            </div>
+                            <div class="oferta__text">
+                                <p>Profundización de contenidos, trabajo colaborativo y disciplina personal con vivencia de valores.</p>
+                                <ul class="bullet">
+                                    <li>Comprensión lectora, resolución de problemas y expresión creativa.</li>
+                                    <li>Proyectos integrados y uso responsable de tecnología.</li>
+                                    <li>Acciones pastorales y ciudadanía responsable.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
 
                 <!-- 3. Tercer Ciclo -->
                 <li class="timeline__item" data-reveal="up" data-reveal-delay="200">
@@ -371,11 +396,11 @@
                         <div class="oferta">
                             <div class="oferta__media">
                                 <div class="rotator" data-interval="3800">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/san-francisco-tercer-ciclo.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-dramatizacion2.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/procesion-coro-acolitos.jpeg'); ?>" alt="">
-                                    <img loading="lazy" decoding="async" src="<?= asset('assets/pastoralEducativa/todos-docentes.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/tercerCiclo/iiic3.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/tercerCiclo/iiic1.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/tercerCiclo/iiic10.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/tercerCiclo/iii-ciclo-trabajo-grupal2.jpeg'); ?>" alt="">
+                                    <img loading="lazy" decoding="async" src="<?= asset('assets/ofertaAcademica/tercerCiclo/retiro-tercer-ciclo.jpeg'); ?>" alt="">
                                 </div>
                             </div>
                             <div class="oferta__text">
@@ -420,42 +445,114 @@
     </section>
 
     <!-- ===== Comunidad ===== -->
-    <section id="galeria" class="band band--gallery-masonry" aria-labelledby="gal-title">
+    <section id="galeria" class="band band--gallery-masonry pastoral" aria-labelledby="gal-title">
         <div class="band__inner">
-            <h2 id="gal-title" class="section-title" data-reveal="up">Comunidad en acción</h2>
+            <h2 id="gal-title" class="section-title">Comunidad en acción</h2>
 
             <div class="masonry" data-gallery="main">
-                <a class="masonry__item" href="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'); ?>" data-reveal="up" data-reveal-delay="100">
+                <!-- Item 1 -->
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-ii-ciclo3.jpg'); ?>">
                     <img loading="lazy" decoding="async"
-                        src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'); ?>" alt="Procesión con acólitos y estudiantes">
-                    <span class="masonry__cap">Procesión y participación</span>
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-ii-ciclo3.jpg'); ?>"
+                        alt="Procesión con acólitos y estudiantes">
+                    <span class="masonry__cap">Feria de Innovación 2025 — ECA</span>
                 </a>
-                <a class="masonry__item" href="<?= asset('assets/pastoralEducativa/todos-docentes.jpeg'); ?>" data-reveal="up" data-reveal-delay="150">
+
+                <!-- Item 2 -->
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-edu-fe2.jpg'); ?>">
                     <img loading="lazy" decoding="async"
-                        src="<?= asset('assets/pastoralEducativa/todos-docentes.jpeg'); ?>" alt="Equipo docente CECNSR">
-                    <span class="masonry__cap">Equipo docente</span>
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-edu-fe2.jpg'); ?>"
+                        alt="Equipo docente CECNSR">
+                    <span class="masonry__cap">Educación en la fe — Los Mandamientos</span>
                 </a>
-                <a class="masonry__item" href="<?= asset('assets/pastoralEducativa/coro-institucional-cecnsr-iglesia-san-marcos.jpeg'); ?>" data-reveal="up" data-reveal-delay="200">
+
+                <!-- Item 3 -->
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-ii-ciclo4.jpg'); ?>">
                     <img loading="lazy" decoding="async"
-                        src="<?= asset('assets/pastoralEducativa/coro-institucional-cecnsr-iglesia-san-marcos.jpeg'); ?>" alt="Coro institucional en templo">
-                    <span class="masonry__cap">Coro institucional</span>
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-ii-ciclo4.jpg'); ?>"
+                        alt="Coro institucional en el templo">
+                    <span class="masonry__cap">II ciclo — Reacciones químicas</span>
                 </a>
-                <a class="masonry__item" href="<?= asset('assets/pastoralEducativa/docentes-trabajo-cola.jpeg'); ?>" data-reveal="up" data-reveal-delay="250">
+
+                <!-- Item 4 -->
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'); ?>">
                     <img loading="lazy" decoding="async"
-                        src="<?= asset('assets/pastoralEducativa/docentes-trabajo-cola.jpeg'); ?>" alt="Docentes en jornada de formación">
-                    <span class="masonry__cap">Formación docente</span>
+                        src="<?= asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'); ?>"
+                        alt="Docentes en jornada de formación">
+                    <span class="masonry__cap">Evento Mariano</span>
+                </a>
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-eca-cancha.jpg'); ?>">
+                    <img loading="lazy" decoding="async"
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-eca-cancha.jpg'); ?>"
+                        alt="Docentes en jornada de formación">
+                    <span class="masonry__cap">Fería de Innovación - Proyecto Electrónica</span>
+                </a>
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-i-ciclo4.jpg'); ?>">
+                    <img loading="lazy" decoding="async"
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-i-ciclo4.jpg'); ?>"
+                        alt="Docentes en jornada de formación">
+                    <span class="masonry__cap">Estudiante de I ciclo - Entendiendo el Tiempo y el Clima</span>
+                </a>
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-i-ciclo5.jpg'); ?>">
+                    <img loading="lazy" decoding="async"
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-i-ciclo5.jpg'); ?>"
+                        alt="Docentes en jornada de formación">
+                    <span class="masonry__cap">Estudiantes de I ciclo - Ruleta Matemática</span>
+                </a>
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-robótica-cancha.jpg'); ?>">
+                    <img loading="lazy" decoding="async"
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-robótica-cancha.jpg'); ?>"
+                        alt="Docentes en jornada de formación">
+                    <span class="masonry__cap">Estudiantes de I ciclo - Proyecto de Robótica</span>
+                </a>
+                <a class="masonry__item"
+                    href="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-cancha-ii-ciclo-robotica.jpg'); ?>">
+                    <img loading="lazy" decoding="async"
+                        src="<?= asset('assets/pastoralEducativa/comunidad-en-accion/c-accion-cancha-ii-ciclo-robotica.jpg'); ?>"
+                        alt="Docentes en jornada de formación">
+                    <span class="masonry__cap">Estudiantes de I ciclo - Proyecto de Robótica</span>
                 </a>
             </div>
         </div>
     </section>
 
+
+
+
+    <div id="lightbox" class="lightbox" aria-hidden="true" hidden>
+        <button class="lightbox__close" aria-label="Cerrar">×</button>
+        <img class="lightbox__img" alt="">
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Anterior">‹</button>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Siguiente">›</button>
+    </div>
+
+
     <!-- ===== Himno ===== -->
     <section class="band band--himno-soft" aria-labelledby="himno-title">
         <div class="band__inner">
-            <h2 id="himno-title" class="section-title" data-reveal="up">Himno de la Pastoral Educativa</h2>
-            <audio id="himno-audio" controls preload="none" aria-label="Reproducir himno de la Pastoral" data-reveal="up" data-reveal-delay="100">
-                <source src="<?= asset('assets/pastoralEducativa/himno-pastoral.mp3'); ?>" type="audio/mpeg">
-            </audio>
+            <h2 id="himno-title" class="section-title">Himno de la Pastoral Educativa</h2>
+
+            <div class="video-card" data-reveal="up" data-reveal-delay="100">
+                <div class="video-embed is-loading">
+                    <iframe
+                        src="https://www.youtube.com/embed/VPTBebPfrsw?rel=0"
+                        title="HFIC - Himno de la Pastoral Educativa"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="video-caption">Himno oficial — HFIC / Pastoral Educativa</p>
+            </div>
+
             <details class="readmore" data-reveal="up" data-reveal-delay="150">
                 <summary>Ver letra del himno</summary>
                 <div class="readmore__content">
@@ -465,7 +562,8 @@
         </div>
     </section>
 
-    <!-- ===== Logos ===== -->
+
+
     <section class="band band--logos-strip" aria-labelledby="logos-title">
         <div class="band__inner">
             <h2 id="logos-title" class="section-title" data-reveal="up">Identidad visual</h2>

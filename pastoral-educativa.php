@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/contribuciones/sitececnsr/config.php'; ?>
+<?php require_once __DIR__ . '/config.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,9 +11,12 @@
 </head>
 
 <body>
-    <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
-    <?php include PROJECT_PATH . 'assets/partials/main-pastoral-educativa.php'; ?>
-    <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
+    <?php require_once PROJECT_PATH . 'assets/partials/header.php'; ?>
+    <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+    <?php require_once PROJECT_PATH . 'assets/partials/main-pastoral-educativa.php'; ?>
+    <?php require_once PROJECT_PATH . 'assets/partials/footer.php'; ?>
+
+
 </body>
 
 </html>

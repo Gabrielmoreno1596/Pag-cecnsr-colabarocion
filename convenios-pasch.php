@@ -35,6 +35,8 @@
 
   <?php require_once PROJECT_PATH . 'assets/partials/header.php'; ?>
 
+  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+
 
   <!-- main -->
   <section class="hero hero--signature" aria-labelledby="hero-pasch-title">

@@ -10,9 +10,9 @@
                 </li>
                 <li class="contact-list__item">
                     <i class="fas fa-phone" aria-hidden="true"></i>
-                    <a href="tel:+50325031970" class="contact-link">2503-1970</a>
+                    <a href="tel:+50325031970" class="contact-link">2503 - 1970</a>
                     <span class="sep"> / </span>
-                    <a href="tel:+50322206927" class="contact-link">2220-6927</a>
+                    <a href="tel:+503222 06927" class="contact-link">2220 - 6927</a>
                 </li>
                 <li class="contact-list__item">
                     <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -46,9 +46,9 @@
         <section class="footer-block">
             <h4 class="footer-block__title">Síguenos</h4>
             <ul class="social-list">
-                <li><a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                <li><a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="#" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/cecnsr" class="social-btn" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/cecnsr_88043/" class="social-btn" aria-label="Instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCkKhI2ckIH2joeW_TG_q-gg/videos" class="social-btn" aria-label="YouTube" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
             </ul>
         </section>
     </div>

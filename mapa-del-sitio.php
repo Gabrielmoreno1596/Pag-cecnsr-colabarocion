@@ -1,11 +1,25 @@
-<?php
-// 1) Carga la config SIEMPRE primero
-require_once __DIR__ . '/config.php';
+<?php require_once __DIR__ . '/config.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
 
-// 2) Incluye header/footer y partials usando PROJECT_PATH
-require_once PROJECT_PATH . 'assets/partials/header.php';
-?>
-<main class="container legal-page" id="main-content">
-    <?php require_once PROJECT_PATH . 'assets/partials/legal/mapa-del-sitio.php'; ?>
-</main>
-<?php require_once PROJECT_PATH . 'assets/partials/footer.php'; ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CECNSR | Mapa del Sitio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <?php require_once PROJECT_PATH . 'assets/partials/header.php'; ?>
+    <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+
+    <main class="container legal-page" id="main-content">
+        <?php require_once PROJECT_PATH . 'assets/partials/legal/mapa-del-sitio.php'; ?>
+    </main>
+    <?php require_once PROJECT_PATH . 'assets/partials/footer.php'; ?>
+
+
+</body>
+
+</html>

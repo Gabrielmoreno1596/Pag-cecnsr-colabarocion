@@ -35,6 +35,8 @@
 <body>
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
+  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+
   <!-- main content -->
   <!-- ===== HERO: Psicología Individual & 4 Puntos Esenciales ===== -->
   <section class="pi-hero" aria-labelledby="pi-title">
