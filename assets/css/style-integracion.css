@@ -46,6 +46,7 @@
   border-radius: 999px;
   padding: 0.6rem 1rem;
   font-weight: 700;
+  text-decoration: none;
 }
 .btn-solid-int {
   background: var(--cecns-gold);
@@ -62,6 +63,7 @@
   border-radius: 999px;
   padding: 0.55rem 1rem;
   font-weight: 700;
+  text-decoration: none;
 }
 .btn-outline-int:hover {
   background: var(--cecns-gold);

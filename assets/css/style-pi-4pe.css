@@ -87,6 +87,7 @@
   border-radius: 999px;
   padding: 0.55rem 1rem;
   font-weight: 700;
+  text-decoration: none;
 }
 .btn-outline-pi:hover {
   background: var(--cecns-navy);
@@ -100,6 +101,7 @@
   border-radius: 999px;
   padding: 0.55rem 1rem;
   font-weight: 700;
+  text-decoration: none;
 }
 .btn-pill-pi:hover {
   background: var(--pi-bg);
