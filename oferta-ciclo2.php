@@ -208,9 +208,12 @@
             </p>
             <ul class="requirements-list-enhanced">
               <li>
-                <i class="fas fa-check"></i> **Enfoque Institucional:**
-                Pendiente.
+              <li>
+                <i class="fas fa-check"></i>
+                Enfoque Institucional:
+                Formación integral inspirada en la Pedagogía de Jesús y el carisma HFIC, con aprendizajes significativos, trabajo colaborativo, innovación y competencias del siglo XXI para una ciudadanía crítica y solidaria.
               </li>
+
               <li>
                 <i class="fas fa-check"></i> **Enfoque Principal:**
                 Razonamiento abstracto, uso de fracciones y decimales.
