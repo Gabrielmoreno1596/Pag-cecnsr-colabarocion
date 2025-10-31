@@ -18,62 +18,6 @@
 </head>
 
 <body>
-  <!--     <header class="main-header">
-      <div class="logo">
-        <img src="logo-cecnsr.png" alt="Logo CECNSR" class="logo-img" />
-        <h1>CECNSR</h1>
-      </div>
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="index.php#hero">Inicio</a></li>
-          <li><a href="index.php#filosofia">Filosofía y Valores</a></li>
-
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="oferta-toggle"
-              >Oferta Académica <i class="fas fa-caret-down"></i
-            ></a>
-            <ul class="dropdown-menu">
-              <li><a href="oferta-inicial.php">Inicial y Parvularia</a></li>
-              <li><a href="oferta-ciclo1.php">I Ciclo</a></li>
-              <li><a href="oferta-ciclo2.php">II Ciclo</a></li>
-              <li><a href="oferta-ciclo3.php">III Ciclo</a></li>
-              <li>
-                <a href="oferta-bachillerato.php"
-                  >Bachillerato (General, Diplomados y Técnicos)</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="convenios-toggle"
-              >Convenios <i class="fas fa-caret-down"></i
-            ></a>
-            <ul class="dropdown-menu">
-              <li><a href="convenios-pasch.php">Colegios PASCH</a></li>
-              <li><a href="convenios-dual.php">Proyecto DUAL</a></li>
-              <li>
-                <a href="convenios-psicologia.php"
-                  >Equipo Líder en Psicología Individual</a
-                >
-              </li>
-              <li>
-                <a href="convenios-integracion.php">Proyecto de Integración</a>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="proceso-admision.php" class="btn-cta-nav"
-              >Nuevo Ingreso <i class="fas fa-user-plus"></i
-            ></a>
-          </li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" aria-label="Abrir menú" id="nav-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-    </header> -->
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
   <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
@@ -96,39 +40,29 @@
     </div>
 
     <div class="admission-form-container">
-      <form
-        id="admission-form"
-        action="https://formspree.io/f/xbjnqyzj"
-        method="POST">
+      <form id="admission-form" action="enviar.php" method="POST" novalidate>
+        <!-- Honeypot (debe quedar oculto con CSS) -->
+        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" style="display:none">
+
         <div class="form-group">
           <label for="nombre_padre">Nombre completo del Padre/Madre/Encargado:</label>
-          <input
-            type="text"
-            id="nombre_padre"
-            name="Nombre_Encargado"
-            required />
+          <input type="text" id="nombre_padre" name="nombre_encargado" required />
         </div>
 
         <div class="form-group">
           <label for="telefono">Teléfono de Contacto (WhatsApp preferible):</label>
-          <input type="tel" id="telefono" name="Telefono" required />
+          <input type="tel" id="telefono" name="telefono" required />
         </div>
 
         <div class="form-group">
           <label for="correo">Correo Electrónico (Para recibir la información):</label>
-          <input
-            type="email"
-            id="correo"
-            name="Correo_Electronico"
-            required />
+          <input type="email" id="correo" name="correo" required />
         </div>
 
         <div class="form-group">
           <label for="estudiante_grado">Grado de Interés para el Estudiante:</label>
-          <select id="estudiante_grado" name="Grado_de_Interes" required>
-            <option value="" disabled selected>
-              -- Seleccione un nivel --
-            </option>
+          <select id="estudiante_grado" name="grado_interes" required>
+            <option value="" disabled selected>-- Seleccione un nivel --</option>
             <option value="Inicial y Parvularia">Inicial y Parvularia</option>
             <option value="Primer Ciclo">I Ciclo</option>
             <option value="Segundo Ciclo">II Ciclo</option>
@@ -141,12 +75,16 @@
 
         <div class="form-group">
           <label for="consulta">Consulta Específica o Comentarios Adicionales:</label>
-          <textarea id="consulta" name="Consulta" rows="5"></textarea>
+          <textarea id="consulta" name="consulta" rows="5"></textarea>
         </div>
+        <div class="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
 
         <button type="submit" class="btn-primary" style="width: 100%">
           Enviar Solicitud de Admisión
         </button>
+
+        <!-- Mensajes -->
+        <p id="form-msg" style="margin-top:12px"></p>
       </form>
     </div>
 
@@ -158,8 +96,52 @@
       </p>
     </div>
   </section>
+
   <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
   <script src="script.js"></script>
+
+  <script>
+    (function() {
+      const form = document.getElementById('admission-form');
+      const msg = document.getElementById('form-msg');
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        // Si quieres envío tradicional, elimina esto y deja que navegue a enviar.php
+        e.preventDefault();
+        msg.textContent = '';
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json'
+            },
+            body: new FormData(form)
+          });
+          const data = await res.json();
+          msg.style.color = data.ok ? 'green' : 'crimson';
+          msg.textContent = data.msg || (data.ok ? 'Enviado.' : 'Error.');
+          if (data.ok) form.reset();
+        } catch (err) {
+          msg.style.color = 'crimson';
+          msg.textContent = 'Error de red. Intenta de nuevo.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Enviar Solicitud de Admisión';
+        }
+      });
+    })();
+  </script>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+
 </body>
 
 </html>
