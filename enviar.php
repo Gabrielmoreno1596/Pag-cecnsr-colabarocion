@@ -43,33 +43,45 @@ if ($nombre === '' || $tel === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL)
 }
 
 // === (Opcional) reCAPTCHA v2 ===
+// === reCAPTCHA v2 (producción) ===
 if (RECAPTCHA_ENABLED) {
     $resp = $_POST['g-recaptcha-response'] ?? '';
     if (!$resp) {
         http_response_code(400);
-        echo json_encode(['ok' => false, 'msg' => 'Valida el reCAPTCHA.']);
+        echo json_encode(['ok' => false, 'msg' => 'Por favor marca el reCAPTCHA.']);
         exit;
     }
-    $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
-    $postData  = http_build_query([
-        'secret'   => RECAPTCHA_SECRET_KEY,
-        'response' => $resp,
-        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+
+    // Verificar con cURL (más compatible que file_get_contents en hosting)
+    $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 10,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => http_build_query([
+            'secret'   => RECAPTCHA_SECRET_KEY,
+            'response' => $resp,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+        ]),
     ]);
-    $ctx = stream_context_create(['http' => [
-        'method'  => 'POST',
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'content' => $postData,
-        'timeout' => 10
-    ]]);
-    $res = file_get_contents($verifyUrl, false, $ctx);
-    $ok  = $res ? json_decode($res, true) : null;
-    if (!$ok || empty($ok['success'])) {
+    $result = curl_exec($ch);
+    $curlErr = curl_error($ch);
+    curl_close($ch);
+
+    if ($result === false) {
         http_response_code(400);
-        echo json_encode(['ok' => false, 'msg' => 'No pudimos validar el reCAPTCHA.']);
+        echo json_encode(['ok' => false, 'msg' => 'No se pudo validar el reCAPTCHA (conexión).']);
+        exit;
+    }
+    $json = json_decode($result, true);
+    if (empty($json['success'])) {
+        // Puedes inspeccionar $json['error-codes'] si quieres loguearlo
+        http_response_code(400);
+        echo json_encode(['ok' => false, 'msg' => 'Validación reCAPTCHA inválida. Intenta de nuevo.']);
         exit;
     }
 }
+
 
 // === Preparar contenidos seguros ===
 $nombreHtml   = htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');

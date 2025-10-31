@@ -79,6 +79,12 @@
         </div>
         <div class="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
 
+        <?php if (RECAPTCHA_ENABLED): ?>
+          <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars(RECAPTCHA_SITE_KEY) ?>"></div>
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <?php endif; ?>
+
+
         <button type="submit" class="btn-primary" style="width: 100%">
           Enviar Solicitud de Admisión
         </button>
