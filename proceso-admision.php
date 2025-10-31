@@ -145,6 +145,47 @@
 
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+  <script>
+    (function() {
+      const form = document.getElementById('admission-form');
+      const msg = document.getElementById('form-msg');
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msg.textContent = '';
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          let data;
+          try {
+            data = await res.json();
+          } catch {
+            data = {
+              ok: false,
+              msg: 'Respuesta no válida del servidor.'
+            };
+          }
+          msg.style.color = data.ok ? 'green' : 'crimson';
+          msg.textContent = data.msg || (data.ok ? 'Enviado.' : 'Error.');
+          if (data.ok) form.reset();
+          grecaptcha?.reset?.(); // opcional: resetea el widget tras enviar
+        } catch (err) {
+          msg.style.color = 'crimson';
+          msg.textContent = 'Error de red. Intenta de nuevo.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Enviar Solicitud de Admisión';
+        }
+      });
+    })();
+  </script>
 
 
 
