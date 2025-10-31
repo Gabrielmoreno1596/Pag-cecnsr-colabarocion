@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/config.php'; ?>
+<?php require_once __DIR__ . '/config.mail.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,10 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CECNSR | Nuevo Ingreso y Admisiones</title>
   <link rel="stylesheet" href="styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Favicon básico (PNG) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
   <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>" type="image/png">
   <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
@@ -21,27 +19,23 @@
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
   <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+
   <div class="page-header">
     <h1>Proceso de Admisión y Nuevo Ingreso 2026</h1>
-    <p>
-      ¡Te invitamos a formar parte de la familia CECNSR! Regístrate para
-      iniciar el proceso.
-    </p>
+    <p>¡Te invitamos a formar parte de la familia CECNSR! Regístrate para iniciar el proceso.</p>
   </div>
 
   <section class="main-content">
-    <div class="content-section" style="text-align: center">
+    <div class="content-section" style="text-align:center">
       <h2 class="sub-title">Solicitud de Información y Visita Guiada</h2>
-      <p style="max-width: 800px; margin: 0 auto 30px">
-        Completa el siguiente formulario para que nuestro equipo de admisiones
-        se ponga en contacto contigo y te brinde los detalles de matrícula,
-        requisitos y una visita personalizada a nuestras instalaciones.
+      <p style="max-width:800px;margin:0 auto 30px">
+        Completa el siguiente formulario para que nuestro equipo de admisiones se ponga en contacto contigo y te brinde los detalles de matrícula, requisitos y una visita personalizada a nuestras instalaciones.
       </p>
     </div>
 
     <div class="admission-form-container">
       <form id="admission-form" action="enviar.php" method="POST" novalidate>
-        <!-- Honeypot (debe quedar oculto con CSS) -->
+        <!-- Honeypot -->
         <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" style="display:none">
 
         <div class="form-group">
@@ -77,73 +71,26 @@
           <label for="consulta">Consulta Específica o Comentarios Adicionales:</label>
           <textarea id="consulta" name="consulta" rows="5"></textarea>
         </div>
-        <div class="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
 
         <?php if (RECAPTCHA_ENABLED): ?>
           <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars(RECAPTCHA_SITE_KEY) ?>"></div>
-          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <?php endif; ?>
 
-
-        <button type="submit" class="btn-primary" style="width: 100%">
-          Enviar Solicitud de Admisión
-        </button>
-
-        <!-- Mensajes -->
+        <button type="submit" class="btn-primary" style="width:100%">Enviar Solicitud de Admisión</button>
         <p id="form-msg" style="margin-top:12px"></p>
       </form>
     </div>
 
-    <div class="content-section" style="margin-top: 3rem; text-align: center">
-      <p>
-        Si deseas comunicarte de inmediato, llámanos al
-        <span style="font-weight: bold">2503-1970</span> o escríbenos a
-        <span style="font-weight: bold">CECNSROSARIO@HOTMAIL.COM</span>.
-      </p>
+    <div class="content-section" style="margin-top:3rem;text-align:center">
+      <p>Si deseas comunicarte de inmediato, llámanos al <strong>2503-1970</strong> o escríbenos a <strong>CECNSROSARIO@HOTMAIL.COM</strong>.</p>
     </div>
   </section>
 
   <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
-  <script src="script.js"></script>
 
-  <script>
-    (function() {
-      const form = document.getElementById('admission-form');
-      const msg = document.getElementById('form-msg');
-      if (!form) return;
-
-      form.addEventListener('submit', async (e) => {
-        // Si quieres envío tradicional, elimina esto y deja que navegue a enviar.php
-        e.preventDefault();
-        msg.textContent = '';
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.textContent = 'Enviando...';
-
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json'
-            },
-            body: new FormData(form)
-          });
-          const data = await res.json();
-          msg.style.color = data.ok ? 'green' : 'crimson';
-          msg.textContent = data.msg || (data.ok ? 'Enviado.' : 'Error.');
-          if (data.ok) form.reset();
-        } catch (err) {
-          msg.style.color = 'crimson';
-          msg.textContent = 'Error de red. Intenta de nuevo.';
-        } finally {
-          btn.disabled = false;
-          btn.textContent = 'Enviar Solicitud de Admisión';
-        }
-      });
-    })();
-  </script>
-
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <?php if (RECAPTCHA_ENABLED): ?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <?php endif; ?>
 
   <script>
     (function() {
@@ -172,11 +119,12 @@
               msg: 'Respuesta no válida del servidor.'
             };
           }
+
           msg.style.color = data.ok ? 'green' : 'crimson';
           msg.textContent = data.msg || (data.ok ? 'Enviado.' : 'Error.');
           if (data.ok) form.reset();
-          grecaptcha?.reset?.(); // opcional: resetea el widget tras enviar
-        } catch (err) {
+          if (window.grecaptcha && grecaptcha.reset) grecaptcha.reset();
+        } catch {
           msg.style.color = 'crimson';
           msg.textContent = 'Error de red. Intenta de nuevo.';
         } finally {
@@ -186,9 +134,6 @@
       });
     })();
   </script>
-
-
-
 </body>
 
 </html>
