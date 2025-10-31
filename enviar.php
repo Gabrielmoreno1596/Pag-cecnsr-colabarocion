@@ -11,11 +11,12 @@ use PHPMailer\PHPMailer\Exception;
 
 session_start();
 $now = time();
-if (!empty($_SESSION['last_submit']) && ($now - $_SESSION['last_submit'] < 10)) {
+if (!empty($_SESSION['last_submit']) && ($now - $_SESSION['last_submit'] < 10)) { // antes 60
     http_response_code(429);
-    echo json_encode(['ok' => false, 'msg' => 'Espera unos segundos antes de enviar otra solicitud.']);
+    echo json_encode(['ok' => false, 'msg' => 'Espera 10 segundos antes de otro envío.']);
     exit;
 }
+
 
 function clean($v)
 {
