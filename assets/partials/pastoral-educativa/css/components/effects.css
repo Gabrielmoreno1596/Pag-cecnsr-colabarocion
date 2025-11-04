@@ -1,0 +1,214 @@
+/* Sheen en encabezados */
+.sheen-gold {
+  font-weight: 900;
+  font-size: clamp(28px, 7vw, 72px);
+  letter-spacing: 0.6px;
+  line-height: 1.05;
+  color: var(--cecns-gold);
+}
+
+/* ===== Shine / Sheen para botones ===== */
+.btn--shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+}
+.btn--shine::after {
+  content: "";
+  position: absolute;
+  top: -150%;
+  bottom: -150%;
+  left: -60%;
+  width: 42%;
+  pointer-events: none;
+  transform: skewX(var(--shine-skew, -20deg)) translateX(-120%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--shine-color, #fff) 0%, transparent) 40%,
+    color-mix(in srgb, var(--shine-color, #fff) 70%, transparent) 50%,
+    color-mix(in srgb, var(--shine-color, #fff) 0%, transparent) 60%,
+    transparent 100%
+  );
+  opacity: var(--shine-opacity, 0.9);
+}
+.btn--shine:hover::after,
+.btn--shine:focus-visible::after {
+  animation: btnShine var(--shine-dur, 900ms)
+    var(--shine-ease, cubic-bezier(0.2, 0.6, 0.2, 1)) forwards;
+}
+.btn--shine[data-shine="auto"]::after {
+  animation: btnShine var(--shine-dur, 900ms)
+    var(--shine-ease, cubic-bezier(0.2, 0.6, 0.2, 1)) var(--shine-delay, 2.8s)
+    infinite;
+}
+@keyframes btnShine {
+  to {
+    transform: skewX(var(--shine-skew, -20deg)) translateX(360%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn--shine::after,
+  .btn--shine:hover::after,
+  .btn--shine:focus-visible::after {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Botón Burgundy */
+.btn--burgundy {
+  --burgundy: #7c0040;
+  background: var(--burgundy);
+  color: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 22px rgba(124, 0, 64, 0.24);
+  transition: transform 0.6s ease, background 0.2s, box-shadow 0.2s;
+}
+.btn--burgundy:hover {
+  background: color-mix(in srgb, var(--burgundy) 92%, #fff 8%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(124, 0, 64, 0.32);
+}
+.btn--burgundy:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #fff,
+    0 0 0 5px color-mix(in srgb, var(--burgundy) 55%, #fff 45%);
+}
+.btn--burgundy.btn--shine {
+  --shine-color: color-mix(in srgb, #fff 85%, #7c0040 15%);
+  --shine-opacity: 0.9;
+  --shine-dur: 2s;
+  --shine-skew: -20deg;
+}
+
+/* FX-SHEEN en texto */
+.fx-sheen {
+  --fx-sheen-color: #d4d938;
+  --fx-sheen-angle: 135deg;
+  --fx-sheen-width: 20%;
+  --fx-sheen-speed: 5s;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.fx-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--fx-sheen-angle),
+    color-mix(in srgb, var(--fx-sheen-color) 85%, transparent),
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent calc(50% - (var(--fx-sheen-width) / 2)),
+    #000 50%,
+    transparent calc(50% + (var(--fx-sheen-width) / 2))
+  );
+  mask: linear-gradient(
+    90deg,
+    transparent calc(50% - (var(--fx-sheen-width) / 2)),
+    #000 50%,
+    transparent calc(50% + (var(--fx-sheen-width) / 2))
+  );
+  animation: fxSheen var(--fx-sheen-speed) linear infinite;
+  pointer-events: none;
+}
+@keyframes fxSheen {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-sheen::after {
+    animation: none;
+  }
+}
+
+.fx-sheen--slow {
+  --fx-sheen-speed: 3.5s;
+}
+.fx-sheen--fast {
+  --fx-sheen-speed: 1.4s;
+}
+.fx-sheen--thin {
+  --fx-sheen-width: 12%;
+}
+.fx-sheen--wide {
+  --fx-sheen-width: 34%;
+}
+.fx-sheen--light {
+  --fx-sheen-color: #fff;
+}
+.fx-sheen--brand {
+  --fx-sheen-color: #7c0040;
+}
+.fx-sheen--gold {
+  --fx-sheen-color: #deb408;
+}
+.fx-sheen--navy {
+  --fx-sheen-color: #15334a;
+}
+
+.fx-sheen-text {
+  --fx-base: #fff;
+  --fx-sheen-color: #fff;
+  --fx-angle: 135deg;
+  --fx-width: 22%;
+  --fx-speed: 2.2s;
+  color: transparent;
+  background-image: linear-gradient(0deg, var(--fx-base), var(--fx-base)),
+    linear-gradient(
+      var(--fx-angle),
+      transparent calc(50% - var(--fx-width) / 2),
+      color-mix(in srgb, var(--fx-sheen-color) 85%, transparent) 50%,
+      transparent calc(50% + var(--fx-width) / 2)
+    );
+  background-clip: text, text;
+  -webkit-background-clip: text, text;
+  background-size: 100% 100%, 200% 100%;
+  background-position: 0 0, -120% 0;
+  animation: fxSheenText var(--fx-speed) linear infinite;
+}
+@keyframes fxSheenText {
+  to {
+    background-position: 0 0, 120% 0;
+  }
+}
+.fx-sheen-text--gold {
+  --fx-base: #fff;
+  --fx-sheen-color: #deb408;
+}
+.fx-sheen-text--brand {
+  --fx-base: #fff;
+  --fx-sheen-color: #7c0040;
+}
+.fx-sheen-text--navy {
+  --fx-base: #fff;
+  --fx-sheen-color: #15334a;
+}
+.fx-sheen-text--thin {
+  --fx-width: 12%;
+}
+.fx-sheen-text--wide {
+  --fx-width: 34%;
+}
+.fx-sheen-text--slow {
+  --fx-speed: 3.5s;
+}
+.fx-sheen-text--fast {
+  --fx-speed: 1.3s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-sheen-text {
+    animation: none;
+    background-position: 0 0, 0 0;
+  }
+}

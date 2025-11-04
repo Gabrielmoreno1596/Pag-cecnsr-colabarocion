@@ -181,7 +181,7 @@ try {
         $auto->addAddress($correo, $nombre);
         $auto->isHTML(true);
         $auto->Subject = 'Hemos recibido tu solicitud - CECNSR';
-        $auto->Body    = "<p>Hola {$nombreHtml},</p><p>Gracias por escribir a Complejo Educativo Católico Nuestra Señora del Rosario. Hemos recibido tu solicitud para <strong>{$gradoHtml}</strong>. Nuestro equipo de admisiones te contactará pronto.</p><p>Saludos,<br>Complejo Educativo Católico Nuestra Señora del Rosario</p>";
+        $auto->Body    = "<p>Hola {$nombreHtml},</p><p>Gracias por escribir a Complejo Educativo Católico Nuestra Señora del Rosario. Hemos recibido tu solicitud para <strong>{$gradoHtml}</strong>. Nuestro equipo de admisiones te contactará pronto.</p><p>Saludos,<strong><br>Complejo Educativo Católico<br> Nuestra Señora del Rosario</strong></p>";
         $auto->AltBody = "Hola {$nombre}, hemos recibido tu solicitud para {$grado}.";
         $auto->send();
     } catch (Exception $e) { /* silencio */

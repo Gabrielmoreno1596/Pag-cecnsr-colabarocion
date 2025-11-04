@@ -1,0 +1,16 @@
+/* Tokens/base comunes */
+@import url("./components/tokens.css");
+@import url("./components/base.css");
+
+/* Secciones (en el orden que aparecen en la página) */
+@import url("./components/hero.css");
+@import url("./components/mision.css");
+@import url("./components/desempenos.css");
+@import url("./components/diagramas.css");
+@import url("./components/oferta.css");
+@import url("./components/galeria.css");
+@import url("./components/himno.css");
+
+/* Utilidades/reveal/lightbox si las tienes separadas */
+@import url("./components/lightbox.css");
+@import url("./components/reveal.css");

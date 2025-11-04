@@ -1,0 +1,30 @@
+:root {
+  --navy: var(--cecns-navy);
+  --gold: var(--cecns-gold);
+  --burgundy: var(--vino);
+  --cecns-burgundy: #7f2d3c;
+  --border-left-color: #002d62;
+  --cecns-gold: #e0b13a;
+  --cecns-navy: #15334a;
+  --cecns-green: #2d8c3c;
+  --cecns-lime: #b7d35a;
+  --cecns-sun: #fff;
+  --cecns-ink: #1e1e1e;
+  --cecns-muted: #6b7280;
+  --radius-2: 12px;
+  --radius-3: 20px;
+  --shadow-1: 0 6px 18px #7c004019;
+  --maxw: 1100px;
+  --header-h: 0; /* la setea tu JS */
+
+  /* rail / brand extras */
+  --rail-active-bg: #7c0040;
+  --rail-active-text: #fff;
+  --rail-active-pill-bg: rgba(255, 255, 255, 0.18);
+  --rail-active-pill-text: #fff;
+
+  --ocre: #e0b13a;
+  --vino: #7c0040;
+  --blanco: #fff;
+  --ocre-text: #5b4100;
+}

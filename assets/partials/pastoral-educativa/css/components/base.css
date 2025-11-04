@@ -1,0 +1,102 @@
+/* Anclas y empuje por header fijo */
+html {
+  scroll-padding-top: calc(var(--header-h));
+}
+body {
+  padding-top: 0;
+}
+.pastoral {
+  margin-top: 0;
+  padding-top: 0;
+}
+.pastoral p {
+  line-height: 1.5;
+}
+
+.pastoral .section-title {
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+  margin: 0 0 0.75rem;
+  color: var(--cecns-navy);
+}
+.pastoral .muted {
+  color: var(--cecns-muted);
+  font-size: 0.95rem;
+}
+
+/* Botones base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid transparent;
+  transition: 0.2s transform, 0.2s background;
+}
+.btn--gold {
+  background: var(--cecns-gold);
+  color: #231815;
+}
+.btn--gold:hover {
+  transform: translateY(-2px);
+}
+.btn.btn--secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgb(255 255 255 /0.7);
+}
+.btn.btn--secondary:hover {
+  background: rgb(255 255 255 /0.1);
+  transform: translateY(-2px);
+}
+
+.btn-mision {
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+/* Card genérica */
+.card {
+  max-width: var(--maxw);
+  margin: 1.5rem auto;
+  padding: 1.25rem;
+  background: var(--cecns-sun);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-1);
+}
+
+/* Bandas genéricas */
+.band {
+  margin: 0;
+  padding: 2.4rem 0;
+  border: 0;
+  box-shadow: none;
+}
+.band__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Paletas de cada banda */
+.band--mision-flat {
+  background: linear-gradient(180deg, #fff, #fff9f0);
+}
+.band--desempenos-rail {
+  background: #f8fafc;
+}
+.band--oferta-timeline {
+  background: #fffdf6;
+}
+.band--gallery-masonry {
+  background: #f7f9f2;
+}
+.band--himno-soft {
+  background: #f3f7fb;
+}
+.band--logos-strip {
+  background: #fff;
+}

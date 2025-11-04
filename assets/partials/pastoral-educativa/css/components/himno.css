@@ -1,0 +1,33 @@
+/* ==========
+   Himno
+   ========== */
+.band--himno {
+  background: #fff;
+}
+.readmore summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--cecns-burgundy);
+  list-style: none;
+  outline: 0;
+}
+.readmore summary::-webkit-details-marker {
+  display: none;
+}
+.himno__lyrics {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+.himno__subtitle {
+  margin: 10px 0 0;
+  font-weight: 800;
+}
+.himno__block {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.himno__footer {
+  margin-top: 8px;
+  color: var(--cecns-muted);
+}

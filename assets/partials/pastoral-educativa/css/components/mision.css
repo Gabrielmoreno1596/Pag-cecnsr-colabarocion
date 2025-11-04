@@ -1,0 +1,252 @@
+.band--mision-flat {
+  background: radial-gradient(
+      900px 200px at 0% 0%,
+      #fff9e6 10%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #fff 0%, #fffaf0 100%);
+}
+.band--mision-flat .section-title {
+  margin-bottom: 0.4rem;
+}
+.band--mision-flat .mision-lead {
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.12rem);
+  color: #374151;
+  line-height: 1.9;
+  background: #ffffffcc;
+  border: 1px solid #f1e8c9;
+  border-left: 6px solid var(--border-left-color);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+}
+
+/* Pills */
+.band--mision-flat .meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0 1rem;
+}
+.band--mision-flat .meta-pills .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--border-left-color);
+  color: var(--cecns-sun);
+  padding: 0.38rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 100;
+  box-shadow: 0 1px 0 rgba(224, 177, 58, 0.2) inset;
+  background-color: var(--border-left-color);
+  cursor: pointer;
+}
+
+/* Tabs VJAC (columna izquierda) */
+.mision-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+@media (max-width: 900px) {
+  .mision-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mision-left .tabs__nav {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  padding: 0;
+  border: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 680px) {
+  .mision-left .tabs__nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mision-left .tabs__btn {
+  appearance: none;
+  border: 1px solid #e8edf2;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--cecns-navy);
+  font-weight: 800;
+  padding: 0.65rem 0.8rem;
+  box-shadow: 0 1px 0 #eef1f5 inset, var(--shadow-1);
+  transition: transform 0.08s, box-shadow 0.2s, background 0.2s;
+}
+.mision-left .tabs__btn:hover {
+  transform: translateY(-1px);
+}
+.mision-left .tabs__btn.is-active {
+  background: #fffdf4;
+  border-color: var(--border-left-color);
+  box-shadow: 0 0 0 2px rgba(224, 177, 58, 0.2), var(--shadow-1);
+  color: var(--cecns-burgundy);
+}
+.mision-left .tabs__ink {
+  display: none;
+}
+
+.mision-left .tabs__panel {
+  background: #fff;
+  border: 1px solid #e8edf2;
+  border-left: 6px solid var(--border-left-color);
+  border-radius: 14px;
+  padding: 1rem 0.95rem;
+  box-shadow: var(--shadow-1);
+}
+.band--mision-flat .tabs__panel h3 {
+  margin: 0 0 0.25rem;
+  color: var(--cecns-navy);
+  font-size: 1.05rem;
+}
+.band--mision-flat .tabs__panel p {
+  margin: 0 0 0.35rem;
+  color: #374151;
+}
+.band--mision-flat .tabs__panel ul {
+  margin: 0.25rem 0 0 1rem;
+}
+
+/* Readmore */
+.band--mision-flat .readmore {
+  margin-top: 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e8edf2;
+  box-shadow: var(--shadow-1);
+}
+.band--mision-flat .readmore > summary {
+  background: linear-gradient(135deg, var(--border-left-color), #7c0040);
+  padding: 0.85rem 1rem;
+  font-weight: 800;
+  color: #fff;
+}
+.band--mision-flat .readmore[open] > summary {
+  background: linear-gradient(135deg, var(--cecns-green), #1f6a2d);
+}
+.band--mision-flat .readmore__content {
+  background: #fff;
+  padding: 0.9rem 1rem 1rem;
+}
+
+/* Galería Misión */
+.band--mision-flat .mision-masonry {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  scroll-snap-type: x mandatory;
+}
+.band--mision-flat .mision-masonry__item {
+  flex: 0 0 70%;
+  max-width: 420px;
+  aspect-ratio: 4/3;
+  scroll-snap-align: start;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  background: #fff;
+  box-shadow: var(--shadow-1);
+}
+.band--mision-flat .mision-masonry__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s;
+}
+.band--mision-flat .mision-masonry__item:hover img {
+  transform: scale(1.03);
+}
+
+@media (min-width: 700px) {
+  .band--mision-flat .mision-masonry {
+    display: block;
+    column-count: 2;
+    column-gap: 0.6rem;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .band--mision-flat .mision-masonry__item {
+    break-inside: avoid;
+    width: auto;
+    max-width: none;
+    aspect-ratio: auto;
+    margin-bottom: 0.6rem;
+  }
+  .band--mision-flat .mision-masonry__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Aside dinámico */
+.mision-aside {
+  position: relative;
+  min-height: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--border-left-color);
+  box-shadow: var(--shadow-1);
+  isolation: isolate;
+}
+.mision-aside__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  transition: opacity 0.5s ease, transform 7s ease;
+  transform: scale(1.08);
+}
+.mision-aside__glass {
+  position: relative;
+  z-index: 1;
+  color: #1c1c1c;
+  padding: 1rem;
+  backdrop-filter: blur(4px) saturate(120%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+.mision-aside__k {
+  display: inline-block;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #00000022;
+  color: var(--cecns-gold);
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.241);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+.mision-aside__title {
+  margin: 0.1rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cecns-gold);
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.278);
+}
+.mision-aside__desc {
+  margin: 0.1rem 0 0;
+  color: var(--blanco);
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.489);
+}
+.mision-aside[data-state="in"] .mision-aside__title,
+.mision-aside[data-state="in"] .mision-aside__desc {
+  animation: fadeUp 0.5s ease-out both;
+}

@@ -1,0 +1,96 @@
+.band--diagramas {
+  background: radial-gradient(
+      900px 220px at 100% 0%,
+      #fff7e0 10%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #fff 0%, #fffaf0 100%);
+}
+.band--diagramas .section-title {
+  margin-bottom: 0.5rem;
+}
+.band--diagramas .diag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.band--diagramas .diag {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #eef1f5;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+.band--diagramas .diag__link {
+  position: relative;
+  display: block;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f6f7fb;
+}
+.band--diagramas .diag__link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s, filter 0.25s;
+}
+.band--diagramas .diag__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.18) 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.band--diagramas .diag__link::before {
+  content: "";
+  position: absolute;
+  inset: auto auto 10px 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-4.23 6.5 6.5 0 1 0-6.5 6.5 6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/></svg>')
+    center/22px 22px no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-4.23 6.5 6.5 0 1 0-6.5 6.5 6.471 6.471 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/></svg>')
+    center/22px 22px no-repeat;
+}
+.band--diagramas .diag__link:hover img,
+.band--diagramas .diag__link:focus img {
+  transform: scale(1.03);
+  filter: saturate(1.02);
+}
+.band--diagramas .diag__link:hover::after,
+.band--diagramas .diag__link:focus::after {
+  opacity: 1;
+}
+.band--diagramas .diag__link:hover::before,
+.band--diagramas .diag__link:focus::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+.band--diagramas .diag__link:focus-visible {
+  outline: 3px solid var(--cecns-gold);
+  outline-offset: 2px;
+}
+.band--diagramas .diag figcaption {
+  padding: 0.65rem;
+  font-size: 0.92rem;
+  color: #0f172a;
+  background: #fafaf9;
+  border-top: 1px solid #eef1f5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .band--diagramas .diag__link img,
+  .band--diagramas .diag__link::after,
+  .band--diagramas .diag__link::before {
+    transition: none;
+  }
+}

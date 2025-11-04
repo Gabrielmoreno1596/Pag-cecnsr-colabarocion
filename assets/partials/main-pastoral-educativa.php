@@ -552,13 +552,106 @@
                 </div>
                 <p class="video-caption">Himno oficial — HFIC / Pastoral Educativa</p>
             </div>
-
             <details class="readmore" data-reveal="up" data-reveal-delay="150">
                 <summary>Ver letra del himno</summary>
-                <div class="readmore__content">
-                    <p><em>— Pega aquí la letra oficial —</em></p>
+
+                <div class="readmore__content hymn">
+                    <h3 class="hymn__title">HIMNO DE LA PASTORAL EDUCATIVA HFIC</h3>
+
+                    <!-- CORO (inicial) -->
+                    <section class="hymn__chorus" aria-label="Coro">
+                        <h4>CORO</h4>
+                        <p>
+                            Educación para crecer,<br>
+                            Valores que desarrollar,<br>
+                            Francisco inspirar con su Paz y Bien,<br>
+                            La forma alegre de estudiar.
+                        </p>
+                        <p>
+                            Colegios en fraternidad,<br>
+                            pioneros de un mundo mejor,<br>
+                            la santidad será nuestro ideal,<br>
+                            forjamos el reino de amor.
+                        </p>
+                    </section>
+
+                    <!-- Estrofa I -->
+                    <section class="hymn__section" aria-label="Estrofa I">
+                        <h4>Estrofa I</h4>
+                        <p>
+                            Ir reparando sin cesar,<br>
+                            la viña del Señor,<br>
+                            el amor nos moverá,<br>
+                            en nuestra gran misión.
+                        </p>
+                    </section>
+
+                    <!-- CORO -->
+                    <section class="hymn__chorus" aria-label="Coro">
+                        <h4>CORO</h4>
+                        <p>
+                            Educación para crecer,<br>
+                            Valores que desarrollar,<br>
+                            Francisco inspirar con su Paz y Bien,<br>
+                            La forma alegre de estudiar.
+                        </p>
+                        <p>
+                            Colegios en fraternidad,<br>
+                            pioneros de un mundo mejor,<br>
+                            la santidad será nuestro ideal,<br>
+                            forjamos el reino de amor.
+                        </p>
+                    </section>
+
+                    <!-- Estrofa II -->
+                    <section class="hymn__section" aria-label="Estrofa II">
+                        <h4>Estrofa II</h4>
+                        <p>
+                            Un mundo entero que cuidar,<br>
+                            en armonía interior,<br>
+                            todos en fraternidad,<br>
+                            un solo corazón.
+                        </p>
+                    </section>
+
+                    <!-- CORO -->
+                    <section class="hymn__chorus" aria-label="Coro">
+                        <h4>CORO</h4>
+                        <p>
+                            Educación para crecer,<br>
+                            Valores que desarrollar,<br>
+                            Francisco inspirar con su Paz y Bien,<br>
+                            La forma alegre de estudiar.
+                        </p>
+                        <p>
+                            Colegios en fraternidad,<br>
+                            pioneros de un mundo mejor,<br>
+                            la santidad será nuestro ideal,<br>
+                            forjamos el reino de amor.
+                        </p>
+                    </section>
+
+                    <!-- Estrofa III (Cierre) -->
+                    <section class="hymn__section" aria-label="Estrofa III">
+                        <h4>Estrofa III</h4>
+                        <p>
+                            Que todo hombre busque el bien,<br>
+                            con plena libertad,<br>
+                            el compromiso es formar,<br>
+                            la nueva humanidad.
+                        </p>
+                    </section>
+
+                    <footer class="hymn__footer">
+                        <p class="credits">
+                            <strong>Autor letra y música:</strong> César Miranda Barragán<br>
+                            <strong>Pastoral Educativa HFIC</strong>
+                        </p>
+                    </footer>
                 </div>
             </details>
+
+
         </div>
     </section>
 
