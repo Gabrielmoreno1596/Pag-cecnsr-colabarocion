@@ -11,7 +11,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <link rel="stylesheet" href="assets-ml/css/stylemedia.css" />
+  <link rel="stylesheet" href="<?= asset('assets-ml/css/stylemedia.css'); ?>" />
   <!-- Favicon básico (PNG) -->
   <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
   <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>" type="image/png">
