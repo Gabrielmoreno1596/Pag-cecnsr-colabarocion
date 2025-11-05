@@ -5,10 +5,10 @@ $BASE = PROJECT_PATH . 'assets/partials/pastoral-educativa/';
 $DATA = $BASE . 'data/';
 @require_once $DATA . 'hero-data.php';
 @require_once $DATA . 'mision-data.php';
-/*@require_once $DATA . 'diagramas-data.php';
+@require_once $DATA . 'diagramas-data.php';
 @require_once $DATA . 'oferta-data.php';
 @require_once $DATA . 'galeria-data.php';
-@require_once $DATA . 'himno-data.php'; */
+@require_once $DATA . 'himno-data.php';
 ?>
 <main id="main-content" class="pastoral" role="main">
     <section class="pastoral" id="pastoral-educativa">

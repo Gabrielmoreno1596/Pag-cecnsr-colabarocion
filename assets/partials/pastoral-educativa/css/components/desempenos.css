@@ -34,7 +34,7 @@
   gap: 0.55rem;
   padding: 0.6rem 0.8rem;
   border: 1px solid #e6edf3;
-  border-radius: 14px;
+  /*  border-radius: 14px; */
   background: #fff;
   cursor: pointer;
   transition: transform 0.06s, border-color 0.2s, background 0.2s;
@@ -54,6 +54,11 @@
   ) !important;
   color: var(--rail-active-text) !important;
 }
+
+.rail__item.is-active .rail__t {
+  color: #e6edf3;
+}
+
 .rail__item.is-active:hover {
   background: color-mix(in srgb, var(--rail-active-bg) 96%, #fff 4%);
 }
@@ -64,7 +69,7 @@
 .rail__num {
   width: 32px;
   height: 32px;
-  border-radius: 9px;
+  /*   border-radius: 9px; */
   display: grid;
   place-items: center;
   font-weight: 800;
@@ -81,7 +86,7 @@
 .rail__tag {
   font-size: 0.85rem;
   padding: 0.12rem 0.45rem;
-  border-radius: 999px;
+  /*   border-radius: 999px; */
   background: color-mix(in srgb, var(--ocre) 30%, #fff 70%);
   border: 1px solid color-mix(in srgb, var(--ocre) 55%, #fff 45%);
   color: var(--ocre-text);
@@ -112,7 +117,7 @@
   background: #fff;
   border: 1px solid #e6edf3;
   border-left: 6px solid var(--border-left-color);
-  border-radius: 14px;
+  /*   border-radius: 14px; */
   padding: 1rem 0.95rem;
 }
 .rail-detail h3 {
@@ -130,7 +135,7 @@
   background: #fff3c0;
   border: 1px solid rgba(224, 177, 58, 0.5);
   padding: 0.2rem 0.5rem;
-  border-radius: 999px;
+  /*   border-radius: 999px; */
   color: #0f172a;
 }
 .rail-detail ul {
@@ -141,7 +146,7 @@
   padding: 0.6rem 0.75rem;
   border-left: 4px solid var(--border-left-color);
   background: #fff;
-  border-radius: 8px;
+  /*   border-radius: 8px; */
   font-style: italic;
 }
 

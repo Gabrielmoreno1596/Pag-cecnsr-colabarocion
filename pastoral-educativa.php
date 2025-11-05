@@ -8,10 +8,11 @@
     <title>CECNSR | Pastoral Educativa</title>
 
     <!-- CSS de Pastoral (bundle) -->
-    <link rel="stylesheet" href="<?= asset('assets/partials/pastoral-educativa/css/pastoral.css') ?>">
+
 
     <!-- CSS global del sitio -->
     <link rel="stylesheet" href="<?= asset('styles.css') ?>">
+    <link rel="stylesheet" href="<?= asset('assets/partials/pastoral-educativa/css/pastoral.css') ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
