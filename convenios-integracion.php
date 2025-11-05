@@ -1,4 +1,8 @@
 <?php require_once __DIR__ . '/config.php'; ?>
+<?php
+require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo está en otra carpeta
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -375,40 +379,107 @@
     </section>
 
     <!-- CTA / CONTACTO -->
-    <section
-      class="section int-cta"
-      id="contacto"
-      aria-labelledby="cta-title">
+    <section class="section int-cta" id="contacto" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-card">
-          <h2 id="cta-title" class="section-title">
-            ¿Deseas integrar tu grupo o aclarar requisitos?
-          </h2>
+          <h2 id="cta-title" class="section-title">¿Deseas integrar tu grupo o aclarar requisitos?</h2>
           <div class="title-divider" aria-hidden="true"></div>
           <p>Escríbenos y con gusto te acompañamos.</p>
-          <form class="contact-form" action="#" method="post">
+
+          <form id="form-integracion" class="contact-form" action="enviar.php" method="POST" novalidate>
+            <!-- Canal para ruteo -->
+            <input type="hidden" name="canal" value="integracion">
+            <!-- Honeypot -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
+
             <div class="form-grid">
-              <label>Nombre completo<input type="text" required /></label>
-              <label>Correo electrónico<input type="email" required /></label>
-              <label>Teléfono<input type="tel" /></label>
+              <label>Nombre completo
+                <input type="text" name="nombre_encargado" required autocomplete="name" />
+              </label>
+
+              <label>Correo electrónico
+                <input type="email" name="correo" required autocomplete="email" />
+              </label>
+
+              <label>Teléfono
+                <input type="tel" name="telefono" required autocomplete="tel" />
+              </label>
+
               <label>Interés
-                <select>
-                  <option>Proyecto de Integración</option>
-                  <!-- <option>Generación que Florece</option>
-                  <option>Refuerzos / Tutorías</option> -->
-                  <option>Otro</option>
+                <!-- usar name="interes" (enviar.php lo soporta) -->
+                <select name="interes" required>
+                  <option value="Proyecto de Integración">Proyecto de Integración</option>
+                  <!-- <option value="Generación que Florece">Generación que Florece</option> -->
+                  <!-- <option value="Refuerzos / Tutorías">Refuerzos / Tutorías</option> -->
+                  <option value="Otro">Otro</option>
                 </select>
               </label>
-              <label class="full">Mensaje<textarea
-                  rows="4"
-                  placeholder="Cuéntanos tu necesidad…"></textarea>
+
+              <label class="full">Mensaje
+                <textarea name="consulta" rows="4" placeholder="Cuéntanos tu necesidad…"></textarea>
               </label>
+
+              <!-- reCAPTCHA (si esta página es .php y tienes RECAPTCHA_ENABLED=true) -->
+              <?php if (defined('RECAPTCHA_ENABLED') && RECAPTCHA_ENABLED): ?>
+                <div class="full">
+                  <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars(RECAPTCHA_SITE_KEY) ?>"></div>
+                </div>
+              <?php endif; ?>
             </div>
-            <button class="btn-solid-int">Enviar consulta</button>
+
+            <button class="btn-solid-int" type="submit">Enviar consulta</button>
+            <p id="msg-integracion" style="margin-top:10px"></p>
           </form>
         </div>
       </div>
     </section>
+
+    <?php if (defined('RECAPTCHA_ENABLED') && RECAPTCHA_ENABLED): ?>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <?php endif; ?>
+
+    <script>
+      (function() {
+        const form = document.getElementById('form-integracion');
+        const msg = document.getElementById('msg-integracion');
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          msg.textContent = '';
+          const btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = 'Enviando…';
+
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form)
+            });
+            let data;
+            try {
+              data = await res.json();
+            } catch {
+              data = {
+                ok: false,
+                msg: 'Respuesta no válida del servidor.'
+              };
+            }
+            msg.style.color = data.ok ? 'green' : 'crimson';
+            msg.textContent = data.msg || (data.ok ? 'Enviado.' : 'Error.');
+            if (data.ok) form.reset();
+            if (window.grecaptcha && grecaptcha.reset) grecaptcha.reset();
+          } catch {
+            msg.style.color = 'crimson';
+            msg.textContent = 'Error de red. Intenta de nuevo.';
+          } finally {
+            btn.disabled = false;
+            btn.textContent = 'Enviar consulta';
+          }
+        });
+      })();
+    </script>
+
   </main>
 
   <!-- fin main -->

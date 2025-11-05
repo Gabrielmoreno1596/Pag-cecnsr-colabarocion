@@ -7,7 +7,6 @@ require __DIR__ . '/PHPMailer/src/SMTP.php';
 require __DIR__ . '/PHPMailer/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 // Polyfill para PHP < 8 (evita fatal con str_ends_with)
 if (!function_exists('str_ends_with')) {
@@ -21,10 +20,10 @@ if (!function_exists('str_ends_with')) {
 
 session_start();
 $now = time();
-// ↓ Baja el rate-limit para pruebas
+// Rate-limit (15s) — y el mensaje coincide
 if (!empty($_SESSION['last_submit']) && ($now - $_SESSION['last_submit'] < 15)) {
     http_response_code(429);
-    echo json_encode(['ok' => false, 'msg' => 'Espera 5 segundos antes de otro envío.']);
+    echo json_encode(['ok' => false, 'msg' => 'Espera 15 segundos antes de otro envío.']);
     exit;
 }
 
@@ -38,8 +37,20 @@ $honeypot = $_POST['website'] ?? '';
 $nombre   = clean($_POST['nombre_encargado'] ?? '');
 $tel      = clean($_POST['telefono'] ?? '');
 $correo   = clean($_POST['correo'] ?? '');
-$grado    = clean($_POST['grado_interes'] ?? '');
+$grado    = clean($_POST['grado_interes'] ?? ($_POST['interes'] ?? ''));
 $consulta = clean($_POST['consulta'] ?? '');
+$canal    = strtolower(trim($_POST['canal'] ?? ''));
+
+$CANAL_MAP = [
+    'integracion' => ['to' => 'integracion@cecnsrosariosv.com', 'prefix' => '[Convenio Integración]'],
+    'psicologia'  => ['to' => 'programa.pi@cecnsrosariosv.com', 'prefix' => '[Programa Psicología]'],
+    'admisiones'  => ['to' => 'contacto@cecnsrosariosv.com', 'prefix' => '[Admisiones]'],
+];
+if (!isset($CANAL_MAP[$canal])) $canal = 'admisiones';
+
+$destino = $CANAL_MAP[$canal]['to'];
+$prefijo = $CANAL_MAP[$canal]['prefix'];
+$subject = "{$prefijo} Nueva solicitud desde la web";
 
 // === Validaciones básicas ===
 if ($honeypot !== '') {
@@ -74,30 +85,38 @@ if (RECAPTCHA_ENABLED) {
     ]);
     $result = curl_exec($ch);
     curl_close($ch);
-    if ($result === false || empty(json_decode($result, true)['success'])) {
+    $okCaptcha = $result !== false && !empty(json_decode($result, true)['success']);
+    if (!$okCaptcha) {
         http_response_code(400);
         echo json_encode(['ok' => false, 'msg' => 'Validación reCAPTCHA inválida. Intenta de nuevo.']);
         exit;
     }
 }
 
-// === Cuerpos ===
+// === Cuerpos (escapados) ===
 $nombreHtml   = htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');
 $telHtml      = htmlspecialchars($tel,   ENT_QUOTES, 'UTF-8');
 $correoHtml   = htmlspecialchars($correo, ENT_QUOTES, 'UTF-8');
 $gradoHtml    = htmlspecialchars($grado, ENT_QUOTES, 'UTF-8');
 $consultaHtml = nl2br(htmlspecialchars($consulta, ENT_QUOTES, 'UTF-8'));
 
-$subject = 'Nueva solicitud de admisión desde la web';
 $bodyHtml = "
-  <h2>Nueva solicitud de admisión</h2>
+  <h2>{$prefijo} Nueva solicitud</h2>
+  <p><strong>Canal:</strong> {$canal}</p>
   <p><strong>Nombre del encargado:</strong> {$nombreHtml}</p>
   <p><strong>Teléfono:</strong> {$telHtml}</p>
   <p><strong>Correo:</strong> {$correoHtml}</p>
-  <p><strong>Grado de interés:</strong> {$gradoHtml}</p>
+  <p><strong>Interés/Grado:</strong> {$gradoHtml}</p>
   <p><strong>Consulta:</strong><br>{$consultaHtml}</p>
   <hr><p>Enviado el " . date('Y-m-d H:i:s') . "</p>";
-$bodyText = "Nueva solicitud de admisión\nNombre: {$nombre}\nTeléfono: {$tel}\nCorreo: {$correo}\nGrado de interés: {$grado}\nConsulta:\n{$consulta}\n";
+
+$bodyText = "{$prefijo} Nueva solicitud\n" .
+    "Canal: {$canal}\n" .
+    "Nombre: {$nombre}\n" .
+    "Teléfono: {$tel}\n" .
+    "Correo: {$correo}\n" .
+    "Interés/Grado: {$grado}\n" .
+    "Consulta:\n{$consulta}\n";
 
 // === Bitácora helpers ===
 function log_to_csv($row)
@@ -122,11 +141,11 @@ function log_to_db($data)
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]);
         $sql = "INSERT INTO admisiones_log
-      (fecha_iso, ip, ua, nombre, correo, telefono, grado, estado, detalle)
-      VALUES (:fecha,:ip,:ua,:nombre,:correo,:tel,:grado,:estado,:detalle)";
+            (fecha_iso, ip, ua, nombre, correo, telefono, grado, estado, detalle)
+            VALUES (:fecha,:ip,:ua,:nombre,:correo,:tel,:grado,:estado,:detalle)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute($data);
-    } catch (Exception $e) { /* silencio */
+    } catch (\Throwable $e) { /* silencio */
     }
 }
 
@@ -145,18 +164,17 @@ try {
     $mail->Port       = SMTP_PORT;
 
     $mail->CharSet    = 'UTF-8';
-    $mail->SMTPDebug  = 0;                 // pon 2 para ver trazas en error_log durante pruebas
+    $mail->SMTPDebug  = 0;           // usa 2 en pruebas para ver trazas en error_log
     $mail->Debugoutput = 'error_log';
 
     $mail->setFrom(MAIL_FROM, MAIL_FROM_NAME);
-    $mail->Sender = MAIL_FROM;             // <-- Return-Path/Envelope-From
+    $mail->Sender = MAIL_FROM;       // Return-Path/Envelope-From
 
-    $mail->addAddress(MAIL_TO, MAIL_TO_NAME);
-    if (MAIL_BCC) $mail->addBCC(MAIL_BCC);
+    // Destinatario por canal
+    $mail->addAddress($destino, 'CECNSR');
+    if (MAIL_BCC) $mail->addBCC(MAIL_BCC); // buzón de auditoría (opcional)
 
-    // (Temporal) NO usar Reply-To del visitante hasta que depuremos del todo
-    // $mail->addReplyTo($correo, $nombre);
-    // Si quieres poder responder desde el buzón institucional:
+    // Por ahora Reply-To institucional (evita bloqueos por DMARC)
     $mail->addReplyTo(MAIL_FROM, MAIL_FROM_NAME);
 
     $mail->isHTML(true);
@@ -166,7 +184,7 @@ try {
 
     $mail->send();
 
-    // Autorespuesta (no afecta al envío principal si falla)
+    // Autorespuesta (si falla, no rompe el flujo)
     try {
         $auto = new PHPMailer(true);
         $auto->isSMTP();
@@ -181,22 +199,46 @@ try {
         $auto->addAddress($correo, $nombre);
         $auto->isHTML(true);
         $auto->Subject = 'Hemos recibido tu solicitud - CECNSR';
-        $auto->Body    = "<p>Hola {$nombreHtml},</p><p>Gracias por escribir a Complejo Educativo Católico Nuestra Señora del Rosario. Hemos recibido tu solicitud para <strong>{$gradoHtml}</strong>. Nuestro equipo de admisiones te contactará pronto.</p><p>Saludos,<strong><br>Complejo Educativo Católico<br> Nuestra Señora del Rosario</strong></p>";
+        $auto->Body    = "<p>Hola {$nombreHtml},</p><p>Gracias por escribir a Complejo Educativo Católico Nuestra Señora del Rosario. Hemos recibido tu solicitud para <strong>{$gradoHtml}</strong>. Nuestro equipo de admisiones te contactará pronto.</p><p>Saludos,<br><strong>Complejo Educativo Católico<br>Nuestra Señora del Rosario</strong></p>";
         $auto->AltBody = "Hola {$nombre}, hemos recibido tu solicitud para {$grado}.";
         $auto->send();
-    } catch (Exception $e) { /* silencio */
+    } catch (\Throwable $e) {/* silencio */
     }
 
-    log_to_csv([$fecha, $ip, $ua, $nombre, $correo, $tel, $grado, 'OK', '']);
-    log_to_db([':fecha' => $fecha, ':ip' => $ip, ':ua' => $ua, ':nombre' => $nombre, ':correo' => $correo, ':tel' => $tel, ':grado' => $grado, ':estado' => 'OK', ':detalle' => '']);
+    // Bitácora OK
+    log_to_csv([$fecha, $ip, $ua, $nombre, $correo, $tel, "{$canal}:{$grado}", 'OK', '']);
+    log_to_db([
+        ':fecha' => $fecha,
+        ':ip' => $ip,
+        ':ua' => $ua,
+        ':nombre' => $nombre,
+        ':correo' => $correo,
+        ':tel' => $tel,
+        ':grado' => "{$canal}:{$grado}",
+        ':estado' => 'OK',
+        ':detalle' => ''
+    ]);
 
     $_SESSION['last_submit'] = $now;
     echo json_encode(['ok' => true, 'msg' => '¡Solicitud enviada! Pronto te contactaremos.']);
-} catch (Exception $e) {
-    // Muestra motivo real
+} catch (\Throwable $e) {
+    // Motivo real
     $err = isset($mail) && !empty($mail->ErrorInfo) ? $mail->ErrorInfo : $e->getMessage();
-    log_to_csv([$fecha, $ip, $ua, $nombre, $correo, $tel, $grado, 'ERROR', $err]);
-    log_to_db([':fecha' => $fecha, ':ip' => $ip, ':ua' => $ua, ':nombre' => $nombre, ':correo' => $correo, ':tel' => $tel, ':grado' => $grado, ':estado' => 'ERROR', ':detalle' => $err]);
+
+    // Bitácora ERROR
+    log_to_csv([$fecha, $ip, $ua, $nombre, $correo, $tel, "{$canal}:{$grado}", 'ERROR', $err]);
+    log_to_db([
+        ':fecha' => $fecha,
+        ':ip' => $ip,
+        ':ua' => $ua,
+        ':nombre' => $nombre,
+        ':correo' => $correo,
+        ':tel' => $tel,
+        ':grado' => "{$canal}:{$grado}",
+        ':estado' => 'ERROR',
+        ':detalle' => $err
+    ]);
+
     http_response_code(500);
     echo json_encode(['ok' => false, 'msg' => 'Error SMTP: ' . $err]);
 }
