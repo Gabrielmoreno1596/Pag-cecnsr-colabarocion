@@ -18,58 +18,6 @@
 </head>
 
 <body>
-  <!--   <header class="main-header">
-    <div class="logo">
-      <img
-        src="assets-ml/logos-varios/loficial.png"
-        alt="Logo CECNSR"
-        class="logo-img" />
-      <h1>CECNSR</h1>
-    </div>
-
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" id="oferta-toggle">Oferta Académica <i class="fas fa-caret-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="oferta-inicial.html">Inicial y Parvularia</a></li>
-            <li><a href="oferta-ciclo1.html">I Ciclo</a></li>
-            <li><a href="oferta-ciclo2.html">II Ciclo (ACTUAL)</a></li>
-            <li><a href="oferta-ciclo3.html">III Ciclo</a></li>
-            <li>
-              <a href="oferta-bachillerato.html">Bachillerato (General, Diplomados y Técnicos)</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" id="convenios-toggle">Convenios <i class="fas fa-caret-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="convenios-pasch.html">Colegios PASCH</a></li>
-            <li><a href="convenios-dual.html">Proyecto DUAL</a></li>
-            <li>
-              <a href="convenios-psicologia.html">Equipo Líder en Psicología Individual</a>
-            </li>
-            <li>
-              <a href="convenios-integracion.html">Proyecto de Integración</a>
-            </li>
-          </ul>
-        </li>
-
-        <li><a href="pastoral.html">Pastoral Educativa</a></li>
-
-        <li>
-          <a href="proceso-admision.html" class="btn-cta-nav">Nuevo Ingreso <i class="fas fa-user-plus"></i></a>
-        </li>
-      </ul>
-    </nav>
-
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-  </header> -->
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
   <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
