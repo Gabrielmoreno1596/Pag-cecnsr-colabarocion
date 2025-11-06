@@ -5,7 +5,7 @@
  */
 return [
     'title' => 'Misión de la Pastoral Educativa',
-    'lead'  => 'El <strong>Complejo Educativo Católico Nuestra Señora del Rosario</strong>, fiel a su misión evangelizadora y <strong>desde la Pedagogía de Jesús</strong>, carisma y filosofía HFIC, promueve una <strong>educación integral</strong> según el Modelo Educativo institucional para el <em>desarrollo armónico de la persona en todas sus dimensiones</em>.',
+    'lead'  => 'El <strong>Complejo Educativo Católico Nuestra Señora del Rosario</strong>, fiel a su misión evangelizadora y desde la <strong>Pedagogía de Jesús</strong>, carisma y filosofía HFIC, promueve una <strong>Educación Integral</strong> según el Modelo Educativo institucional para el <em>desarrollo armónico de la persona en todas sus dimensiones</em>.',
     'pills' => [
         ['href' => '#desempenos', 'text' => 'Integrar <strong>fe, cultura y vida</strong>'],
         ['href' => '#desempenos', 'text' => 'Seis desempeños: <strong>aprender, conocer, hacer, sentir, ser, convivir</strong>'],

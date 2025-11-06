@@ -20,16 +20,19 @@ $items = is_array($data['items'] ?? null) ? $data['items'] : [];
         <?php if (empty($items)): ?>
             <p class="muted">Pronto agregaremos fotos de nuestras actividades.</p>
         <?php else: ?>
-            <div class="masonry" data-gallery="main">
+            <!-- Masonry: SIN data-gallery=main para no activar lightbox global -->
+            <div class="masonry">
                 <?php foreach ($items as $it):
-                    // Cada item viene del data con: src (ya con asset()), alt y cap (opcional)
+                    // Mantiene EXACTAMENTE lo que viene del data:
                     $src = $it['src'] ?? '';
-                    if (!$src) continue; // si no hay imagen, saltar
-
+                    if (!$src) continue;
                     $alt = $it['alt'] ?? 'Imagen de la comunidad';
                     $cap = $it['cap'] ?? null;
                 ?>
-                    <a class="masonry__item" href="<?= $src ?>">
+                    <a class="masonry__item"
+                        href="<?= $src ?>"
+                        data-gallery="galeria"
+                        title="<?= htmlspecialchars($cap ?? '') ?>">
                         <img
                             loading="lazy"
                             decoding="async"
@@ -39,8 +42,18 @@ $items = is_array($data['items'] ?? null) ? $data['items'] : [];
                             <span class="masonry__cap"><?= htmlspecialchars($cap) ?></span>
                         <?php endif; ?>
                     </a>
+
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
+    </div>
+
+    <!-- Lightbox PROPIO de Comunidad en acción -->
+    <div id="lightbox-galeria" class="lightbox" aria-hidden="true" hidden>
+        <button class="lightbox__close" aria-label="Cerrar" data-close>×</button>
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Anterior">◄</button>
+        <img class="lightbox__img" alt="">
+        <figcaption class="lightbox__cap"></figcaption>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Siguiente">►</button>
     </div>
 </section>

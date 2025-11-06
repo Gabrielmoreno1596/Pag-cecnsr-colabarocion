@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MISIÓN: Intro + tabs (Ver, Juzgar, Actuar, Celebrar) + readmore + masonry
+ * MISIÓN: Intro + tarjeta dinámica (Ver, Juzgar, Actuar, Celebrar) + readmore + masonry
  * Lee datos desde /data/mision-data.php
  */
 
@@ -16,8 +16,15 @@ $tabs    = $data['tabs']    ?? [];
 $more    = $data['more']['paragraphs'] ?? [];
 $masonry = $data['masonry'] ?? [];
 
-// tab activo por defecto = 0
-$firstTab = $tabs[0] ?? ['key' => '', 'title' => '', 'desc' => '', 'img' => ''];
+// primer estado de la tarjeta
+$first   = $tabs[0] ?? ['key' => '', 'title' => '', 'desc' => '', 'img' => '', 'bullets' => []];
+
+// serializamos tabs para JS (sin escapar slashes/acentos)
+$tabsJson = htmlspecialchars(
+    json_encode($tabs, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+    ENT_QUOTES,
+    'UTF-8'
+);
 ?>
 <section class="band band--mision-flat" aria-labelledby="mision-title">
     <div class="band__inner">
@@ -26,101 +33,59 @@ $firstTab = $tabs[0] ?? ['key' => '', 'title' => '', 'desc' => '', 'img' => ''];
             <?= $title ?>
         </h2>
 
-        <?php if ($lead): ?>
-            <p class="mision-lead" data-reveal="fade" data-reveal-delay="100">
-                <?= $lead ?>
-            </p>
-        <?php endif; ?>
+        <div class="mision-layout" data-reveal="up" data-reveal-delay="200">
+            <!-- COLUMNA IZQUIERDA: misión -->
+            <div class="mision-left mision-content">
+                <?php if ($lead): ?>
+                    <p class="mision-lead">
+                        <?= $lead ?>
+                    </p>
+                <?php endif; ?>
 
-        <?php if (!empty($pills)): ?>
-            <ul class="meta-pills" role="list" data-reveal="up" data-reveal-delay="150">
-                <?php foreach ($pills as $i => $pill): ?>
-                    <li class="pill <?= $i === 0 ? 'btn btn--gold btn--shine' : 'btn--burgundy btn--shine' ?>">
-                        <a class="btn-mision" href="<?= htmlspecialchars($pill['href'] ?? '#') ?>">
-                            <?= $pill['text'] ?? '' ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
-
-        <div class="mision-layout" data-tabs="vjac" data-reveal="up" data-reveal-delay="200">
-            <!-- Columna izquierda (tabs) -->
-            <div class="mision-left">
-                <nav class="tabs__nav" role="tablist" aria-label="Metodología pastoral">
-                    <?php foreach ($tabs as $i => $t):
-                        $tabId = 'tab-' . strtolower($t['key'] ?? ('t' . $i));
-                        $active = $i === 0;
-                    ?>
-                        <button
-                            class="tabs__btn <?= $active ? 'is-active' : '' ?>"
-                            role="tab"
-                            aria-selected="<?= $active ? 'true' : 'false' ?>"
-                            aria-controls="<?= $tabId ?>">
-                            <?= htmlspecialchars($t['key'] ?? '') ?>
-                        </button>
-                    <?php endforeach; ?>
-                    <span class="tabs__ink" aria-hidden="true"></span>
-                </nav>
-
-                <?php foreach ($tabs as $i => $t):
-                    $tabId = 'tab-' . strtolower($t['key'] ?? ('t' . $i));
-                    $active = $i === 0;
-                ?>
-                    <section id="<?= $tabId ?>" class="tabs__panel <?= $active ? 'is-active' : '' ?>" role="region" <?= $active ? '' : 'hidden' ?>>
-                        <h3><?= htmlspecialchars($t['key'] ?? '') ?></h3>
-                        <?php if (!empty($t['title'])): ?>
-                            <p><strong><?= htmlspecialchars($t['title']) ?></strong></p>
-                        <?php endif; ?>
-                        <?php if (!empty($t['desc'])): ?>
-                            <p><?= htmlspecialchars($t['desc']) ?></p>
-                        <?php endif; ?>
-                        <?php if (!empty($t['bullets'])): ?>
-                            <ul>
-                                <?php foreach ($t['bullets'] as $b): ?>
-                                    <li><?= htmlspecialchars($b) ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
-                    </section>
-                <?php endforeach; ?>
+                <?php if (!empty($pills)): ?>
+                    <ul class="meta-pills" role="list">
+                        <?php foreach ($pills as $i => $pill): ?>
+                            <li class="pill <?= $i === 0 ? 'btn--gold btn--shine' : 'btn--burgundy btn--shine' ?>">
+                                <a class="btn-mision" href="<?= htmlspecialchars($pill['href'] ?? '#') ?>">
+                                    <?= $pill['text'] ?? '' ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
 
-            <!-- Columna derecha (aside dinámico) -->
-            <aside class="mision-aside" aria-live="polite">
+            <!-- COLUMNA DERECHA: tarjeta dinámica -->
+            <aside
+                class="mision-aside"
+                aria-live="polite"
+                data-vjac="<?= $tabsJson ?>">
                 <div class="mision-aside__bg" data-aside-bg
-                    style="background-image: url('<?= htmlspecialchars($firstTab['img'] ?? '') ?>');"></div>
+                    style="background-image:url('<?= htmlspecialchars($first['img'] ?? '') ?>')"></div>
                 <div class="mision-aside__glass">
-                    <span class="mision-aside__k" data-aside-k><?= htmlspecialchars($firstTab['key'] ?? '') ?></span>
-                    <h3 class="mision-aside__title" data-aside-title><?= htmlspecialchars($firstTab['title'] ?? '') ?></h3>
-                    <p class="mision-aside__desc" data-aside-desc><?= htmlspecialchars($firstTab['desc'] ?? '') ?></p>
+                    <span class="mision-aside__k" data-aside-k><?= htmlspecialchars($first['key'] ?? '') ?></span>
+                    <h3 class="mision-aside__title" data-aside-title><?= htmlspecialchars($first['title'] ?? '') ?></h3>
+                    <p class="mision-aside__desc" data-aside-desc><?= htmlspecialchars($first['desc'] ?? '') ?></p>
+                    <?php if (!empty($first['bullets'])): ?>
+                        <ul class="mision-aside__list" data-aside-list>
+                            <?php foreach (($first['bullets'] ?? []) as $b): ?>
+                                <li><?= htmlspecialchars($b) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else: ?>
+                        <ul class="mision-aside__list" data-aside-list hidden></ul>
+                    <?php endif; ?>
+                </div>
+
+                <div class="mision-aside__controls">
+                    <button class="mision-aside__ctrl" data-prev aria-label="Anterior">◄</button>
+                    <div class="mision-aside__dots" data-dots role="tablist" aria-label="Estados"></div>
+                    <button class="mision-aside__ctrl" data-next aria-label="Siguiente">►</button>
                 </div>
             </aside>
         </div>
 
-        <!-- Leer más -->
-        <?php if (!empty($more)): ?>
-            <details class="readmore" data-reveal="up" data-reveal-delay="250">
-                <summary class="readmore--accent btn--burgundy btn--shine">Leer más</summary>
-                <div class="readmore__content">
-                    <?php foreach ($more as $p): ?>
-                        <p><?= $p ?></p>
-                    <?php endforeach; ?>
-                </div>
 
-                <?php if (!empty($masonry)): ?>
-                    <div class="mision-masonry" data-gallery="main">
-                        <?php foreach ($masonry as $m): ?>
-                            <a class="mision-masonry__item" href="<?= htmlspecialchars($m['src']) ?>">
-                                <img loading="lazy" decoding="async"
-                                    src="<?= htmlspecialchars($m['src']) ?>"
-                                    alt="<?= htmlspecialchars($m['alt'] ?? '') ?>">
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            </details>
-        <?php endif; ?>
 
     </div>
 </section>

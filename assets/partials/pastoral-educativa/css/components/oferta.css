@@ -108,3 +108,29 @@
 .oferta__text .bullet {
   margin: 0.35rem 0 0 1rem;
 }
+/* === Oferta Académica: énfasis en el nivel activo === */
+.timeline__item.is-open .timeline__head {
+  background: #002d62; /* azul colegio */
+  color: #fff;
+  border-color: #002d62;
+  box-shadow: 0 0 0 2px rgba(0, 45, 98, 0.12);
+}
+
+.timeline__item.is-open::before {
+  background: #002d62; /* “puntito” de la línea */
+}
+
+.timeline__item.is-open .timeline__body {
+  border-left-color: #002d62;
+}
+
+/* Accesibilidad de foco */
+.timeline__head:focus-visible {
+  outline: 3px solid rgba(0, 45, 98, 0.35);
+  outline-offset: 2px;
+}
+
+/* Opcional: cursor mano sobre la imagen (siguiente) */
+.oferta__media {
+  cursor: pointer;
+}

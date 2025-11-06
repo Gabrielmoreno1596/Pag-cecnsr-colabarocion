@@ -40,3 +40,131 @@
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
 }
+
+/* ===== Filtro sutil para unificar colorimetría ===== */
+:root {
+  --galeria-tint: 32deg; /* ajusta el matiz si quieres */
+}
+
+.band--galeria .masonry__item img {
+  /* Pequeño toque para homogeneizar sin apagar la foto */
+  filter: saturate(0.95) contrast(1.03) brightness(0.99)
+    hue-rotate(var(--galeria-tint));
+  transition: transform 0.25s, filter 0.25s;
+}
+.band--galeria .masonry__item:hover img {
+  filter: none; /* al hover vuelve a color “real” */
+  transform: scale(1.03);
+}
+
+/* (Opcional) tinte sutil por overlay, complementa el filter anterior */
+.band--galeria .masonry__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(0, 0, 0, 0.03)
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* ===== Masonry responsive: fuerza 2 columnas en móvil ===== */
+@media (max-width: 700px) {
+  .band--galeria .masonry {
+    column-count: 2;
+    column-gap: 0.65rem;
+  }
+  .band--galeria .masonry__item {
+    margin-bottom: 0.65rem;
+  }
+}
+
+/* En pantallas MUY estrechas, cae a 1 columna para no recortar demasiado */
+@media (max-width: 360px) {
+  .band--galeria .masonry {
+    column-count: 1;
+  }
+}
+
+/* ==== Columnas específicas de "Comunidad en acción" ==== */
+.band--gallery-masonry .masonry {
+  column-count: 4; /* escritorio: 4 */
+  column-gap: 0.75rem;
+}
+
+/* tablets/grandes */
+@media (max-width: 1200px) {
+  .band--gallery-masonry .masonry {
+    column-count: 3;
+  }
+}
+
+/* móvil: SIEMPRE 2 columnas */
+@media (max-width: 900px) {
+  .band--gallery-masonry .masonry {
+    column-count: 2;
+  }
+}
+@media (max-width: 480px) {
+  .band--gallery-masonry .masonry {
+    column-count: 2;
+  } /* se mantiene en 2 */
+}
+
+/* Items base */
+.band--gallery-masonry .masonry__item {
+  break-inside: avoid;
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.band--gallery-masonry .masonry__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.25s, filter 0.25s;
+}
+
+/* === Filtro sutil para unificar colorimetría === */
+:root {
+  --galeria-tint: 32deg;
+}
+.band--gallery-masonry .masonry__item img {
+  filter: saturate(0.95) contrast(1.03) brightness(0.99)
+    hue-rotate(var(--galeria-tint));
+}
+.band--gallery-masonry .masonry__item:hover img {
+  filter: none;
+  transform: scale(1.03);
+}
+
+/* Overlay suave (opcional) */
+.band--gallery-masonry .masonry__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(0, 0, 0, 0.03)
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Caption */
+.band--gallery-masonry .masonry__cap {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+}

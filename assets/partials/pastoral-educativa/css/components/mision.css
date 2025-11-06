@@ -1,3 +1,4 @@
+/* ===== Fondo y tipografía de la banda ===== */
 .band--mision-flat {
   background: radial-gradient(
       900px 200px at 0% 0%,
@@ -9,6 +10,7 @@
 .band--mision-flat .section-title {
   margin-bottom: 0.4rem;
 }
+
 .band--mision-flat .mision-lead {
   font-size: clamp(1rem, 0.95rem + 0.35vw, 1.12rem);
   color: #374151;
@@ -16,11 +18,11 @@
   background: #ffffffcc;
   border: 1px solid #f1e8c9;
   border-left: 6px solid var(--border-left-color);
-  border-radius: 14px;
+  /* border-radius: 14px; */
   padding: 0.85rem 1rem;
 }
 
-/* Pills */
+/* ===== Pills ===== */
 .band--mision-flat .meta-pills {
   display: flex;
   flex-wrap: wrap;
@@ -34,19 +36,20 @@
   border: 1px solid var(--border-left-color);
   color: var(--cecns-sun);
   padding: 0.38rem 0.65rem;
-  border-radius: 999px;
+  /* border-radius: 999px; */
   font-size: 0.9rem;
   font-weight: 100;
   box-shadow: 0 1px 0 rgba(224, 177, 58, 0.2) inset;
   background-color: var(--border-left-color);
   cursor: pointer;
+  width: 100%;
 }
 
-/* Tabs VJAC (columna izquierda) */
+/* ===== Layout: Misión (izq) + Tarjeta VJAC (der) ===== */
 .mision-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr); /* misión izq, tarjeta der */
+  gap: 1.25rem; /* más aire */
   align-items: start;
   margin-top: 0.75rem;
 }
@@ -56,67 +59,11 @@
   }
 }
 
-.mision-left .tabs__nav {
-  position: relative;
-  display: grid;
-  gap: 0.5rem;
-  margin-bottom: 0.6rem;
-  padding: 0;
-  border: 0;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-@media (max-width: 680px) {
-  .mision-left .tabs__nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+/* Limpieza: estilos de tabs eliminados (ya no se usan)
+   - .mision-left .tabs__nav / .tabs__btn / .tabs__panel / .tabs__ink
+*/
 
-.mision-left .tabs__btn {
-  appearance: none;
-  border: 1px solid #e8edf2;
-  border-radius: 12px;
-  background: #fff;
-  color: var(--cecns-navy);
-  font-weight: 800;
-  padding: 0.65rem 0.8rem;
-  box-shadow: 0 1px 0 #eef1f5 inset, var(--shadow-1);
-  transition: transform 0.08s, box-shadow 0.2s, background 0.2s;
-}
-.mision-left .tabs__btn:hover {
-  transform: translateY(-1px);
-}
-.mision-left .tabs__btn.is-active {
-  background: #fffdf4;
-  border-color: var(--border-left-color);
-  box-shadow: 0 0 0 2px rgba(224, 177, 58, 0.2), var(--shadow-1);
-  color: var(--cecns-burgundy);
-}
-.mision-left .tabs__ink {
-  display: none;
-}
-
-.mision-left .tabs__panel {
-  background: #fff;
-  border: 1px solid #e8edf2;
-  border-left: 6px solid var(--border-left-color);
-  border-radius: 14px;
-  padding: 1rem 0.95rem;
-  box-shadow: var(--shadow-1);
-}
-.band--mision-flat .tabs__panel h3 {
-  margin: 0 0 0.25rem;
-  color: var(--cecns-navy);
-  font-size: 1.05rem;
-}
-.band--mision-flat .tabs__panel p {
-  margin: 0 0 0.35rem;
-  color: #374151;
-}
-.band--mision-flat .tabs__panel ul {
-  margin: 0.25rem 0 0 1rem;
-}
-
-/* Readmore */
+/* ===== Readmore ===== */
 .band--mision-flat .readmore {
   margin-top: 1rem;
   border-radius: 14px;
@@ -138,7 +85,7 @@
   padding: 0.9rem 1rem 1rem;
 }
 
-/* Galería Misión */
+/* ===== Galería Misión ===== */
 .band--mision-flat .mision-masonry {
   display: flex;
   gap: 0.6rem;
@@ -191,10 +138,10 @@
   }
 }
 
-/* Aside dinámico */
+/* ===== Tarjeta VJAC (derecha) ===== */
 .mision-aside {
   position: relative;
-  min-height: 260px;
+  min-height: 320px;
   border-radius: 16px;
   overflow: hidden;
   background: var(--border-left-color);
@@ -207,7 +154,7 @@
   z-index: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.28;
   transition: opacity 0.5s ease, transform 7s ease;
   transform: scale(1.08);
 }
@@ -246,7 +193,65 @@
   color: var(--blanco);
   text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.489);
 }
+
+/* Bullets dentro de la tarjeta (si los hay) */
+.mision-aside__list {
+  margin: 0.5rem 0 0 1rem;
+  color: var(--blanco);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+.mision-aside__list[hidden] {
+  display: none;
+}
+
+/* Controles y dots */
+.mision-aside__controls {
+  position: absolute;
+  inset: auto 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  z-index: 2;
+}
+.mision-aside__ctrl {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  border-radius: 10px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+.mision-aside__ctrl:hover {
+  background: #fff;
+}
+
+.mision-aside__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.mision-aside__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  cursor: pointer;
+}
+.mision-aside__dot[aria-selected="true"] {
+  background: var(--cecns-gold, #e0b13a);
+}
+
+/* Foco accesible */
+.mision-aside button:focus-visible {
+  outline: 3px solid rgba(224, 177, 58, 0.55);
+  outline-offset: 2px;
+}
+
+/* Animaciones de entrada (sigues usando tu @keyframes fadeUp existente) */
 .mision-aside[data-state="in"] .mision-aside__title,
-.mision-aside[data-state="in"] .mision-aside__desc {
+.mision-aside[data-state="in"] .mision-aside__desc,
+.mision-aside[data-state="in"] .mision-aside__list {
   animation: fadeUp 0.5s ease-out both;
 }

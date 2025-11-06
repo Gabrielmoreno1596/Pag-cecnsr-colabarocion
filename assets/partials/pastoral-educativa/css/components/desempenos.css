@@ -186,3 +186,33 @@
     font-size: 0.8rem;
   }
 }
+
+/* ===== Acordeón móvil ===== */
+@media (max-width: 700px) {
+  /* el panel fijo derecho no se usa en móvil */
+  .rail__col-right {
+    display: none;
+  }
+
+  /* detalle que se inserta debajo del item activo */
+  .rail__acc {
+    margin-top: 0.55rem;
+    animation: fadeAcc 0.22s ease-out both;
+  }
+  @keyframes fadeAcc {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* feedback visual al item abierto */
+  .rail__item.is-open {
+    outline: 2px solid color-mix(in srgb, var(--rail-active-bg) 50%, #fff 50%);
+    background: color-mix(in srgb, var(--rail-active-bg) 8%, #fff 92%);
+  }
+}

@@ -94,3 +94,26 @@
     transition: none;
   }
 }
+
+/* ===== Mobile carousel (≤ 700px) ===== */
+@media (max-width: 700px) {
+  .band--diagramas .diag-grid {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem; /* evita ocultar la sombra por el scrollbar */
+  }
+  .band--diagramas .diag {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+  /* opcional: primera y última con margen-respiro */
+  .band--diagramas .diag:first-child {
+    margin-left: 0.25rem;
+  }
+  .band--diagramas .diag:last-child {
+    margin-right: 0.25rem;
+  }
+}
