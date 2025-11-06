@@ -2,94 +2,121 @@
 
 /**
  * Datos para la sección Desempeños (rail + panel)
+ * Orden: 6 desempeños (1–6) + 3 ejes transversales (7–9)
  */
 return [
     'title' => 'Desempeños que animan nuestra formación',
     'items' => [
-        'aprender' => [
-            'n' => 1,
-            't' => 'Aprender a Aprender',
-            'intro' => 'El aprendizaje es un proceso continuo que despierta interés por descubrir, comprender y transformar la realidad.',
-            'pilares' => ['Disciplina personal'],
-            'bullets' => [
-                'Organización del tiempo y hábitos de estudio.',
-                'Responsabilidad y perseverancia en la excelencia académica y humana.',
-                'Metacognición: planificar, monitorear y evaluar cómo aprendo.',
-            ],
-            'cita' => 'La disciplina personal sostiene el proceso: ordena la jornada, fortalece la constancia y orienta a la excelencia.',
-        ],
+        // ===== Desempeños =====
         'conocer' => [
-            'n' => 2,
-            't' => 'Aprender a Conocer',
-            'intro' => 'No solo adquirir información: buscamos comprensión profunda del mundo y del sentido de la vida.',
+            'n' => 1,
+            't' => 'Saber Conocer',
+            'intro' => 'Comprender el mundo y el sentido de la vida con mirada crítica y apertura a la verdad.',
             'pilares' => ['Tarjeta de presentación personal'],
             'bullets' => [
-                'Valores y actitudes con respeto y coherencia.',
-                'Rigor intelectual con mirada sapiencial y sentido trascendente.',
+                'Rigor intelectual con sentido trascendente.',
                 'Lectura crítica de la realidad, la cultura y la fe.',
+                'Coherencia en el trato, el lenguaje y la presencia.',
             ],
-            'cita' => "La 'tarjeta de presentación' se hace visible en un trato respetuoso y auténtico.",
+            'cita' => 'La “tarjeta de presentación” se hace visible en un trato respetuoso y auténtico.',
+        ],
+        'pensar' => [
+            'n' => 2,
+            't' => 'Saber Pensar',
+            'intro' => 'Pensamiento crítico, analítico e investigativo para decidir con criterio ético.',
+            'pilares' => ['Disciplina personal'],
+            'bullets' => [
+                'Formular preguntas, contrastar fuentes y argumentar.',
+                'Planificar, monitorear y evaluar el propio razonamiento.',
+                'Apertura humilde y búsqueda responsable de la verdad.',
+            ],
+            'cita' => 'La disciplina ordena la búsqueda de la verdad y sostiene la constancia intelectual.',
         ],
         'hacer' => [
             'n' => 3,
-            't' => 'Aprender a Hacer',
-            'intro' => 'La acción transforma el conocimiento en servicio al bien común.',
+            't' => 'Saber Hacer',
+            'intro' => 'Transformar el conocimiento en acción solidaria al servicio del bien común.',
             'pilares' => ['Grado de servicio personal'],
             'bullets' => [
-                'Proyectos con impacto solidario y justicia social.',
-                'Trabajo colaborativo y liderazgo para el bien común.',
-                'Cuidado de la Casa Común desde acciones concretas.',
+                'Proyectos con impacto y justicia social.',
+                'Trabajo colaborativo y liderazgo para servir.',
+                'Cuidado de la Casa Común con acciones concretas.',
             ],
             'cita' => 'Los talentos se ponen al servicio: servir es la forma cristiana de liderar.',
         ],
         'sentir' => [
             'n' => 4,
-            't' => 'Aprender a Sentir',
-            'intro' => 'Vivir con empatía, gratitud y sensibilidad ante el prójimo.',
+            't' => 'Saber Sentir',
+            'intro' => 'Educar la afectividad: empatía, gratitud y vínculos sanos que construyen paz.',
             'pilares' => ['Prevención personal'],
             'bullets' => [
                 'Cuidado de la integridad emocional y espiritual.',
                 'Relaciones sanas y decisiones responsables.',
-                'Educación afectiva para la paz interior.',
+                'Actitudes positivas ante la vida.',
             ],
             'cita' => 'La prevención personal guía un sentir que protege la vida y favorece vínculos sanos.',
         ],
         'ser' => [
             'n' => 5,
-            't' => 'Aprender a Ser',
-            'intro' => 'Identidad cristiana y franciscana: descubrir el valor de ser hijo de Dios.',
+            't' => 'Saber Ser',
+            'intro' => 'Identidad cristiana y franciscana: autenticidad, libertad responsable y proyecto de vida.',
             'pilares' => ['Disciplina personal', 'Tarjeta de presentación personal'],
             'bullets' => [
-                'Autenticidad y seguridad interior.',
-                'Proyecto de vida con sentido, libertad y responsabilidad.',
-                'Virtudes franciscanas: minoridad, fraternidad, paz.',
+                'Coherencia entre lo que vivo, pienso y expreso.',
+                'Seguridad interior y responsabilidad.',
+                'Virtudes franciscanas: minoridad, fraternidad y paz.',
             ],
             'cita' => 'Ser auténticos y coherentes: lo que vivimos, pensamos y expresamos se hace uno.',
         ],
-        'convivir' => [
+        'innovar' => [
             'n' => 6,
-            't' => 'Aprender a Convivir',
-            'intro' => 'La convivencia es el fruto visible de una educación integral.',
-            'pilares' => ['Grado de servicio personal', 'Prevención personal'],
+            't' => 'Saber Innovar',
+            'intro' => 'Creatividad responsable para mejorar procesos y resolver problemas reales con sentido ético.',
+            'pilares' => ['Servicio', 'Prevención'],
             'bullets' => [
-                'Fraternidad y cultura del buen trato.',
-                'Resolución pacífica de conflictos y diálogo.',
-                'Comunidades solidarias que reflejen el amor de Cristo.',
+                'Curiosidad, prototipado y mejora continua.',
+                'Tecnología y arte al servicio de la persona y del entorno.',
+                'Innovación sostenible con impacto justo y fraterno.',
             ],
-            'cita' => 'La convivencia se aprende sirviendo y cuidando: paz que se hace gesto cotidiano.',
+            'cita' => 'Innovar es servir mejor: creatividad con propósito y cuidado integral.',
+        ],
+
+        // ===== Ejes transversales =====
+        'aprender' => [
+            'n' => 7,
+            't' => 'Aprender a Aprender',
+            'intro' => 'Proceso continuo que despierta el deseo de descubrir, comprender y transformar la realidad.',
+            'pilares' => ['Eje transversal'],
+            'bullets' => [
+                'Hábitos de estudio: organizar tiempo y perseverar.',
+                'Metacognición: planificar, monitorear y evaluar cómo aprendo.',
+                'Excelencia académica y humana como horizonte.',
+            ],
+            'cita' => 'La disciplina personal sostiene el proceso y orienta a la excelencia.',
+        ],
+        'convivir' => [
+            'n' => 8,
+            't' => 'Aprender a Convivir',
+            'intro' => 'Fraternidad, respeto y resolución pacífica de conflictos como fruto de la educación integral.',
+            'pilares' => ['Eje transversal'],
+            'bullets' => [
+                'Cultura del buen trato y del diálogo.',
+                'Solidaridad y construcción de comunidad.',
+                'Paz que se hace gesto cotidiano.',
+            ],
+            'cita' => 'Se aprende a convivir sirviendo y cuidando.',
         ],
         'integrar' => [
-            'n' => 7,
+            'n' => 9,
             't' => 'Integrar Fe, Cultura y Vida',
-            'intro' => 'Eje transversal del Modelo Educativo: el saber, iluminado por la fe, se vuelve sabiduría y proyecto de vida.',
-            'pilares' => ['Disciplina', 'Tarjeta', 'Servicio', 'Prevención'],
+            'intro' => 'Articular saber, espiritualidad y ciudadanía para una sabiduría encarnada y con sentido.',
+            'pilares' => ['Eje transversal'],
             'bullets' => [
-                'Articula lo académico con lo humano-espiritual y la ciudadanía.',
-                'Coherencia en trato, lenguaje y presencia.',
-                'Saber orientado a la acción solidaria y al cuidado de la Casa Común.',
-                'Hábitos y decisiones responsables para el bien propio y común.',
+                'Coherencia entre lo académico, lo humano-espiritual y lo social.',
+                'Saber orientado al servicio y al cuidado de la Casa Común.',
+                'Decisiones responsables para el bien propio y común.',
             ],
-            'cita' => 'Integrar fe, cultura y vida convierte el aprendizaje en sabiduría encarnada y servicio con sentido.',
+            'cita' => 'Integrar convierte el aprendizaje en servicio con sentido.',
         ],
     ],
 ];

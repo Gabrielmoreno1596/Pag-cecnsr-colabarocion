@@ -1,33 +1,186 @@
-/* ==========
-   Himno
-   ========== */
-.band--himno {
-  background: #fff;
+/* ===== HIMNO (tarjeta moderna con scroll lateral) ===== */
+.band--himno-pro {
+  --himno-accent: #002d62; /* color solicitado */
+  --himno-accent-2: #001a3a; /* tono más oscuro */
+  --cecns-green: #2f855a; /* fallback si no está definido globalmente */
+  --card-bg: #ffffff;
+  --ink: #0f172a;
+
+  background: radial-gradient(
+      1200px 300px at 10% -10%,
+      rgba(0, 45, 98, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #fff, #f8fafc);
+  padding-top: 1.5rem;
+  padding-bottom: 2.25rem;
 }
-.readmore summary {
+
+.himno-card {
+  background: var(--card-bg);
+  border: 1px solid #e8edf2;
+  border-left: 6px solid var(--himno-accent);
+  box-shadow: var(--shadow-1, 0 8px 20px rgba(0, 0, 0, 0.05));
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.himno-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.himno-caption {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.himno-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .himno-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.himno-media {
+  margin: 0;
+}
+.video-frame {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-1);
+}
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Letra con “readmore” y SCROLL sincronizado */
+.himno-lyrics .readmore {
+  border: 1px solid #e8edf2;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+.himno-lyrics .readmore > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  font-weight: 800;
   cursor: pointer;
-  font-weight: 700;
-  color: var(--cecns-burgundy);
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--himno-accent),
+    var(--himno-accent-2)
+  );
   list-style: none;
   outline: 0;
 }
-.readmore summary::-webkit-details-marker {
+.himno-lyrics .readmore > summary::-webkit-details-marker {
   display: none;
 }
-.himno__lyrics {
-  margin-top: 12px;
-  display: grid;
-  gap: 10px;
+.himno-lyrics .readmore[open] > summary {
+  background: linear-gradient(135deg, var(--cecns-green), #1f6a2d);
 }
-.himno__subtitle {
-  margin: 10px 0 0;
+.himno-lyrics .chev {
+  transition: transform 0.2s ease;
+}
+.himno-lyrics .readmore[open] .chev {
+  transform: rotate(180deg);
+}
+
+/* El alto de la letra se fija con una variable que setea el JS */
+.lyrics-wrap {
+  background: #fff;
+  padding: 1rem;
+  max-height: var(--himno-sync-h, 360px); /* ← el JS ajusta este valor */
+  overflow: auto; /* ← scroll lateral */
+  scrollbar-gutter: stable; /* evita saltos al aparecer scroll */
+}
+@media (max-width: 900px) {
+  /* En móvil también mantenemos scroll para no hacer la sección infinita */
+  .lyrics-wrap {
+    max-height: var(--himno-sync-h, 55vh);
+  }
+}
+
+/* (Opcional) estilito del scrollbar (solo WebKit/Blink) */
+.lyrics-wrap::-webkit-scrollbar {
+  width: 10px;
+}
+.lyrics-wrap::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+  border: 2px solid #fff;
+}
+.lyrics-wrap::-webkit-scrollbar-thumb:hover {
+  background: #b8bdc5;
+}
+
+.lyrics-subtitle {
+  margin: 0.35rem 0 0;
   font-weight: 800;
+  color: var(--ink);
 }
-.himno__block {
-  margin: 0;
-  white-space: pre-wrap;
+.lyrics-block {
+  margin: 0.2rem 0 0.6rem;
+  white-space: pre-line;
+  line-height: 1.7;
+  color: #374151;
 }
-.himno__footer {
-  margin-top: 8px;
-  color: var(--cecns-muted);
+.lyrics-credit {
+  margin-top: 0.25rem;
+}
+
+.band--himno-pro .section-title {
+  margin-bottom: 0.25rem;
+}
+
+/* Cambiar borde izquierdo de la tarjeta cuando la letra esté abierta */
+.himno-card {
+  transition: border-color 0.2s ease;
+}
+
+/* Soporte moderno con :has(...) */
+.himno-card:has(#letra-himno[open]) {
+  border-left-color: var(--cecns-green);
+}
+
+/* Fallback por clase (lo activa el JS de abajo) */
+.himno-card.is-open {
+  border-left-color: var(--cecns-green);
+}
+
+/* Focus accesible sin “rojizos” */
+.himno-lyrics .readmore > summary:focus-visible {
+  outline: 3px solid rgba(47, 133, 90, 0.5); /* verde suave */
+  outline-offset: 2px;
+}
+
+/* Consistencia de colores del summary */
+.himno-lyrics .readmore > summary {
+  color: #fff;
+}
+.himno-lyrics .readmore[open] > summary {
+  color: #fff;
+}
+
+/* (opcional) un pelín más redondeado al abrir */
+.himno-lyrics .readmore[open] .lyrics-wrap {
+  border-top: 1px solid #e8edf2;
 }

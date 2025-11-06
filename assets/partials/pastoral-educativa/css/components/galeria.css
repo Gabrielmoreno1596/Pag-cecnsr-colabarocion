@@ -134,10 +134,10 @@
 :root {
   --galeria-tint: 32deg;
 }
-.band--gallery-masonry .masonry__item img {
+/* .band--gallery-masonry .masonry__item img {
   filter: saturate(0.95) contrast(1.03) brightness(0.99)
     hue-rotate(var(--galeria-tint));
-}
+} */
 .band--gallery-masonry .masonry__item:hover img {
   filter: none;
   transform: scale(1.03);

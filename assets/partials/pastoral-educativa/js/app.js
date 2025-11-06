@@ -16,6 +16,7 @@ const mods = [
     './modules/crest-parallax.js',
     './modules/reveal-lazy.js',
     './modules/video-embed.js',
+    './modules/himno.js',
     './modules/galeria-lightbox.js',
 ];
 
