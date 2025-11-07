@@ -1,0 +1,10 @@
+# .gitattributes
+* text=auto
+*.{js,css,html,htm,md,ts,tsx,jsx,json,yml,yaml,php} text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text eol=lf
