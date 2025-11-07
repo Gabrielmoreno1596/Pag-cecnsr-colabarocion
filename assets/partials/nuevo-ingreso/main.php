@@ -10,5 +10,4 @@ if ($sent) {
 } else {
     require __DIR__ . '/components/form.php';
     require __DIR__ . '/components/faq.php';
-    require __DIR__ . '/components/privacy-note.php';
 }

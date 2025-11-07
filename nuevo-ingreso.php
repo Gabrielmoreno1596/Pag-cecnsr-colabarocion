@@ -10,8 +10,9 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CECNSR | Nuevo Ingreso</title>
+
     <link rel="stylesheet" href="<?= BASE_URL ?>styles.css?v=<?= ASSET_VER ?? '1' ?>">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/partials/nuevo-ingreso/css/ni-form.css?v=<?= ASSET_VER ?? '1' ?>">
+    <!-- Deja una sola inclusión de ni-form.css -->
     <link rel="stylesheet" href="<?= asset('assets/partials/nuevo-ingreso/css/ni-form.css') ?>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -19,8 +20,6 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
     <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>" type="image/png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
     <meta name="theme-color" content="#7f2d3c">
-
-
 </head>
 
 <body>
@@ -31,6 +30,7 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
         <?php
         // Componer la sección usando componentes
         require PROJECT_PATH . 'assets/partials/nuevo-ingreso/main.php';
+
         ?>
     </main>
 
@@ -38,25 +38,24 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
 
 
 
-
-
     <?php if (RECAPTCHA_ENABLED): ?>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <?php endif; ?>
-    <script src="<?= BASE_URL ?>assets/partials/nuevo-ingreso/js/ni-form.js?v=<?= ASSET_VER ?? '1' ?>" defer></script>
+
     <script type="module" src="<?= asset('assets/partials/nuevo-ingreso/js/ni-form.js') ?>"></script>
+    <!-- Si tienes lógica adicional modularizada -->
     <script>
-        (function() {
-            const form = document.getElementById('admission-form');
-            const msg = document.getElementById('form-msg');
+        (() => {
+            const form = document.querySelector('#form-nuevo-ingreso');
             if (!form) return;
+            const msg = document.getElementById('form-msg');
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                msg.textContent = '';
                 const btn = form.querySelector('button[type="submit"]');
                 btn.disabled = true;
                 btn.textContent = 'Enviando...';
+                msg.textContent = '';
 
                 try {
                     const res = await fetch(form.action, {

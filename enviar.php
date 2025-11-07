@@ -6,6 +6,7 @@ require __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer/src/SMTP.php';
 require __DIR__ . '/PHPMailer/src/Exception.php';
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 // Polyfill para PHP < 8 (evita fatal con str_ends_with)
@@ -17,6 +18,26 @@ if (!function_exists('str_ends_with')) {
         return substr($haystack, -$len) === $needle;
     }
 }
+
+// Salida JSON robusta
+ini_set('display_errors', '0'); // no mezclar errores con JSON
+ini_set('log_errors', '1');     // errores a error_log
+
+while (ob_get_level()) {
+    ob_end_clean();
+} // limpia buffers (BOM/espacios)
+
+function echo_json($payload, int $status = 200)
+{
+    while (ob_get_level()) {
+        ob_end_clean();
+    }
+    http_response_code($status);
+    header('Content-Type: application/json; charset=UTF-8');
+    echo json_encode($payload, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 
 session_start();
 $now = time();
@@ -37,8 +58,8 @@ $honeypot = $_POST['website'] ?? '';
 $nombre   = clean($_POST['nombre_encargado'] ?? '');
 $tel      = clean($_POST['telefono'] ?? '');
 $correo   = clean($_POST['correo'] ?? '');
-$grado    = clean($_POST['grado_interes'] ?? ($_POST['interes'] ?? ''));
-$consulta = clean($_POST['consulta'] ?? '');
+$grado    = clean($_POST['grado_interes'] ?? ($_POST['interes'] ?? ($_POST['grado'] ?? '')));
+$consulta = clean($_POST['consulta'] ?? ($_POST['mensaje'] ?? ''));
 $canal    = strtolower(trim($_POST['canal'] ?? ''));
 
 $CANAL_MAP = [
@@ -171,8 +192,21 @@ try {
     $mail->Sender = MAIL_FROM;       // Return-Path/Envelope-From
 
     // Destinatario por canal
+    /*   $mail->addAddress($destino, 'CECNSR');
+    if (MAIL_BCC) $mail->addBCC(MAIL_BCC); */ // buzón de auditoría (opcional)
+    // Destinatario por canal (primario)
     $mail->addAddress($destino, 'CECNSR');
-    if (MAIL_BCC) $mail->addBCC(MAIL_BCC); // buzón de auditoría (opcional)
+
+    // SIEMPRE enviar al buzón central configurado en config.mail.php
+    if (defined('MAIL_TO') && MAIL_TO) {
+        $mail->addAddress(MAIL_TO, MAIL_TO_NAME ?: 'CECNSR');
+    }
+
+    // Buzón de auditoría (opcional)
+    if (defined('MAIL_BCC') && MAIL_BCC) {
+        $mail->addBCC(MAIL_BCC);
+    }
+
 
     // Por ahora Reply-To institucional (evita bloqueos por DMARC)
     $mail->addReplyTo(MAIL_FROM, MAIL_FROM_NAME);

@@ -2,61 +2,69 @@
 <section class="ni ni-form section-padding" id="ni-form" aria-labelledby="form-title">
     <h2 id="form-title" class="section-title">Formulario de consulta</h2>
 
-    <form class="admission-form-container ni-form__card"
+    <form id="form-nuevo-ingreso"
+        class="ni-form admission-form-container ni-form__card"
         action="<?= BASE_URL ?>enviar.php"
-        method="POST" novalidate>
-        <!-- ruteo para backend existente -->
+        method="POST"
+        novalidate>
+        <!-- Canal para ruteo (CRÍTICO) -->
         <input type="hidden" name="canal" value="nuevo_ingreso">
-        <!-- honeypot -->
-        <input type="text" name="website" tabindex="-1" autocomplete="off" class="ni-hide-field" aria-hidden="true">
 
+        <!-- Honeypot anti-bots -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
+
+        <!-- Tus campos -->
         <div class="form-group">
-            <label for="ni-nombre">Nombre de la madre, padre o encargado</label>
-            <input id="ni-nombre" name="nombre_encargado" type="text" required autocomplete="name">
+            <label>Nombre completo
+                <input type="text" name="nombre_encargado" required autocomplete="name">
+            </label>
         </div>
-
         <div class="form-group">
-            <label for="ni-email">Correo electrónico</label>
-            <input id="ni-email" name="email" type="email" required autocomplete="email">
+            <label>Correo electrónico
+                <input type="email" name="correo" required autocomplete="email">
+            </label>
         </div>
-
         <div class="form-group">
-            <label for="ni-telefono">Teléfono de contacto</label>
-            <input id="ni-telefono" name="telefono" type="tel" required inputmode="tel" pattern="[0-9+\s-]{8,}">
+            <label>Teléfono
+                <input type="tel" name="telefono" required autocomplete="tel">
+            </label>
         </div>
-
         <div class="form-group">
-            <label for="ni-estudiante">Nombre del estudiante</label>
-            <input id="ni-estudiante" name="nombre_estudiante" type="text" required>
+            <label>Grado de interés
+                <select id="ni-grado" name="grado" required>
+                    <option value="" disabled selected>Seleccione…</option>
+                    <?php foreach ($data['grados'] as $g): ?>
+                        <option value="<?= htmlspecialchars($g) ?>">
+                            <?= htmlspecialchars($g) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
         </div>
-
         <div class="form-group">
-            <label for="ni-grado">Grado al que desea ingresar</label>
-            <select id="ni-grado" name="grado" required>
-                <option value="" disabled selected>Seleccione…</option>
-                <?php foreach ($data['grados'] as $g): ?>
-                    <option value="<?= htmlspecialchars($g) ?>"><?= htmlspecialchars($g) ?></option>
-                <?php endforeach; ?>
-            </select>
+            <label>Mensaje / Consulta
+                <textarea name="consulta" rows="4" required></textarea>
+            </label>
         </div>
-
-
-
-        <div class="form-group">
-            <label for="ni-mensaje">Consulta o comentario</label>
-            <textarea id="ni-mensaje" name="mensaje" rows="4" placeholder="Cuéntanos tu caso…" required></textarea>
-        </div>
+        <!-- reCAPTCHA (ajusta según v2/v3) -->
+        <?php if (!empty($RECAPTCHA_SITE_KEY)): ?>
+            <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars($RECAPTCHA_SITE_KEY) ?>"></div>
+        <?php endif; ?>
 
         <div class="form-group">
             <label for="ni-respuesta">¿Cómo desea que le contactemos?</label>
             <select id="ni-respuesta" name="preferencia_contacto">
                 <?php foreach ($data['canales'] as $c): ?>
-                    <option value="<?= htmlspecialchars($c) ?>"><?= htmlspecialchars($c) ?></option>
+                    <option value="<?= htmlspecialchars($c) ?>">
+                        <?= htmlspecialchars($c) ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
 
-        <button class="btn-primary ni-form__submit" type="submit">Enviar consulta</button>
-        <p class="ni-form__hint">Tiempo de respuesta estimado: 24–48 h laborables.</p>
+
+        <button type="submit" class="ni-btn btn-primary ni-form__submit">Enviar Solicitud de Admisión</button>
+        <p id="form-msg" class="ni-form__msg" aria-live="polite"></p>
     </form>
+
 </section>
