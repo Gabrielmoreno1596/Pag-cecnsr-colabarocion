@@ -1,0 +1,337 @@
+/* Namespace ni- para evitar choques. Reusa la paleta existente. */
+.ni-page {
+  background: var(--bg-white);
+}
+
+/* Hero */
+.ni-hero {
+  background: var(--cecns-blue);
+  color: #fff;
+  text-align: center;
+}
+.ni-hero__wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+.ni-hero__title {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+.ni-hero__lead {
+  opacity: 0.9;
+}
+
+/* Steps */
+.ni-steps__list {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: left;
+}
+.ni-steps__list li {
+  margin: 0.35rem 0;
+}
+
+/* Form */
+.ni-form__card {
+  border-top: 4px solid var(--cecns-gold);
+}
+.ni-form__submit {
+  margin-top: 0.5rem;
+}
+.ni-form__hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* FAQ */
+.ni-faq__item {
+  max-width: 920px;
+  margin: 0.5rem auto;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  background: #fff;
+}
+.ni-faq__item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--cecns-blue);
+}
+
+/* Privacy */
+.ni-privacy__text {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Utilidad */
+.ni-hide-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+}
+@media (max-width: 768px) {
+  .ni-hero__title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ---------- HERO SLIDER ---------- */
+.ni-hero {
+  position: relative;
+  padding: 0;
+  color: #fff;
+  overflow: hidden;
+}
+.ni-hero__slider {
+  position: relative;
+  min-height: 52vh;
+  display: grid;
+  place-items: center;
+}
+.ni-hero__track {
+  position: absolute;
+  inset: 0;
+}
+.ni-hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+.ni-hero__slide.is-active {
+  opacity: 1;
+}
+
+.ni-hero__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  will-change: transform;
+  /* La animación de zoom se aplica vía clase JS (.is-zooming) para evitar
+     saturar la GPU en todas las diapositivas simultáneamente */
+}
+.ni-hero__slide.is-zooming img {
+  animation: ni-kenburns 6s linear forwards;
+}
+
+@keyframes ni-kenburns {
+  from {
+    transform: scale(1) translateZ(0);
+  }
+  to {
+    transform: scale(1.08) translateZ(0);
+  } /* el factor final se ajusta vía data-zoom en JS */
+}
+
+.ni-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 920px;
+  margin-inline: auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.ni-hero__title {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  margin-bottom: 0.5rem;
+}
+.ni-hero__lead {
+  opacity: 0.95;
+  margin-bottom: 1rem;
+}
+
+/* Fondo degradado para legibilidad */
+.ni-hero__slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45));
+  z-index: 1;
+}
+
+/* Respeto accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .ni-hero__slide {
+    transition: none !important;
+  }
+  .ni-hero__slide.is-zooming img {
+    animation: none !important;
+  }
+}
+
+/* ---------- HERO SLIDER (patch de especificidad) ---------- */
+
+/* Reset de figuras para evitar margen y comportamientos raros */
+.ni-hero__track,
+.ni-hero__slide,
+.ni-hero__slide figure {
+  margin: 0;
+  padding: 0;
+}
+
+.ni-hero {
+  position: relative;
+  padding: 0;
+  color: #fff;
+  overflow: hidden;
+  background-color: #004080;
+}
+.ni-hero__slider {
+  position: relative;
+  min-height: 52vh;
+  display: grid;
+  place-items: center;
+}
+.ni-hero__track {
+  position: absolute;
+  inset: 0;
+}
+.ni-hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+.ni-hero__slide.is-active {
+  opacity: 0.5;
+}
+
+/* Aumentamos especificidad y bloqueamos reglas globales con !important si las hubiera */
+.ni-hero__slide img,
+.ni .ni-hero__slide img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transform: scale(1);
+  will-change: transform;
+}
+
+.ni-hero__slide.is-zooming img {
+  animation: ni-kenburns var(--ni-zoom-duration, 6000ms) linear forwards;
+}
+
+/* Si tu global lleva !important, arriba ya usamos !important. */
+@keyframes ni-kenburns {
+  from {
+    transform: scale(1) translateZ(0);
+  }
+  to {
+    transform: scale(1.08) translateZ(0);
+  } /* 1.08 es el default, JS sincroniza duración */
+}
+
+/* Overlay para legibilidad */
+.ni-hero__slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45));
+  z-index: 1;
+}
+
+/* Contenido */
+.ni-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 920px;
+  margin-inline: auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.ni-hero__title {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  margin-bottom: 0.5rem;
+}
+.ni-hero__lead {
+  opacity: 0.95;
+  margin-bottom: 1rem;
+}
+
+/* Motion-safe */
+@media (prefers-reduced-motion: reduce) {
+  .ni-hero__slide {
+    transition: none !important;
+  }
+  .ni-hero__slide.is-zooming img {
+    animation: none !important;
+  }
+}
+
+/* ===== Sombrado controlable (overlay + viñeta suave) ===== */
+.ni-hero {
+  /* Ajusta a tu gusto (0–1) */
+  --ni-shade-top: 0.3;
+  --ni-shade-bottom: 0.55;
+  --ni-vignette: 0.18; /* viñeta */
+
+  position: relative;
+  padding: 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Gradiente vertical (ya lo tenías, ahora con variables) */
+.ni-hero__slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, var(--ni-shade-top)),
+    rgba(0, 0, 0, var(--ni-shade-bottom))
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Viñeta radial sutil para bordes */
+.ni-hero__slider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 80% at 50% 50%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, var(--ni-vignette)) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===== Posición X/Y por slide + Ken Burns desde ese punto ===== */
+.ni-hero__slide img,
+.ni .ni-hero__slide img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+
+  /* Posición de recorte y de origen del zoom (por slide) */
+  object-position: var(--pos-x, 50%) var(--pos-y, 50%);
+  transform-origin: var(--pos-x, 50%) var(--pos-y, 50%);
+  transform: scale(1);
+  will-change: transform;
+}
+
+.ni-hero__slide.is-zooming img {
+  animation: ni-kenburns var(--ni-zoom-duration, 6000ms) linear forwards;
+}
+
+@keyframes ni-kenburns {
+  from {
+    transform: scale(1) translateZ(0);
+  }
+  to {
+    transform: scale(1.08) translateZ(0);
+  }
+}

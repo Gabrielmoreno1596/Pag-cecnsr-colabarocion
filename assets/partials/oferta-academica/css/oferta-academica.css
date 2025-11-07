@@ -1,0 +1,32 @@
+﻿/* oferta-academica.css â€” estilos scoped para evitar choques */
+.oferta-academica-hero {
+  background: var(--bg-white, #fff);
+  color: var(--text-color, #111);
+  padding: 2.5rem 0;
+}
+.oferta-academica-hero__wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+.oferta-academica-hero__title {
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  margin: 0 0 0.5rem;
+}
+.oferta-academica-hero__lead {
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.oferta-academica-block-a {
+  padding: 2rem 0;
+}
+.oferta-academica-block-a__title {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+.oferta-academica-block-a__text {
+  line-height: 1.6;
+  opacity: 0.95;
+}

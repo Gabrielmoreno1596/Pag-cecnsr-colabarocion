@@ -20,71 +20,7 @@
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
   <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
 
-  <div class="page-header">
-    <h1>Proceso de Admisión y Nuevo Ingreso 2026</h1>
-    <p>¡Te invitamos a formar parte de la familia CECNSR! Regístrate para iniciar el proceso.</p>
-  </div>
-
-  <section class="main-content">
-    <div class="content-section" style="text-align:center">
-      <h2 class="sub-title">Solicitud de Información y Visita Guiada</h2>
-      <p style="max-width:800px;margin:0 auto 30px">
-        Completa el siguiente formulario para que nuestro equipo de admisiones se ponga en contacto contigo y te brinde los detalles de matrícula, requisitos y una visita personalizada a nuestras instalaciones.
-      </p>
-    </div>
-
-    <div class="admission-form-container">
-      <form id="admission-form" action="enviar.php" method="POST" novalidate>
-        <!-- Honeypot -->
-        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" style="display:none">
-
-        <div class="form-group">
-          <label for="nombre_padre">Nombre completo del Padre/Madre/Encargado:</label>
-          <input type="text" id="nombre_padre" name="nombre_encargado" required />
-        </div>
-
-        <div class="form-group">
-          <label for="telefono">Teléfono de Contacto (WhatsApp preferible):</label>
-          <input type="tel" id="telefono" name="telefono" required />
-        </div>
-
-        <div class="form-group">
-          <label for="correo">Correo Electrónico (Para recibir la información):</label>
-          <input type="email" id="correo" name="correo" required />
-        </div>
-
-        <div class="form-group">
-          <label for="estudiante_grado">Grado de Interés para el Estudiante:</label>
-          <select id="estudiante_grado" name="grado_interes" required>
-            <option value="" disabled selected>-- Seleccione un nivel --</option>
-            <option value="Inicial y Parvularia">Inicial y Parvularia</option>
-            <option value="Primer Ciclo">I Ciclo</option>
-            <option value="Segundo Ciclo">II Ciclo</option>
-            <option value="Tercer Ciclo">III Ciclo</option>
-            <option value="Bachillerato General">Bachillerato General</option>
-            <option value="Bachillerato Tecnico">Bachillerato Técnico</option>
-            <option value="Otro_Consulta">Otro / Solo Consulta</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="consulta">Consulta Específica o Comentarios Adicionales:</label>
-          <textarea id="consulta" name="consulta" rows="5"></textarea>
-        </div>
-
-        <?php if (RECAPTCHA_ENABLED): ?>
-          <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars(RECAPTCHA_SITE_KEY) ?>"></div>
-        <?php endif; ?>
-
-        <button type="submit" class="btn-primary" style="width:100%">Enviar Solicitud de Admisión</button>
-        <p id="form-msg" style="margin-top:12px"></p>
-      </form>
-    </div>
-
-    <div class="content-section" style="margin-top:3rem;text-align:center">
-      <p>Si deseas comunicarte de inmediato, llámanos al <strong>2503-1970</strong> o escríbenos a <strong>CECNSROSARIO@HOTMAIL.COM</strong>.</p>
-    </div>
-  </section>
+  <?php include PROJECT_PATH . 'assets/partials/proceso-admision/main.php'; ?>
 
   <?php include PROJECT_PATH . 'assets/partials/footer.php'; ?>
 

@@ -69,7 +69,7 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
         </li>
 
         <li class="cecnsr-nav__item cecnsr-nav__item--cta">
-          <a class="cecnsr-btn-cta<?= is_current('proceso-admision', $curSlug); ?>" href="proceso-admision.php">
+          <a class="cecnsr-btn-cta<?= is_current('proceso-admision', $curSlug); ?>" href="nuevo-ingreso.php">
             Nuevo Ingreso <i class="fas fa-user-plus" aria-hidden="true"></i>
           </a>
         </li>

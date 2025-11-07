@@ -1,0 +1,46 @@
+/* Generated split from dual.css + convenios.css
+   File: core/tokens.css
+*/
+
+/* =========================================
+   CECNSR PASCH — CSS organizado (drop-in)
+   Mantiene los mismos selectores de tu HTML
+   ========================================= */
+
+/* ---------- 1) TOKENS / THEME ---------- */
+:root {
+  /* colores base */
+  --surface: #ffffff;
+  --surface-alt: #f5f7fb;
+  --stroke: #e5e7eb;
+  --text: #0f172a;
+  --text-muted: #475569;
+
+  /* paleta institucional */
+  --cecns-burgundy: #7f2d3c;
+  --cecns-gold: #e0b13a;
+  --cecns-navy: #15334a;
+  --cecns-green: #2d8c3c;
+  --cecns-lime: #b7d35a;
+  --cecns-sun: #fff;
+  --cecns-ink: #1e1e1e;
+  --cecns-muted: #6b7280;
+  --cecns-bg: #f7f8fa;
+
+  /* layout */
+  /*   --header-h: 88px; */
+  --container-w: 1100px;
+  --section-pad: clamp(1.25rem, 3vw, 2rem);
+  --card-pad: clamp(1.1rem, 2.2vw, 1.6rem);
+
+  /* líneas / bordes / sombras / radios */
+  --line: #e6ebf1; /* reemplaza --pi-line ausente */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-2xl: 22px;
+  --shadow-1: 0 1px 0 rgba(16, 24, 40, 0.02);
+  --shadow-2: 0 4px 28px rgba(45, 140, 60, 0.06);
+  --shadow-glass: 0 24px 60px rgba(0, 0, 0, 0.28);
+}

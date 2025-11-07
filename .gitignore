@@ -2,3 +2,6 @@
 config.mail.php
 .env
 *.env
+
+# build de imágenes, no subir
+assets_web/
