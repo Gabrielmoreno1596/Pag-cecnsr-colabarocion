@@ -119,7 +119,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
         <figure class="about-media">
           <img
             src="assets/integracion/integra-img2.jpeg"
-            alt="Sesión plenaria con estudiantes" />
+            alt="Sesión plenaria con estudiantes" loading="lazy" decoding="async" />
           <!-- <figcaption>Formación para el encuentro y el servicio</figcaption> -->
         </figure>
       </div>
@@ -198,7 +198,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <figure class="about-media">
               <img
                 src="assets/integracion/logo-direccion-integracion.png"
-                alt="" />
+                alt="" loading="lazy" decoding="async" />
               <figcaption></figcaption>
             </figure>
           </div>
@@ -321,8 +321,8 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               src="assets/4pe/afiche-invitacion.png"
               alt="Afiche Generación que Florece: requisitos"
-              loading="lazy"
-            />
+              loading="lazy" decoding="async" decoding="async"
+ decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"  decoding="async"/ decoding="async">
             <figcaption>
               Referencia visual de requisitos y actividades (institución).
             </figcaption>
@@ -346,10 +346,10 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
         <h2 class="section-title">Galería</h2>
         <div class="title-divider" aria-hidden="true"></div>
         <div class="gallery">
-          <a href="assets/integracion/integra-img1.jpeg"><img src="assets/integracion/integra-img1.jpeg" alt="" /></a>
-          <a href="assets/integracion/integra-img2.jpeg"><img src="assets/integracion/integra-img2.jpeg" alt="" /></a>
-          <a href="assets/integracion/integra-img3.jpeg"><img src="assets/integracion/integra-img3.jpeg" alt="" /></a>
-          <a href="assets/integracion/integra-img4.jpeg"><img src="assets/integracion/integra-img4.jpeg" alt="" /></a>
+          <a href="assets/integracion/integra-img1.jpeg"><img src="assets/integracion/integra-img1.jpeg" alt="" loading="lazy" decoding="async" /></a>
+          <a href="assets/integracion/integra-img2.jpeg"><img src="assets/integracion/integra-img2.jpeg" alt="" loading="lazy" decoding="async" /></a>
+          <a href="assets/integracion/integra-img3.jpeg"><img src="assets/integracion/integra-img3.jpeg" alt="" loading="lazy" decoding="async" /></a>
+          <a href="assets/integracion/integra-img4.jpeg"><img src="assets/integracion/integra-img4.jpeg" alt="" loading="lazy" decoding="async" /></a>
         </div>
         <p class="credits">
           Créditos: CECNSR / Proyecto de Integración (uso educativo).
@@ -366,7 +366,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
         <button class="lb__close" aria-label="Cerrar (Esc)">✕</button>
 
         <figure class="lb__figure">
-          <img class="lb__img" alt="" />
+          <img class="lb__img" alt="" loading="lazy" decoding="async" />
           <figcaption class="lb__cap">
             <span class="lb__text"></span>
             <span class="lb__count"></span>
@@ -763,3 +763,4 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
 </body>
 
 </html>
+

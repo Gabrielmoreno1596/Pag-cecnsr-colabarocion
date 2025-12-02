@@ -48,7 +48,7 @@
       <div class="hero__col hero__col--text">
         <div class="hero__creds" aria-label="Organizaciones asociadas">
           <!-- <span>Con el apoyo de</span> -->
-          <img src="assets/pasch/pasch.png" alt="PASCH" />
+          <img src="assets/pasch/pasch.png" alt="PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <img src="assets/1_CECNSR.png" alt="CECNSR" />
         </div>
         <p class="hero__eyebrow">Convenios y Alianzas</p>
@@ -82,7 +82,7 @@
               id="sig-img"
               src="assets/pasch/pasch-vijaron.jpeg"
               alt="Estudiantes CECNSR en programa PASCH"
-              decoding="async" />
+              decoding="async" loading="lazy"  loading="lazy"/ loading="lazy">
             <figcaption
               id="sig-caption"
               class="hero__caption"
@@ -339,15 +339,15 @@
               <img
                 class="main"
                 src="assets/pasch/pasch-img2.jpeg"
-                alt="Alex en curso juvenil" />
+                alt="Alex en curso juvenil" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               <img
                 class="thumbex"
                 src="assets/pasch/pasch-img5.png"
-                alt="Alex en curso juvenil" />
+                alt="Alex en curso juvenil" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               <img
                 class="thumbex"
                 src="assets/pasch/pasch-img6.png"
-                alt="Alex en curso juvenil" />
+                alt="Alex en curso juvenil" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="media-info">
               <h3>Alex — Curso juvenil (A1)</h3>
@@ -367,15 +367,15 @@
               <img
                 class="main"
                 src="assets/pasch/pasch-valeria2.png"
-                alt="Valeria en campamento PASCH" />
+                alt="Valeria en campamento PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               <img
                 class="thumbex"
                 src="assets/pasch/pasch-valeria1.png"
-                alt="Valeria en campamento PASCH" />
+                alt="Valeria en campamento PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               <img
                 class="thumbex"
                 src="assets/pasch/pasch-img4.png"
-                alt="Valeria en campamento PASCH" />
+                alt="Valeria en campamento PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="media-info">
               <h3>Valeria — Campamento PASCH (A1)</h3>
@@ -396,15 +396,15 @@
               <img
                 class="main"
                 src="assets/pasch/pasch-vijaron.jpeg"
-                alt="Mateo en Jungenkurs" />
+                alt="Mateo en Jungenkurs" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               <img
                 class="thumbex"
                 src="assets/pasch/pasch-mateo1.png"
-                alt="Mateo en Jungenkurs" />
+                alt="Mateo en Jungenkurs" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               <img
                 class="thumbex"
                 src="assets/pasch/pasch-mateo2.png"
-                alt="Mateo en Jungenkurs" />
+                alt="Mateo en Jungenkurs" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="media-info">
               <h3>Mateo — Jungenkurs (A2)</h3>
@@ -438,7 +438,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-img2.jpeg"
-              alt="Reunión con el equipo" />
+              alt="Reunión con el equipo" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Reunión con el equipo</span> -->
           </a>
 
@@ -449,7 +449,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-img3.jpeg"
-              alt="Grupo con bandera" />
+              alt="Grupo con bandera" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Grupo con bandera</span> -->
           </a>
 
@@ -460,7 +460,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-img4.png"
-              alt="Actividad creativa" />
+              alt="Actividad creativa" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Actividad creativa</span> -->
           </a>
 
@@ -471,7 +471,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-mateo2.png"
-              alt="Mateo 2" />
+              alt="Mateo 2" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Mateo 2</span> -->
           </a>
 
@@ -482,7 +482,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-img5.png"
-              alt="Amistades" />
+              alt="Amistades" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Amistades</span> -->
           </a>
 
@@ -493,7 +493,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-img6.png"
-              alt="Clases y juegos" />
+              alt="Clases y juegos" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Clases y juegos</span> -->
           </a>
 
@@ -504,7 +504,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-img7.png"
-              alt="Encuentro con estudiantes" />
+              alt="Encuentro con estudiantes" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Encuentro con estudiantes</span> -->
           </a>
 
@@ -515,7 +515,7 @@
             <img
               loading="lazy"
               src="assets/pasch/pasch-mateo1.png"
-              alt="Mateo 1" />
+              alt="Mateo 1" decoding="async"  decoding="async"/ decoding="async">
             <!-- <span class="cap">Mateo 1</span> -->
           </a>
         </div>
@@ -540,7 +540,7 @@
             <button class="xp-lb__nav prev" id="xpPrev" aria-label="Anterior">
               ‹
             </button>
-            <img id="xpLbImg" alt="" draggable="false" />
+            <img id="xpLbImg" alt="" draggable="false" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             <button
               class="xp-lb__nav next"
               id="xpNext"
@@ -656,7 +656,7 @@
     <button class="thumb${
       i === 0 ? " is-active" : ""
     }" role="tab" aria-selected="${i === 0}">
-      <img src="${s.src}" alt="${s.alt}">
+      <img src="${s.src}" alt="${s.alt}" loading="lazy" decoding="async">
     </button>`
         )
         .join("");

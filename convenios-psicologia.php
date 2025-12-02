@@ -65,7 +65,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             width="34"
             height="34"
             src="assets/4pe/Pdis-Disciplina-personal.png"
-            alt="Logo Disciplina Personal" />
+            alt="Logo Disciplina Personal" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <i class="fa-solid"></i> Disciplina Personal (PDíS)
         </li>
         <li>
@@ -73,7 +73,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             width="34"
             height="34"
             src="assets/4pe/PServ-Grado-de-servicio.png"
-            alt="Logo Grado de Servicio" />
+            alt="Logo Grado de Servicio" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <i class="fa-solid"></i> Grado de Servicio (PServ)
         </li>
         <li>
@@ -81,7 +81,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             width="34"
             height="34"
             src="assets/4pe/PVisit-Tarjeta-de-presentacion.png"
-            alt="Logo Tarjeta de Presentación" />
+            alt="Logo Tarjeta de Presentación" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <i class="fa-solid"></i> Tarjeta de Presentación (PVisit)
         </li>
         <li>
@@ -89,7 +89,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             width="34"
             height="34"
             src="assets/4pe/PPrav-Prevencion-personal.png"
-            alt="Logo Prevención Personal" />
+            alt="Logo Prevención Personal" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <i class="fa-solid"></i> Prevención Personal (PPäri)
         </li>
       </ul>
@@ -106,14 +106,14 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
         <img src="assets/1_CECNSR.png" alt="CECNSR" />
         <img
           src="assets/16_08_18_BIB_International_nur_Logo.png"
-          alt="BIB International" />
+          alt="BIB International" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
       </div>
 
       <!-- FOTO PRINCIPAL -->
       <img
         class="pi-hero__main"
         src="assets/4pe/pi-4pe-img1.jpeg"
-        alt="Sesión formativa de Psicología Individual en el CECNSR" />
+        alt="Sesión formativa de Psicología Individual en el CECNSR" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
 
       <!-- REEL animado -->
       <div class="pi-hero__reel" aria-label="Galería de momentos">
@@ -123,32 +123,32 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             src="assets/4pe/pi-4pe-img2.jpeg"
             alt="Participantes durante taller"
             role="button"
-            tabindex="0" />
+            tabindex="0" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <img
             src="assets/4pe/pi-4pe-img3.jpeg"
             alt="Equipo docente y aliados"
             role="button"
-            tabindex="0" />
+            tabindex="0" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <img
             src="assets/4pe/pi-4pe-img4.jpeg"
             alt="Presentación en aula"
             role="button"
-            tabindex="0" />
+            tabindex="0" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <img
             src="assets/4pe/pi-4pe-img5.jpeg"
             alt="Presentación en aula"
             role="button"
-            tabindex="0" />
+            tabindex="0" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <img
             src="assets/4pe/pi-4pe-img1.jpeg"
             alt="Presentación en aula"
             role="button"
-            tabindex="0" />
+            tabindex="0" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <img
             src="assets/4pe/pi-4pe-img2.jpeg"
             alt="Presentación en aula"
             role="button"
-            tabindex="0" />
+            tabindex="0" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <!-- Duplicados para loop perfecto (sin foco, sin lector) -->
         </div>
       </div>
@@ -177,7 +177,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               class="pe-icon"
               src="assets/4pe/Pdis-Disciplina-personal.png"
-              alt="PDÍS" />
+              alt="PDÍS" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             <span>PDÍS — <em>Disciplina Personal</em></span>
           </h3>
           <p>
@@ -191,7 +191,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               class="pe-icon"
               src="assets/4pe/PServ-Grado-de-servicio.png"
-              alt="PServ" />
+              alt="PServ" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             <span>PServ — <em>Grado de Servicio</em></span>
           </h3>
           <p>
@@ -205,7 +205,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               class="pe-icon"
               src="assets/4pe/PVisit-Tarjeta-de-presentacion.png"
-              alt="PVisit" />
+              alt="PVisit" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             <span>PVisit — <em>Tarjeta de Presentación</em></span>
           </h3>
           <p>
@@ -219,7 +219,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               class="pe-icon"
               src="assets/4pe/PPrav-Prevencion-personal.png"
-              alt="PPäri" />
+              alt="PPäri" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             <span>PPäri — <em>Prevención Personal</em></span>
           </h3>
           <p>
@@ -400,7 +400,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
           <img
             id="itnImg"
             src="assets/4pe/pi-4pe-img3.jpeg"
-            alt="Sesión de trabajo colaborativo" />
+            alt="Sesión de trabajo colaborativo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <figcaption id="itnCaption">
             Trabajo colaborativo y servicio al bien común.
           </figcaption>
@@ -448,7 +448,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               src="assets/4pe/afiche-invitacion.png"
               alt="Afiche del Seminario 2025: Reducción de conflictos sociales"
-              loading="lazy" />
+              loading="lazy" decoding="async"  decoding="async"/ decoding="async">
             <span class="thumb-veil" aria-hidden="true">
               <i
                 class="fa-solid fa-magnifying-glass-plus"
@@ -483,7 +483,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
               <img
                 src=""
                 alt="Afiche del Seminario 2025"
-                id="poster-modal-img" />
+                id="poster-modal-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <footer class="poster-modal__foot">
               <a id="poster-modal-download" class="btn-solid" download>Descargar afiche</a>
@@ -570,9 +570,9 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img src="assets/1_CECNSR.png" alt="CECNSR" />
             <img
               src="assets/16_08_18_BIB_International_nur_Logo.png"
-              alt="BIB International"
-            />
-            <img src="assets/pasch.png" alt="PASCH" />
+              alt="BIB International" loading="lazy" loading="lazy"
+ loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
+            <img src="assets/pasch.png" alt="PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </div> -->
       </aside>
     </div>
@@ -598,31 +598,31 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               src="assets/4pe/pi-4pe-img1.jpeg"
               data-full="assets/4pe/pi-4pe-img1.jpeg"
-              alt="Sesión formativa 1" />
+              alt="Sesión formativa 1" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img2.jpeg"
               data-full="assets/4pe/pi-4pe-img2.jpeg"
-              alt="Sesión formativa 2" />
+              alt="Sesión formativa 2" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img3.jpeg"
               data-full="assets/4pe/pi-4pe-img3.jpeg"
-              alt="Exposición de trabajo" />
+              alt="Exposición de trabajo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img4.jpeg"
               data-full="assets/4pe/pi-4pe-img4.jpeg"
-              alt="Equipo docente" />
+              alt="Equipo docente" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img5.jpeg"
               data-full="assets/4pe/pi-4pe-img5.jpeg"
-              alt="Entrega de diplomas" />
+              alt="Entrega de diplomas" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
 
           <!-- Bloque B (duplicado para bucle perfecto) -->
@@ -630,31 +630,31 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
             <img
               src="assets/4pe/pi-4pe-img1.jpeg"
               data-full="assets/4pe/pi-4pe-img1.jpeg"
-              alt="Sesión formativa 1 (duplicada)" />
+              alt="Sesión formativa 1 (duplicada)" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img2.jpeg"
               data-full="assets/4pe/pi-4pe-img2.jpeg"
-              alt="Sesión formativa 2 (duplicada)" />
+              alt="Sesión formativa 2 (duplicada)" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img3.jpeg"
               data-full="assets/4pe/pi-4pe-img3.jpeg"
-              alt="Exposición de trabajo (duplicada)" />
+              alt="Exposición de trabajo (duplicada)" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img4.jpeg"
               data-full="assets/4pe/pi-4pe-img4.jpeg"
-              alt="Equipo docente (duplicada)" />
+              alt="Equipo docente (duplicada)" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
           <figure class="card">
             <img
               src="assets/4pe/pi-4pe-img5.jpeg"
               data-full="assets/4pe/pi-4pe-img5.jpeg"
-              alt="Entrega de diplomas (duplicada)" />
+              alt="Entrega de diplomas (duplicada)" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -679,7 +679,7 @@ require_once __DIR__ . '/config.mail.php';  // ajusta la ruta si este archivo es
         </header>
         <div class="lightbox__stage">
           <button class="nav prev" aria-label="Anterior">‹</button>
-          <img id="glb-img" alt="" />
+          <img id="glb-img" alt="" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
           <button class="nav next" aria-label="Siguiente">›</button>
         </div>
       </div>

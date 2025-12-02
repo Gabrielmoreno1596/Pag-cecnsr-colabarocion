@@ -92,32 +92,32 @@
               <div class="photo-item">
                 <img
                   src="assets-ml/ii-ciclo/iic1.jpeg"
-                  alt="Actividad de Ciencias II Ciclo" />
+                  alt="Actividad de Ciencias II Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/ii-ciclo/iic2.jpeg"
-                  alt="Taller de Alemán II Ciclo" />
+                  alt="Taller de Alemán II Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/ii-ciclo/iic3.jpeg"
-                  alt="Laboratorio de Informática" />
+                  alt="Laboratorio de Informática" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/ii-ciclo/iic4.jpeg"
-                  alt="Debate estudiantil II Ciclo" />
+                  alt="Debate estudiantil II Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/ii-ciclo/iic5.jpeg"
-                  alt="Deportes en II Ciclo" />
+                  alt="Deportes en II Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/ii-ciclo/iic6.jpg"
-                  alt="Deportes en II Ciclo" />
+                  alt="Deportes en II Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
             </div>
           </div>

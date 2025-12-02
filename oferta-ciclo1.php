@@ -92,27 +92,27 @@
                 <div class="photo-item">
                   <img
                     src="assets-ml/i-ciclo/ic1.jpg"
-                    alt="Aula de I Ciclo" />
+                    alt="Aula de I Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                 </div>
                 <div class="photo-item">
                   <img
                     src="assets-ml/i-ciclo/ic2.jpg"
-                    alt="Clase de Robótica I Ciclo" />
+                    alt="Clase de Robótica I Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                 </div>
                 <div class="photo-item">
                   <img
                     src="assets-ml/i-ciclo/ic3.jpg"
-                    alt="Actividad deportiva I Ciclo" />
+                    alt="Actividad deportiva I Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                 </div>
                 <div class="photo-item">
                   <img
                     src="assets-ml/i-ciclo/ic4.jpg"
-                    alt="Taller de Alemán I Ciclo" />
+                    alt="Taller de Alemán I Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                 </div>
                 <div class="photo-item">
                   <img
                     src="assets-ml/i-ciclo/ic6.jpg"
-                    alt="Arte en I Ciclo" />
+                    alt="Arte en I Ciclo" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                 </div>
               </div>
             </div>

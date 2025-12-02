@@ -87,3 +87,4 @@ function asset(string $path): string
     $sep = (strpos($trimmed, '?') === false) ? '?' : '&';
     return $base . $trimmed . $sep . 'v=' . rawurlencode((string)$ver);
 }
+

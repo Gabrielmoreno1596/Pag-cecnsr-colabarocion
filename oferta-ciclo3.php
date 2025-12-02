@@ -25,7 +25,7 @@
       <img
         src="assets-ml/logos-varios/loficial.png"
         alt="Logo CECNSR"
-        class="logo-img" />
+        class="logo-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
       <h1>CECNSR</h1>
     </div>
 
@@ -230,52 +230,52 @@
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic1.jpeg"
-                  alt="Feria de Ciencias" />
+                  alt="Feria de Ciencias" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic2.jpeg"
-                  alt="Clase de Robótica" />
+                  alt="Clase de Robótica" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic3.jpeg"
-                  alt="Evento Cultural PASCH" />
+                  alt="Evento Cultural PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic4.jpeg"
-                  alt="Excursión educativa" />
+                  alt="Excursión educativa" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic5.jpeg"
-                  alt="Competencia Deportiva" />
+                  alt="Competencia Deportiva" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic6.jpeg"
-                  alt="Feria de Ciencias" />
+                  alt="Feria de Ciencias" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic7.jpeg"
-                  alt="Clase de Robótica" />
+                  alt="Clase de Robótica" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic8.jpeg"
-                  alt="Evento Cultural PASCH" />
+                  alt="Evento Cultural PASCH" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic9.jpeg"
-                  alt="Excursión educativa" />
+                  alt="Excursión educativa" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
               <div class="photo-item">
                 <img
                   src="assets-ml/iii-ciclo/iiic10.jpeg"
-                  alt="Competencia Deportiva" />
+                  alt="Competencia Deportiva" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
               </div>
             </div>
           </div>

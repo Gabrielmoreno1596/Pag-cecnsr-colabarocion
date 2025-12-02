@@ -78,25 +78,25 @@
                     <img
                       src="assets-ml/edu-media/aps/s1.jpg"
                       alt="Prácticas de primeros auxilios"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/aps/s2.jpg"
                       alt="Laboratorio de biología"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/aps/s3.jpg"
                       alt="Simulación de atención al paciente"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/aps/s4.jpg"
                       alt="Simulación de atención al paciente"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                 </div>
                 <button class="carousel-button prev">
@@ -147,19 +147,19 @@
                     <img
                       src="assets-ml/edu-media/lg/l1.jpg"
                       alt="Foto de un almacén organizado"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/lg/l2.jpg"
                       alt="Mapa de cadena de suministro"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/lg/l3.jpg"
                       alt="Gestión de transporte y rutas"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                 </div>
                 <button class="carousel-button prev">
@@ -212,37 +212,37 @@
                     <img
                       src="assets-ml/edu-media/eca/e1.jpg"
                       alt="Instalación de paneles solares"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/eca/e2.jpg"
                       alt="Práctica con circuitos electrónicos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/eca/e3.jpg"
                       alt="Fundamentos de robótica"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/eca/e4.jpg"
                       alt="Fundamentos de robótica"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/eca/e5.jpg"
                       alt="Fundamentos de robótica"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/eca/e6.jpg"
                       alt="Fundamentos de robótica"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                 </div>
                 <button class="carousel-button prev">
@@ -291,37 +291,37 @@
                     <img
                       src="assets-ml/edu-media/st/st1.jpg"
                       alt="Práctica de guianza turística"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/st/st2.jpeg"
                       alt="Simulación de atención hotelera"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/st/st3.jpeg"
                       alt="Organización de eventos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/st/st4.jpg"
                       alt="Organización de eventos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/st/st5.jpg"
                       alt="Organización de eventos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/st/st6.jpg"
                       alt="Organización de eventos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                 </div>
                 <button class="carousel-button prev">
@@ -370,19 +370,19 @@
                     <img
                       src="assets-ml/edu-media/g-idiomas/id1.jpg"
                       alt="Clase de alemán con profesor nativo"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/g-idiomas/id2.jpg"
                       alt="Intercambio cultural"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/g-idiomas/id3.jpg"
                       alt="Taller de conversación avanzado"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                 </div>
                 <button class="carousel-button prev">
@@ -429,25 +429,25 @@
                     <img
                       src="assets-ml/edu-media/g-d-software/so1.jpg"
                       alt="Estudiante programando"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/g-d-software/so2.jpg"
                       alt="Diseño y desarrollo web"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/g-d-software/so3.jpg"
                       alt="Taller de bases de datos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-slide">
                     <img
                       src="assets-ml/edu-media/g-d-software/so4.jpg"
                       alt="Taller de bases de datos"
-                      class="slide-img" />
+                      class="slide-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
                   </div>
                 </div>
                 <button class="carousel-button prev">

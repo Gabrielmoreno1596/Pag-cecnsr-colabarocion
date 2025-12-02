@@ -36,7 +36,10 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
 
     <?php require PROJECT_PATH . 'assets/partials/footer.php'; ?>
 
-
+    <!-- reCAPTCHA (ajusta según v2/v3) -->
+    <?php if (!empty($RECAPTCHA_SITE_KEY)): ?>
+        <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars($RECAPTCHA_SITE_KEY) ?>"></div>
+    <?php endif; ?>
 
     <?php if (RECAPTCHA_ENABLED): ?>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>

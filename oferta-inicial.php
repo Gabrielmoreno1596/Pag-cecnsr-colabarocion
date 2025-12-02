@@ -24,7 +24,7 @@
       <img
         src="assets-ml/logos-varios/loficial.png"
         alt="Logo CECNSR"
-        class="logo-img" />
+        class="logo-img" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
       <h1>CECNSR</h1>
     </div>
 
@@ -389,50 +389,50 @@
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p1.jpeg"
-                alt="Aula de Parvularia" />
+                alt="Aula de Parvularia" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p2.jpeg"
-                alt="Área de juegos" />
+                alt="Área de juegos" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
-              <img src="assets-ml/inicial-parv/p3.jpeg" alt="Clase de arte" />
+              <img src="assets-ml/inicial-parv/p3.jpeg" alt="Clase de arte" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p4.jpeg"
-                alt="Maestra interactuando" />
+                alt="Maestra interactuando" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p5.jpeg"
-                alt="Taller de informática" />
+                alt="Taller de informática" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p6.jpeg"
-                alt="Clase de música" />
+                alt="Clase de música" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p7.jpeg"
-                alt="Clase de robótica" />
+                alt="Clase de robótica" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p8.jpeg"
-                alt="Clase de música" />
+                alt="Clase de música" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p9.jpeg"
-                alt="Clase de robótica" />
+                alt="Clase de robótica" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
             <div class="photo-item">
               <img
                 src="assets-ml/inicial-parv/p10.jpeg"
-                alt="Clase de robótica" />
+                alt="Clase de robótica" loading="lazy"  loading="lazy"/ loading="lazy" decoding="async">
             </div>
           </div>
         </div>
