@@ -1,0 +1,52 @@
+/* Perfil del estudiante */
+.profile-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 2.5rem;
+}
+
+.profile-item-card {
+  background: var(--bg-white);
+  border: 1px solid var(--cecns-blue);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profile-item-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  background-color: var(--bg-light);
+}
+
+.profile-icon-box {
+  width: 70px;
+  height: 70px;
+  background-color: var(--cecns-blue);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-icon-box i {
+  color: var(--cecns-gold);
+  font-size: 2.5rem;
+}
+
+.profile-item-card h4 {
+  color: var(--cecns-blue);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--cecns-gold);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.profile-item-card p {
+  color: var(--text-color);
+}

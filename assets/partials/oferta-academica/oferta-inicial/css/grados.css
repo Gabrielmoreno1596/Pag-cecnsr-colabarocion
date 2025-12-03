@@ -1,0 +1,69 @@
+/* Grados y edades */
+.grades-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 2.5rem;
+}
+
+.grade-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  border: 1px solid var(--bg-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.grade-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.grade-title-box {
+  padding: 1.5rem 1.5rem;
+  background-color: var(--cecns-blue);
+  color: var(--cecns-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+}
+
+.grade-title-box h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--cecns-gold);
+  margin-top: 5px;
+}
+
+.grade-title-box i {
+  font-size: 2.5rem;
+  color: var(--cecns-gold);
+}
+
+.grade-info {
+  padding: 2rem 1.5rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.grade-info strong {
+  color: var(--cecns-wine);
+}
+
+.grade-age {
+  background-color: var(--bg-light);
+  color: var(--cecns-blue);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}

@@ -21,9 +21,6 @@
         <?php require_once PROJECT_PATH . 'assets/partials/legal/aviso-legal.php'; ?>
     </main>
     <?php require_once PROJECT_PATH . 'assets/partials/footer.php'; ?>
-
-
 </body>
 
 </html>
-

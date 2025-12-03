@@ -1,0 +1,93 @@
+/* ========================================================================= */
+/* === HERO INICIO + GALERÍA HORIZONTAL === */
+/* ========================================================================= */
+
+.hero {
+  background: var(--cecns-blue);
+  color: #fff;
+  padding: 3rem 5% 2rem 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-slogan {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+/* Galería de fotos (roll horizontal) */
+.photo-roll-container {
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.photo-roll {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 0 5%;
+  width: max-content;
+}
+
+.photo-item {
+  flex-shrink: 0;
+  width: 400px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: scale(1.03);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Scrollbar */
+.photo-roll-container::-webkit-scrollbar {
+  height: 8px;
+}
+.photo-roll-container::-webkit-scrollbar-thumb {
+  background: var(--cecns-gold);
+  border-radius: 10px;
+}
+.photo-roll-container::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+/* Responsive hero */
+@media (max-width: 992px) {
+  .photo-item {
+    width: 250px;
+    height: 150px;
+  }
+}

@@ -1,0 +1,62 @@
+/* ============================================
+   GALERÍA HORIZONTAL - Photo Roll (Hero)
+============================================ */
+
+.photo-roll-container {
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.photo-roll {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 0 5%;
+  width: max-content;
+}
+
+.photo-item {
+  flex-shrink: 0;
+  width: 400px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: scale(1.03);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Scrollbar personalizado */
+.photo-roll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photo-roll-container::-webkit-scrollbar-thumb {
+  background: var(--cecns-gold);
+  border-radius: 10px;
+}
+
+.photo-roll-container::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+/* Responsive Photo Roll */
+@media (max-width: 992px) {
+  .photo-item {
+    width: 250px;
+    height: 150px;
+  }
+}

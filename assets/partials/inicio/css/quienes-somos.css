@@ -1,0 +1,11 @@
+/* ========================================================================= */
+/* === SECCIÓN ¿QUIÉNES SOMOS? (CONTENEDOR GENERAL) === */
+/* ========================================================================= */
+
+#quienes-somos {
+  background-color: var(--bg-white);
+}
+
+#quienes-somos .section-title {
+  color: var(--cecns-gold);
+}
