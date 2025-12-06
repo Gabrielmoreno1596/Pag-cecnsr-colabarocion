@@ -1,0 +1,90 @@
+/* ========================================================================= */
+/* I CICLO - TRAYECTORIA ACADÉMICA (TABS) */
+/* ========================================================================= */
+
+.tabs-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid var(--bg-light);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.tabs-buttons {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+.tab-button {
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: var(--bg-white);
+  color: var(--cecns-blue);
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: var(--cecns-blue);
+  color: var(--cecns-gold);
+  border-bottom-color: var(--cecns-gold);
+}
+
+.tab-content {
+  padding: 30px;
+  background-color: var(--bg-white);
+  border-radius: 0 0 8px 8px;
+  display: none;
+  animation: fadeIn 0.5s;
+}
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h3 {
+  color: var(--cecns-wine);
+  margin-bottom: 15px;
+  border-bottom: 1px dashed var(--bg-light);
+  padding-bottom: 10px;
+}
+
+/* Lista común */
+.requirements-list-enhanced {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+.requirements-list-enhanced li {
+  padding: 8px 0;
+  font-size: 1rem;
+  border-bottom: 1px dashed var(--bg-light);
+  display: flex;
+  align-items: center;
+}
+.requirements-list-enhanced li i {
+  color: var(--cecns-wine);
+  margin-right: 15px;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .tabs-buttons {
+    flex-direction: column;
+  }
+}

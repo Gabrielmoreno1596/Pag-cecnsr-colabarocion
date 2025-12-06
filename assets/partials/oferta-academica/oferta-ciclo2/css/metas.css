@@ -1,0 +1,49 @@
+/* Metas del Nivel (grid de tarjetas) */
+
+.goals-list-container > p {
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+  color: var(--cecns-wine);
+  font-weight: 500;
+}
+
+.goal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* Reaprovecha estilos de tarjetas que ya usas en otras páginas */
+.profile-item-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+.profile-icon-box {
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  background-color: var(--cecns-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-icon-box i {
+  color: var(--cecns-gold);
+  font-size: 1.8rem;
+}
+.profile-item-card h4 {
+  margin: 0 0 6px 0;
+  color: var(--cecns-blue);
+  font-size: 1.25rem;
+}
+.profile-item-card p {
+  margin: 0;
+}
+
+/* Ajustes responsive ya contemplados en hero.css (si los necesitas adicionales los puedes sumar aquí) */

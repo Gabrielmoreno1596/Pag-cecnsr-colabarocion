@@ -1,5 +1,5 @@
 /* ========================================================================= */
-/* === CARRUSEL DE INFRAESTRUCTURA (7 IMÁGENES) === */
+/* CARRUSEL INFRAESTRUCTURA */
 /* ========================================================================= */
 
 .infra-carousel-container {
@@ -32,7 +32,6 @@
   border-radius: 10px;
 }
 
-/* Keyframes escritorio */
 @keyframes infra-slide-carousel {
   0% {
     transform: translateX(0%);
@@ -60,7 +59,6 @@
   }
 }
 
-/* Responsive infra */
 @media (max-width: 992px) {
   .infra-carousel-container {
     min-width: unset;
@@ -77,32 +75,5 @@
 
   .infra-carousel-img {
     width: calc(100% / 7) !important;
-  }
-
-  @keyframes infra-slide-carousel {
-    0% {
-      transform: translateX(0%);
-    }
-    16% {
-      transform: translateX(-14.2857%);
-    }
-    32% {
-      transform: translateX(-28.5714%);
-    }
-    48% {
-      transform: translateX(-42.8571%);
-    }
-    64% {
-      transform: translateX(-57.1428%);
-    }
-    80% {
-      transform: translateX(-71.4285%);
-    }
-    96% {
-      transform: translateX(-85.7142%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
   }
 }

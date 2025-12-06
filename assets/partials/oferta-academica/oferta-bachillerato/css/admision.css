@@ -1,0 +1,39 @@
+/* ========================================================================= */
+/* === ADMISIÓN (ACORDEÓN) === */
+/* ========================================================================= */
+
+.accordion-container {
+  margin-top: 20px;
+}
+
+.accordion-header {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 18px;
+  border-left: 10px solid var(--media-cycle-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.4s;
+}
+.accordion-header.active {
+  background-color: var(--cecns-blue);
+  color: var(--bg-white);
+  border-left: 10px solid var(--cecns-gold);
+}
+
+.accordion-content {
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  max-height: 0;
+  text-align: left;
+}
+.accordion-content p {
+  padding: 15px 0;
+}

@@ -1,4 +1,7 @@
-/* Servicios y valores agregados */
+/* ========================================================================= */
+/* SERVICIOS Y VALORES AGREGADOS */
+/* ========================================================================= */
+
 .value-added-section {
   text-align: center;
 }
@@ -18,10 +21,8 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-align: left;
-  position: relative;
   border-bottom: 5px solid var(--cecns-gold);
 }
-
 .service-circle-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -39,7 +40,6 @@
   margin-right: 15px;
   vertical-align: middle;
 }
-
 .highlight-icon-box i {
   color: var(--cecns-blue);
   font-size: 1.5rem;
@@ -52,14 +52,9 @@
   vertical-align: middle;
   margin: 0;
 }
-
 .service-circle-item p {
   font-size: 0.95rem;
   line-height: 1.5;
   margin-top: 10px;
   color: white;
-}
-
-.service-circle-item strong {
-  color: var(--cecns-gold);
 }

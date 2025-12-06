@@ -1,0 +1,42 @@
+/* ========================================================================= */
+/* === PERFIL DEL ESTUDIANTE (TABS) === */
+/* ========================================================================= */
+
+.tabs-buttons {
+  display: flex;
+  background-color: #e9e9e9;
+  border-bottom: 1px solid var(--media-cycle-color);
+}
+.tab-button {
+  flex-grow: 1;
+  padding: 18px 10px;
+  border: none;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--media-cycle-color);
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.tab-button.active {
+  background-color: var(--media-cycle-color);
+  color: var(--cecns-gold);
+  border-bottom-color: var(--cecns-gold);
+  font-weight: bold;
+}
+.tabs-container .tab-content {
+  padding: 30px;
+  display: none;
+  background-color: var(--bg-white);
+  text-align: left;
+}
+.tabs-container .tab-content.active {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .tabs-buttons {
+    flex-direction: column;
+  }
+}

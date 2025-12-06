@@ -1,0 +1,50 @@
+/* ========================================================================= */
+/* === [F] CARRUSEL DE FOTOS (ACTIVIDADES DESTACADAS) === */
+/* ========================================================================= */
+
+.photo-carousel-container {
+  margin: 40px auto;
+  max-width: 900px;
+  text-align: center;
+}
+.carousel-title {
+  color: var(--iii-ciclo-color);
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.photo-roll-wrapper {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+.photo-roll {
+  display: flex;
+  width: 600%;
+  animation: photo-slide 25s infinite linear;
+}
+.photo-item {
+  width: calc(100% / 5);
+  flex-shrink: 0;
+}
+.photo-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+.carousel-caption {
+  font-style: italic;
+  color: var(--text-color-light);
+  font-size: 0.9rem;
+}
+
+@keyframes photo-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% * 4 / 5));
+  }
+}

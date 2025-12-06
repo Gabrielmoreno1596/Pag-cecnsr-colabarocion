@@ -1,0 +1,50 @@
+/* Carrusel de fotos: Experiencias II Ciclo */
+
+.photo-carousel-container {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+.carousel-title {
+  color: var(--cecns-blue);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--cecns-gold);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.photo-roll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.photo-roll {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+.photo-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.photo-item img:hover {
+  transform: scale(1.05);
+}
+.carousel-caption {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #666;
+  font-size: 0.95rem;
+}

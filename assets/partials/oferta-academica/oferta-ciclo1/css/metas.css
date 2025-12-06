@@ -1,0 +1,125 @@
+/* ========================================================================= */
+/* I CICLO - METAS DEL NIVEL + CARRUSEL DE FOTOS */
+/* ========================================================================= */
+
+.level-goals-carousel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+}
+
+.goals-list-container > p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  color: var(--cecns-wine);
+  font-weight: 500;
+}
+
+/* Tarjetas metas */
+.profile-item-card {
+  background: var(--bg-white);
+  padding: 1.5rem;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid var(--bg-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon-box {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background-color: var(--cecns-blue);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-icon-box i {
+  color: var(--cecns-gold);
+  font-size: 1.8rem;
+}
+
+.profile-item-card h4 {
+  color: var(--cecns-blue);
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+/* Carrusel lateral */
+.photo-carousel-container {
+  padding: 20px;
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.carousel-title {
+  font-size: 1.5rem;
+  color: var(--cecns-blue);
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid var(--cecns-gold);
+  padding-bottom: 10px;
+}
+
+.photo-roll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+.photo-roll {
+  display: flex;
+  gap: 15px;
+  padding: 5px 0;
+  width: max-content;
+}
+
+.photo-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.photo-item:hover {
+  transform: scale(1.02);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-caption {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .level-goals-carousel-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .profile-item-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}

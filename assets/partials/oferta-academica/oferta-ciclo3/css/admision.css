@@ -1,0 +1,76 @@
+/* ========================================================================= */
+/* === [G] ACORDEÓN (PROCESO ADMISIÓN) === */
+/* ========================================================================= */
+
+.accordion-container {
+  margin: 30px auto;
+  max-width: 800px;
+}
+.accordion-header {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 18px;
+  border-left: 10px solid var(--iii-ciclo-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.4s;
+}
+.accordion-header.active {
+  background-color: var(--cecns-blue);
+  color: var(--bg-white);
+  border-left: 10px solid var(--cecns-gold);
+}
+.accordion-header.active .accordion-icon {
+  transform: rotate(180deg);
+}
+.accordion-icon {
+  transition: transform 0.3s ease;
+  margin-left: 15px;
+}
+.accordion-header i:first-child {
+  margin-right: 15px;
+  color: var(--iii-ciclo-color);
+  transition: color 0.4s;
+}
+.accordion-header.active i:first-child {
+  color: var(--cecns-gold);
+}
+
+.accordion-content {
+  background-color: var(--bg-white);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+  padding: 0 18px;
+  text-align: left;
+}
+.accordion-header.active + .accordion-content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+.document-list {
+  list-style: none;
+  padding: 0;
+}
+.document-list li {
+  padding: 8px 0;
+}
+.document-list li i {
+  margin-right: 10px;
+  color: var(--iii-ciclo-color);
+}
+.age-notice {
+  background-color: #fff3cd;
+  padding: 15px;
+  border-left: 5px solid var(--cecns-gold);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #856404;
+}

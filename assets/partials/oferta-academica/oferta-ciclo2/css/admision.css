@@ -1,0 +1,76 @@
+/* Acordeón: Proceso de Admisión II Ciclo */
+
+.accordion-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.accordion-header {
+  background-color: var(--bg-white);
+  color: var(--cecns-blue);
+  cursor: pointer;
+  padding: 18px 25px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: background-color 0.4s, color 0.4s, border-left 0.4s;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--bg-light);
+  border-left: 10px solid var(--cecns-gold);
+}
+.accordion-header:hover {
+  background-color: var(--bg-light);
+}
+.accordion-icon {
+  transition: transform 0.4s;
+}
+.accordion-header.active {
+  background-color: var(--cecns-wine);
+  color: var(--bg-white);
+  border-left: 10px solid var(--bg-white);
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  padding: 0 30px;
+  background-color: var(--bg-white);
+  border-radius: 0 0 8px 8px;
+  border: 1px solid var(--bg-light);
+  border-top: none;
+}
+.accordion-content.show {
+  max-height: 500px;
+  padding: 20px 30px;
+}
+
+.age-notice {
+  background-color: var(--cecns-gold);
+  color: var(--cecns-blue);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Documentos */
+.document-list {
+  list-style: none;
+  padding-left: 0;
+}
+.document-list li {
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--bg-light);
+  display: flex;
+  align-items: center;
+}
+.document-list li i {
+  color: var(--cecns-blue);
+  margin-right: 15px;
+}

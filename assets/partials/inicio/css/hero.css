@@ -1,7 +1,76 @@
 /* ========================================================================= */
-/* === HERO INICIO + GALERÍA HORIZONTAL === */
+/* INICIO - HERO + BASE DE PÁGINA */
 /* ========================================================================= */
 
+:root {
+  --cecns-blue: #004080;
+  --cecns-gold: #ffc300;
+  --cecns-wine: #800020;
+  --text-color: #333;
+  --bg-light: #f8f9fa;
+  --bg-white: #fff;
+  --link-color: var(--cecns-blue);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-white);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: var(--cecns-gold);
+}
+
+/* Utilidades generales */
+.section-padding {
+  padding: 3rem 10%;
+  text-align: center;
+}
+
+.bg-light {
+  background-color: var(--bg-light);
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--cecns-gold);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--cecns-gold);
+  border-radius: 2px;
+}
+
+.sub-title {
+  color: var(--cecns-gold);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* HERO */
 .hero {
   background: var(--cecns-blue);
   color: #fff;
@@ -34,7 +103,25 @@
   position: relative;
 }
 
-/* Galería de fotos (roll horizontal) */
+/* Botón principal */
+.btn-primary {
+  display: inline-block;
+  background: var(--cecns-gold);
+  color: var(--cecns-blue);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+  z-index: 2;
+  position: relative;
+  margin-top: 2rem;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: #ffdb60;
+}
+
+/* PHOTO ROLL HERO */
 .photo-roll-container {
   max-width: 100%;
   overflow-x: auto;
@@ -60,7 +147,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-
 .photo-item:hover {
   transform: scale(1.03);
 }
@@ -84,8 +170,15 @@
   background: var(--bg-light);
 }
 
-/* Responsive hero */
+/* Responsive básico del hero */
 @media (max-width: 992px) {
+  .section-padding {
+    padding: 2rem 5%;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+
   .photo-item {
     width: 250px;
     height: 150px;

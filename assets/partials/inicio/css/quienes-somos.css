@@ -1,11 +1,189 @@
 /* ========================================================================= */
-/* === SECCIÓN ¿QUIÉNES SOMOS? (CONTENEDOR GENERAL) === */
+/* ¿QUIÉNES SOMOS? + HISTORIA + CARRUSEL HISTORIA */
 /* ========================================================================= */
 
-#quienes-somos {
-  background-color: var(--bg-white);
+.history-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#quienes-somos .section-title {
+.history-text-block {
+  flex: 1;
+  min-width: 450px;
+  background-color: var(--cecns-blue);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.history-subtitle {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.history-text-block p {
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.05rem;
+}
+
+.history-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.history-list li {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.history-list li i {
   color: var(--cecns-gold);
+  font-size: 1.2rem;
+  margin-top: 3px;
+}
+
+.history-closing {
+  margin-top: 1rem;
+}
+
+/* Carrusel historia */
+.history-carousel-container {
+  flex: 1;
+  min-width: 400px;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.history-carousel-track {
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  animation: slide-carousel 20s infinite linear;
+}
+
+.history-carousel-img {
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+/* Keyframes historia */
+@keyframes slide-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-400px);
+  }
+  35% {
+    transform: translateX(-400px);
+  }
+  40% {
+    transform: translateX(-800px);
+  }
+  55% {
+    transform: translateX(-800px);
+  }
+  60% {
+    transform: translateX(-1200px);
+  }
+  75% {
+    transform: translateX(-1200px);
+  }
+  80% {
+    transform: translateX(-1600px);
+  }
+  95% {
+    transform: translateX(-1600px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .history-flex-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .history-text-block {
+    min-width: unset;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .history-carousel-container {
+    min-width: unset;
+    width: 100%;
+    height: 300px;
+  }
+
+  .history-carousel-img {
+    width: 100%;
+  }
+
+  /* Keyframes mobile */
+  @keyframes slide-carousel {
+    0% {
+      transform: translateX(0%);
+    }
+    15% {
+      transform: translateX(0%);
+    }
+    20% {
+      transform: translateX(-100%);
+    }
+    35% {
+      transform: translateX(-100%);
+    }
+    40% {
+      transform: translateX(-200%);
+    }
+    55% {
+      transform: translateX(-200%);
+    }
+    60% {
+      transform: translateX(-300%);
+    }
+    75% {
+      transform: translateX(-300%);
+    }
+    80% {
+      transform: translateX(-400%);
+    }
+    95% {
+      transform: translateX(-400%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
 }

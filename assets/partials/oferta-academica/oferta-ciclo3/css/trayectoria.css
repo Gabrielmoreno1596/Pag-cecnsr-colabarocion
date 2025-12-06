@@ -1,0 +1,20 @@
+/* ========================================================================= */
+/* === [NUEVO] SECCIÓN TRAYECTORIA === */
+/* ========================================================================= */
+
+.trayectoria-section {
+  margin-top: 40px;
+  text-align: left;
+}
+.trayectoria-title {
+  font-size: 1.6rem;
+  color: var(--iii-ciclo-color);
+  margin-bottom: 10px;
+}
+.trayectoria-description {
+  color: var(--text-color-light);
+  margin-bottom: 15px;
+}
+.trayectoria-list li i {
+  color: var(--cecns-blue);
+}

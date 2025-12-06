@@ -62,4 +62,3 @@ foreach ($iter as $file) {
 file_put_contents($manFi, json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
 echo "✓ Manifest generado con " . count($manifest) . " archivos\n";
-

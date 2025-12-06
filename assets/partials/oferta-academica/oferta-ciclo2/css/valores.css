@@ -1,0 +1,70 @@
+/* Valores Agregados (segmento de tarjetas) */
+
+.service-circles-grid.full-values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 3.5rem auto 0;
+  align-items: stretch;
+}
+
+/* Tarjeta */
+.service-circle-item {
+  height: 100%;
+  text-align: center;
+  padding: 18px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Ícono circular */
+.highlight-icon-box {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--bg-white);
+  color: var(--cecns-blue);
+  font-size: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.service-circle-item h4 {
+  margin: 0.5rem 0 0.25rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.service-circle-item p {
+  font-size: 0.95rem;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Hover (opcional) */
+@media (hover: hover) {
+  .service-circle-item:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  }
+}
+
+/* Breakpoints */
+@media (max-width: 900px) {
+  .service-circles-grid.full-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+@media (max-width: 560px) {
+  .service-circles-grid.full-values {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,298 @@
+/* ========================================================================= */
+/* === [0] VARIABLES GLOBALES DE COLOR === */
+/* ========================================================================= */
+:root {
+  --cecns-wine: #800020;
+  --cecns-gold: #ffc300;
+  --cecns-blue: #004aad;
+  --bg-white: #ffffff;
+  --text-color: #333;
+  --text-color-light: #666;
+  --bg-light: #f8f8f8;
+
+  --media-cycle-color: var(--cecns-blue);
+  --header-height: 65px;
+}
+
+/* ========================================================================= */
+/* === [1] AJUSTES BASE Y TIPOGRAFÍA === */
+/* ========================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-white);
+  scroll-behavior: smooth;
+}
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+p {
+  margin-bottom: 1rem;
+}
+.section-padding {
+  padding: 3rem 5%;
+  text-align: center;
+}
+.bg-light {
+  background-color: var(--bg-light);
+}
+.content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.text-gold {
+  color: var(--cecns-gold) !important;
+}
+
+/* Títulos y Listas */
+.section-title {
+  font-size: 2.2rem;
+  color: var(--media-cycle-color);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.section-title i {
+  color: var(--cecns-gold);
+  margin-right: 10px;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-color-light);
+  margin-bottom: 2rem;
+}
+.requirements-list-enhanced {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  text-align: left;
+}
+.requirements-list-enhanced li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  border-bottom: 1px dashed #eee;
+}
+.requirements-list-enhanced li i {
+  margin-right: 10px;
+  color: var(--cecns-blue);
+}
+
+/* Empuje del contenido principal */
+main {
+  padding-top: 60px;
+}
+
+/* ========================================================================= */
+/* === [2] HEADER Y NAV (heredado de tu estilo) === */
+/* ========================================================================= */
+.main-header {
+  background: var(--bg-white);
+  padding: 0.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-img {
+  height: 45px;
+}
+.logo h1 {
+  color: var(--cecns-blue);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.main-nav {
+  margin-left: auto;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--cecns-blue);
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.main-nav a {
+  color: var(--text-color);
+  padding: 1rem 1rem;
+  display: block;
+  transition: color 0.3s, background-color 0.3s;
+  font-weight: 500;
+}
+.main-nav a:hover {
+  color: var(--cecns-blue);
+  background-color: var(--bg-light);
+}
+.btn-cta-nav {
+  background-color: var(--cecns-gold) !important;
+  color: var(--cecns-blue) !important;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem !important;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.btn-cta-nav:hover {
+  background-color: var(--cecns-blue) !important;
+  color: var(--cecns-gold) !important;
+}
+
+.dropdown {
+  position: relative;
+  z-index: 2000;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--cecns-blue);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  min-width: 350px;
+  list-style: none;
+  padding: 0;
+  border-radius: 5px;
+  z-index: 2001;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+.dropdown-toggle i {
+  margin-left: 5px;
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+.dropdown-menu li a {
+  color: white;
+  padding: 10px 15px;
+  font-weight: 400;
+}
+.dropdown-menu li a:hover {
+  background-color: var(--cecns-gold);
+  color: var(--cecns-blue);
+}
+
+@media (min-width: 901px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .dropdown.open .dropdown-menu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ========================================================================= */
+/* === [3] HERO (EDUCACIÓN MEDIA) === */
+/* ========================================================================= */
+.media-hero {
+  background: var(--cecns-blue);
+  padding: 4rem 5%;
+  color: white;
+  text-align: center;
+}
+.level-hero-title {
+  color: var(--cecns-gold);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.level-hero-slogan {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ========================================================================= */
+/* === [7] RESPONSIVE HEADER === */
+/* ========================================================================= */
+@media (max-width: 900px) {
+  .main-header {
+    justify-content: space-between !important;
+    position: fixed !important;
+    top: 0;
+  }
+  main {
+    padding-top: 60px !important;
+  }
+  .nav-toggle {
+    display: block !important;
+  }
+
+  .main-nav {
+    display: none !important;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--cecns-blue);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    margin-left: 0;
+  }
+  .main-nav.active {
+    display: block !important;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  .main-nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .main-nav a {
+    color: var(--bg-white);
+    padding: 12px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn-cta-nav {
+    display: none;
+  }
+
+  .dropdown-menu {
+    position: static !important;
+    background-color: #002c5c;
+    box-shadow: none;
+    min-width: unset;
+    border-radius: 0;
+    display: none !important;
+    opacity: 1;
+    visibility: visible;
+  }
+  .dropdown.open .dropdown-menu {
+    display: block !important;
+    padding: 0;
+  }
+}

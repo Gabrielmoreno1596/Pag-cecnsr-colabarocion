@@ -1,4 +1,7 @@
-/* Perfil del estudiante */
+/* ========================================================================= */
+/* PERFIL DEL ESTUDIANTE */
+/* ========================================================================= */
+
 .profile-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -15,7 +18,6 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-
 .profile-item-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
@@ -32,12 +34,10 @@
   align-items: center;
   margin-bottom: 15px;
 }
-
 .profile-icon-box i {
   color: var(--cecns-gold);
   font-size: 2.5rem;
 }
-
 .profile-item-card h4 {
   color: var(--cecns-blue);
   font-size: 1.5rem;
@@ -45,8 +45,4 @@
   border-bottom: 2px solid var(--cecns-gold);
   padding-bottom: 5px;
   display: inline-block;
-}
-
-.profile-item-card p {
-  color: var(--text-color);
 }

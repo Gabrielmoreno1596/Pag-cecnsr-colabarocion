@@ -1,0 +1,46 @@
+/* ========================================================================= */
+/* MISIÓN - VISIÓN - COMPROMISO */
+/* ========================================================================= */
+
+.mvc-title {
+  margin-top: 3rem;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.mission-vision-card {
+  background: var(--cecns-wine);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  color: white;
+}
+
+.mission-vision-card h3,
+.mission-vision-card p {
+  color: white;
+}
+
+.mission-vision-card i {
+  font-size: 2.5rem;
+  color: var(--cecns-gold);
+  margin-bottom: 1rem;
+}
+
+.mission-vision-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 992px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+}
