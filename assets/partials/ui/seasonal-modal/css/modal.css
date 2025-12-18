@@ -1,0 +1,210 @@
+.seasonal-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+
+.seasonal-modal[hidden] {
+  display: none !important;
+}
+
+.seasonal-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 16, 32, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.seasonal-modal__dialog {
+  position: relative;
+  width: min(520px, 92vw);
+  background: #0b1f3c;
+  color: #f8fbff;
+  border-radius: 16px;
+  padding: 1.8rem 1.6rem 1.6rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.seasonal-modal.is-open .seasonal-modal__dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.seasonal-modal__dialog::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 40%;
+  background: radial-gradient(120% 120% at 20% 20%, rgba(255, 195, 0, 0.2), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.seasonal-modal__dialog::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -20% auto;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(120% 120% at 50% 50%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.seasonal-modal__title {
+  margin: 0 0 0.6rem;
+  font-size: 1.55rem;
+  color: var(--cecns-gold, #ffc300);
+  position: relative;
+  z-index: 1;
+}
+
+.seasonal-modal__message {
+  margin: 0 0 1rem;
+  color: #e6eef8;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.seasonal-modal__media,
+.seasonal-modal__figure {
+  margin: 0 0 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.seasonal-modal__media {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.seasonal-modal__media img,
+.seasonal-modal__figure img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.45s ease;
+}
+
+.seasonal-modal__media img.is-fading {
+  opacity: 0;
+}
+
+.seasonal-modal__actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.seasonal-modal__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.seasonal-modal__btn--primary {
+  background: var(--cecns-gold, #ffc300);
+  color: #0b1f3c;
+  box-shadow: 0 12px 30px rgba(255, 195, 0, 0.3);
+}
+
+.seasonal-modal__btn--primary:hover,
+.seasonal-modal__btn--primary:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(255, 195, 0, 0.35);
+}
+
+.seasonal-modal__btn--secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fbff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.seasonal-modal__btn--secondary:hover,
+.seasonal-modal__btn--secondary:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.seasonal-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.25);
+  color: #f8fbff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.seasonal-modal__close:hover,
+.seasonal-modal__close:focus-visible {
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Theme: christmas */
+.seasonal-modal--christmas .seasonal-modal__dialog {
+  border: 1px solid rgba(255, 195, 0, 0.35);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 195, 0, 0.08);
+}
+
+.seasonal-modal--christmas .seasonal-modal__dialog::before {
+  background: radial-gradient(120% 120% at 20% 20%, rgba(255, 195, 0, 0.28), transparent 55%);
+}
+
+.seasonal-modal--christmas .seasonal-modal__title {
+  color: var(--cecns-gold, #ffc300);
+}
+
+.seasonal-modal--christmas .seasonal-modal__message {
+  color: #eef5ff;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .seasonal-modal__dialog {
+    padding: 1.4rem 1.1rem 1.2rem;
+  }
+  .seasonal-modal__title {
+    font-size: 1.4rem;
+  }
+  .seasonal-modal__actions {
+    flex-direction: column;
+  }
+  .seasonal-modal__btn {
+    width: 100%;
+  }
+}
+
+/* Body lock */
+body.seasonal-modal-open {
+  overflow: hidden;
+}

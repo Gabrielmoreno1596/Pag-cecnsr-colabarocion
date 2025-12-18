@@ -303,3 +303,26 @@
   --min: 220px; /* base desktop */
   grid-auto-rows: 160px; /* bloque base */
 }
+
+
+/* ===== Responsive: 2 columnas en m��vil para galleryDual ===== */
+@media (max-width: 640px) {
+  .galleryDual {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: unset;
+    grid-auto-rows: minmax(140px, 40vw);
+    grid-auto-flow: dense;
+    grid-auto-columns: unset;
+    overflow-x: hidden;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+
+  .galleryDual .tile,
+  .galleryDual .tile.wide,
+  .galleryDual .tile.tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}

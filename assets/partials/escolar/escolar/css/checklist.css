@@ -1,0 +1,45 @@
+.school-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.school-checklist__item {
+  border: 1px solid #e8ecf3;
+  border-radius: var(--radius-1);
+  background: #f9fbff;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.school-checklist__item:hover {
+  border-color: color-mix(in srgb, var(--cecns-blue) 20%, #e8ecf3);
+  background: #f3f6fb;
+}
+
+.school-checklist__row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.school-checklist__box {
+  width: 18px;
+  height: 18px;
+  accent-color: #1e3157;
+  cursor: pointer;
+}
+
+.school-checklist__text {
+  color: var(--text-900);
+  line-height: 1.4;
+}
+
+.school-checklist__empty {
+  margin: 0;
+  color: var(--text-500);
+}

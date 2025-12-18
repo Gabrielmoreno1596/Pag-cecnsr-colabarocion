@@ -4,10 +4,10 @@
 
     <form id="form-nuevo-ingreso"
         class="ni-form admission-form-container ni-form__card"
-        action="<?= BASE_URL ?>enviar.php"
+        action="<?= asset('enviar.php') ?>"
         method="POST"
         novalidate>
-        <!-- Canal para ruteo (CRÍTICO) -->
+        <!-- Canal para ruteo (CRITICO) -->
         <input type="hidden" name="canal" value="nuevo_ingreso">
 
         <!-- Honeypot anti-bots -->
@@ -20,19 +20,19 @@
             </label>
         </div>
         <div class="form-group">
-            <label>Correo electrónico
+            <label>Correo electronico
                 <input type="email" name="correo" required autocomplete="email">
             </label>
         </div>
         <div class="form-group">
-            <label>Teléfono
+            <label>Telefono
                 <input type="tel" name="telefono" required autocomplete="tel">
             </label>
         </div>
         <div class="form-group">
-            <label>Grado de interés
+            <label>Grado de interes
                 <select id="ni-grado" name="grado" required>
-                    <option value="" disabled selected>Seleccione…</option>
+                    <option value="" disabled selected>Seleccione...</option>
                     <?php foreach ($data['grados'] as $g): ?>
                         <option value="<?= htmlspecialchars($g) ?>">
                             <?= htmlspecialchars($g) ?>
@@ -46,13 +46,13 @@
                 <textarea name="consulta" rows="4" required></textarea>
             </label>
         </div>
-        <!-- reCAPTCHA (ajusta según v2/v3) -->
-        <?php if (!empty($RECAPTCHA_SITE_KEY)): ?>
-            <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars($RECAPTCHA_SITE_KEY) ?>"></div>
+        <!-- reCAPTCHA (ajusta segun v2/v3) -->
+        <?php if (defined('RECAPTCHA_ENABLED') && RECAPTCHA_ENABLED && defined('RECAPTCHA_SITE_KEY')): ?>
+            <div class="g-recaptcha" data-sitekey="<?= defined('RECAPTCHA_SITE_KEY') ? RECAPTCHA_SITE_KEY : '' ?>"></div>
         <?php endif; ?>
 
         <div class="form-group">
-            <label for="ni-respuesta">¿Cómo desea que le contactemos?</label>
+            <label for="ni-respuesta">�Como desea que le contactemos?</label>
             <select id="ni-respuesta" name="preferencia_contacto">
                 <?php foreach ($data['canales'] as $c): ?>
                     <option value="<?= htmlspecialchars($c) ?>">
@@ -63,7 +63,7 @@
         </div>
 
 
-        <button type="submit" class="ni-btn btn-primary ni-form__submit">Enviar Solicitud de Admisión</button>
+        <button type="submit" class="ni-btn btn-primary ni-form__submit">Enviar Solicitud de Admision</button>
         <p id="form-msg" class="ni-form__msg" aria-live="polite"></p>
     </form>
 

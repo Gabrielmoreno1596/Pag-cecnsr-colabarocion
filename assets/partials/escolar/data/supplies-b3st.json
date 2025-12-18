@@ -1,0 +1,91 @@
+{
+  "all_students": [
+    "1 Paquete de pinchos grandes",
+    "1 Yarda de plástico",
+    "2 Pilot para pizarra (500)",
+    "1 Pilot permanente (90)",
+    "50 Páginas de colores",
+    "25 Páginas de papel bond tamaño carta",
+    "1 Paquete de papel higiénico (4 rollos)",
+    "1 Bote de silicón (8 onz)",
+    "2 Pliego de papel bond",
+    "1 Pliego de foamy plateado escarchado"
+  ],
+  "year": "2026",
+  "note": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca."
+  ],
+  "others": [
+    "1 Cinta transparente gruesa (Tape)",
+    "1 Calculadora científica",
+    "1 Cartapacio blanco de 2 pulgadas y fundas protectoras",
+    "1 Estuche de geometría",
+    "1 Bolsón transparente",
+    "1 Memoria USB de 4GB (Para uso personal)",
+    "1 Paquete de libros (Se venderá en la institución)"
+  ],
+  "title": "Lista de útiles - 3° Brto. Servicios Turísticos",
+  "mineduc": [
+    "6 Cuadernos rayados #3",
+    "3 Cuadernos cuadriculados #3 8MM",
+    "1 Borrador de goma",
+    "4 Lápices",
+    "6 Lapiceros (rojo, azul y negro)",
+    "1 Sacapunta metálica",
+    "1 Caja de plumones",
+    "1 Estuche de geometría",
+    "1 Caja de colores 12 unid. DOBLE PUNTA"
+  ],
+  "notes": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca."
+  ],
+  "sections": [
+    {
+      "key": "mineduc",
+      "label": "Paquete Escolar MINEDUCYT",
+      "hint": "Elementos provistos por el Ministerio.",
+      "items": [
+        "6 Cuadernos rayados #3",
+        "3 Cuadernos cuadriculados #3 8MM",
+        "1 Borrador de goma",
+        "4 Lápices",
+        "6 Lapiceros (rojo, azul y negro)",
+        "1 Sacapunta metálica",
+        "1 Caja de plumones",
+        "1 Estuche de geometría",
+        "1 Caja de colores 12 unid. DOBLE PUNTA"
+      ]
+    },
+    {
+      "key": "others",
+      "label": "Otros materiales para utilizar",
+      "hint": "Recomendados por el colegio.",
+      "items": [
+        "1 Cinta transparente gruesa (Tape)",
+        "1 Calculadora científica",
+        "1 Cartapacio blanco de 2 pulgadas y fundas protectoras",
+        "1 Estuche de geometría",
+        "1 Bolsón transparente",
+        "1 Memoria USB de 4GB (Para uso personal)",
+        "1 Paquete de libros (Se venderá en la institución)"
+      ]
+    },
+    {
+      "key": "all_students",
+      "label": "Para todos los estudiantes de este grado",
+      "hint": "Útiles comunes por sección.",
+      "items": [
+        "1 Paquete de pinchos grandes",
+        "1 Yarda de plástico",
+        "2 Pilot para pizarra (500)",
+        "1 Pilot permanente (90)",
+        "50 Páginas de colores",
+        "25 Páginas de papel bond tamaño carta",
+        "1 Paquete de papel higiénico (4 rollos)",
+        "1 Bote de silicón (8 onz)",
+        "2 Pliego de papel bond",
+        "1 Pliego de foamy plateado escarchado"
+      ]
+    }
+  ]
+}

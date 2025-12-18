@@ -1,0 +1,33 @@
+{
+  "title": "Lista de materiales escolares 2026",
+  "year": "2026",
+  "notes": [
+    "Educación Inicial y Parvularia",
+    "Sección de 3 años",
+    "Insumos para primeros auxilios: Docente de sección lo asignará.",
+    "Paquete de libros y Material Didáctico (adquirirlos en la institución)"
+  ],
+  "sections": [
+    {
+      "key": "materiales",
+      "label": "Materiales del estudiante",
+      "items": [
+        "2- Lápices triangulares gruesos",
+        "1-Borrador de goma",
+        "1-Sacapuntas con depósito y de 2 agujeros",
+        "1-Estuche de tela con zíper (rotulado con el nombre completo del estudiante)",
+        "25- Páginas de colores tamaño carta.",
+        "25- Páginas de papel bond, tamaño carta.",
+        "1- Pliegos de papel celofán.",
+        "2-Cartones de calcomanías de caritas o estrellas.",
+        "1-Tirro de 2 pulgadas",
+        "1-Paquete de pinchos gruesos pequeños",
+        "1-Pegamento en barra de 40 Grs.",
+        "1-Paquete de toallas húmedas.",
+        "1- Alcohol gel de 500 ml.",
+        "2- Rollos de papel higiénico.",
+        "1- Par de huevos musicales. Juguete didáctico."
+      ]
+    }
+  ]
+}

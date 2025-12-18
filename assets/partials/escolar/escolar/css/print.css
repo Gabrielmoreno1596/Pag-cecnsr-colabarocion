@@ -1,0 +1,98 @@
+@page {
+  size: letter;
+  margin: 0.5in;
+}
+
+@media print {
+  header,
+  footer,
+  .school-hero,
+  .school-levelbar,
+  .school-actions {
+    display: none !important;
+  }
+
+  .school-tools {
+    width: 100%;
+    margin: 0;
+  }
+
+  .school-tools__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .school-tools-card,
+  .school-tools-note {
+    box-shadow: none !important;
+  }
+
+  .school-print-head {
+    display: inline-flex;
+  }
+}
+
+@media print {
+  /* 1) Más compacto */
+  .school-tools__grid {
+    gap: 10px !important;
+  }
+  .school-tools-card,
+  .school-tools-note {
+    box-shadow: none !important;
+    margin: 0 0 10px !important;
+    padding: 10px 12px !important;
+  }
+
+  .school-tools-card__head {
+    margin-bottom: 6px !important;
+  }
+  .school-tools-card__head h2 {
+    margin: 0 0 2px !important;
+  }
+
+  /* 2) CLAVE: evitar huecos. Permitimos que la tarjeta se parta,
+        pero NO partimos cada item */
+  .school-tools-card,
+  .school-tools-note,
+  .school-spec {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .school-checklist__item,
+  .school-spec__subtitle,
+  .school-tools-card__head {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* 3) Checklist más compacto */
+  .school-checklist__item {
+    margin: 0 0 6px !important;
+    padding: 6px 8px !important;
+  }
+  .school-checklist__text {
+    line-height: 1.25 !important;
+  }
+
+  /* 4) Nota aclaratoria como párrafo (sin tarjetas internas extra) */
+  .school-tools-note .school-checklist,
+  .school-tools-note .school-checklist__item,
+  .school-tools-note .school-checklist__box {
+    display: none !important;
+  }
+
+  .school-print-note-line {
+    margin: 0 0 6px !important;
+    padding: 0 !important;
+  }
+
+  /* 5) Para todos -> 2 columnas en impresión (aprovecha mejor la hoja) */
+  .school-checklist[data-section="all_students"] {
+    column-count: 2;
+    column-gap: 18px;
+  }
+  .school-checklist[data-section="all_students"] .school-checklist__item {
+    break-inside: avoid;
+  }
+}

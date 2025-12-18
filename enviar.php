@@ -2,6 +2,19 @@
 header('Content-Type: application/json; charset=UTF-8');
 require __DIR__ . '/config.mail.php';
 
+// Autoload de Composer (PHPMailer y dependencias)
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (!is_file($autoload)) {
+    http_response_code(500);
+    echo json_encode([
+        'ok' => false,
+        'message' => 'Dependencias no instaladas (vendor/autoload.php). Ejecuta composer.'
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+require_once $autoload;
+
+
 require __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer/src/SMTP.php';
 require __DIR__ . '/PHPMailer/src/Exception.php';
@@ -44,7 +57,7 @@ $now = time();
 // Rate-limit (15s) — y el mensaje coincide
 if (!empty($_SESSION['last_submit']) && ($now - $_SESSION['last_submit'] < 15)) {
     http_response_code(429);
-    echo json_encode(['ok' => false, 'msg' => 'Espera 15 segundos antes de otro envío.']);
+    echo json_encode(['ok' => false, 'message' => 'Espera 15 segundos antes de otro envío.']);
     exit;
 }
 
@@ -76,13 +89,17 @@ $subject = "{$prefijo} Nueva solicitud desde la web";
 // === Validaciones básicas ===
 if ($honeypot !== '') {
     http_response_code(400);
-    echo json_encode(['ok' => false, 'msg' => 'Error de validación.']);
+    echo json_encode(['ok' => false, 'message' => 'Error de validación.']);
     exit;
 }
-if ($nombre === '' || $tel === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL) || $grado === '') {
+if ($nombre === '' || $tel === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
-    echo json_encode(['ok' => false, 'msg' => 'Por favor completa los campos obligatorios.']);
+    echo json_encode(['ok' => false, 'message' => 'Por favor completa los campos obligatorios.']);
     exit;
+}
+
+if ($grado === '') {
+    $grado = 'Sin especificar'; // no bloquear si el usuario no elige grado/interés
 }
 
 // === reCAPTCHA v2 ===
@@ -90,7 +107,7 @@ if (RECAPTCHA_ENABLED) {
     $resp = $_POST['g-recaptcha-response'] ?? '';
     if (!$resp) {
         http_response_code(400);
-        echo json_encode(['ok' => false, 'msg' => 'Por favor marca el reCAPTCHA.']);
+        echo json_encode(['ok' => false, 'message' => 'Por favor marca el reCAPTCHA.']);
         exit;
     }
     $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
@@ -109,7 +126,7 @@ if (RECAPTCHA_ENABLED) {
     $okCaptcha = $result !== false && !empty(json_decode($result, true)['success']);
     if (!$okCaptcha) {
         http_response_code(400);
-        echo json_encode(['ok' => false, 'msg' => 'Validación reCAPTCHA inválida. Intenta de nuevo.']);
+        echo json_encode(['ok' => false, 'message' => 'Validación reCAPTCHA inválida. Intenta de nuevo.']);
         exit;
     }
 }
@@ -254,7 +271,7 @@ try {
     ]);
 
     $_SESSION['last_submit'] = $now;
-    echo json_encode(['ok' => true, 'msg' => '¡Solicitud enviada! Pronto te contactaremos.']);
+    echo json_encode(['ok' => true, 'message' => '¡Solicitud enviada! Pronto te contactaremos.']);
 } catch (\Throwable $e) {
     // Motivo real
     $err = isset($mail) && !empty($mail->ErrorInfo) ? $mail->ErrorInfo : $e->getMessage();
@@ -274,6 +291,6 @@ try {
     ]);
 
     http_response_code(500);
-    echo json_encode(['ok' => false, 'msg' => 'Error SMTP: ' . $err]);
+    echo json_encode(['ok' => false, 'message' => 'Error SMTP: ' . $err]);
 }
 

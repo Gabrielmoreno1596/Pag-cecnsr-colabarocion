@@ -1,0 +1,1232 @@
+﻿.school-levelbar {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e8ecf3;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  /* Paleta coherente con styles.css y header.php */
+  --nav-text: #15334a; /* similar a var(--cecns-navy) */
+  --nav-border: #dfe5f0;
+  --nav-accent: var(--cecns-gold); /* #ffc300 */
+  --nav-hover-text: var(--cecns-gold);
+  --nav-active-bg: color-mix(in srgb, var(--nav-accent) 22%, #ffffff 78%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.school-levelbar__inner {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+  padding: 10px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* En escritorio forzamos una sola fila */
+@media (min-width: 992px) {
+  .school-levelbar__inner {
+    flex-wrap: nowrap;
+  }
+}
+
+.school-levelbar-item {
+  position: relative;
+  --level-bar: #6b7280;
+  --level-soft: #f1f5f9;
+  --level-active: var(--nav-accent);
+  transition: transform 0.12s ease;
+  padding-bottom: 6px; /* extiende zona hover para facilitar el paso al dropdown */
+}
+
+.school-levelbar-item:hover {
+  transform: translateY(-1px);
+}
+
+.school-levelbar-btn {
+  border: 1px solid var(--nav-border);
+  background: #fff;
+  padding: 9px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--nav-text);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.school-levelbar-btn__label {
+  transition: color 0.2s ease;
+}
+
+.school-levelbar-btn::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--nav-accent);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.school-levelbar-item:hover .school-levelbar-btn,
+.school-levelbar-item:focus-within .school-levelbar-btn {
+  /* Mantener fondo casi igual, solo refinar borde */
+  background: #fff;
+  border-color: color-mix(in srgb, var(--nav-text) 16%, var(--nav-border) 84%);
+}
+
+.school-levelbar-item:hover .school-levelbar-btn__label,
+.school-levelbar-item:focus-within .school-levelbar-btn__label {
+  /* SOLO el texto del ciclo cambia a dorado */
+  color: var(--cecns-gold);
+}
+
+.school-levelbar-item.is-active .school-levelbar-btn {
+  background: var(--nav-active-bg);
+  border-color: var(--nav-accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.school-levelbar-item.is-active .school-levelbar-btn__label {
+  color: var(--cecns-gold); /* texto del ciclo activo en dorado permanente */
+}
+
+.school-levelbar-item.is-active .school-levelbar-btn::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.school-levelbar-btn__chev {
+  font-size: 0.9rem;
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+}
+
+.school-levelbar-item.is-active .school-levelbar-btn__chev {
+  transform: rotate(180deg);
+}
+
+.school-levelbar-dd {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+  min-width: max(260px, 80%);
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--nav-border);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  z-index: 40;
+}
+
+.school-levelbar-dd.is-open {
+  display: flex;
+}
+
+.school-levelbar-grade {
+  text-decoration: none;
+  background: color-mix(in srgb, var(--nav-text) 6%, #fff 94%);
+  border: 1px solid var(--nav-border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-weight: 700;
+  color: var(--nav-text);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.school-levelbar-grade:hover {
+  background: color-mix(in srgb, var(--nav-text) 10%, #fff 90%);
+  border-color: color-mix(in srgb, var(--nav-text) 20%, var(--nav-border) 80%);
+}
+
+.school-levelbar-grade.is-grade-active {
+  background: var(--nav-accent);
+  border-color: var(--nav-accent);
+  color: #0f172a;
+}
+
+/* Nuevos elementos: ocultos por defecto en desktop */
+.school-levelbar-shell {
+  position: relative;
+}
+
+.school-levelbar-fab,
+.school-levelbar-backdrop,
+.school-levelbar-mobile-header {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .school-levelbar {
+    position: static;
+  }
+
+  .school-levelbar__inner {
+    gap: 6px;
+  }
+
+  .school-levelbar-dd {
+    min-width: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Shell ocupa todo el ancho pero no rompe el layout */
+  .school-levelbar-shell {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* BotÃ³n flotante a la izquierda con amarillo institucional */
+  .school-levelbar-fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 10px;
+    bottom: 120px; /* ajusta segÃºn tus botones amarillos */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--cecns-gold);
+    background: var(--cecns-gold); /* ðŸ”¶ aquÃ­ va el amarillo */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 120;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .school-levelbar-fab__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #15334a; /* o #ffffff si lo prefieres blanco */
+    transition: transform 0.2s ease;
+  }
+
+  .school-levelbar-fab:hover,
+  .school-levelbar-fab:focus-visible {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--cecns-gold) 80%, #000 20%);
+    background: color-mix(in srgb, var(--cecns-gold) 90%, #ffffff 10%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  }
+
+  /* Fondo difuminado */
+  .school-levelbar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 70;
+  }
+
+  /* Panel que entra de izquierda a derecha */
+  .school-levelbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(280px, 80vw);
+    background: #ffffff;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+    border-right: 1px solid var(--nav-border);
+    padding: 10px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 80;
+  }
+
+  .school-levelbar-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .school-levelbar-mobile-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--nav-text);
+  }
+
+  .school-levelbar-mobile-close {
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--nav-text);
+  }
+
+  .school-levelbar__inner {
+    margin-top: 4px;
+    padding: 6px 2px 8px;
+    border-radius: 12px;
+    background: #ffffff;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .school-levelbar-items-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .school-levelbar-item {
+    width: 100%;
+  }
+
+  .school-levelbar-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* SubmenÃºs debajo del ciclo en mÃ³vil */
+  .school-levelbar-dd {
+    position: static;
+    transform: none;
+    min-width: 100%;
+    margin-top: 6px;
+    box-shadow: none;
+    border-radius: 12px;
+    border: 1px solid var(--nav-border);
+    padding: 8px 6px 4px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .school-levelbar-dd.is-open {
+    display: flex;
+  }
+
+  .school-levelbar-grade {
+    flex: 0 1 calc(50% - 6px); /* dos columnas */
+    font-size: 0.85rem;
+  }
+
+  /* ESTADO ABIERTO: se controla con una clase en body */
+  body.school-levelbar-open .school-levelbar {
+    transform: translateX(0);
+  }
+
+  body.school-levelbar-open .school-levelbar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Clase que activa la animaciÃ³n de â€œhintâ€ */
+  .school-levelbar-fab--hint {
+    animation: school-levelbar-fab-hint 1.6s ease-in-out infinite;
+  }
+
+  @keyframes school-levelbar-fab-hint {
+    0% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    35% {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+    70%,
+    100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  body.school-levelbar-open .school-levelbar-fab__icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* Toggle lateral en mobile: pill con estados azul/verde */
+@media (max-width: 960px) {
+  .school-levelbar-fab {
+    position: fixed !important;
+    left: 10px !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    height: 38px !important;
+    width: auto !important;
+    padding: 0 8px !important;
+    border-radius: 999px !important;
+    border: 0 !important;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+    background: #0b4aa6;
+    z-index: 140 !important;
+  }
+
+  .school-levelbar-fab__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff !important;
+    transition: transform 0.2s ease;
+  }
+
+  .school-levelbar-fab__label {
+    display: none;
+  }
+
+  .school-levelbar-fab.is-closed {
+    background: #0b4aa6 !important;
+  }
+
+  .school-levelbar-fab.is-open {
+    background: #1b8a3a !important;
+  }
+
+  .school-levelbar-fab__icon {
+    transition: transform 180ms ease;
+  }
+
+  .school-levelbar-fab.is-closed .school-levelbar-fab__icon {
+    transform: none;
+  }
+
+  .school-levelbar-fab.is-open .school-levelbar-fab__icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* Mobile: permitir y aplicar rotaciÃ³n del Ã­cono segÃºn estado */
+@media (max-width: 960px) {
+  .school-levelbar-toggle .icon,
+  .school-levelbar-toggle svg,
+  .school-levelbar-toggle i,
+  .school-levelbar-toggle .fa,
+  .school-levelbar-toggle .fas,
+  .school-levelbar-fab .school-levelbar-fab__icon,
+  .school-levelbar-fab svg,
+  .school-levelbar-fab i,
+  .school-levelbar-fab .fa,
+  .school-levelbar-fab .fas {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 180ms ease;
+    transform-origin: 50% 50%;
+  }
+
+  /* Cerrado: apunta a la derecha */
+  .school-levelbar-toggle.is-closed .icon,
+  .school-levelbar-toggle.is-closed svg,
+  .school-levelbar-toggle.is-closed i,
+  .school-levelbar-fab.is-closed .school-levelbar-fab__icon,
+  .school-levelbar-fab.is-closed svg,
+  .school-levelbar-fab.is-closed i {
+    transform: rotate(0deg);
+  }
+
+  /* Abierto: apunta a la izquierda */
+  .school-levelbar-toggle.is-open .icon,
+  .school-levelbar-toggle.is-open svg,
+  .school-levelbar-toggle.is-open i,
+  .school-levelbar-fab.is-open .school-levelbar-fab__icon,
+  .school-levelbar-fab.is-open svg,
+  .school-levelbar-fab.is-open i {
+    transform: rotate(360deg);
+  }
+}
+
+/* === FAB mÃ³vil para abrir el menÃº de niveles (override fuerte) === */
+@media (max-width: 768px) {
+  .school-levelbar-fab {
+    position: fixed;
+    left: 12px;
+    bottom: 140px; /* sÃºbelo por encima del dock */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--cecns-gold);
+    background: var(--cecns-gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 130; /* MÃS que el dock de acciones */
+  }
+
+  .school-levelbar-fab__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #15334a;
+    transition: transform 0.2s ease;
+  }
+
+  body.school-levelbar-open .school-levelbar-fab__icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* En pantallas grandes no mostramos el FAB */
+@media (min-width: 769px) {
+  .school-levelbar-fab {
+    display: none;
+  }
+}
+
+/* ========================= */
+/*   LAYOUT DESKTOP BARRA    */
+/* ========================= */
+@media (min-width: 992px) {
+  .school-levelbar-inner,
+  .school-levelbar__inner,
+  .school-levelbar-items-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .school-levelbar-item {
+    flex: 0 0 auto !important;
+    width: auto !important;
+  }
+
+  .school-levelbar-btn {
+    width: auto !important;
+  }
+}
+
+/* ========================= */
+/*   FAB MÃ“VIL MENÃš NIVELES  */
+/* ========================= */
+@media (max-width: 768px) {
+  .school-levelbar-fab {
+    position: fixed !important;
+    left: 12px !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--cecns-gold);
+    background: var(--cecns-gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 130 !important;
+  }
+
+  .school-levelbar-fab__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #15334a;
+    transition: transform 0.2s ease;
+  }
+
+  body.school-levelbar-open .school-levelbar-fab__icon {
+    transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 769px) {
+  .school-levelbar-fab {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Override fuerte para que el FAB nunca quede escondido */
+  .school-levelbar-fab {
+    position: fixed;
+    left: 12px;
+    bottom: 140px; /* sÃºbelo: queda por encima del dock */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--cecns-gold);
+    background: var(--cecns-gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 130; /* MÃS que el dock de acciones */
+  }
+
+  .school-levelbar-fab__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #15334a;
+    transition: transform 0.2s ease;
+  }
+
+  body.school-levelbar-open .school-levelbar-fab__icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* ==========================================================
+   Ajustes solicitados (hover/active) - CECNSR
+   ========================================================== */
+
+/* 1) Hover en grados del dropdown */
+.school-levelbar-dd .school-levelbar-grade:hover {
+  background: #1f8a3b;
+  border-color: #1f8a3b;
+  color: #fff;
+}
+
+/* 2) Grado activo (y que no cambie con hover) */
+.school-levelbar-dd .school-levelbar-grade.is-grade-active,
+.school-levelbar-dd .school-levelbar-grade.is-grade-active:hover {
+  background: #1e3157;
+  border-color: #1e3157;
+  color: #fff;
+}
+
+/* 3) Nivel activo (botÃ³n del ciclo) */
+.school-levelbar-item.is-active .school-levelbar-btn {
+  background: #1e3157;
+  border-color: #1e3157;
+}
+
+.school-levelbar-item.is-active .school-levelbar-btn__label,
+.school-levelbar-item.is-active .school-levelbar-btn__chev {
+  color: #fff;
+}
+
+/* ==========================================================
+   EXTRA: Hover en botÃ³n de nivel + asegurar activo azul
+   ========================================================== */
+
+/* Hover en botÃ³n del nivel (igual que grados) */
+.school-levelbar-item:not(.is-active) .school-levelbar-btn:hover {
+  background: #1f8a3b;
+  border-color: #1f8a3b;
+}
+
+.school-levelbar-item:not(.is-active)
+  .school-levelbar-btn:hover
+  .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active)
+  .school-levelbar-btn:hover
+  .school-levelbar-btn__chev {
+  color: #fff;
+}
+
+/* Si estÃ¡ activo, SIEMPRE azul (aunque haya hover) */
+.school-levelbar-item.is-active .school-levelbar-btn:hover {
+  background: #1e3157;
+  border-color: #1e3157;
+}
+
+/* (Opcional) Si existe una â€œpillâ€ del grado seleccionado fuera del dropdown */
+.school-actions__grade-pill.is-grade-active,
+.school-actions__grade-pill.is-grade-active:hover {
+  background: #1e3157;
+  border-color: #1e3157;
+  color: #fff;
+}
+
+/* ==========================================================
+   FIX: Active/Hover para TODOS los niveles (a / button / .btn)
+   ========================================================== */
+
+/* ACTIVO: siempre azul #1e3157 */
+.school-levelbar-item.is-active .school-levelbar-btn,
+.school-levelbar-item.is-active > a,
+.school-levelbar-item.is-active > button,
+.school-levelbar-btn.is-active,
+.school-levelbar-btn[aria-current="page"],
+.school-levelbar-btn[aria-current="true"] {
+  background: #1e3157;
+  border-color: #1e3157;
+  color: #fff;
+}
+
+/* Texto + chevron del activo */
+.school-levelbar-item.is-active .school-levelbar-btn__label,
+.school-levelbar-item.is-active .school-levelbar-btn__chev,
+.school-levelbar-item.is-active > a .school-levelbar-btn__label,
+.school-levelbar-item.is-active > a .school-levelbar-btn__chev,
+.school-levelbar-item.is-active > button .school-levelbar-btn__label,
+.school-levelbar-item.is-active > button .school-levelbar-btn__chev {
+  color: #fff;
+}
+
+/* HOVER (solo no-activos): verde #1f8a3b */
+.school-levelbar-item:not(.is-active) .school-levelbar-btn:hover,
+.school-levelbar-item:not(.is-active) > a:hover,
+.school-levelbar-item:not(.is-active) > button:hover {
+  background: #1f8a3b;
+  border-color: #1f8a3b;
+  color: #fff;
+}
+
+.school-levelbar-item:not(.is-active)
+  .school-levelbar-btn:hover
+  .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active)
+  .school-levelbar-btn:hover
+  .school-levelbar-btn__chev,
+.school-levelbar-item:not(.is-active) > a:hover .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active) > a:hover .school-levelbar-btn__chev,
+.school-levelbar-item:not(.is-active)
+  > button:hover
+  .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active)
+  > button:hover
+  .school-levelbar-btn__chev {
+  color: #fff;
+}
+
+/* Si estÃ¡ activo, aunque le pases hover, se queda azul */
+.school-levelbar-item.is-active .school-levelbar-btn:hover,
+.school-levelbar-item.is-active > a:hover,
+.school-levelbar-item.is-active > button:hover {
+  background: #1e3157;
+  border-color: #1e3157;
+}
+
+/* ==========================================================
+   OVERRIDE FINAL DEFINITIVO: hover/active por CONTENEDOR
+   ========================================================== */
+
+/* NO-ACTIVO: cuando el contenedor estÃ¡ hover, pinta verde igual que los grados */
+.school-levelbar-item:not(.is-active):hover .school-levelbar-btn,
+.school-levelbar-item:not(.is-active):focus-within .school-levelbar-btn {
+  background: #1f8a3b !important;
+  border-color: #1f8a3b !important;
+}
+
+.school-levelbar-item:not(.is-active):hover .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active):hover .school-levelbar-btn__chev,
+.school-levelbar-item:not(.is-active):focus-within .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active):focus-within .school-levelbar-btn__chev {
+  color: #fff !important;
+}
+
+/* ACTIVO: aunque el contenedor estÃ© hover (por dropdown), se queda azul */
+.school-levelbar-item.is-active:hover .school-levelbar-btn,
+.school-levelbar-item.is-active:focus-within .school-levelbar-btn {
+  background: #1e3157 !important;
+  border-color: #1e3157 !important;
+}
+
+.school-levelbar-item.is-active:hover .school-levelbar-btn__label,
+.school-levelbar-item.is-active:hover .school-levelbar-btn__chev,
+.school-levelbar-item.is-active:focus-within .school-levelbar-btn__label,
+.school-levelbar-item.is-active:focus-within .school-levelbar-btn__chev {
+  color: #fff !important;
+}
+
+/* ==========================================================
+   SOLO Bachillerato: dropdown en cascada (columna + submenú)
+   ========================================================== */
+
+.school-levelbar-dd.bach-dd{
+  min-width: 260px;
+  padding: 10px;
+  display: none; /* lo controla is-open igual que siempre */
+}
+
+.school-levelbar-dd.bach-dd.is-open{
+  display: block;
+}
+
+.bach-dd__col{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bach-dd__item{
+  position: relative;
+}
+
+.bach-dd__year{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--nav-border);
+  background: color-mix(in srgb, var(--nav-text) 6%, #fff 94%);
+  color: var(--nav-text);
+}
+
+.bach-dd__item:hover .bach-dd__year,
+.bach-dd__item:focus-within .bach-dd__year{
+  background: #1f8a3b;
+  border-color: #1f8a3b;
+  color: #fff;
+}
+
+.bach-dd__item.is-year-active .bach-dd__year{
+  background: #1e3157;
+  border-color: #1e3157;
+  color: #fff;
+}
+
+.bach-dd__item.is-open .bach-dd__sub{
+  display: flex;
+}
+
+/* submenú: aparece a la derecha del año */
+.bach-dd__sub{
+  position: absolute;
+  top: 0;
+  left: calc(100% + 10px);
+  min-width: 260px;
+  background: #fff;
+  border: 1px solid var(--nav-border);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.14);
+  display: none;
+
+  /* layout de chips */
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bach-dd__item:hover .bach-dd__sub,
+.bach-dd__item:focus-within .bach-dd__sub{
+  display: flex;
+}
+
+/* En móvil: submenú debajo (no a la derecha) */
+@media (max-width: 768px){
+  .bach-dd__sub{
+    position: static;
+    box-shadow: none;
+    margin-top: 8px;
+    display: none;
+  }
+  .bach-dd__item:hover .bach-dd__sub,
+  .bach-dd__item:focus-within .bach-dd__sub{
+    display: flex;
+  }
+}
+
+/* ==========================================================
+   Bachillerato: Tabs por año + chips
+   ========================================================== */
+
+.bach-tabs{
+  width: min(1100px, 94%);
+  margin: 10px auto 8px;
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid #e8ecf3;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.bach-tab{
+  text-decoration: none;
+  font-weight: 900;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: #15334a;
+  white-space: nowrap;
+}
+
+.bach-tab:hover{
+  background: #1f8a3b;
+  color: #fff;
+}
+
+.bach-tab.is-active{
+  background: #1e3157;
+  color: #fff;
+}
+
+.bach-chips{
+  width: min(1100px, 94%);
+  margin: 0 auto 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* En móvil, tabs scrolleables */
+@media (max-width: 720px){
+  .bach-tabs{
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bach-tabs::-webkit-scrollbar{ display:none; }
+  .bach-tab{ flex: 0 0 auto; }
+}
+
+/* ==========================================================
+   Bachillerato (cascada) — compactación fina
+   ========================================================== */
+
+.school-levelbar-dd.bach-dd{
+  min-width: 230px;
+  padding: 8px;
+}
+
+/* Menú de años: menos separación */
+.bach-dd__col{
+  gap: 6px;
+}
+
+/* Botón año: más compacto */
+.bach-dd__year{
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.15;
+}
+
+/* Submenú: MÁS PEGADO y más compacto */
+.bach-dd__sub{
+  left: calc(100% + 6px);   /* antes +10px */
+  min-width: 230px;         /* antes 260px */
+  padding: 8px;             /* antes 10px */
+  border-radius: 12px;      /* antes 14px */
+  gap: 6px;                 /* antes 8px */
+}
+
+/* Chips dentro del submenú: más pequeños */
+.bach-dd__sub .school-levelbar-grade{
+  padding: 7px 9px;         /* antes 8px 10px */
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* Opcional: evita que se vea como “bloque gigante” en desktop */
+@media (min-width: 992px){
+  .bach-dd__sub{
+    max-width: 300px;
+    top: -2px; /* sube un poquito para alineación visual */
+  }
+}
+
+/* En móvil: menos margen arriba del submenú */
+@media (max-width: 768px){
+  .bach-dd__sub{
+    margin-top: 6px;        /* antes 8px */
+    padding: 7px;
+    gap: 6px;
+  }
+}
+
+/* Ajuste de orientación y layout en desktop: abrir hacia la izquierda y usar grid */
+@media (min-width: 992px){
+  .bach-dd__sub{
+    left: auto;
+    right: calc(100% + 6px);
+  }
+
+  .bach-dd__item.is-open .bach-dd__sub{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================================
+   SOLO Bachillerato: Tabs horizontales + chips dentro del dropdown
+   ========================================================== */
+
+.school-levelbar-dd.bach-dd{
+  padding: 8px !important;
+  min-width: 320px;
+}
+
+.bach-tabs{
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid var(--nav-border);
+  border-radius: 999px;
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+.bach-tab{
+  text-decoration: none;
+  font-weight: 900;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--nav-text);
+  white-space: nowrap;
+}
+
+.bach-tab:hover{
+  background: #1f8a3b;
+  color: #fff;
+}
+
+.bach-tab.is-active{
+  background: #1e3157;
+  color: #fff;
+}
+
+.bach-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* chips compactos solo dentro de bach */
+.school-levelbar-dd.bach-dd .school-levelbar-grade{
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+
+/* Mobile: tabs scrolleables y chips en 2 columnas */
+@media (max-width: 768px){
+  .school-levelbar-dd.bach-dd{
+    min-width: 100% !important;
+  }
+
+  .bach-tabs{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bach-tabs::-webkit-scrollbar{ display:none; }
+
+  .bach-chips .school-levelbar-grade{
+    flex: 0 1 calc(50% - 6px);
+    text-align: center;
+  }
+}
+
+/* Desktop: que no quede gigante */
+@media (min-width: 992px){
+  .school-levelbar-dd.bach-dd{
+    min-width: 420px;
+  }
+}
+
+/* ==========================================================
+   MOBILE FIX: Bachillerato en bloques (tabs vertical + chips grid)
+   SOLO móvil y SOLO Bachillerato
+   ========================================================== */
+@media (max-width: 768px) {
+
+  /* Evitar scroll horizontal en el panel */
+  .school-levelbar,
+  .school-levelbar__inner {
+    overflow-x: hidden;
+  }
+
+  /* Contenedor del dropdown Bachillerato: full width, sin min-width fijo */
+  .school-levelbar-dd.bach-dd {
+    min-width: 100% !important;
+    padding: 10px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Tabs (años) como bloque vertical */
+  .school-levelbar-dd.bach-dd .bach-tabs {
+    width: 100% !important;
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .school-levelbar-dd.bach-dd .bach-tab {
+    width: 100% !important;
+    display: block !important;
+    text-align: left !important;
+
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--nav-border) !important;
+    background: color-mix(in srgb, var(--nav-text) 6%, #fff 94%) !important;
+    color: var(--nav-text) !important;
+  }
+
+  .school-levelbar-dd.bach-dd .bach-tab:hover {
+    background: #1f8a3b !important;
+    border-color: #1f8a3b !important;
+    color: #fff !important;
+  }
+
+  .school-levelbar-dd.bach-dd .bach-tab.is-active {
+    background: #1e3157 !important;
+    border-color: #1e3157 !important;
+    color: #fff !important;
+  }
+
+  /* Chips (grados) como grid 2 columnas */
+  .school-levelbar-dd.bach-dd .bach-chips {
+    width: 100% !important;
+    margin: 0 !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  /* Los chips ocupan el ancho de su celda */
+  .school-levelbar-dd.bach-dd .bach-chips .school-levelbar-grade {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 10px !important;
+
+    /* Evitar que se rompa o fuerce overflow */
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
+
+/* ===== Bachillerato: panels de chips ===== */
+.bach-chips__panel{ display:none; }
+.bach-chips__panel.is-active{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ===== MOBILE: quitar “óvalo” de tabs Bachillerato ===== */
+@media (max-width: 768px){
+  .school-levelbar-dd.bach-dd .bach-tabs{
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .school-levelbar-dd.bach-dd .bach-tab{
+    border-radius: 12px !important; /* botones normales */
+  }
+}
+
+@media (max-width: 768px){
+  .school-levelbar-dd.bach-dd .bach-chips{
+    display: block !important;
+  }
+
+  .school-levelbar-dd.bach-dd .bach-chips__panel.is-active{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+}
+
+/* ==========================================================
+   OVERRIDE FINAL ÚNICO: mismos estados en TODOS los niveles
+   (activo azul / hover verde) - CECNSR
+   ========================================================== */
+
+/* GRADOS: hover verde */
+.school-levelbar-dd .school-levelbar-grade:hover {
+  background: #1f8a3b !important;
+  border-color: #1f8a3b !important;
+  color: #fff !important;
+}
+
+/* GRADOS: activo azul (y no cambia con hover) */
+.school-levelbar-dd .school-levelbar-grade.is-grade-active,
+.school-levelbar-dd .school-levelbar-grade.is-grade-active:hover {
+  background: #1e3157 !important;
+  border-color: #1e3157 !important;
+  color: #fff !important;
+}
+
+/* NIVELES: activo azul (aplica por .school-levelbar-item.is-active y/o .school-levelbar-btn.is-active) */
+.school-levelbar-item.is-active .school-levelbar-btn,
+.school-levelbar-btn.is-active {
+  background: #1e3157 !important;
+  border-color: #1e3157 !important;
+}
+
+.school-levelbar-item.is-active .school-levelbar-btn__label,
+.school-levelbar-item.is-active .school-levelbar-btn__chev,
+.school-levelbar-btn.is-active .school-levelbar-btn__label,
+.school-levelbar-btn.is-active .school-levelbar-btn__chev {
+  color: #fff !important;
+}
+
+/* NIVELES: hover verde SOLO si NO está activo (incluye hover del contenedor) */
+.school-levelbar-item:not(.is-active):hover .school-levelbar-btn,
+.school-levelbar-item:not(.is-active) .school-levelbar-btn:hover,
+.school-levelbar-item:not(.is-active):focus-within .school-levelbar-btn {
+  background: #1f8a3b !important;
+  border-color: #1f8a3b !important;
+}
+
+.school-levelbar-item:not(.is-active):hover .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active):hover .school-levelbar-btn__chev,
+.school-levelbar-item:not(.is-active) .school-levelbar-btn:hover .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active) .school-levelbar-btn:hover .school-levelbar-btn__chev,
+.school-levelbar-item:not(.is-active):focus-within .school-levelbar-btn__label,
+.school-levelbar-item:not(.is-active):focus-within .school-levelbar-btn__chev {
+  color: #fff !important;
+}
+
+/* Si está activo, aunque haya hover por el dropdown, se queda azul */
+.school-levelbar-item.is-active:hover .school-levelbar-btn,
+.school-levelbar-item.is-active:focus-within .school-levelbar-btn,
+.school-levelbar-item.is-active .school-levelbar-btn:hover {
+  background: #1e3157 !important;
+  border-color: #1e3157 !important;
+}
+
+/* Fallback: si por alguna razón no cae is-grade-active, aria-current pinta igual */
+.school-levelbar-grade[aria-current="page"],
+.school-levelbar-grade[aria-current="true"] {
+  background: #1e3157 !important;
+  border-color: #1e3157 !important;
+  color: #fff !important;
+}

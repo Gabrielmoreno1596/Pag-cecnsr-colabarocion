@@ -1,0 +1,101 @@
+{
+  "title": "Lista de útiles - 2° Brto. Técnicos",
+  "year": "2026",
+  "note": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca.",
+    "Los materiales de especialidad aplican únicamente a la especialidad correspondiente."
+  ],
+  "mineduc": [
+    "6 cuadernos rayados #3.",
+    "3 cuadernos cuadriculados #3 (8 mm).",
+    "1 borrador de goma.",
+    "4 lápices.",
+    "6 lapiceros (rojo, azul y negro).",
+    "1 sacapunta metálica.",
+    "1 caja de plumones.",
+    "1 estuche de geometría.",
+    "1 caja de colores 12 unidades doble punta.",
+    "1 libro ESMATE.",
+    "1 tijera grande.",
+    "1 compás.",
+    "1 marcador fluorescente.",
+    "1 barra de pegamento.",
+    "1 corrector.",
+    "1 calculadora científica.",
+    "1 paquete de libros (se venderá en la institución).",
+    "1 gabacha gris tela Sincatex #173 (puede adquirir la tela en la institución si desea).",
+    "1 bolsón transparente.",
+    "1 memoria USB de 4GB (para uso personal)."
+  ],
+  "all_students": [
+    "2 cinta adesiva transparente ancha.",
+    "1 tirro.",
+    "2 pilot para pizarra (500).",
+    "1 pilot permanente (90).",
+    "25 páginas de colores.",
+    "25 páginas de papel bond blancas, tamaño carta.",
+    "1 paquete de toallas sanitarias nocturnas (solo las señoritas).",
+    "1 paquete de papel higiénico (6 rollos).",
+    "1 pliego de foamy negro escarchado.",
+    "2 silicón (250 ml).",
+    "2 pliegos de papel kraft.",
+    "2 pliegos de papel bond.",
+    "1 pliego de papel lustre (de cualquier color).",
+    "1 pliego de cartón espuma blanco.",
+    "1 pliego de cartón espuma negro."
+  ],
+  "others": [],
+  "specialties": {
+    "Logística Comercial y Global": [
+      "1 cartapacio blanco de 3 pulgadas y fundas protectoras.",
+      "1 recopilación de leyes aduaneras El Salvador."
+    ],
+    "Atención Primaria en Salud": [
+      "1 reloj de aguja (brazalete negro).",
+      "1 termómetro.",
+      "1 gabacha blanca.",
+      "1 cartapacio blanco de 3 pulgadas y fundas protectoras.",
+      "1 frasco de alcohol gel (8 onzas).",
+      "25 páginas de papel bond tamaño carta.",
+      "1 set de toallas (2 de mano y 1 de baño)."
+    ],
+    "Electrónica": {
+      "Electrónica": [
+        "3 cuadernos cuadriculados #3 (Matemática, Lenguaje y módulos).",
+        "4 cuadernos rayados #3.",
+        "1 cartapacio blanco de 3 pulgadas y fundas protectoras.",
+        "1 pliego de foamy café escarchado.",
+        "1 pliego de foamy plateado escarchado.",
+        "1 tabla para escribir.",
+        "1 cinta métrica."
+      ],
+      "Herramientas y equipos": [
+        "1 juego de desarmadores.",
+        "1 tester o multímetro.",
+        "1 pinza.",
+        "1 alicate.",
+        "1 tenaza de electricista.",
+        "1 desoldador.",
+        "1 pasta de soldar.",
+        "1 extensión 120V (5 m).",
+        "1 cuchilla de electricista.",
+        "1 breadboard.",
+        "1 tableta de cobre para impresos.",
+        "4 pares de caimanes.",
+        "2 onzas de percloruro.",
+        "4 brocas de 1/32.",
+        "1 franela.",
+        "1 marco de sierra con sierra.",
+        "1 libra de estaño 60/40.",
+        "1 taladro o dremel.",
+        "1 porta cautín.",
+        "1 cinta aislante.",
+        "1 caja de herramientas."
+      ]
+    },
+    "Servicios Turísticos": [
+      "1 pliego de foamy dorado escarchado.",
+      "1 cartapacio blanco de 3 pulgadas y fundas protectoras."
+    ]
+  }
+}

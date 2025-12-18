@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/config.mail.php';
 $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
@@ -12,7 +12,7 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
     <title>CECNSR | Nuevo Ingreso</title>
 
     <link rel="stylesheet" href="<?= BASE_URL ?>styles.css?v=<?= ASSET_VER ?? '1' ?>">
-    <!-- Deja una sola inclusión de ni-form.css -->
+    <!-- Deja una sola inclusiÃ³n de ni-form.css -->
     <link rel="stylesheet" href="<?= asset('assets/partials/nuevo-ingreso/css/ni-form.css') ?>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -28,7 +28,7 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
 
     <main id="main-content" class="ni ni-page">
         <?php
-        // Componer la sección usando componentes
+        // Componer la secciÃ³n usando componentes
         require PROJECT_PATH . 'assets/partials/nuevo-ingreso/main.php';
 
         ?>
@@ -36,17 +36,18 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
 
     <?php require PROJECT_PATH . 'assets/partials/footer.php'; ?>
 
-    <!-- reCAPTCHA (ajusta según v2/v3) -->
-    <?php if (!empty($RECAPTCHA_SITE_KEY)): ?>
-        <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars($RECAPTCHA_SITE_KEY) ?>"></div>
-    <?php endif; ?>
-
+    <!-- reCAPTCHA (ajusta segÃºn v2/v3) -->
     <?php if (RECAPTCHA_ENABLED): ?>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <?php endif; ?>
 
+
+
+
+
     <script type="module" src="<?= asset('assets/partials/nuevo-ingreso/js/ni-form.js') ?>"></script>
-    <!-- Si tienes lógica adicional modularizada -->
+    <!-- Si tienes lÃ³gica adicional modularizada -->
+    <!-- Lógica de envío del formulario -->
     <script>
         (() => {
             const form = document.querySelector('#form-nuevo-ingreso');
@@ -57,28 +58,39 @@ $sent = isset($_GET['ok']) && $_GET['ok'] === '1';
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
                 btn.disabled = true;
-                btn.textContent = 'Enviando...';
+                btn.textContent = "Enviando...";
                 msg.textContent = '';
 
                 try {
-                    const res = await fetch(form.action, {
+                    const endpoint = form.getAttribute('action') || 'enviar.php';
+                    const res = await fetch(endpoint, {
                         method: 'POST',
                         body: new FormData(form)
                     });
+
                     let data;
-                    try {
-                        data = await res.json();
-                    } catch {
+                    if (!res.ok) {
                         data = {
                             ok: false,
-                            msg: 'Respuesta no válida del servidor.'
+                            message: 'El servidor devolvió estado ' + res.status
                         };
+                    } else {
+                        try {
+                            data = await res.json();
+                        } catch {
+                            data = {
+                                ok: false,
+                                message: 'Respuesta no válida del servidor.'
+                            };
+                        }
                     }
 
                     msg.style.color = data.ok ? 'green' : 'crimson';
-                    msg.textContent = data.msg || (data.ok ? 'Enviado.' : 'Error.');
-                    if (data.ok) form.reset();
-                    if (window.grecaptcha && grecaptcha.reset) grecaptcha.reset();
+                    msg.textContent = data.message || (data.ok ? 'Enviado.' : 'Error.');
+                    if (data.ok) {
+                        form.reset();
+                        if (window.grecaptcha && grecaptcha.reset) grecaptcha.reset();
+                    }
                 } catch {
                     msg.style.color = 'crimson';
                     msg.textContent = 'Error de red. Intenta de nuevo.';

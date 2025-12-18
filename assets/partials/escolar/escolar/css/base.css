@@ -1,0 +1,23 @@
+.school-hero,
+.school-levelbar,
+.school-tools {
+  font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+  color: var(--text-900);
+}
+
+.school-max {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+}
+
+.school-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: var(--text-700);
+  font-weight: 700;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,41 @@
+{
+  "all_students": [
+    "(Pendiente de cargar lista oficial)"
+  ],
+  "year": "2026",
+  "note": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca."
+  ],
+  "others": [
+    "(Pendiente de cargar lista oficial)"
+  ],
+  "title": "Lista de útiles - 3° Brto. ST",
+  "mineduc": [],
+  "notes": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca."
+  ],
+  "sections": [
+    {
+      "key": "mineduc",
+      "label": "Paquete Escolar MINEDUCYT",
+      "hint": "Elementos provistos por el Ministerio.",
+      "items": []
+    },
+    {
+      "key": "others",
+      "label": "Otros materiales para utilizar",
+      "hint": "Recomendados por el colegio.",
+      "items": [
+        "(Pendiente de cargar lista oficial)"
+      ]
+    },
+    {
+      "key": "all_students",
+      "label": "Para todos los estudiantes de este grado",
+      "hint": "Útiles comunes por sección.",
+      "items": [
+        "(Pendiente de cargar lista oficial)"
+      ]
+    }
+  ]
+}

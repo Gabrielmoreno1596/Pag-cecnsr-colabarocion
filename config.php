@@ -45,6 +45,11 @@ if (!defined('ASSET_MANIFEST_PATH')) {
     define('ASSET_MANIFEST_PATH', PROJECT_PATH . 'manifest.json');
 }
 
+// Ruta absoluta al logo institucional (para PDFs/impresiones)
+if (!defined('CECNSR_LOGO_FS')) {
+    define('CECNSR_LOGO_FS', PROJECT_PATH . 'assets/1_CECNSR.png');
+}
+
 
 function asset(string $path): string
 {
@@ -87,4 +92,3 @@ function asset(string $path): string
     $sep = (strpos($trimmed, '?') === false) ? '?' : '&';
     return $base . $trimmed . $sep . 'v=' . rawurlencode((string)$ver);
 }
-

@@ -1,0 +1,200 @@
+.school-tools {
+  width: min(1100px, 94%);
+  margin: 26px auto 90px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Desktop grande: el contenido debe aprovechar más ancho (menos “centrado”) */
+@media (min-width: 1200px) {
+  .school-tools {
+    width: min(1320px, 96%);
+  }
+}
+
+@media (min-width: 1500px) {
+  .school-tools {
+    width: min(1440px, 94%);
+  }
+}
+
+.school-tools-head__eyebrow {
+  margin: 0;
+  color: var(--cecns-green);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.school-tools-head__title {
+  margin: 2px 0 4px;
+  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
+  color: #123766;
+  font-weight: 800;
+  margin-top: 2rem;
+}
+
+.school-tools-head__subtitle {
+  margin: 0;
+  color: var(--text-500);
+}
+
+.school-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.school-tools-card {
+  background: var(--surface);
+  border: 1px solid #e8ecf3;
+  border-radius: var(--radius-2);
+  padding: 16px 16px 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Tarjetas que deben ocupar el ancho completo del grid (2 columnas en desktop) */
+.school-tools-card--wide {
+  grid-column: span 2;
+}
+
+.school-tools-card__head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #123766;
+}
+
+.school-tools-card__head p {
+  margin: 4px 0 10px;
+  color: var(--text-500);
+  font-size: 0.95rem;
+}
+
+.school-tools-note {
+  grid-column: span 2;
+  background: #fff8e4;
+  border: 1px solid #ffe2a8;
+  border-radius: var(--radius-2);
+  padding: 14px 16px;
+  box-shadow: 0 10px 18px rgba(217, 178, 58, 0.08);
+}
+
+.school-tools-note h3 {
+  margin: 0 0 6px;
+  color: #7a5200;
+}
+
+.school-tools-note p {
+  margin: 2px 0;
+  color: #5f4300;
+}
+
+.school-print-head {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e8ecf3;
+  padding: 10px 12px;
+  border-radius: var(--radius-1);
+  background: #fff;
+}
+
+.school-print-head__logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.school-print-head__title {
+  margin: 0;
+  font-weight: 800;
+}
+
+.school-print-head__meta {
+  margin: 0;
+  color: var(--text-500);
+}
+
+@media (max-width: 960px) {
+  .school-tools__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .school-tools-card--wide {
+    grid-column: span 1;
+  }
+
+  .school-tools-note {
+    grid-column: span 1;
+  }
+}
+
+/* ============================= */
+/* === Especialidades (Bach.) === */
+/* ============================= */
+
+.school-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.school-spec {
+  border: 1px dashed #e8ecf3;
+  border-radius: var(--radius-2);
+  padding: 12px;
+  background: #fbfdff;
+}
+
+.school-spec__title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #123766;
+}
+
+.school-spec__subtitle {
+  margin: 12px 0 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-700);
+}
+
+@media (max-width: 960px) {
+  .school-spec-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .school-tools {
+    margin-bottom: 130px;
+  }
+}
+
+.school-tools-layout {
+  display: block;
+}
+
+@media (min-width: 961px) {
+  .school-tools-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 18px;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .school-tools-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .school-tools-main > * {
+    width: min(980px, 100%);
+  }
+}

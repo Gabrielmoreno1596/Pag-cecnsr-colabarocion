@@ -1,0 +1,34 @@
+{
+  "title": "Lista de materiales escolares 2026",
+  "year": "2026",
+  "notes": [
+    "Educación Inicial y Parvularia",
+    "Sección de 4 años",
+    "Insumos para primeros auxilios: Docente de sección lo asignará.",
+    "Paquete de libros y Material Montessori (adquirirlos en la institución)"
+  ],
+  "sections": [
+    {
+      "key": "materiales",
+      "label": "Materiales del estudiante",
+      "items": [
+        "2- Lápices triangulares gruesos",
+        "1- Caja de colores triangulares gruesos",
+        "2- Borradores de goma",
+        "1- Sacapuntas con depósito y de 2 agujeros",
+        "1- Estuche de tela con zíper (rotulado con el nombre completo del estudiante)",
+        "25- Páginas de colores tamaño carta.",
+        "1- Pliego de foamy (dorado)",
+        "1- Pliego de papel crespón (color primario)",
+        "1- Pliego de papel bond blanco",
+        "1- Tirro de 2 pulgadas.",
+        "1- Pegamento silicón líquido de 250 ml",
+        "5- Hojas para laminar",
+        "2- Rollos de papel higiénico",
+        "1- Jabón líquido de 500 ml para manos",
+        "1- Par de huevos musicales. Juguete didáctico.",
+        "1- Cono anaranjado de 25 cm. aproximadamente."
+      ]
+    }
+  ]
+}

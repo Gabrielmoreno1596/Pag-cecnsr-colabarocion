@@ -1,0 +1,321 @@
+﻿/* ==========================================================
+   actions.css (Limpio y consistente) - CECNSR
+   ========================================================== */
+
+:root {
+  --school-motion-dur: 0.25s;
+  --school-motion-ease: ease;
+}
+
+/* ---------- Base (común) ---------- */
+.school-actions {
+  --level-accent: var(--cecns-blue);
+  z-index: 9998;
+}
+
+.school-actions-toggle-checkbox {
+  display: none;
+}
+
+/* Tarjeta: Grado + Imagen */
+.school-actions__head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 12px 12px 14px;
+  border-radius: 16px;
+  border: 1px solid #e8ecf3;
+
+  /* Fondo más “institucional” sin exagerar */
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--cecns-blue) 14%, #ffffff 86%) 0%,
+    #ffffff 55%,
+    color-mix(in srgb, var(--cecns-gold) 16%, #ffffff 84%) 100%
+  );
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* .school-actions__head::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  border-radius: 16px 0 0 16px;
+  background: var(--level-accent);
+} */
+
+.school-actions__grade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 6px;
+}
+
+.school-actions__grade-pill {
+  background: var(--cecns-blue);
+  color: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--cecns-gold) 55%, #ffffff 45%);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.school-actions__img {
+  width: 115px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: contain;
+  animation: schoolFloat 3.8s ease-in-out infinite;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.1));
+}
+
+/* Tarjeta: Contador */
+.school-actions__counter {
+  margin: 0;
+  padding: 12px 12px;
+
+  background: #ffffff;
+  border: 1px solid #e8ecf3;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+
+  color: var(--text-700);
+  font-weight: 700;
+}
+
+.school-actions__counter .kicker {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+
+.school-actions__counter .value {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text-900);
+  margin-bottom: 10px;
+}
+
+.school-actions__counter .bar {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: #eef2f7;
+  overflow: hidden;
+}
+
+.school-actions__counter .bar > span {
+  display: block;
+  height: 100%;
+  width: var(--progress, 0%);
+  background: linear-gradient(90deg, #1e3157, #1e3157);
+  border-radius: 999px;
+}
+
+/* Botones */
+.school-actions__btn {
+  width: 100%;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: filter 0.15s ease, transform 0.08s ease;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+}
+
+.school-actions__btn:active {
+  transform: translateY(1px);
+}
+
+.school-actions__btn--download {
+  background: var(--cecns-gold);
+  color: #1b1b1b;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.school-actions__btn--print {
+  background: var(--cecns-blue);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.school-actions__btn:hover {
+  filter: brightness(0.97);
+}
+
+.school-actions-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.school-actions-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Desktop (panel fijo a la derecha) ---------- */
+@media (min-width: 961px) {
+  .school-actions {
+    position: fixed;
+    top: 92px;
+    right: 12px;
+    width: 280px;
+    max-width: 280px;
+    pointer-events: auto;
+  }
+
+  .school-actions-toggle {
+    display: none !important;
+  }
+
+  .school-actions-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ---------- Móvil (dock inferior con toggle) ---------- */
+@media (max-width: 960px) {
+  .school-actions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 10px 10px;
+    pointer-events: none;
+  }
+
+  .school-actions-inner {
+    pointer-events: auto;
+    position: relative;
+    background: #fffaf0;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.2);
+
+    /* espacio para el handle/toggle */
+    padding: 26px 10px 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    /* CERRADO: deja visible un “handle” */
+    transform: translateY(calc(100% - 58px));
+    opacity: 1;
+
+    transition: transform var(--school-motion-dur) var(--school-motion-ease);
+    will-change: transform;
+  }
+
+  .school-actions.is-open {
+    pointer-events: auto;
+  }
+
+  .school-actions.is-open .school-actions-inner {
+    transform: translateY(0);
+  }
+
+  .school-actions__head {
+    grid-template-columns: 1fr 76px;
+  }
+
+  .school-actions__img {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Botones en fila con scroll si no caben */
+  .school-actions-top {
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .school-actions-top::-webkit-scrollbar {
+    display: none;
+  }
+
+  .school-actions-top .school-actions__btn {
+    width: auto;
+    flex: 0 0 auto;
+    font-size: 0.85rem;
+    padding: 9px 12px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Toggle flotante */
+  .school-actions-toggle {
+    display: inline-flex;
+    pointer-events: auto;
+
+    position: absolute;
+    left: 50%;
+    top: -18px;
+    transform: translateX(-50%);
+
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    font-weight: 800;
+    z-index: 2;
+  }
+
+  .school-actions-toggle .icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .school-actions-toggle.is-closed {
+    background: var(--cecns-blue);
+  }
+
+  .school-actions-toggle.is-open {
+    background: var(--cecns-green);
+  }
+}
+
+@keyframes schoolFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "year": 2026,
+  "title": "Lista de útiles de Cuarto Grado",
+  "mineduc": [
+    "4 cuadernos engrapados rayados 100 hojas (1 para Inglés, 1 Música, 1 Informática, 1 Alemán).",
+    "1 cuaderno engrapado cuadriculado 100 hojas (para calculemos).",
+    "1 borrador de goma.",
+    "1 caja de colores 12 unidades.",
+    "1 sacapunta.",
+    "2 lápices.",
+    "3 lapiceros.",
+    "1 tijera punta redonda metálica.",
+    "1 regla de 30 cm."
+  ],
+  "others": [
+    "5 cuadernos rayados cosidos #3 (1 Comunicación, 1 Ciudadanía, 1 lectoescritura, 1 Ciencias, 1 Educación en la fe) rotulados con nombre completo del estudiante.",
+    "3 cuadernos engrapados cuadriculados #3 (8mm) (Matemáticas, Artística y Ajedrez).",
+    "1 flauta marca Yamaha o MAPED (no plástica).",
+    "1 bote de Resistol líquido o pega en barra.",
+    "Paquete de libros (se puede adquirir en la institución).",
+    "Gabacha color gris #173 SINCATEX, manga corta, con su nombre bordado blanco en la manga izquierda, sin bolsas (puede adquirir la tela en la institución si lo desea).",
+    "1 bolsón transparente.",
+    "1 estuche portalápices de tela o plástico con zíper y rotulado (no caja plástica)."
+  ],
+  "note": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca.",
+    "Por favor, todos los pliegos entregarlos sin enrollar ni doblar."
+  ],
+  "all_students": [
+    "100 páginas blancas, base 20, tamaño carta.",
+    "25 páginas color café, base 20, tamaño carta.",
+    "25 páginas color azul, base 20, tamaño carta.",
+    "1 pliego de papel craft.",
+    "2 pliegos cartulina iris (morada, azul).",
+    "2 pliegos de papel bond blanco.",
+    "2 lápices triangulares.",
+    "1 bote de alcohol gel.",
+    "4 rollos de papel higiénico mil hojas.",
+    "1 bollo de lana (niñas).",
+    "1 caja de clip 50 mm (niños).",
+    "2 plumones 509 (2 azul).",
+    "1 tirro delgado.",
+    "2 papel crespón (1 amarillo, 1 blanco).",
+    "1 rollo de plástico adhesivo transparente.",
+    "1 tape transparente grueso de 2 pulgadas.",
+    "1 toallita de manos.",
+    "2 yardas de carpeta plástica azul.",
+    "1 blister de acetaminofén (niñas).",
+    "1 venda elástica ancho 5 cm (varones).",
+    "1 bote de silicón líquido de 250 ml.",
+    "1 pliego de foamy negro."
+  ],
+  "notes": [
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca.",
+    "Por favor, todos los pliegos entregarlos sin enrollar ni doblar."
+  ],
+  "sections": [
+    {
+      "key": "mineduc",
+      "label": "Paquete Escolar MINEDUCYT",
+      "hint": "Elementos provistos por el Ministerio.",
+      "items": [
+        "4 cuadernos engrapados rayados 100 hojas (1 para Inglés, 1 Música, 1 Informática, 1 Alemán).",
+        "1 cuaderno engrapado cuadriculado 100 hojas (para calculemos).",
+        "1 borrador de goma.",
+        "1 caja de colores 12 unidades.",
+        "1 sacapunta.",
+        "2 lápices.",
+        "3 lapiceros.",
+        "1 tijera punta redonda metálica.",
+        "1 regla de 30 cm."
+      ]
+    },
+    {
+      "key": "others",
+      "label": "Otros materiales para utilizar",
+      "hint": "Recomendados por el colegio.",
+      "items": [
+        "5 cuadernos rayados cosidos #3 (1 Comunicación, 1 Ciudadanía, 1 lectoescritura, 1 Ciencias, 1 Educación en la fe) rotulados con nombre completo del estudiante.",
+        "3 cuadernos engrapados cuadriculados #3 (8mm) (Matemáticas, Artística y Ajedrez).",
+        "1 flauta marca Yamaha o MAPED (no plástica).",
+        "1 bote de Resistol líquido o pega en barra.",
+        "Paquete de libros (se puede adquirir en la institución).",
+        "Gabacha color gris #173 SINCATEX, manga corta, con su nombre bordado blanco en la manga izquierda, sin bolsas (puede adquirir la tela en la institución si lo desea).",
+        "1 bolsón transparente.",
+        "1 estuche portalápices de tela o plástico con zíper y rotulado (no caja plástica)."
+      ]
+    },
+    {
+      "key": "all_students",
+      "label": "Para todos los estudiantes de este grado",
+      "hint": "Útiles comunes por sección.",
+      "items": [
+        "100 páginas blancas, base 20, tamaño carta.",
+        "25 páginas color café, base 20, tamaño carta.",
+        "25 páginas color azul, base 20, tamaño carta.",
+        "1 pliego de papel craft.",
+        "2 pliegos cartulina iris (morada, azul).",
+        "2 pliegos de papel bond blanco.",
+        "2 lápices triangulares.",
+        "1 bote de alcohol gel.",
+        "4 rollos de papel higiénico mil hojas.",
+        "1 bollo de lana (niñas).",
+        "1 caja de clip 50 mm (niños).",
+        "2 plumones 509 (2 azul).",
+        "1 tirro delgado.",
+        "2 papel crespón (1 amarillo, 1 blanco).",
+        "1 rollo de plástico adhesivo transparente.",
+        "1 tape transparente grueso de 2 pulgadas.",
+        "1 toallita de manos.",
+        "2 yardas de carpeta plástica azul.",
+        "1 blister de acetaminofén (niñas).",
+        "1 venda elástica ancho 5 cm (varones).",
+        "1 bote de silicón líquido de 250 ml.",
+        "1 pliego de foamy negro."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "all_students": [
+    "2\tCinta Adesiva transparente ancha",
+    "1\tTirro",
+    "1\tPilot para pizarra (500)",
+    "1\tPilot permanente (90)",
+    "25\tPáginas de colores",
+    "25\tPáginas de papel bond, blancas,  tamaño carta",
+    "1\tPaquete de toallas sanitarias NOCTURNAS ( SOLO LAS SEÑORITAS)",
+    "1\tPaquete de papel higiénico (6 rollos)",
+    "1\tPliego de cartulina iris dorada",
+    "1\tPliego de cartulina iris negra",
+    "2\tPliego de foamy dorado y negro escarchado",
+    "2\tSilicón (250 ml)",
+    "2\tPliegos de papel Kraft",
+    "2\tPliego de papel Bond",
+    "1\tPliego de cartón espuma",
+    "2\tlibros de dibujos - pasta gruesa",
+    "1\tCartapasio blanco de 3 pulgadas y fundas protectoras",
+    "1\tcajita de herramientas para kit quirurgico",
+    "1\tbolsas rojay negra mediana",
+    "1\tSet de tuallas grande, mediano y pqueño de baño",
+    "1\tTermometro y estetoscopio manual"
+  ],
+  "year": "2026",
+  "note": [],
+  "others": [],
+  "title": "PRIMER Año de Bachillerato Técnicos",
+  "mineduc": [
+    "6\tCuadernos rayados #3",
+    "3\tCuadernos cuadriculados #3 8MM",
+    "1\tBorrador de goma",
+    "4\tLápices",
+    "6\tLapiceros (rojo, azul y negro)",
+    "1\tSacapunta metálica",
+    "1\tCaja de Plumones",
+    "1\tEstuche de geometría",
+    "1\tCaja de colores 12 Unid. DOBLE PUNTA",
+    "1\tLibro ESMATE",
+    "3\tCuadernos cuadriculados (8mm) #1",
+    "2\tCuadernos rayados #1",
+    "1\tCuaderno rayado #3 cocido",
+    "1\tEngrapadora personal",
+    "1\tGabacha gris tela Sincatex #173, puede adquirir la tela en la institución si desea",
+    "1\tBolsón transparente",
+    "1\tMemoria USB de 4GB (Para uso personal)",
+    "1\tPaquete de Libros (Se venderá en la institución)"
+  ],
+  "notes": [],
+  "sections": [
+    {
+      "key": "mineduc",
+      "label": "Paquete de MINED incluye:",
+      "hint": "",
+      "items": [
+        "6\tCuadernos rayados #3",
+        "3\tCuadernos cuadriculados #3 8MM",
+        "1\tBorrador de goma",
+        "4\tLápices",
+        "6\tLapiceros (rojo, azul y negro)",
+        "1\tSacapunta metálica",
+        "1\tCaja de Plumones",
+        "1\tEstuche de geometría",
+        "1\tCaja de colores 12 Unid. DOBLE PUNTA",
+        "1\tLibro ESMATE",
+        "3\tCuadernos cuadriculados (8mm) #1",
+        "2\tCuadernos rayados #1",
+        "1\tCuaderno rayado #3 cocido",
+        "1\tEngrapadora personal",
+        "1\tGabacha gris tela Sincatex #173, puede adquirir la tela en la institución si desea",
+        "1\tBolsón transparente",
+        "1\tMemoria USB de 4GB (Para uso personal)",
+        "1\tPaquete de Libros (Se venderá en la institución)"
+      ]
+    },
+    {
+      "key": "entregar",
+      "label": "MATERIALES A ENTREGAR",
+      "hint": "",
+      "items": [
+        "2\tCinta Adesiva transparente ancha",
+        "1\tTirro",
+        "1\tPilot para pizarra (500)",
+        "1\tPilot permanente (90)",
+        "25\tPáginas de colores",
+        "25\tPáginas de papel bond, blancas,  tamaño carta",
+        "1\tPaquete de toallas sanitarias NOCTURNAS ( SOLO LAS SEÑORITAS)",
+        "1\tPaquete de papel higiénico (6 rollos)",
+        "1\tPliego de cartulina iris dorada",
+        "1\tPliego de cartulina iris negra",
+        "2\tPliego de foamy dorado y negro escarchado",
+        "2\tSilicón (250 ml)",
+        "2\tPliegos de papel Kraft",
+        "2\tPliego de papel Bond",
+        "1\tPliego de cartón espuma",
+        "2\tlibros de dibujos - pasta gruesa",
+        "1\tCartapasio blanco de 3 pulgadas y fundas protectoras",
+        "1\tcajita de herramientas para kit quirurgico",
+        "1\tbolsas rojay negra mediana",
+        "1\tSet de tuallas grande, mediano y pqueño de baño",
+        "1\tTermometro y estetoscopio manual"
+      ]
+    }
+  ],
+  "specialties": {
+    "Electrónica - Herramientas y Equipos": [
+      "1\tJuego de desarmadores",
+      "4\tPares de caimanes",
+      "1\tTester o multimetro",
+      "2\tOnzas de Perclorudo",
+      "1\tPinza",
+      "4\tbrocas de 1/32",
+      "1\tAlicate",
+      "1\tFranela",
+      "1\tTenaza de electricista",
+      "1\tMarco de sierra con sierra",
+      "1\tDesoldador",
+      "1\tLibra de estaño 60/40",
+      "1\tPasta de soldar",
+      "1\tTaladro o dremel",
+      "1\textencion 120v 5mts",
+      "1\tPorta Cautin",
+      "1\tcuchilla de electricista",
+      "1\tCinta Aislante",
+      "1\tBreadboard",
+      "1\tCaja de Herramientas",
+      "1\ttableta de cobre para impresos"
+    ],
+    "Servicios Turísticos": {
+      "Vajilla personal totalmente color blanco de china (porcelana) que contenga:": [
+        "1\tPlato base",
+        "1\tPlato mediano",
+        "1\tPaila",
+        "1\tTaza",
+        "1\tCopas para vino"
+      ],
+      "Juegos de Cubiertos": [
+        "1\tCuchara",
+        "1\tTenedor",
+        "1\tCuchillo de mesa",
+        "1\tCucharita para postre"
+      ]
+    },
+    "Administrativo Contable": [
+      "4\tCuadernos cuadriculados #3",
+      "3\tCuadernos rayados #3",
+      "1\tCuaderno pequeño",
+      "100\tPáginas blinder (Libro auxiliar Mayor)",
+      "1\tCartapacio blanco de 3 Pulgadas y fundas protectoras",
+      "25\tPáginas de papel bond tamaño carta"
+    ]
+  }
+}

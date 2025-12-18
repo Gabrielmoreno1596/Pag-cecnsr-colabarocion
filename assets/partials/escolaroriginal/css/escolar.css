@@ -1,0 +1,24 @@
+@import url("base.css");
+@import url("hero.css");
+@import url("levelbar.css");
+@import url("list.css");
+@import url("checklist.css");
+@import url("actions.css");
+@import url("print.css");
+
+:root {
+  /* Paleta institucional CECNSR */
+  --cecns-blue: #1f335a;
+  --cecns-wine: #7a1f3d;
+  --cecns-gold: #d9b23a;
+  --cecns-green: #1f8a3b;
+
+  --text-900: #1f2a37;
+  --text-700: #3f4a5f;
+  --text-500: #6b7280;
+  --bg-soft: #f6f8fc;
+  --surface: #ffffff;
+  --radius-1: 12px;
+  --radius-2: 16px;
+  --shadow-1: 0 10px 24px rgba(0, 0, 0, 0.08);
+}

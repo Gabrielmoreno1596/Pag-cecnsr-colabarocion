@@ -1,0 +1,25 @@
+<?php
+$base = 'assets/partials/convenios/pasch';
+
+return [
+    'base' => $base,
+    'eyebrow' => 'Convenios y Alianzas',
+    'title' => 'Colegios PASCH — alianza para el alemán y el intercambio cultural',
+    'lead'  => 'El CECNSR forma parte de las instituciones <strong>asociadas</strong> a la iniciativa <em>Schulen: Partner der Zukunft (PASCH)</em>, impulsando el aprendizaje del alemán, el intercambio intercultural y oportunidades formativas para nuestros estudiantes.',
+    'cta' => [
+        ['label' => 'Más información', 'href' => '#CECNSR', 'class' => 'btn-solid'],
+        ['label' => 'Experiencias', 'href' => '#experiencias', 'class' => 'btn-outline'],
+    ],
+    'logos' => [
+        ['src' => "$base/image/logos/pasch.png", 'alt' => 'PASCH'],
+        ['src' => "$base/image/logos/1_CECNSR.png", 'alt' => 'CECNSR'],
+    ],
+    'slides' => [
+        ['src' => "$base/image/hero/pasch-vijaron.jpeg", 'alt' => 'Estudiantes CECNSR en programa PASCH'],
+        ['src' => "$base/image/hero/pasch-img2.jpeg", 'alt' => 'Visita y convivencia multicultural'],
+        ['src' => "$base/image/hero/pasch-img3.jpeg", 'alt' => 'Actividades y clausura'],
+        ['src' => "$base/image/hero/pasch-img7.png", 'alt' => 'Grupo internacional PASCH'],
+        ['src' => "$base/image/hero/pasch-mateo1.png", 'alt' => 'Goethe-Institut Bamberg A2'],
+        ['src' => "$base/image/hero/pasch-mateo3.png", 'alt' => 'Talleres y práctica del idioma'],
+    ],
+];
