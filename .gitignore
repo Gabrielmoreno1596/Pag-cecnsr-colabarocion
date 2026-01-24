@@ -5,3 +5,54 @@ config.mail.php
 
 # build de imágenes, no subir
 assets_web/
+*.zip
+*.pdf
+*.xls
+*.xlsx
+
+# =========================
+# Backups / comprimidos
+# =========================
+*.zip
+*.rar
+*.7z
+
+# =========================
+# Imágenes pesadas / crudas (NO necesarias)
+# =========================
+*.psd
+*.tiff
+*.raw
+*.heic
+
+# =========================
+# Uploads / contenido dinámico
+# (generalmente fotos grandes o material de usuarios)
+# =========================
+assets/uploads/
+assets/gallery/
+assets/galeria/
+assets/fotos/
+
+# =========================
+# PDFs grandes (si se vuelven demasiado pesados)
+# =========================
+assets/pdf/
+
+
+assets/partials/avisos/img/
+
+
+assets/partials/convenios/4pr/image
+assets/partials/convenios/integracion/image
+assets/partials/convenios/pasch/image
+assets/partials/convenios/proyecto-dual/image
+
+
+assets/partials/escolar/img
+
+assets/partials/inicio/image
+
+assets/partials/nuevo-ingreso/image
+
+assets/partials/pastoral-educativa/image
