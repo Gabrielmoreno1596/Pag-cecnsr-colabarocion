@@ -1,5 +1,5 @@
 <?php
-$base = BASE_URL . 'assets/partials/convenios/proyecto-dual/image/';
+$base = BASE_URL . 'assets/img/convenios/proyecto-dual/';
 return [
     'title' => 'Galería',
     'items' => [

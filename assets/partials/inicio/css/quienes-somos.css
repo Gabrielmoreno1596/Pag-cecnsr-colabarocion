@@ -76,55 +76,44 @@
 }
 
 .history-carousel-track {
-  display: flex;
-  width: fit-content;
+  /*
+    Ajuste solicitado (Tarea 2):
+    - Evitar desbordamiento y que las imágenes "pasen" horizontalmente.
+    - Mostrar UNA imagen a la vez en el mismo espacio (fade), sin carrusel.
+    - El JS (app.js) añade .is-fade y alterna .is-active.
+  */
+  position: relative;
+  width: 100%;
   height: 100%;
-  animation: slide-carousel 20s infinite linear;
+  display: block;
 }
 
 .history-carousel-img {
-  width: 400px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  flex-shrink: 0;
   border-radius: 10px;
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 850ms ease;
 }
 
-/* Keyframes historia */
-@keyframes slide-carousel {
-  0% {
-    transform: translateX(0);
-  }
-  15% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-400px);
-  }
-  35% {
-    transform: translateX(-400px);
-  }
-  40% {
-    transform: translateX(-800px);
-  }
-  55% {
-    transform: translateX(-800px);
-  }
-  60% {
-    transform: translateX(-1200px);
-  }
-  75% {
-    transform: translateX(-1200px);
-  }
-  80% {
-    transform: translateX(-1600px);
-  }
-  95% {
-    transform: translateX(-1600px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+/* Estado activo controlado por JS */
+.history-carousel-img.is-active {
+  opacity: 1;
+}
+
+/* Fallback sin JS: deja la primera visible */
+html:not(.js) .history-carousel-img {
+  position: static;
+  opacity: 1;
+  display: none;
+  transform: none;
+}
+html:not(.js) .history-carousel-img:first-child {
+  display: block;
 }
 
 /* Responsive */
@@ -144,46 +133,5 @@
     min-width: unset;
     width: 100%;
     height: 300px;
-  }
-
-  .history-carousel-img {
-    width: 100%;
-  }
-
-  /* Keyframes mobile */
-  @keyframes slide-carousel {
-    0% {
-      transform: translateX(0%);
-    }
-    15% {
-      transform: translateX(0%);
-    }
-    20% {
-      transform: translateX(-100%);
-    }
-    35% {
-      transform: translateX(-100%);
-    }
-    40% {
-      transform: translateX(-200%);
-    }
-    55% {
-      transform: translateX(-200%);
-    }
-    60% {
-      transform: translateX(-300%);
-    }
-    75% {
-      transform: translateX(-300%);
-    }
-    80% {
-      transform: translateX(-400%);
-    }
-    95% {
-      transform: translateX(-400%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
   }
 }

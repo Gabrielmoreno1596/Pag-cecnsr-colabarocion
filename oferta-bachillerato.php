@@ -40,6 +40,9 @@
 
   <!-- JS global del sitio -->
   <script defer src="<?= asset('script.js'); ?>"></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/oferta-academica/oferta-bachillerato/css/oferta-bachillerato.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/oferta-academica/oferta-bachillerato/js/app.js'); ?>"></script>
+
 </body>
 
 </html>

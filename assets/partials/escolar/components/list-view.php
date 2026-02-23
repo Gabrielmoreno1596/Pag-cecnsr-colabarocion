@@ -201,6 +201,231 @@ function getNotesFromData(array $data): array
     return [];
 }
 
+
+/**
+ * ===============================
+ * Forrado de cuadernos (por grado)
+ *
+ * - Se lee desde: data/notebook-covers-2026.json
+ * - No modifica los JSON actuales de útiles.
+ * ===============================
+ */
+function loadNotebookCovers(): array
+{
+    static $cache = null;
+    if ($cache !== null) return $cache;
+
+    $file = __DIR__ . "/../data/notebook-covers-2026.json";
+    if (!is_readable($file)) {
+        $cache = [];
+        return $cache;
+    }
+
+    $json = file_get_contents($file);
+    $decoded = json_decode($json, true);
+    $cache = is_array($decoded) ? $decoded : [];
+    return $cache;
+}
+
+function getNotebookCoverForGrade(string $gradeKey): ?array
+{
+    $covers = loadNotebookCovers();
+    $info = $covers[$gradeKey] ?? null;
+    return is_array($info) ? $info : null;
+}
+
+function normalizeCoverColorKey(string $color): string
+{
+    $c = trim(function_exists('mb_strtolower') ? mb_strtolower($color, 'UTF-8') : strtolower($color));
+    $c = strtr($c, [
+        'á' => 'a',
+        'é' => 'e',
+        'í' => 'i',
+        'ó' => 'o',
+        'ú' => 'u',
+        'à' => 'a',
+        'è' => 'e',
+        'ì' => 'i',
+        'ò' => 'o',
+        'ù' => 'u',
+        'ü' => 'u',
+        'ñ' => 'n'
+    ]);
+
+    $c = str_replace(['(', ')'], '', $c);
+    $c = preg_replace('/\s+/', ' ', $c);
+    $c = str_replace(['—', '–', '-', '/', '|'], ' ', $c);
+    $c = preg_replace('/[^a-z0-9 ]+/', '', $c);
+    $c = preg_replace('/\s+/', ' ', $c);
+
+    return trim($c);
+}
+
+function coverSwatchStyle(string $colorLabel): string
+{
+    $k = normalizeCoverColorKey($colorLabel);
+
+    // Casos especiales
+    if (strpos($k, 'papel') !== false || strpos($k, 'regalo') !== false || strpos($k, 'revista') !== false || strpos($k, 'diario') !== false) {
+        return 'background: repeating-linear-gradient(45deg, rgba(255,255,255,.20) 0 6px, rgba(255,255,255,.06) 6px 12px);';
+    }
+
+    if ($k == 'negro rojo amarillo' || $k == 'negro rojo amarilla' || $k == 'negro rojo amarillas') {
+        return 'background: linear-gradient(90deg, #111827 0 33%, #ef4444 33% 66%, #facc15 66% 100%);';
+    }
+
+    if (strpos($k, 'docente') !== false) {
+        return 'background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.18);';
+    }
+
+    $map = [
+        'anaranjado'   => '#f97316',
+        'morado'       => '#8b5cf6',
+        'gris'         => '#9ca3af',
+        'gris oscuro'  => '#374151',
+        'rojo'         => '#ef4444',
+        'verde'        => '#22c55e',
+        'verde oscuro' => '#166534',
+        'azul'         => '#3b82f6',
+        'rosado'       => '#ec4899',
+        'negro'        => '#111827',
+        'amarillo'     => '#facc15',
+        'plateado'     => '#d1d5db',
+        'blanco'       => '#ffffff',
+        'celeste'      => '#38bdf8',
+        'cyan'         => '#22d3ee',
+        'cafe'         => '#92400e',
+        'cafe marron'  => '#92400e',
+        'marron'       => '#78350f'
+    ];
+
+    // Normalizaciones extra
+    $k = str_replace('café', 'cafe', $k);
+    $k = str_replace('marrón', 'marron', $k);
+
+    // Si viene algo tipo "cafe marron" o "cafe marron" ya queda como dos palabras.
+    if (isset($map[$k])) {
+        $bg = $map[$k];
+        // Contraste: si es blanco/plateado/amarillo, bordear para verse en fondo oscuro
+        if (in_array($k, ['blanco', 'plateado', 'amarillo'], true)) {
+            return 'background: ' . $bg . '; border: 1px solid rgba(0,0,0,.25);';
+        }
+        return 'background: ' . $bg . ';';
+    }
+
+    // Combos comunes
+    if (strpos($k, 'cafe') !== false && strpos($k, 'marron') !== false) {
+        return 'background: #92400e;';
+    }
+
+    return 'background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.18);';
+}
+
+function renderNotebookCoverItems(array $items, string $gradeKey): void
+{
+    echo '<ul class="school-cover-list">';
+    foreach ($items as $it) {
+        if (!is_array($it)) continue;
+
+        $only = $it['only'] ?? null;
+        if (is_array($only) && !in_array($gradeKey, $only, true)) {
+            continue;
+        }
+
+        $subject = trim((string)($it['subject'] ?? ''));
+        $color   = trim((string)($it['color'] ?? ''));
+        if ($subject === '' && $color === '') continue;
+
+        $swatch = coverSwatchStyle($color);
+
+        echo '<li class="school-cover-item">';
+        echo '<span class="school-cover-swatch" style="' . htmlspecialchars($swatch) . '"></span>';
+        echo '<span class="school-cover-subject">' . htmlspecialchars($subject) . '</span>';
+        if ($color !== '') {
+            echo '<span class="school-cover-color">' . htmlspecialchars($color) . '</span>';
+        }
+        echo '</li>';
+    }
+    echo '</ul>';
+}
+
+function renderNotebookCoverAside(?array $coverInfo, string $gradeKey): void
+{
+    if (!$coverInfo) return;
+
+    $blockTitle = 'Forrado de cuadernos';
+    $title = (string)($coverInfo['title'] ?? '');
+    $subtitle = (string)($coverInfo['subtitle'] ?? '');
+    $notes = $coverInfo['notes'] ?? [];
+    $groups = $coverInfo['groups'] ?? [];
+    $items = $coverInfo['items'] ?? [];
+    $footer = (string)($coverInfo['footer'] ?? '');
+
+    // Imagen para el mini-hero del aside (decorativo)
+    // Se mantiene el patrón de rutas que ya usa este módulo (assets/partials/escolar/...).
+    // Nota: la imagen real en este paquete es .jpg (si existe .png, se usa como fallback).
+    $heroImgJpg = 'assets/partials/escolar/img/image.png';
+    $heroImgPng = 'assets/partials/escolar/img/image.png';
+
+    $heroImgSrc = $heroImgJpg;
+    $heroImgFallback = $heroImgPng;
+
+    if (function_exists('asset')) {
+        $heroImgSrc = asset($heroImgJpg);
+        $heroImgFallback = asset($heroImgPng);
+    }
+
+    echo '<aside class="school-cover-aside" aria-label="Forrado de cuadernos">';
+    echo '  <div class="school-cover-card">';
+    echo '    <div class="school-cover-hero-wrap">';
+    echo '      <div class="school-cover-hero" role="presentation">';
+    echo '        <div class="school-cover-hero__overlay" aria-hidden="true"></div>';
+    echo '        <div class="school-cover-hero__text">';
+    echo '          <p class="school-cover-hero__kicker">Gu&iacute;a de forrado 2026</p>';
+    echo '          <p class="school-cover-hero__title">' . htmlspecialchars($title) . '</p>';
+    if ($subtitle !== '') {
+        echo '          <p class="school-cover-hero__subtitle">' . htmlspecialchars($subtitle) . '</p>';
+    }
+    echo '        </div>';
+    echo '      </div>';
+    echo '      <img class="school-cover-hero__float" src="' . htmlspecialchars($heroImgSrc) . '" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'' . htmlspecialchars($heroImgFallback) . '\';">';
+    echo '    </div>';
+
+    if (is_array($notes) && !empty($notes)) {
+        echo '    <ul class="school-cover-notes">';
+        foreach ($notes as $n) {
+            $n = trim((string)$n);
+            if ($n === '') continue;
+            echo '      <li>' . htmlspecialchars($n) . '</li>';
+        }
+        echo '    </ul>';
+    }
+
+    if (is_array($groups) && !empty($groups)) {
+        foreach ($groups as $g) {
+            if (!is_array($g)) continue;
+            $gt = trim((string)($g['title'] ?? ''));
+            $gi = $g['items'] ?? [];
+            if ($gt !== '') {
+                echo '    <h4 class="school-cover-group">' . htmlspecialchars($gt) . '</h4>';
+            }
+            if (is_array($gi) && !empty($gi)) {
+                renderNotebookCoverItems($gi, $gradeKey);
+            }
+        }
+    } elseif (is_array($items) && !empty($items)) {
+        renderNotebookCoverItems($items, $gradeKey);
+    }
+
+    if ($footer !== '') {
+        echo '    <p class="school-cover-footer">' . htmlspecialchars($footer) . '</p>';
+    }
+
+    echo '  </div>';
+    echo '</aside>';
+}
+
+
 $levelColors = [
     "Educación Inicial y Parvularia" => ["bar" => "#0ea5e9", "soft" => "#e0f2fe"],
     "I Ciclo"            => ["bar" => "#1f8a3b", "soft" => "#e9f6ed"],
@@ -216,6 +441,8 @@ $levelColor = $levelColors[$gradeMeta["level"] ?? ""]["bar"] ?? "#1f335a";
 
 $sections = getSectionsFromData($data);
 $notes = getNotesFromData($data);
+
+$coverInfo = getNotebookCoverForGrade((string)$gradeKey);
 
 $hasData = $dataAvailable ?? true;
 
@@ -302,6 +529,10 @@ if (!$hasItems && !empty($data["specialties"])) $hasItems = true;
                 </div>
             <?php endif; ?>
         </div>
+
+        <?php renderNotebookCoverAside($coverInfo, (string)$gradeKey); ?>
+
+
 
         <!-- Acciones flotantes -->
         <aside class="school-actions"

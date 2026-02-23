@@ -12,8 +12,10 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="<?= asset('styles.css') ?>">
-    <link rel="stylesheet" href="<?= asset('assets/partials/escolar/css/escolar.css') ?>">
+    <link rel="stylesheet" href="<?= asset('styles.css?v=' . filemtime(__DIR__ . '/styles.css')) ?>">
+
+    <link rel="stylesheet" href="<?= asset('assets/partials/escolar/css/escolar.css?v=' . filemtime(__DIR__ . '/assets/partials/escolar/css/escolar.css')) ?>">
+
 
     <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
     <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>" type="image/png">

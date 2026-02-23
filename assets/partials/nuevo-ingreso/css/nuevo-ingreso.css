@@ -1,0 +1,24 @@
+/* Nuevo Ingreso - hoja principal
+   - Mantiene tus estilos existentes
+   - Agrega reveal-on-scroll (sin tocar el contenido)
+*/
+@import url("./ni-form.css");
+@import url("./components/reveal.css");
+
+
+/* Full-bleed: fuerza secciones a ocupar todo el ancho del viewport
+   (útil cuando el layout padre centra el contenido con max-width)
+*/
+section.ni{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Evita micro-scroll horizontal por redondeo en algunos navegadores */
+@supports (overflow: clip){
+  section.ni{ overflow-x: clip; }
+}
+@supports not (overflow: clip){
+  section.ni{ overflow-x: hidden; }
+}

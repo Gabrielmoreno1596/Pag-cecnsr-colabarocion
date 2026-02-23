@@ -57,6 +57,9 @@
   <script src="<?= asset('assets/partials/convenios/pasch/js/informacion.js') ?>"></script>
   <script src="<?= asset('assets/partials/convenios/pasch/js/experiencias.js') ?>"></script>
   <script src="<?= asset('assets/partials/convenios/pasch/js/galeria.js') ?>"></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/convenios/pasch/css/pasch.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/convenios/pasch/js/app.js'); ?>"></script>
+
 
 </body>
 

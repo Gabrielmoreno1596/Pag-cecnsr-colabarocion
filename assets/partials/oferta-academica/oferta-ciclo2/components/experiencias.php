@@ -3,7 +3,7 @@
 
 $expData = require __DIR__ . '/../data/experiencias.php';
 
-$baseImagePath = 'assets/partials/oferta-academica/oferta-ciclo2/image/';
+$baseImagePath = 'assets/img/oferta-academica/oferta-ciclo2/';
 ?>
 
 <div class="photo-carousel-container">

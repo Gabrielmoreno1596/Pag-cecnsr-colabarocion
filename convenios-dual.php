@@ -66,6 +66,9 @@
   <script src="<?= asset('assets/partials/convenios/proyecto-dual/js/prep-cards-autorotate.js') ?>" defer></script>
   <script src="<?= asset('assets/partials/convenios/proyecto-dual/js/hero-carousel.js') ?>" defer></script>
   <script src="<?= asset('assets/partials/convenios/proyecto-dual/js/gallery-lightbox.js') ?>" defer></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/convenios/proyecto-dual/css/proyecto-dual.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/convenios/proyecto-dual/js/app.js'); ?>"></script>
+
 </body>
 
 

@@ -36,7 +36,7 @@ $especialidades = $data['especialidades'];
                                 <?php foreach ($esp['images'] as $index => $img): ?>
                                     <div class="carousel-slide <?= $index === 0 ? 'active' : ''; ?>">
                                         <img
-                                            src="<?= asset('assets/partials/oferta-academica/oferta-bachillerato/image/' . $esp['image_path'] . '/' . $img['file']); ?>"
+                                            src="<?= asset('assets/img/oferta-academica/oferta-bachillerato/' . $esp['image_path'] . '/' . $img['file']); ?>"
                                             alt="<?= htmlspecialchars($img['alt'], ENT_QUOTES, 'UTF-8'); ?>"
                                             class="slide-img"
                                             loading="lazy"

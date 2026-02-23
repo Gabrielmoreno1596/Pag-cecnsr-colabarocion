@@ -1,6 +1,6 @@
 <?php
 $data = require __DIR__ . '/../data/quienes-somos.php';
-$histBase = 'assets/partials/inicio/image/historia/';
+$histBase = 'assets/img/inicio/historia/';
 ?>
 
 <section id="quienes-somos" class="section-padding">
@@ -12,22 +12,16 @@ $histBase = 'assets/partials/inicio/image/historia/';
                 <?= htmlspecialchars($data['history_title']); ?>
             </h3>
 
-            <?php foreach ($data['paragraphs'] as $p): ?>
-                <p><?= htmlspecialchars($p); ?></p>
-            <?php endforeach; ?>
+            <!--
+              Ajuste solicitado (Tarea 3):
+              - En Inicio solo mostramos un mensaje breve + botón.
+              - La información completa se moverá a la página "quienes-somos.php".
+            -->
+            <p>
+                <?= htmlspecialchars($data['excerpt'] ?? ($data['paragraphs'][0] ?? '')); ?>
+            </p>
 
-            <p><?= htmlspecialchars($data['bullets_intro']); ?></p>
-
-            <ul class="history-list">
-                <?php foreach ($data['bullets'] as $b): ?>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <?= htmlspecialchars($b); ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-
-            <p class="history-closing"><?= htmlspecialchars($data['closing']); ?></p>
+            <a class="qs-cta" href="<?= asset('#'); ?>">Conócenos más</a>
         </div>
 
         <div class="history-carousel-container">
@@ -40,6 +34,18 @@ $histBase = 'assets/partials/inicio/image/historia/';
                         loading="lazy"
                         decoding="async" />
                 <?php endforeach; ?>
+            </div>
+
+            <!-- Banda de datos (overlay) inspirada en el diseño de referencia -->
+            <div class="history-stats" aria-hidden="true">
+                <div class="history-stat">
+                    <span class="history-stat__num">+30</span>
+                    <span class="history-stat__label">Años</span>
+                </div>
+                <div class="history-stat">
+                    <span class="history-stat__num">+1500</span>
+                    <span class="history-stat__label">Estudiantes</span>
+                </div>
             </div>
         </div>
     </div>

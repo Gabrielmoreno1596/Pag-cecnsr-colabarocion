@@ -1,0 +1,109 @@
+.tracks {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.25rem;
+  background: var(--cecns-blue);
+  padding: 2rem;
+  border-radius: 20px;
+
+}
+
+.track {
+
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+  padding-left: 2rem;
+
+}
+
+.track h3 {
+
+  color: var(--cecns-wine);
+  margin: 0.1rem 0 0.35rem;
+
+}
+
+.subcap {
+
+  color: var(--cecns-blue);
+  margin: 1rem 0 0.35rem;
+
+}
+
+.acts {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  background: #e0b13a;
+  padding: 2rem;
+  border-radius: 20px;
+
+}
+
+.act {
+
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  border-radius: 12px;
+  padding: 0.8rem;
+  padding-left: 1.3rem;
+
+}
+
+@media (max-width: 980px) {
+.tracks {
+
+    grid-template-columns: 1fr;
+  
+}
+
+.acts {
+
+    grid-template-columns: 1fr 1fr;
+  
+}
+
+
+}
+
+@media (max-width: 980px) {
+.tracks,
+  .acts {
+
+    padding: 1.2rem;
+    border-radius: 14px;
+  
+}
+
+
+}
+
+@media (max-width: 640px) {
+.tracks {
+
+    grid-template-columns: 1fr;
+  
+}
+
+.acts {
+
+    grid-template-columns: 1fr;
+  
+}
+
+.track,
+  .act {
+
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+  
+}
+
+
+}

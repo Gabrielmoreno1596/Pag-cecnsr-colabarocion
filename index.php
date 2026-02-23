@@ -12,11 +12,27 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+  <link rel="stylesheet" href="<?= asset('styles.css') ?>">
+
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/inicio.css'); ?>" />
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/elegant.css'); ?>" />
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/home-previews.css'); ?>" />
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/reveal.css'); ?>" />
   <!-- CSS por secciones -->
   <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/hero.css'); ?>" />
   <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/quienes-somos.css'); ?>" />
   <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/mision-vision-compromiso.css'); ?>" />
   <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/infraestructura.css'); ?>" />
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/redesign.css'); ?>" />
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/components/reveal.css'); ?>" />
+
+  <link rel="stylesheet" href="<?= asset('assets/partials/components/eventos/eventos.css'); ?>" />
+  <script defer src="<?= asset('assets/partials/components/eventos/eventos.js'); ?>"></script>
+
+
+
+  <link rel="stylesheet" href="<?= asset('assets/partials/ui/float-modal/float-modal.css'); ?>" />
+
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png?v=1'); ?>">
@@ -28,7 +44,13 @@
 <body>
 
   <?php include PROJECT_PATH . 'assets/partials/header.php'; ?>
-  <?php require_once PROJECT_PATH . 'assets/partials/r-sociales.php'; ?>
+
+
+
+
+  <?php include PROJECT_PATH . 'assets/partials/components/redes-sociales/redes-sociales.php'; ?>
+
+
 
   <?php require_once PROJECT_PATH . 'assets/partials/inicio/main.php'; ?>
 
@@ -36,6 +58,9 @@
 
   <!-- JS global del sitio -->
   <script defer src="<?= asset('script.js'); ?>"></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/inicio/css/inicio.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/inicio/js/app.js'); ?>"></script>
+
 </body>
 
 </html>

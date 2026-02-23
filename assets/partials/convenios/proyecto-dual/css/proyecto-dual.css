@@ -1,0 +1,18 @@
+/* Proyecto DUAL - aggregator (includes existing styles + reveal) */
+
+/* Core */
+@import url("./core/tokens.css");
+@import url("./core/base.css");
+@import url("./core/helpers.css");
+
+/* Sections */
+@import url("./hero.css");
+@import url("./que-es.css");
+@import url("./ruta.css");
+@import url("./requisitos.css");
+@import url("./preparacion.css");
+@import url("./galeria.css");
+@import url("./coor.css");
+
+/* Reveal on scroll */
+@import url("./components/reveal.css");

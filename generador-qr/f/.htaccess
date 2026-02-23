@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# /f/ABC123 -> /f/index.php?c=ABC123
+RewriteRule ^([A-Za-z0-9]{4,12})$ index.php?c=$1 [L,QSA]

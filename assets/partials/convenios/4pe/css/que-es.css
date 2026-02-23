@@ -1,0 +1,121 @@
+/* Auto-separado desde style-pi-4pe.css — sección: que-es */
+
+/* 4 Puntos (cards con logo) */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.pe-card h3 {
+  color: var(--cecns-navy);
+  margin: 0.1rem 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.pe-card p {
+  color: #374151;
+}
+
+.pe-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex: 0 0 54px;
+}
+
+/* estilos para PE card */
+.pe-card {
+  margin-top: 2rem;
+  background: #cccccc;
+  border: 1px solid #e6ebf1;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+}
+
+.pe-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.45rem;
+  color: var(--cecns-gold);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.pe-title .pe-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.pe-title span em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.pe-card:hover .pe-title {
+  text-decoration: none;
+}
+
+.pe-card:hover .pe-title span {
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(255, 195, 0, 0.25) 0
+  );
+}
+
+/* Responsive PE */
+@media (max-width: 980px) {
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+.grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+.pe-title .pe-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 980px) {
+.grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+.grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+.grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+.grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+.pe-card {
+    padding: 0.8rem;
+  }
+}

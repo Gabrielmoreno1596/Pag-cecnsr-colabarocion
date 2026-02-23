@@ -43,6 +43,9 @@
 
   <!-- JS global del sitio -->
   <script defer src="<?= asset('script.js'); ?>"></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/oferta-academica/oferta-inicial/css/oferta-inicial.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/oferta-academica/oferta-inicial/js/app.js'); ?>"></script>
+
 </body>
 
 </html>

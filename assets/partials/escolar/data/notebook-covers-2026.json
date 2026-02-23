@@ -1,0 +1,489 @@
+{
+  "1": {
+    "title": "I Ciclo — 1° grado",
+    "subtitle": "Forrado de cuadernos (por asignatura)",
+    "items": [
+      {
+        "subject": "Inglés",
+        "color": "Anaranjado"
+      },
+      {
+        "subject": "Artes (Música)",
+        "color": "Morado"
+      },
+      {
+        "subject": "Informática",
+        "color": "Gris"
+      },
+      {
+        "subject": "Taller de Mateaventuras",
+        "color": "Rojo"
+      },
+      {
+        "subject": "Taller/Proyecto",
+        "color": "Verde"
+      },
+      {
+        "subject": "Taller de Baúl de las letras",
+        "color": "Azul"
+      },
+      {
+        "subject": "Lectoescritura",
+        "color": "Rosado"
+      },
+      {
+        "subject": "Alemán",
+        "color": "Negro"
+      }
+    ]
+  },
+  "2": {
+    "title": "I Ciclo — 2° a 3° grado",
+    "subtitle": "Forrado de cuadernos (por asignatura)",
+    "items": [
+      {
+        "subject": "Inglés",
+        "color": "Anaranjado"
+      },
+      {
+        "subject": "Artes (Música)",
+        "color": "Morado"
+      },
+      {
+        "subject": "Informática",
+        "color": "Gris"
+      },
+      {
+        "subject": "Números y formas",
+        "color": "Rojo"
+      },
+      {
+        "subject": "Ciencia y Tecnología",
+        "color": "Verde"
+      },
+      {
+        "subject": "Ciudadanía y Valores",
+        "color": "Azul"
+      },
+      {
+        "subject": "Comunicación",
+        "color": "Amarillo"
+      },
+      {
+        "subject": "Lectoescritura",
+        "color": "Rosado"
+      },
+      {
+        "subject": "Alemán",
+        "color": "Negro"
+      },
+      {
+        "subject": "Artes (Artística)",
+        "color": "Papel de regalo"
+      },
+      {
+        "subject": "Ajedrez",
+        "color": "Plateado"
+      },
+      {
+        "subject": "Educación en la fe",
+        "color": "Café"
+      },
+      {
+        "subject": "Desarrollo Corporal",
+        "color": "Blanco"
+      }
+    ]
+  },
+  "3": {
+    "title": "I Ciclo — 2° a 3° grado",
+    "subtitle": "Forrado de cuadernos (por asignatura)",
+    "items": [
+      {
+        "subject": "Inglés",
+        "color": "Anaranjado"
+      },
+      {
+        "subject": "Artes (Música)",
+        "color": "Morado"
+      },
+      {
+        "subject": "Informática",
+        "color": "Gris"
+      },
+      {
+        "subject": "Números y formas",
+        "color": "Rojo"
+      },
+      {
+        "subject": "Ciencia y Tecnología",
+        "color": "Verde"
+      },
+      {
+        "subject": "Ciudadanía y Valores",
+        "color": "Azul"
+      },
+      {
+        "subject": "Comunicación",
+        "color": "Amarillo"
+      },
+      {
+        "subject": "Lectoescritura",
+        "color": "Rosado"
+      },
+      {
+        "subject": "Alemán",
+        "color": "Negro"
+      },
+      {
+        "subject": "Artes (Artística)",
+        "color": "Papel de regalo"
+      },
+      {
+        "subject": "Ajedrez",
+        "color": "Plateado"
+      },
+      {
+        "subject": "Educación en la fe",
+        "color": "Café"
+      },
+      {
+        "subject": "Desarrollo Corporal",
+        "color": "Blanco"
+      }
+    ]
+  },
+  "4": {
+    "title": "Segundo Ciclo — 2026",
+    "subtitle": "Colores para cuadernos",
+    "notes": [
+      "No olvidar: rotularlos con nombre completo del estudiante afuera.",
+      "Dejar una página limpia y en la segunda página elaborar portada (sección, número de lista y orientador pendientes)."
+    ],
+    "groups": [
+      {
+        "title": "5 cuadernos rayados cosidos #3",
+        "items": [
+          {
+            "subject": "Comunicación y Literatura",
+            "color": "Amarillo"
+          },
+          {
+            "subject": "Ciudadanía y Valores",
+            "color": "Azul"
+          },
+          {
+            "subject": "Lectoescritura",
+            "color": "Rosado"
+          },
+          {
+            "subject": "Ciencia y Tecnología",
+            "color": "Verde"
+          },
+          {
+            "subject": "Educación en la fe",
+            "color": "Café / Marrón"
+          }
+        ]
+      },
+      {
+        "title": "3 cuadernos engrapados cuadriculados #3 (8mm)",
+        "items": [
+          {
+            "subject": "Aritmética y Finanzas",
+            "color": "Rojo"
+          },
+          {
+            "subject": "Artes",
+            "color": "Papel de regalo o revista"
+          },
+          {
+            "subject": "Ajedrez",
+            "color": "Gris oscuro"
+          }
+        ]
+      },
+      {
+        "title": "4 cuadernos engrapados rayados 100 hojas",
+        "items": [
+          {
+            "subject": "Inglés",
+            "color": "Anaranjado"
+          },
+          {
+            "subject": "Alemán",
+            "color": "Negro / Rojo / Amarillo"
+          },
+          {
+            "subject": "Robótica / Informática",
+            "color": "Celeste"
+          },
+          {
+            "subject": "Música (solo 4° y 5°)",
+            "color": "Morado",
+            "only": [
+              "4",
+              "5"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "5": {
+    "title": "Segundo Ciclo — 2026",
+    "subtitle": "Colores para cuadernos",
+    "notes": [
+      "No olvidar: rotularlos con nombre completo del estudiante afuera.",
+      "Dejar una página limpia y en la segunda página elaborar portada (sección, número de lista y orientador pendientes)."
+    ],
+    "groups": [
+      {
+        "title": "5 cuadernos rayados cosidos #3",
+        "items": [
+          {
+            "subject": "Comunicación y Literatura",
+            "color": "Amarillo"
+          },
+          {
+            "subject": "Ciudadanía y Valores",
+            "color": "Azul"
+          },
+          {
+            "subject": "Lectoescritura",
+            "color": "Rosado"
+          },
+          {
+            "subject": "Ciencia y Tecnología",
+            "color": "Verde"
+          },
+          {
+            "subject": "Educación en la fe",
+            "color": "Café / Marrón"
+          }
+        ]
+      },
+      {
+        "title": "3 cuadernos engrapados cuadriculados #3 (8mm)",
+        "items": [
+          {
+            "subject": "Aritmética y Finanzas",
+            "color": "Rojo"
+          },
+          {
+            "subject": "Artes",
+            "color": "Papel de regalo o revista"
+          },
+          {
+            "subject": "Ajedrez",
+            "color": "Gris oscuro"
+          }
+        ]
+      },
+      {
+        "title": "4 cuadernos engrapados rayados 100 hojas",
+        "items": [
+          {
+            "subject": "Inglés",
+            "color": "Anaranjado"
+          },
+          {
+            "subject": "Alemán",
+            "color": "Negro / Rojo / Amarillo"
+          },
+          {
+            "subject": "Robótica / Informática",
+            "color": "Celeste"
+          },
+          {
+            "subject": "Música (solo 4° y 5°)",
+            "color": "Morado",
+            "only": [
+              "4",
+              "5"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "6": {
+    "title": "Segundo Ciclo — 2026",
+    "subtitle": "Colores para cuadernos",
+    "notes": [
+      "No olvidar: rotularlos con nombre completo del estudiante afuera.",
+      "Dejar una página limpia y en la segunda página elaborar portada (sección, número de lista y orientador pendientes)."
+    ],
+    "groups": [
+      {
+        "title": "5 cuadernos rayados cosidos #3",
+        "items": [
+          {
+            "subject": "Comunicación y Literatura",
+            "color": "Amarillo"
+          },
+          {
+            "subject": "Ciudadanía y Valores",
+            "color": "Azul"
+          },
+          {
+            "subject": "Lectoescritura",
+            "color": "Rosado"
+          },
+          {
+            "subject": "Ciencia y Tecnología",
+            "color": "Verde"
+          },
+          {
+            "subject": "Educación en la fe",
+            "color": "Café / Marrón"
+          }
+        ]
+      },
+      {
+        "title": "3 cuadernos engrapados cuadriculados #3 (8mm)",
+        "items": [
+          {
+            "subject": "Aritmética y Finanzas",
+            "color": "Rojo"
+          },
+          {
+            "subject": "Artes",
+            "color": "Papel de regalo o revista"
+          },
+          {
+            "subject": "Ajedrez",
+            "color": "Gris oscuro"
+          }
+        ]
+      },
+      {
+        "title": "4 cuadernos engrapados rayados 100 hojas",
+        "items": [
+          {
+            "subject": "Inglés",
+            "color": "Anaranjado"
+          },
+          {
+            "subject": "Alemán",
+            "color": "Negro / Rojo / Amarillo"
+          },
+          {
+            "subject": "Robótica / Informática",
+            "color": "Celeste"
+          },
+          {
+            "subject": "Música (solo 4° y 5°)",
+            "color": "Morado",
+            "only": [
+              "4",
+              "5"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "7": {
+    "title": "III Ciclo — 7° y 8° (2026)",
+    "subtitle": "Color de forrado de cuadernos",
+    "items": [
+      {
+        "subject": "Lenguaje y Literatura",
+        "color": "Amarillo"
+      },
+      {
+        "subject": "Lectoescritura liso #3",
+        "color": "Docente dará indicación"
+      },
+      {
+        "subject": "Educación en la fe",
+        "color": "Café"
+      },
+      {
+        "subject": "Ciudadanía y Valores",
+        "color": "Azul"
+      },
+      {
+        "subject": "Ciencia y Tecnología",
+        "color": "Verde oscuro"
+      },
+      {
+        "subject": "Ajedrez",
+        "color": "Papel de revista o diario"
+      },
+      {
+        "subject": "Educación Física",
+        "color": "Gris"
+      },
+      {
+        "subject": "Inglés",
+        "color": "Anaranjado"
+      },
+      {
+        "subject": "Informática",
+        "color": "Rojo"
+      },
+      {
+        "subject": "Matemática",
+        "color": "Cyan"
+      },
+      {
+        "subject": "Alemán",
+        "color": "Negro"
+      }
+    ],
+    "footer": "Coordinación de III Ciclo"
+  },
+  "8": {
+    "title": "III Ciclo — 7° y 8° (2026)",
+    "subtitle": "Color de forrado de cuadernos",
+    "items": [
+      {
+        "subject": "Lenguaje y Literatura",
+        "color": "Amarillo"
+      },
+      {
+        "subject": "Lectoescritura liso #3",
+        "color": "Docente dará indicación"
+      },
+      {
+        "subject": "Educación en la fe",
+        "color": "Café"
+      },
+      {
+        "subject": "Ciudadanía y Valores",
+        "color": "Azul"
+      },
+      {
+        "subject": "Ciencia y Tecnología",
+        "color": "Verde oscuro"
+      },
+      {
+        "subject": "Ajedrez",
+        "color": "Papel de revista o diario"
+      },
+      {
+        "subject": "Educación Física",
+        "color": "Gris"
+      },
+      {
+        "subject": "Inglés",
+        "color": "Anaranjado"
+      },
+      {
+        "subject": "Informática",
+        "color": "Rojo"
+      },
+      {
+        "subject": "Matemática",
+        "color": "Cyan"
+      },
+      {
+        "subject": "Alemán",
+        "color": "Negro"
+      }
+    ],
+    "footer": "Coordinación de III Ciclo"
+  }
+}

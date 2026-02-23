@@ -48,6 +48,30 @@
     const fallback = document.getElementById("pdfFallback");
 
     if (modal && frame) {
+        // --- Asegura que el modal viva en <body> (evita que transforms/containers limiten position:fixed) ---
+        const modalHome = { parent: modal.parentNode, next: modal.nextSibling };
+
+        function mountModalToBody() {
+            if (!modal || !document.body) return;
+            if (modal.parentNode !== document.body) {
+                modalHome.parent = modal.parentNode;
+                modalHome.next = modal.nextSibling;
+                document.body.appendChild(modal);
+            }
+        }
+
+        function restoreModalHome() {
+            if (!modalHome.parent || !modal) return;
+            // Si sigue en body, lo devolvemos donde estaba
+            if (modal.parentNode === document.body) {
+                if (modalHome.next && modalHome.next.parentNode === modalHome.parent) {
+                    modalHome.parent.insertBefore(modal, modalHome.next);
+                } else {
+                    modalHome.parent.appendChild(modal);
+                }
+            }
+        }
+
         const closers = modal.querySelectorAll("[data-close]");
         let lastFocus = null;
 
@@ -71,6 +95,7 @@
 
             if (fallback) fallback.hidden = true;
 
+            mountModalToBody();
             modal.hidden = false;
             document.body.classList.add("pdf-open");
 
@@ -85,6 +110,7 @@
             document.body.classList.remove("pdf-open");
             document.removeEventListener("keydown", onKey);
             modal.removeEventListener("contextmenu", prevent, { capture: true });
+            restoreModalHome();
             if (lastFocus) lastFocus.focus();
         }
 

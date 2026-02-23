@@ -1,0 +1,229 @@
+/* ===== Redes flotantes (PILL EXPAND) =====
+   ✅ Fix: los demás botones NO se mueven,
+   solo se expande el botón activo.
+*/
+
+.social-fab {
+  position: fixed;
+  right: clamp(12px, 2.4vw, 18px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 10px;
+  z-index: 9990;
+
+  /* Reservamos el ancho máximo expandido para que NO “empuje” a los demás */
+  --expanded: 240px;
+  width: var(--expanded);
+  justify-items: end;
+
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.social-fab__btn {
+  --size: 48px;
+  --bg: #0f172a;
+
+  height: var(--size);
+  width: var(--size);
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 0;
+
+  color: #fff;
+  text-decoration: none;
+
+  backdrop-filter: blur(6px) saturate(120%);
+  background: linear-gradient(180deg, var(--bg), var(--bg));
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    width 0.22s ease,
+    padding 0.22s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+
+  will-change: width;
+
+  /* Animación sutil */
+  translate: 0 0;
+  animation: fabFloat 6.2s ease-in-out infinite;
+
+  justify-self: end;
+}
+
+/* Desfase por botón (orgánico) */
+.social-fab__btn:nth-child(1) {
+  animation-delay: 0s;
+}
+.social-fab__btn:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.social-fab__btn:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.social-fab__btn:nth-child(4) {
+  animation-delay: 0.45s;
+}
+.social-fab__btn:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fabFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -2px;
+  }
+}
+
+.social-fab__btn:hover {
+  width: var(--expanded);
+  padding: 0 14px;
+  justify-content: flex-start;
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+  animation-play-state: paused;
+}
+
+.social-fab__btn i {
+  font-size: 18px;
+  line-height: 1;
+  flex: 0 0 auto;
+  width: 22px;
+  text-align: center;
+}
+
+.social-fab__logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex: 0 0 auto;
+
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  padding: 3px;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.social-fab__label {
+  display: grid;
+  gap: 2px;
+
+  opacity: 0;
+  transform: translateX(10px);
+  max-width: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    max-width 0.22s ease;
+}
+
+.social-fab__label strong {
+  font:
+    800 12px/1.05 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.social-fab__label small {
+  font:
+    600 11px/1.05 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  opacity: 0.82;
+}
+
+.social-fab__btn:hover .social-fab__label {
+  opacity: 1;
+  transform: translateX(0);
+  max-width: 320px;
+}
+
+/* Accesibilidad TAB */
+.social-fab__btn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 3px;
+}
+
+/* Colores por red */
+.social-fab__btn.fb {
+  --bg: #1877f2;
+}
+.social-fab__btn.ig {
+  --bg: #d6249f;
+  background:
+    radial-gradient(35% 35% at 30% 30%, #feda75, transparent 60%),
+    linear-gradient(180deg, #d6249f, #285aeb);
+}
+.social-fab__btn.yt {
+  --bg: #ff0000;
+}
+.social-fab__btn.wa {
+  --bg: #25d366;
+}
+
+/* Aula Virtual */
+.social-fab__btn.av {
+  --bg: #0ea5e9;
+  background: linear-gradient(180deg, #0ea5e9, #0284c7);
+}
+
+/* Compacto en móvil */
+@media (max-width: 680px) {
+  .social-fab {
+    gap: 8px;
+    width: auto;
+  }
+
+  .social-fab__btn {
+    --size: 44px;
+    animation: none;
+    translate: 0 0;
+  }
+
+  .social-fab__btn:hover {
+    width: var(--size);
+    padding: 0;
+    justify-content: center;
+    transform: none;
+  }
+
+  .social-fab__label {
+    display: none;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .social-fab__btn,
+  .social-fab__label {
+    transition: none !important;
+    animation: none !important;
+    translate: 0 0;
+  }
+}

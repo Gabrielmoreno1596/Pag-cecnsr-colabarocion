@@ -113,7 +113,7 @@
     },
     {
       "key": "entregar_ninas",
-      "label": "Para agregar solo a las niñas",
+      "label": "Para entregar solo niñas",
       "hint": "",
       "items": [
         "50 páginas de color base 20, tamaño carta.",
@@ -126,7 +126,7 @@
     },
     {
       "key": "entregar_ninos",
-      "label": "Para agregar solo a los niños",
+      "label": "Para entregar solo niños",
       "hint": "",
       "items": [
         "100 páginas blancas, base 20, tamaño carta.",

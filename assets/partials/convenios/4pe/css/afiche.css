@@ -1,0 +1,210 @@
+/* Auto-separado desde style-pi-4pe.css — sección: afiche */
+
+/* =========================================================
+   6) SEMINARIO (card + estados)
+   ========================================================= */
+.seminar {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+  background: linear-gradient(180deg, #fff, #fcfdff);
+  border: 1px solid #e6ebf1;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.6vw, 1.6rem);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  align-items: start;
+}
+
+.seminar:hover .seminar__divider,
+.seminar:focus-within .seminar__divider {
+  transform: scaleX(1);
+}
+
+/* Estados del bloque seminarios */
+.seminars[data-state="active"] .seminar-announce {
+  display: none;
+}
+
+.seminars[data-state="upcoming"] .seminar {
+  display: none;
+}
+
+.seminars[data-state="past"] .seminar {
+  display: none;
+}
+
+.seminar-announce {
+  background: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 1%,
+    rgba(221, 221, 221, 1) 29%,
+    rgba(204, 204, 204, 1) 64%
+  );
+  border: 1px solid #e6ebf1;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.6vw, 1.6rem);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  max-width: 980px;
+}
+
+.status-chip {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 2px solid transparent;
+}
+
+.status-chip[data-kind="upcoming"] {
+  background: #fff7e6;
+  color: #9a6b00;
+  border-color: #ffd58a;
+}
+
+.status-chip[data-kind="past"] {
+  background: #eef2f5;
+  color: #48566a;
+  border-color: #d6dee8;
+}
+
+.seminar-announce .ally-strip {
+  margin-top: 0.8rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #e6ebf1;
+}
+
+@media (max-width: 980px) {
+.seminar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.poster-thumb {
+  display: block;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  inline-size: min(520px, 100%);
+  aspect-ratio: 4/3; /* miniatura */
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e6ebf1;
+}
+
+.poster-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.poster-thumb:hover img {
+  transform: scale(1.02);
+}
+
+/* --- Modal flotante --- */
+.poster-modal[hidden] {
+  display: none !important;
+}
+
+.poster-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+}
+
+.poster-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 30, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.poster-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(96vw, 980px);
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  max-height: 92svh; /* alto máx. modal */
+}
+
+.poster-modal__head,
+.poster-modal__foot {
+  padding: 0.8rem 1rem;
+  background: #f8fafc;
+}
+
+.poster-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.poster-modal__close {
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  border-radius: 999px;
+  inline-size: 36px;
+  block-size: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.poster-modal__body {
+  padding: 0.6rem;
+  background: #111;
+  flex: 1 1 auto; /* <- que crezca */
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh; /* asegura área visible incluso mientras carga */
+}
+
+.poster-modal__body img {
+  display: block;
+  max-width: 100%;
+  max-height: 84vh; /* evita desbordar en pantallas bajas */
+  width: auto;
+  height: auto; /* mantiene proporción natural */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.poster-modal__foot {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 560px) {
+.poster-modal__foot {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.poster-modal__head h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Foco accesible */
+.poster-modal [data-close]:focus-visible,
+.poster-thumb:focus-visible {
+  outline: 3px solid var(--cecns-gold);
+  outline-offset: 2px;
+}

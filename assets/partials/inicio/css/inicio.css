@@ -1,0 +1,18 @@
+/* Hoja principal de la sección Inicio
+   - Mantiene los CSS existentes por componente
+   - Añade reveal-on-scroll (misma base usada en pastoral-educativa)
+*/
+
+@import url("./hero.css");
+@import url("./quienes-somos.css");
+@import url("./mision-vision-compromiso.css");
+@import url("./infraestructura.css");
+
+/* Secciones nuevas (confianza + accesos + tarjetas) */
+@import url("./home-sections.css");
+
+/* Efectos */
+@import url("./components/reveal.css");
+
+/* Capa de rediseño elegante */
+@import url("./elegant.css");

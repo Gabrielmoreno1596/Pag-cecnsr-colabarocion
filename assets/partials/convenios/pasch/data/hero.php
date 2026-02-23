@@ -1,5 +1,5 @@
 <?php
-$base = 'assets/partials/convenios/pasch';
+$base = 'assets/img/convenios/pasch';
 
 return [
     'base' => $base,
@@ -11,15 +11,15 @@ return [
         ['label' => 'Experiencias', 'href' => '#experiencias', 'class' => 'btn-outline'],
     ],
     'logos' => [
-        ['src' => "$base/image/logos/pasch.png", 'alt' => 'PASCH'],
-        ['src' => "$base/image/logos/1_CECNSR.png", 'alt' => 'CECNSR'],
+        ['src' => "$base/logos/pasch.png", 'alt' => 'PASCH'],
+        ['src' => "$base/logos/logo-cecnsr.png", 'alt' => 'CECNSR'],
     ],
     'slides' => [
-        ['src' => "$base/image/hero/pasch-vijaron.jpeg", 'alt' => 'Estudiantes CECNSR en programa PASCH'],
-        ['src' => "$base/image/hero/pasch-img2.jpeg", 'alt' => 'Visita y convivencia multicultural'],
-        ['src' => "$base/image/hero/pasch-img3.jpeg", 'alt' => 'Actividades y clausura'],
-        ['src' => "$base/image/hero/pasch-img7.png", 'alt' => 'Grupo internacional PASCH'],
-        ['src' => "$base/image/hero/pasch-mateo1.png", 'alt' => 'Goethe-Institut Bamberg A2'],
-        ['src' => "$base/image/hero/pasch-mateo3.png", 'alt' => 'Talleres y práctica del idioma'],
+        ['src' => "$base/hero/pasch-vijaron.jpeg", 'alt' => 'Estudiantes CECNSR en programa PASCH'],
+        ['src' => "$base/hero/pasch-img2.jpeg", 'alt' => 'Visita y convivencia multicultural'],
+        ['src' => "$base/hero/pasch-img3.jpeg", 'alt' => 'Actividades y clausura'],
+        ['src' => "$base/hero/pasch-img7.png", 'alt' => 'Grupo internacional PASCH'],
+        ['src' => "$base/hero/pasch-mateo1.png", 'alt' => 'Goethe-Institut Bamberg A2'],
+        ['src' => "$base/hero/pasch-mateo3.png", 'alt' => 'Talleres y práctica del idioma'],
     ],
 ];

@@ -9,9 +9,9 @@ return [
         'Itinerario claro: desde la convocatoria hasta el viaje.',
     ],
     'slides' => [
-        ['src' => BASE_URL . 'assets/partials/convenios/proyecto-dual/image/dual-img2.jpeg',   'alt' => 'Estudiantes CECNSR rumbo al programa dual'],
-        ['src' => BASE_URL . 'assets/partials/convenios/proyecto-dual/image/dual-img3-24.jpeg', 'alt' => 'Grupo con bandera en aeropuerto'],
-        ['src' => BASE_URL . 'assets/partials/convenios/proyecto-dual/image/dual-img4-24.jpeg', 'alt' => 'Equipo DUAL con bandera'],
-        ['src' => BASE_URL . 'assets/partials/convenios/proyecto-dual/image/dual-img1.jpg',   'alt' => 'Estudiantes antes del abordaje'],
+        ['src' => BASE_URL . 'assets/img/convenios/proyecto-dual/dual-img2.jpeg',   'alt' => 'Estudiantes CECNSR rumbo al programa dual'],
+        ['src' => BASE_URL . 'assets/img/convenios/proyecto-dual/dual-img3-24.jpeg', 'alt' => 'Grupo con bandera en aeropuerto'],
+        ['src' => BASE_URL . 'assets/img/convenios/proyecto-dual/dual-img4-24.jpeg', 'alt' => 'Equipo DUAL con bandera'],
+        ['src' => BASE_URL . 'assets/img/convenios/proyecto-dual/dual-img1.jpg',   'alt' => 'Estudiantes antes del abordaje'],
     ],
 ];

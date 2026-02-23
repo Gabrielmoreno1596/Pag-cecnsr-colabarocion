@@ -6,7 +6,7 @@
  */
 return [
     'badge' => [
-        'logo' => asset('assets/1_CECNSR.png'),
+        'logo' => asset('assets/img/logos/cecnsr.png'),
         'alt'  => 'Logotipo Pastoral Educativa CECNSR',
     ],
     'eyebrow'     => 'Formación integral con valores cristianos',
@@ -22,25 +22,25 @@ return [
     // Slides de fondo
     'slides' => [
         [
-            'src'     => asset('assets/pastoralEducativa/celebraciones/cancha-dramatizacion2.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/cancha-dramatizacion2.jpeg'),
             'alt'     => 'Estudiantes trabajando en aula',
             'loading' => 'eager',
             'decoding' => 'async',
         ],
         [
-            'src'     => asset('assets/pastoralEducativa/celebraciones/san-francisco-edu-inicial-parvularia.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/san-francisco-edu-inicial-parvularia.jpeg'),
             'alt'     => 'Celebración San Francisco en Educación Inicial y Parvularia',
             'loading' => 'lazy',
             'decoding' => 'async',
         ],
         [
-            'src'     => asset('assets/pastoralEducativa/celebraciones/san-francisco-tercer-ciclo.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/san-francisco-tercer-ciclo.jpeg'),
             'alt'     => 'Celebración San Francisco en Tercer Ciclo',
             'loading' => 'lazy',
             'decoding' => 'async',
         ],
         [
-            'src'     => asset('assets/pastoralEducativa/celebraciones/cancha-desde-escenario2.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-escenario2.jpeg'),
             'alt'     => 'Actividad pastoral en la cancha del centro educativo',
             'loading' => 'lazy',
             'decoding' => 'async',

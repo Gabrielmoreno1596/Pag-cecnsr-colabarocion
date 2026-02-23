@@ -6,6 +6,8 @@ if (is_file($__local)) {
 }
 
 
+
+
 if (!defined('PROJECT_PATH')) {
     define('PROJECT_PATH', rtrim(__DIR__, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
 }

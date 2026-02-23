@@ -12,7 +12,7 @@ $images = $data['images'];
             <?php foreach ($images as $img): ?>
                 <div class="photo-item">
                     <img
-                        src="<?= asset('assets/partials/oferta-academica/oferta-ciclo3/image/' . $img['file']); ?>"
+                        src="<?= asset('assets/img/oferta-academica/oferta-ciclo3/' . $img['file']); ?>"
                         alt="<?= htmlspecialchars($img['alt'], ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
             <?php endforeach; ?>

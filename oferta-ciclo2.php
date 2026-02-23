@@ -43,6 +43,9 @@
 
   <!-- JS ESPECÍFICO PARA TABS + ACORDEÓN DE II CICLO -->
   <script defer src="<?= asset('assets/partials/oferta-academica/oferta-ciclo2/js/ciclo2-tabs-accordion.js'); ?>"></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/oferta-academica/oferta-ciclo2/css/oferta-ciclo2.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/oferta-academica/oferta-ciclo2/js/app.js'); ?>"></script>
+
 </body>
 
 </html>

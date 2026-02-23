@@ -14,13 +14,7 @@
     "2\tSilicón (250 ml)",
     "2\tPliegos de papel Kraft",
     "2\tPliego de papel Bond",
-    "1\tPliego de cartón espuma",
-    "2\tlibros de dibujos - pasta gruesa",
-    "1\tCartapasio blanco de 3 pulgadas y fundas protectoras",
-    "1\tcajita de herramientas para kit quirurgico",
-    "1\tbolsas rojay negra mediana",
-    "1\tSet de tuallas grande, mediano y pqueño de baño",
-    "1\tTermometro y estetoscopio manual"
+    "1\tPliego de cartón espuma"
   ],
   "year": "2026",
   "note": [],
@@ -62,7 +56,14 @@
         "1\tCaja de Plumones",
         "1\tEstuche de geometría",
         "1\tCaja de colores 12 Unid. DOBLE PUNTA",
-        "1\tLibro ESMATE",
+        "1\tLibro ESMATE"
+      ]
+    },
+    {
+      "key": "otros",
+      "label": "Otros materiales a utilizar",
+      "hint": "",
+      "items": [
         "3\tCuadernos cuadriculados (8mm) #1",
         "2\tCuadernos rayados #1",
         "1\tCuaderno rayado #3 cocido",
@@ -84,7 +85,6 @@
         "1\tPilot permanente (90)",
         "25\tPáginas de colores",
         "25\tPáginas de papel bond, blancas,  tamaño carta",
-        "1\tPaquete de toallas sanitarias NOCTURNAS ( SOLO LAS SEÑORITAS)",
         "1\tPaquete de papel higiénico (6 rollos)",
         "1\tPliego de cartulina iris dorada",
         "1\tPliego de cartulina iris negra",
@@ -92,14 +92,14 @@
         "2\tSilicón (250 ml)",
         "2\tPliegos de papel Kraft",
         "2\tPliego de papel Bond",
-        "1\tPliego de cartón espuma",
-        "2\tlibros de dibujos - pasta gruesa",
-        "1\tCartapasio blanco de 3 pulgadas y fundas protectoras",
-        "1\tcajita de herramientas para kit quirurgico",
-        "1\tbolsas rojay negra mediana",
-        "1\tSet de tuallas grande, mediano y pqueño de baño",
-        "1\tTermometro y estetoscopio manual"
+        "1\tPliego de cartón espuma"
       ]
+    },
+    {
+      "key": "entregar_ninas",
+      "label": "MATERIALES A ENTREGAR (Solo señoritas)",
+      "hint": "",
+      "items": ["1\tPaquete de toallas sanitarias NOCTURNAS"]
     }
   ],
   "specialties": {
@@ -140,14 +140,6 @@
         "1\tCuchillo de mesa",
         "1\tCucharita para postre"
       ]
-    },
-    "Administrativo Contable": [
-      "4\tCuadernos cuadriculados #3",
-      "3\tCuadernos rayados #3",
-      "1\tCuaderno pequeño",
-      "100\tPáginas blinder (Libro auxiliar Mayor)",
-      "1\tCartapacio blanco de 3 Pulgadas y fundas protectoras",
-      "25\tPáginas de papel bond tamaño carta"
-    ]
+    }
   }
 }

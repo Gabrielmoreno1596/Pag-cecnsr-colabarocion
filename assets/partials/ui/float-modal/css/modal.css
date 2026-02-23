@@ -1,0 +1,402 @@
+/* =========================================================================
+   Float Modal - CECNSR
+   UI/UX: slider + cards con hero rotativo
+   ========================================================================= */
+
+/* Overlay */
+.seasonal-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+.seasonal-modal[hidden] {
+  display: none !important;
+}
+
+.seasonal-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 16, 32, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.seasonal-modal__dialog {
+  position: relative;
+  width: min(640px, calc(100vw - 24px));
+  background: linear-gradient(180deg, #e6bd3a 0%, #d4a41f 35%, #c99917 100%);
+  color: #0b1f3c;
+  border-radius: 22px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  isolation: isolate;
+
+  transform: translateY(10px);
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  max-height: 92vh;
+}
+
+.seasonal-modal.is-open .seasonal-modal__dialog {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.seasonal-modal__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(10, 18, 32, 0.35);
+  color: #f8fbff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.seasonal-modal__close:hover {
+  transform: translateY(-1px);
+}
+
+.seasonal-modal__title,
+.seasonal-modal__message {
+  display: none; /* se usa por slide */
+}
+
+.seasonal-modal__media {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 18, 32, 0.35);
+}
+
+/* Contenedor del slide */
+.seasonal-modal__slide {
+  min-height: 520px;
+}
+
+@media (max-width: 560px) {
+  .seasonal-modal__dialog {
+    padding: 12px 12px 10px;
+    border-radius: 20px;
+  }
+  .seasonal-modal__slide {
+    min-height: 520px;
+  }
+}
+
+/* Fade slide */
+.seasonal-modal__slide.is-fading {
+  opacity: 0.65;
+  transform: scale(0.995);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+}
+
+/* Slider nav */
+.seasonal-modal__nav {
+  position: absolute;
+  /* ✅ Evita tapar el contenido del body (título/bullets).
+     Coloca la navegación dentro del hero (zona superior). */
+  top: 241px;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
+  color: #f8fbff;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  display: grid;
+  place-items: center;
+  z-index: 6;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@media (max-width: 560px) {
+  .seasonal-modal__nav {
+    top: 232px;
+  }
+}
+.seasonal-modal__nav--prev {
+  left: 10px;
+}
+.seasonal-modal__nav--next {
+  right: 10px;
+}
+
+.seasonal-modal__controls {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.seasonal-modal__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.seasonal-modal__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(10, 18, 32, 0.35);
+  background: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+.seasonal-modal__dot.is-active {
+  background: rgba(10, 18, 32, 0.95);
+  transform: scale(1.25);
+}
+
+/* =========================================================================
+   CARD (Slide tipo "comunicado")
+   ========================================================================= */
+
+.seasonal-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(
+      980px 360px at 14% 12%,
+      color-mix(in srgb, var(--seasonal-accent, #ffc300) 28%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(180deg, rgba(10, 18, 32, 0.96), rgba(10, 18, 32, 0.86));
+  color: #f8fbff;
+}
+
+/* HERO con fondo rotativo */
+.seasonal-card__hero {
+  position: relative;
+  min-height: 240px; /* ✅ más height como pediste */
+  padding: 18px 18px 16px;
+  display: grid;
+  align-items: end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* ✅ Sin línea divisoria: hero y body deben sentirse integrados */
+  border-bottom: none;
+  transition:
+    opacity 0.28s ease,
+    filter 0.28s ease;
+}
+
+.seasonal-card__hero.is-hero-fading {
+  opacity: 0.84;
+  filter: saturate(0.92);
+}
+
+/* sombra/gradiente para legibilidad */
+.seasonal-card__heroShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 18, 32, 0.82) 0%,
+      rgba(10, 18, 32, 0.35) 56%,
+      rgba(10, 18, 32, 0.1) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 18, 32, 0.2) 0%,
+      rgba(10, 18, 32, 0.86) 100%
+    );
+  pointer-events: none;
+}
+
+.seasonal-card__heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 74%;
+}
+
+.seasonal-card__metaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.seasonal-card__icon {
+  width: 18px;
+  height: 18px;
+  color: rgba(248, 251, 255, 0.88);
+}
+
+.seasonal-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.78rem;
+  letter-spacing: 0.2px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.seasonal-card__heroTitle {
+  margin: 0 0 6px;
+  font-weight: 950;
+  font-size: clamp(1.25rem, 3.3vw, 1.85rem);
+  line-height: 1.08;
+  letter-spacing: 0.2px;
+  text-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+.seasonal-card__heroSub {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: rgba(248, 251, 255, 0.88);
+  text-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+}
+
+/* Avatar óvalo superior derecho */
+.seasonal-card__avatar {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 92px;
+  height: 92px;
+  border-radius: 28px; /* óvalo suave */
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+  z-index: 3;
+}
+.seasonal-card__avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Cuerpo */
+.seasonal-card__body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seasonal-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 950;
+}
+
+.seasonal-card__sub {
+  margin: -8px 0 0;
+  color: rgba(248, 251, 255, 0.86);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+.seasonal-card__bullets {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(248, 251, 255, 0.9);
+  line-height: 1.5;
+  font-size: 0.94rem;
+}
+.seasonal-card__bullets li {
+  margin: 4px 0;
+}
+
+.seasonal-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.seasonal-card__btn {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(248, 251, 255, 0.95);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 950;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.seasonal-card__btn--primary {
+  background: var(--seasonal-accent, #ffc300);
+  color: #0b1f3c;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.seasonal-card__btn--danger {
+  background: #ef4444;
+  color: #fff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.seasonal-card__btn--ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(248, 251, 255, 0.95);
+}
+
+.seasonal-card__btn:hover,
+.seasonal-card__btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 560px) {
+  .seasonal-card__hero {
+    min-height: 230px;
+    padding: 16px 16px 14px;
+  }
+
+  .seasonal-card__heroContent {
+    max-width: 78%;
+  }
+
+  .seasonal-card__avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 26px;
+    right: 12px;
+    top: 12px;
+  }
+
+  .seasonal-card__body {
+    padding: 14px 16px 16px;
+  }
+}

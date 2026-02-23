@@ -1,0 +1,358 @@
+/* =========================================================================
+   INICIO - REDISEÑO (solo overrides / capas nuevas)
+   - Respeta la paleta existente (azul / dorado / vino)
+   - Mejora ritmo visual, espaciado, tarjetas y carousels con scroll-snap
+   ========================================================================= */
+
+:root {
+  --cecns-blue: #004080;
+  --cecns-gold: #ffc300;
+  --cecns-wine: #800020;
+
+  --cecns-ink: #0b1b2a;
+  --cecns-muted: rgba(11, 27, 42, 0.72);
+  --cecns-border: rgba(0, 0, 0, 0.08);
+
+  --cecns-radius-lg: 18px;
+  --cecns-radius-md: 14px;
+  --cecns-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  --cecns-shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* MAIN: contenedor y ritmo */
+.inicio-main {
+  padding-inline: clamp(16px, 4vw, 56px);
+  padding-bottom: clamp(28px, 5vw, 64px);
+  background: #fff;
+}
+
+.inicio-band {
+  padding-block: clamp(28px, 5vw, 64px);
+}
+
+.inicio-band--soft {
+  background: radial-gradient(
+      900px 420px at 20% 10%,
+      rgba(0, 64, 128, 0.06),
+      transparent 55%
+    ),
+    radial-gradient(
+      720px 360px at 85% 35%,
+      rgba(255, 195, 0, 0.1),
+      transparent 55%
+    ),
+    linear-gradient(#fff, #fff);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Accesos rápidos */
+.inicio-jump {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-block: clamp(16px, 3.5vw, 28px);
+}
+
+.jump-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 2px;
+  align-items: center;
+  padding: 16px 16px;
+  border-radius: var(--cecns-radius-lg);
+  background: #fff;
+  border: 1px solid var(--cecns-border);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.jump-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 64, 128, 0.22);
+}
+
+.jump-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(0, 64, 128, 0.08);
+  color: var(--cecns-blue);
+}
+
+.jump-title {
+  font-weight: 800;
+  color: var(--cecns-ink);
+  letter-spacing: 0.2px;
+}
+
+.jump-sub {
+  grid-column: 2;
+  color: var(--cecns-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .inicio-jump {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mejoras al HERO existente (sin cambiar HTML del componente) */
+.hero {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: radial-gradient(
+      900px 420px at 20% 12%,
+      rgba(255, 195, 0, 0.2),
+      transparent 55%
+    ),
+    radial-gradient(
+      720px 360px at 85% 35%,
+      rgba(255, 255, 255, 0.1),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #003a74 0%, var(--cecns-blue) 80%);
+}
+
+.hero-content {
+  max-width: 1200px;
+}
+
+.hero-title {
+  letter-spacing: 0.6px;
+  text-wrap: balance;
+}
+
+.photo-roll-container {
+  margin-inline: auto;
+  max-width: 1200px;
+  padding-bottom: 16px;
+}
+
+.photo-roll {
+  padding-inline: 0;
+  scroll-snap-type: x mandatory;
+}
+
+.photo-item {
+  border-radius: var(--cecns-radius-lg);
+  scroll-snap-align: start;
+}
+
+.btn-primary {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* QUIÉNES SOMOS */
+#quienes-somos.section-padding {
+  padding: 0;
+}
+
+#quienes-somos .history-flex-container {
+  padding-inline: 0;
+}
+
+#quienes-somos .history-text-block {
+  border-radius: var(--cecns-radius-lg);
+  box-shadow: var(--cecns-shadow);
+}
+
+/* Convertimos carrusel historia a rail con scroll-snap cuando hay JS */
+.js .history-carousel-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.js .history-carousel-track {
+  animation: none !important;
+  gap: 12px;
+  padding: 12px;
+}
+
+.js .history-carousel-img {
+  width: min(520px, 85vw);
+  border-radius: var(--cecns-radius-lg);
+  scroll-snap-align: start;
+}
+
+/* -------------------------------------------------------------------------
+   QS: Modo FADE (desvanecimiento)
+   - Si el JS activa el fade, anulamos el comportamiento tipo "rail" de esta hoja.
+   - Así evitamos que las imágenes queden a un lado o generen scroll horizontal.
+   ------------------------------------------------------------------------- */
+.js .history-carousel-container.is-fade-mode {
+  overflow: visible; /* permite que el overlay (stats) sobresalga */
+  scroll-snap-type: none;
+}
+
+.js .history-carousel-container.is-fade-mode .history-carousel-track {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  gap: 0;
+}
+
+.js .history-carousel-container.is-fade-mode .history-carousel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 900ms ease;
+  scroll-snap-align: unset;
+}
+
+.js .history-carousel-container.is-fade-mode .history-carousel-img.is-active {
+  opacity: 1;
+}
+
+/* MISIÓN / VISIÓN / COMPROMISO */
+#mision-vision-compromiso.section-padding {
+  padding: 0;
+}
+
+.mission-vision-card {
+  border-radius: var(--cecns-radius-lg);
+  box-shadow: var(--cecns-shadow-soft);
+  background: radial-gradient(
+      480px 240px at 18% 18%,
+      rgba(255, 195, 0, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #7a001e 0%, var(--cecns-wine) 100%);
+}
+
+.mission-vision-card:hover {
+  transform: translateY(-6px);
+}
+
+/* INFRA */
+.infra-head {
+  max-width: 1200px;
+  margin: 0 auto 16px auto;
+  text-align: center;
+}
+
+.infra-sub {
+  margin-top: 8px;
+  color: var(--cecns-muted);
+}
+
+.js .infra-carousel-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  height: clamp(240px, 32vw, 420px);
+}
+
+.js .infra-carousel-track {
+  width: max-content;
+  animation: none !important;
+  gap: 12px;
+  padding: 12px;
+}
+
+.js .infra-carousel-img {
+  width: min(720px, 90vw) !important;
+  height: 100%;
+  border-radius: var(--cecns-radius-lg);
+  scroll-snap-align: start;
+}
+
+/* Controles inyectados por JS (prev/next + progreso) */
+.rail-ui {
+  position: relative;
+}
+
+.rail-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--cecns-blue);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  z-index: 5;
+}
+
+.rail-btn:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+.rail-btn:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.rail-btn--prev {
+  left: 10px;
+}
+.rail-btn--next {
+  right: 10px;
+}
+
+.rail-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.rail-progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--cecns-gold);
+}
+
+/* Botón volver arriba */
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--cecns-blue);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jump-card,
+  .btn-primary,
+  .rail-btn {
+    transition: none;
+  }
+}

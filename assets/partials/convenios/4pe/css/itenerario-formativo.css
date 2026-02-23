@@ -1,0 +1,554 @@
+/* Auto-separado desde style-pi-4pe.css — sección: itenerario-formativo */
+
+.bullets-pi {
+  margin: 0.5rem 0 0 1rem;
+}
+
+.bullets-pi li {
+  margin: 0.25rem 0;
+}
+
+/* Timeline */
+.timeline-pi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 3px solid #e6ebf1;
+}
+
+.timeline-pi.modern li {
+  position: relative;
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.6rem 0 0.6rem 1rem;
+}
+
+.timeline-pi.modern li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 1.1rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cecns-gold);
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.timeline-pi .badge {
+  background: var(--cecns-wine);
+  color: #fff;
+  border: 2px solid var(--cecns-gold);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.timeline-pi h4 {
+  margin: 0.1rem 0 0.25rem;
+  color: var(--cecns-navy);
+}
+
+@media (max-width: 1024px) {
+.timeline-pi.modern li {
+    padding-left: 0.9rem;
+    width: 89%;
+  }
+
+.itn-toggle {
+    width: 89%;
+  }
+}
+
+@media (max-width: 640px) {
+.timeline-pi .badge {
+    width: 29px;
+    height: 26px;
+  }
+}
+
+/* Itinerario */
+.itn__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.itn__timeline-pi {
+  margin-top: 0.25rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.5s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.itn__days {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.itn-day {
+  background: #fff;
+  border: 1px solid var(--pi-line);
+  border-radius: 12px;
+  padding: 0.85rem;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+}
+
+.itn-day__n {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--cecns-gold);
+  color: #111;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.itn__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--pi-line);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.itn__media figcaption {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+.itn__quote {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--cecns-gold);
+  background: #004080;
+  border: 1px solid var(--pi-line);
+  border-radius: 10px;
+  color: var(--pi-bg);
+}
+
+.itn__quote p {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.itn__quote footer {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+@media (max-width: 1024px) {
+.itn__grid {
+    grid-template-columns: 1fr;
+  }
+
+.itn__days {
+    grid-template-columns: 1fr;
+  }
+
+.itn__aside {
+    width: 90%;
+  }
+}
+
+/* utilidades suaves para el timeline */
+.itn__kicker {
+  margin: 0.25rem 0 0.4rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.itn__bullets {
+  margin: 0.25rem 0 0 0;
+  padding-left: 1rem;
+  color: #374151;
+}
+
+.itn__bullets li {
+  margin: 0.25rem 0;
+  line-height: 1.45;
+}
+
+/* Itinerario - hidden */
+
+/* --- Itinerario: acordeón accesible --- */
+.itn-toggle {
+  cursor: pointer;
+  position: relative;
+  padding-right: 1.5rem;
+  position: relative;
+  padding-right: 1.6rem; /* deja espacio al icono */
+  cursor: pointer;
+}
+
+.itn-toggle::after {
+  content: "+"; /* <— en lugar de la flecha */
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--cecns-navy);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.itn-item.is-open .itn-toggle::after {
+  transform: rotate(0deg);
+}
+
+/* Panel oculto con animación suave */
+.itn-more[hidden] {
+  display: block;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.itn-item.is-open .itn-more {
+  max-height: 800px;
+  opacity: 1;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+.itn-more,
+  .itn-toggle::after {
+    transition: none;
+  }
+}
+
+/* --- Aside centrado --- */
+.itn__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itn__media {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.itn__media img {
+  display: block;
+  margin: 0 auto;
+}
+
+.itn__quote {
+  max-width: 680px;
+  width: 100%;
+}
+
+/* Animación al Aside del itinerario */
+
+/* Centrado amable del aside */
+.itn__aside {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  background-color: #004080;
+  padding: 1.3rem;
+  border-radius: 20px;
+}
+
+.itn__media {
+  text-align: center;
+}
+
+.itn__media img {
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 14px;
+}
+
+.itn__media figcaption {
+  margin-top: 0.35rem;
+  color: #6b7280;
+}
+
+.itn__credits {
+  display: block;
+  margin-top: 0.2rem;
+  color: #94a3b8;
+}
+
+/* ====== Layout base ====== */
+.itn {
+  overflow-x: hidden;
+}
+
+.itn__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1rem, 3vw, 1.6rem);
+  align-items: start;
+}
+
+/* Columna izquierda (timeline) */
+.timeline-pi.itn__timeline-pi {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+
+.itn-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.6rem;
+  align-items: start;
+  padding: 0.6rem 0.25rem;
+  border-bottom: 1px solid #eaeef3;
+}
+
+.itn-item:last-child {
+  border-bottom: 0;
+}
+
+/* Título/Toggle */
+.itn-toggle {
+  position: relative;
+  font-weight: 800;
+  line-height: 1.28;
+  font-size: clamp(1.02rem, 2.8vw, 1.12rem);
+  padding-right: 1.6rem; /* espacio para caret */
+  min-height: 44px; /* buen tap-target */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.itn-toggle::after {
+  content: "+";
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 0.65;
+  transition: transform 0.18s ease;
+}
+
+.itn-toggle[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Icono abierto: − (signo menos verdadero U+2212) */
+.itn-toggle[aria-expanded="true"]::after {
+  content: "\2212"; /* − */
+}
+
+/* (opcional) pequeño efecto al abrir/cerrar */
+.itn-toggle:active::after {
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Cuerpo ocultable */
+.itn-more {
+  margin-top: 0.4rem;
+  font-size: 0.96rem;
+  color: #374151;
+}
+
+.itn__kicker {
+  margin-bottom: 0.35rem;
+  color: #1f2937;
+}
+
+.bullets-pi,
+.itn__bullets {
+  padding-left: 1.05rem;
+  margin: 0.25rem 0 0;
+}
+
+.bullets-pi li,
+.itn__bullets li {
+  margin: 0.22rem 0;
+}
+
+/* Columna derecha (aside) */
+.itn__aside {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.itn__media {
+  background: #ffffff00;
+  border: 1px solid #e6ebf100;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(2, 8, 23, 0.08);
+}
+
+.itn__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16/9; /* evita desbordes altos en móviles */
+  object-fit: cover;
+}
+
+.itn__media figcaption {
+  font-size: 0.9rem;
+  color: #374151;
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+
+.itn__credits {
+  display: block;
+  color: #6b7280;
+  font-size: 0.78rem;
+  padding: 0 0.75rem 0.6rem;
+}
+
+/* Frase */
+.itn__quote {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  background: #f8f9fb00;
+  border: 1px solid #e6ebf100;
+  border-radius: 12px;
+  color: #0f172a;
+}
+
+.itn__quote p {
+  margin: 0 0 0.35rem;
+  line-height: 1.35;
+}
+
+.itn__quote footer {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* ====== Breakpoints ====== */
+@media (max-width: 980px) {
+  .itn__grid {
+    grid-template-columns: 1fr;
+  }
+  .itn__aside {
+    order: 2;
+  } /* opcional si quieres el aside abajo */
+}
+
+@media (max-width: 420px) {
+/* Galaxy S8 y similares */
+  .itn__grid {
+    gap: 0.9rem;
+  }
+
+.itn-toggle {
+    font-size: 1rem;
+    padding-right: 1.4rem;
+  }
+
+.itn-more {
+    font-size: 0.94rem;
+    margin-left: -2rem;
+  }
+
+.bullets-pi,
+  .itn__bullets {
+    padding-left: 0.95rem;
+  }
+
+.itn__media figcaption {
+    font-size: 0.86rem;
+  }
+
+.itn__credits {
+    font-size: 0.75rem;
+  }
+
+.itn__quote {
+    padding: 0.8rem 0.85rem;
+  }
+}
+
+/* --- FIX 1: que el timeline use todo el ancho en móvil --- */
+@media (max-width: 1024px) {
+  .timeline-pi.modern li,
+  .itn-toggle {
+    width: auto; /* anula el 89% */
+    max-width: 100%;
+  }
+}
+
+/* Botón/área del acordeón: caret y tap target sin forzar ancho */
+.itn-toggle {
+  padding-right: 1.25rem;
+}
+
+/* 1) No recortar el contenido horizontal del bloque */
+.itn {
+  overflow-x: visible;
+}
+
+/* o eliminar la regla overflow-x: hidden; */
+
+/* 2) Bullets consistentes y dentro del contenedor */
+.bullets-pi,
+.itn__bullets {
+  list-style: disc;
+  list-style-position: inside; /* evita que el marcador quede fuera y se corte */
+  padding-left: 0.5rem; /* pequeño sangrado interno */
+  margin-left: 0; /* sin margen que empuje hacia el borde */
+}
+
+/* Color del marcador (si el navegador soporta ::marker) */
+@supports selector(li::marker) {
+  .bullets-pi li::marker,
+  .itn__bullets li::marker {
+    color: var(--cecns-gold);
+  }
+}
+
+/* Itinirario */
+
+/* ---- Acordeón suave para .itn-more ---- */
+.itn-more {
+  overflow: clip; /* recorta durante la animación */
+  height: 0; /* cerrado por defecto */
+  opacity: 0; /* sutil fade */
+  transition: height 0.28s ease, opacity 0.24s ease;
+  will-change: height, opacity;
+}
+
+/* Cuando está abierta, la opacidad queda a 1 (la altura la maneja JS) */
+.itn-item.is-open .itn-more {
+  opacity: 1;
+}
+
+/* Respeta preferencias de usuario */
+@media (prefers-reduced-motion: reduce) {
+  .itn-more {
+    transition: none !important;
+  }
+}
+
+/* Hotfix: si el Observer no corre, que .reveal NO oculte el contenido */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}

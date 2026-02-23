@@ -27,7 +27,7 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
 <header id="header-global" class="cecnsr-header" data-header role="banner" data-open-sub="<?= htmlspecialchars($openSub, ENT_QUOTES) ?>">
   <div class="cecnsr-header__inner">
     <a class="cecnsr-logo" href="index.php#hero" aria-label="CECNSR - Inicio">
-      <img src="assets/1_CECNSR.png" alt="Logo CECNSR" class="cecnsr-logo__img" />
+      <img src="assets/img/logos/cecnsr.png" alt="Logo CECNSR" class="cecnsr-logo__img" />
       <span class="cecnsr-logo__text">CECNSR</span>
     </a>
 
@@ -59,7 +59,7 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
           <ul class="cecnsr-dropdown__menu" role="menu">
             <li role="none"><a role="menuitem" class="cecnsr-dropdown__link<?= is_current('convenios-pasch', $curSlug); ?>" href="convenios-pasch.php">Colegios PASCH</a></li>
             <li role="none"><a role="menuitem" class="cecnsr-dropdown__link<?= is_current('convenios-dual', $curSlug); ?>" href="convenios-dual.php">Proyecto DUAL</a></li>
-            <li role="none"><a role="menuitem" class="cecnsr-dropdown__link<?= is_current('convenios-psicologia', $curSlug); ?>" href="convenios-psicologia.php">Psicología Individual</a></li>
+            <li role="none"><a role="menuitem" class="cecnsr-dropdown__link<?= is_current('convenios-psicologia', $curSlug); ?>" href="convenios-psicologia.php">Programa Dual</a></li>
             <li role="none"><a role="menuitem" class="cecnsr-dropdown__link<?= is_current('convenios-integracion', $curSlug); ?>" href="convenios-integracion.php">Integración</a></li>
           </ul>
         </li>
@@ -94,7 +94,7 @@ if (in_array($curSlug, $CONVENIOS_CHILDREN)) $openSub = 'convenios';
       <ul class="cecnsr-subbar__list" data-sub="convenios" <?= ($openSub === 'convenios') ? '' : 'hidden'; ?>>
         <li><a class="cecnsr-subbar__link<?= is_current('convenios-pasch', $curSlug); ?>" href="convenios-pasch.php">Colegios PASCH</a></li>
         <li><a class="cecnsr-subbar__link<?= is_current('convenios-dual', $curSlug); ?>" href="convenios-dual.php">Proyecto DUAL</a></li>
-        <li><a class="cecnsr-subbar__link<?= is_current('convenios-psicologia', $curSlug); ?>" href="convenios-psicologia.php">Psicología Individual</a></li>
+        <li><a class="cecnsr-subbar__link<?= is_current('convenios-psicologia', $curSlug); ?>" href="convenios-psicologia.php">Programa Dual</a></li>
         <li><a class="cecnsr-subbar__link<?= is_current('convenios-integracion', $curSlug); ?>" href="convenios-integracion.php">Integración</a></li>
       </ul>
     </div>

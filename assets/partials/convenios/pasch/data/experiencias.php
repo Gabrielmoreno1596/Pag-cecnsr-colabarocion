@@ -1,5 +1,5 @@
 <?php
-$base = 'assets/partials/convenios/pasch';
+$base = 'assets/img/convenios/pasch';
 
 return [
     'id' => 'experiencias',
@@ -11,9 +11,9 @@ return [
             'pdf_label' => 'Ver bitácora',
             'pdf' => "$base/pdf/paschBitácora-Alemania-ALEMÁN-Alex.pdf",
             'images' => [
-                "$base/image/experiencias/pasch-img2.jpeg",
-                "$base/image/experiencias/pasch-img5.png",
-                "$base/image/experiencias/pasch-img6.png",
+                "$base/experiencias/pasch-img2.jpeg",
+                "$base/experiencias/pasch-img5.png",
+                "$base/experiencias/pasch-img6.png",
             ],
             'alts' => [
                 'Alex en curso juvenil',
@@ -27,9 +27,9 @@ return [
             'pdf_label' => 'Ver logbuch',
             'pdf' => "$base/pdf/pasch-Logbuch-Valeria-Meléndez-2APS.pdf",
             'images' => [
-                "$base/image/experiencias/pasch-valeria2.png",
-                "$base/image/experiencias/pasch-valeria1.png",
-                "$base/image/experiencias/pasch-img4.png",
+                "$base/experiencias/pasch-valeria2.png",
+                "$base/experiencias/pasch-valeria1.png",
+                "$base/experiencias/pasch-img4.png",
             ],
             'alts' => [
                 'Valeria en campamento PASCH',
@@ -43,9 +43,9 @@ return [
             'pdf_label' => 'Ver memoria',
             'pdf' => "$base/pdf/paschMemoria-de-viaje-Mateo.pdf",
             'images' => [
-                "$base/image/experiencias/pasch-vijaron.jpeg",
-                "$base/image/experiencias/pasch-mateo1.png",
-                "$base/image/experiencias/pasch-mateo2.png",
+                "$base/experiencias/pasch-vijaron.jpeg",
+                "$base/experiencias/pasch-mateo1.png",
+                "$base/experiencias/pasch-mateo2.png",
             ],
             'alts' => [
                 'Mateo en Jungenkurs',

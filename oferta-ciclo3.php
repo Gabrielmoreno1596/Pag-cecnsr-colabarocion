@@ -39,6 +39,9 @@
   <script src="<?= asset('assets/partials/oferta-academica/oferta-ciclo3/js/oferta-ciclo3.js'); ?>"></script>
   <!-- JS global del sitio -->
   <script defer src="<?= asset('script.js'); ?>"></script>
+  <link rel="stylesheet" href="<?= asset('assets/partials/oferta-academica/oferta-ciclo3/css/oferta-ciclo3.css'); ?>">
+  <script type="module" src="<?= asset('assets/partials/oferta-academica/oferta-ciclo3/js/app.js'); ?>"></script>
+
 </body>
 
 </html>

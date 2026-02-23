@@ -3,7 +3,7 @@
   "title": "Lista de útiles de Primer Grado",
   "mineduc": [
     "3 Cuadernos engrapados rayados 100 hojas (1 para inglés, 1 música, 1 informática)",
-    "1 Cuaderno engrapado cuadriculado 100 hojas (para Calculemos)",
+    "1 Cuaderno engrapado cuadriculado 100 hojas (para MateAventuras)",
     "1 Borrador de goma",
     "1 Caja de colores doble punta 12 unidades",
     "1 Sacapunta",
@@ -12,7 +12,7 @@
     "1 Regla de 30 cm"
   ],
   "others": [
-    "3 Cuadernos rayados cosidos #3 (1 experiencia integral, 1 experiencia específica y 1 lectura) rotulados con nombre completo del estudiante",
+    "3 Cuadernos rayados cosidos #3 (1 taller baúl de las letras, 1 taller/ proyecto, 1 de lectoescritura.) rotulados con nombre completo del estudiante",
     "1 bote de Resistol",
     "Paquete de libros se puede adquirir en la institución",
     "1 bolsón transparente",
@@ -52,7 +52,7 @@
       "hint": "Elementos provistos por el Ministerio.",
       "items": [
         "3 Cuadernos engrapados rayados 100 hojas (1 para inglés, 1 música, 1 informática)",
-        "1 Cuaderno engrapado cuadriculado 100 hojas (para Calculemos)",
+        "1 Cuaderno engrapado cuadriculado 100 hojas (para MateAventuras)",
         "1 Borrador de goma",
         "1 Caja de colores doble punta 12 unidades",
         "1 Sacapunta",
@@ -66,7 +66,7 @@
       "label": "Otros materiales para utilizar",
       "hint": "Recomendados por el colegio.",
       "items": [
-        "3 Cuadernos rayados cosidos #3 (1 experiencia integral, 1 experiencia específica y 1 lectura) rotulados con nombre completo del estudiante",
+        "3 Cuadernos rayados cosidos #3 (1 taller baúl de las letras, 1 taller/ proyecto, 1 de lectoescritura.) rotulados con nombre completo del estudiante",
         "1 bote de Resistol",
         "Paquete de libros se puede adquirir en la institución",
         "1 bolsón transparente",

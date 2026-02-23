@@ -1,0 +1,11 @@
+/* Oferta Académica - Bachillerato (hoja principal)
+   Nota: No modifica tus estilos existentes; solo los agrupa y añade reveal-on-scroll.
+*/
+@import url("./hero.css");
+@import url("./especialidades.css");
+@import url("./perfil.css");
+@import url("./valores.css");
+@import url("./admision.css");
+
+/* Efecto reveal */
+@import url("./components/reveal.css");

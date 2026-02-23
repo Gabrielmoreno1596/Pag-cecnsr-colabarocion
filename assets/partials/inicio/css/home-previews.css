@@ -1,0 +1,522 @@
+/* =========================================================================
+   INICIO: Previews / accesos a otras páginas (Solo secciones actuales)
+   - NO toca hero / quienes-somos / infraestructura
+   - Permite “juego” de fondos: imagen entra/sale + bandas claras intermedias
+   ========================================================================= */
+
+:root {
+  --preview-ink: #0b1220;
+  --preview-muted: rgba(11, 18, 32, 0.72);
+  --preview-border: rgba(0, 0, 0, 0.1);
+  --preview-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  --preview-radius: 18px;
+}
+
+/* =========================
+   Bandas nuevas (fondos)
+   ========================= */
+
+/* Convenios (clara) */
+.band--light.band--convenios {
+  background: radial-gradient(
+      1200px 520px at 20% 10%,
+      rgba(255, 195, 0, 0.18),
+      rgba(255, 195, 0, 0) 55%
+    ),
+    linear-gradient(180deg, #003062, #002b58);
+}
+
+/* Oferta / Pastoral (fondo con imagen)
+   - Fallback sin JS: background normal con attachment fixed
+   - Con JS: inyecta .band-bg-layer + controla opacidad con .is-pinned
+*/
+.band--pinned-bg {
+  position: relative;
+  padding: clamp(2.7rem, 4.6vw, 4.2rem) 0;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 12, 30, 0.65),
+      rgba(0, 12, 30, 0.42)
+    ),
+    var(--band-bg) center/cover no-repeat fixed;
+  overflow: hidden;
+}
+
+/* Cuando JS está activo, se usa la capa fija para el “entra / sale” */
+.band--pinned-bg.has-fixed-bg {
+  background: transparent !important;
+  isolation: isolate;
+}
+.band--pinned-bg.has-fixed-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Capa fija de fondo */
+.band--pinned-bg.has-fixed-bg .band-bg-layer {
+  position: fixed;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 680ms ease;
+  will-change: opacity;
+  z-index: 0;
+  transform: translateZ(0);
+  filter: saturate(1.05) contrast(1.02);
+}
+.band--pinned-bg.has-fixed-bg .band-bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      60% 70% at 50% 22%,
+      rgba(0, 0, 0, 0.22),
+      rgba(0, 0, 0, 0.62) 72%
+    ),
+    linear-gradient(180deg, rgba(0, 12, 30, 0.72), rgba(0, 12, 30, 0.42));
+}
+
+/* Visible solo mientras la banda toca el viewport */
+.band--pinned-bg.has-fixed-bg.is-pinned .band-bg-layer {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .band--pinned-bg {
+    background-attachment: scroll;
+  }
+  .band--pinned-bg.has-fixed-bg .band-bg-layer {
+    background-attachment: scroll;
+  }
+}
+
+/* =========================
+   Sección (contenido)
+   ========================= */
+
+.home-preview.section-padding {
+  padding: 0; /* la banda ya controla el padding exterior */
+}
+
+.home-preview__inner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* En bandas con imagen: panel “glass” para legibilidad */
+.band--pinned-bg .home-preview__inner {
+  border-radius: clamp(18px, 2.4vw, 24px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: clamp(8.2rem, 5.2vw, 1.9rem);
+  width: 100%;
+}
+
+/* Header */
+.home-preview__head {
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: clamp(1rem, 2vw, 1.35rem);
+}
+
+.home-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--preview-border);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--preview-ink);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.home-kicker__dot {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(0, 64, 128, 0.1);
+  color: #004080;
+}
+
+.home-kicker__text {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 0.92rem;
+}
+
+.home-preview__title {
+  margin: 0;
+  color: #ffd149;
+}
+
+.home-preview__sub {
+  margin: 0;
+  color: var(--preview-muted);
+  max-width: 70ch;
+  line-height: 1.55;
+}
+
+/* Grid de tarjetas */
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 18px);
+}
+
+/* ===== BREAKPOINTS CONSISTENTES ===== */
+.home-cards__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* <= 1060px */
+@media (max-width: 1060px) {
+  .home-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* <= 980px */
+@media (max-width: 980px) {
+  .home-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .home-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* <= 640px (MOBILE) ✅ FIX REAL */
+@media (max-width: 640px) {
+  .home-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .home-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .band--pinned-bg .home-preview__inner {
+    padding: 1.05rem;
+  }
+}
+
+/* Card */
+.home-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: 170px 1fr;
+  border-radius: var(--preview-radius);
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid var(--preview-border);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  transform: translateZ(0);
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.home-card__media {
+  position: relative;
+  overflow: hidden;
+}
+.home-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 480ms ease;
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.home-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.home-card__body {
+  padding: 0.95rem 1rem 1.05rem 1rem;
+  display: grid;
+  gap: 0.55rem;
+  color: var(--preview-ink);
+}
+
+.home-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: -2.05rem;
+  z-index: 2;
+}
+
+.home-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.home-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(0, 64, 128, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.home-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.home-card__desc {
+  margin: 0;
+  color: var(--preview-muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.home-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 800;
+  color: #004080;
+  margin-top: 0.1rem;
+}
+
+.home-card:focus-visible {
+  outline: 3px solid rgba(255, 195, 0, 0.55);
+  outline-offset: 3px;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--preview-shadow);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+.home-card:hover .home-card__media img {
+  transform: scale(1.08);
+}
+
+/* Footer CTA */
+.home-preview__footer {
+  margin-top: clamp(1.05rem, 2vw, 1.5rem);
+  display: flex;
+  justify-content: flex-start;
+}
+.home-preview__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .home-preview__footer {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-card,
+  .home-card__media img {
+    transition: none !important;
+  }
+}
+
+/* =========================================================================
+   Convenios: strip de logos (solo .band--convenios)
+   ========================================================================= */
+
+.band--light.band--convenios .home-cards__eyebrow,
+.band--light.band--convenios .home-cards__title,
+.band--light.band--convenios .home-cards__sub {
+  color: rgb(50 56 68);
+}
+
+.band--light.band--convenios .home-cards__title,
+.band--light.band--convenios .home-cards__sub {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.band--light.band--convenios .home-cards__sub {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.convenios-logos {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.convenios-logos__strip {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.convenio-logo {
+  position: relative;
+  flex: 1 1 230px;
+  min-width: 220px;
+  max-width: 1fr;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.92);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.06)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+.convenio-logo::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+      520px 160px at 18% 20%,
+      rgba(255, 195, 0, 0.22),
+      transparent 55%
+    ),
+    radial-gradient(
+      460px 180px at 78% 10%,
+      rgba(0, 208, 255, 0.14),
+      transparent 60%
+    );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.convenio-logo:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.07)
+  );
+}
+.convenio-logo:hover::before {
+  opacity: 0.9;
+}
+
+.convenio-logo__mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.convenio-logo__img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+}
+
+.convenio-logo__meta {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.convenio-logo__title {
+  font-weight: 750;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+}
+
+.convenio-logo__desc {
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.25;
+}
+
+.convenio-logo__cta {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  flex: 0 0 auto;
+  opacity: 0.85;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.convenio-logo:hover .convenio-logo__cta {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .convenios-logos__strip {
+    flex-wrap: wrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .convenios-logos__strip::-webkit-scrollbar {
+    height: 8px;
+  }
+  .convenios-logos__strip::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 99px;
+  }
+  .convenio-logo {
+    scroll-snap-align: start;
+    flex: 0 0 78%;
+    min-width: 260px;
+  }
+}

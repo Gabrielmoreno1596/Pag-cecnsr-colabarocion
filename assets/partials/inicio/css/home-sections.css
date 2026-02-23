@@ -1,0 +1,315 @@
+/* =========================================================================
+   INICIO - Secciones nuevas (Confianza + Accesos + Tarjetas)
+   - No toca estilos de componentes existentes.
+   - Consistencia visual, estados de focus, alturas estables.
+   ========================================================================= */
+
+.band--trust.band--light {
+  /* Banda mínima para no “robar” protagonismo */
+  padding: clamp(1.4rem, 2.4vw, 2rem) 0;
+}
+
+.trust-strip {
+  max-width: min(1200px, 94vw);
+  margin: 0 auto;
+}
+
+.trust-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.6vw, 16px);
+}
+
+.trust-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(8, 22, 45, 0.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+.trust-chip__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 195, 0, 1),
+    rgba(255, 195, 0, 0.5)
+  );
+  color: #0b2b55;
+  border: 1px solid rgba(255, 195, 0, 0.22);
+  flex: 0 0 auto;
+}
+
+.trust-chip__value {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #071b38;
+}
+
+.trust-chip__label {
+  display: block;
+  font-size: 0.95rem;
+  color: rgba(7, 27, 56, 0.75);
+}
+
+@media (max-width: 820px) {
+  .trust-strip__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================================
+   Tarjetas (home-cards)
+   ========================================================================= */
+
+.home-cards {
+  max-width: min(1260px, 94vw);
+  margin: 0 auto;
+}
+
+.home-cards__head {
+  max-width: 72ch;
+  margin: 0 auto clamp(18px, 2.4vw, 28px) auto;
+  text-align: center;
+}
+
+.home-cards__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 10px 0;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+  color: rgba(11, 18, 32, 0.84);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(11, 18, 32, 0.08);
+  width: 40%;
+}
+
+.home-cards__sub {
+  margin: 10px auto 0 auto;
+  color: rgba(11, 18, 32, 0.74);
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+}
+
+.home-cards__grid {
+  display: grid;
+  gap: clamp(12px, 1.8vw, 18px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-cards--quick .home-cards__grid,
+.home-cards--grid .home-cards__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+  min-height: 128px; /* altura estable */
+  transform: translateY(0);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.home-card__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 12, 30, 0.22),
+      rgba(0, 12, 30, 0.62)
+    ),
+    var(--card-bg) center/cover no-repeat;
+  filter: saturate(1.04) contrast(1.02);
+  transform: scale(1.02);
+  transition: transform 380ms ease, filter 380ms ease;
+}
+
+.home-card__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 48px 1fr 28px;
+  gap: 14px;
+  align-items: center;
+  padding: 18px 18px;
+}
+
+/* =========================================================================
+   Hover UX (solo: quicklinks / oferta / pastoral)
+   ========================================================================= */
+
+.band--quicklinks .home-card__content,
+.band--oferta .home-card__content,
+.band--pastoral .home-card__content {
+  border-radius: 18px;
+}
+
+.band--quicklinks .home-card__content::before,
+.band--oferta .home-card__content::before,
+.band--pastoral .home-card__content::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 16px;
+  background: rgba(255, 195, 0, 0);
+  border: 1px solid rgba(255, 195, 0, 0);
+  transition: background 260ms ease, border-color 260ms ease;
+  z-index: -1;
+}
+
+.band--quicklinks .home-card:hover .home-card__content::before,
+.band--oferta .home-card:hover .home-card__content::before,
+.band--pastoral .home-card:hover .home-card__content::before {
+  background: rgba(255, 195, 0, 0.16);
+  border-color: rgba(255, 195, 0, 0.28);
+  width: 100%;
+  height: 100%;
+  margin: -0.6rem 0 0 -0.6rem;
+}
+
+.band--quicklinks .home-card:hover .home-card__bg,
+.band--oferta .home-card:hover .home-card__bg,
+.band--pastoral .home-card:hover .home-card__bg {
+  transform: scale(1.08) translate3d(0, -6px, 0);
+  filter: saturate(1.12) contrast(1.05);
+}
+
+/* “Más información” (expandir descripción en hover) */
+.band--quicklinks .home-card__desc,
+.band--oferta .home-card__desc,
+.band--pastoral .home-card__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  max-height: 1.4em;
+  opacity: 0.92;
+  transition: max-height 280ms ease, opacity 280ms ease,
+    -webkit-line-clamp 280ms ease;
+}
+
+.band--quicklinks .home-card:hover .home-card__desc,
+.band--oferta .home-card:hover .home-card__desc,
+.band--pastoral .home-card:hover .home-card__desc {
+  -webkit-line-clamp: 3;
+  max-height: 4.4em;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-card__bg,
+  .band--quicklinks .home-card__content::before,
+  .band--oferta .home-card__content::before,
+  .band--pastoral .home-card__content::before,
+  .band--quicklinks .home-card__desc,
+  .band--oferta .home-card__desc,
+  .band--pastoral .home-card__desc {
+    transition: none !important;
+  }
+}
+
+.home-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.home-card__title {
+  display: block;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.home-card__desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.home-card__arrow {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.18);
+}
+
+.home-card:focus-visible {
+  outline: 3px solid rgba(255, 195, 0, 0.7);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-card,
+  .home-card:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================================
+   ✅ BREAKPOINTS CONSISTENTES (1060 / 980 / 640)
+   ========================================================================= */
+
+/* <= 1060px */
+@media (max-width: 1060px) {
+  .home-cards__grid,
+  .home-cards--quick .home-cards__grid,
+  .home-cards--grid .home-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* <= 980px */
+@media (max-width: 980px) {
+  .home-cards__grid,
+  .home-cards--quick .home-cards__grid,
+  .home-cards--grid .home-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* <= 640px (MOBILE) ✅ 1 COLUMNA REAL */
+@media (max-width: 640px) {
+  .home-cards__grid,
+  .home-cards--quick .home-cards__grid,
+  .home-cards--grid .home-cards__grid {
+    grid-template-columns: 1fr;
+  }
+}

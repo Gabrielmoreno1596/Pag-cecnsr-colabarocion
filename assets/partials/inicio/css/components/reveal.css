@@ -1,0 +1,95 @@
+/* Reveal on scroll (robusto, sin tocar el contenido)
+   - Estado base (sin JS): todo visible
+   - Con JS (html.js): se oculta solo visualmente (opacity/transform), reservando el espacio
+*/
+
+[data-reveal]{
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Solo si hay JS activamos el reveal */
+html.js [data-reveal]{
+  --rev-dur: 700ms;
+  --rev-ease: cubic-bezier(.16,1,.3,1);
+  --rev-delay: 0ms;
+
+  /* default: zoom desde el centro */
+  --rev-x: 0px;
+  --rev-y: 0px;
+  --rev-scale: .92;
+  --rev-blur: 6px;
+  --rev-anim: rev-zoom;
+
+  opacity: 0;
+  transform: translate3d(var(--rev-x), var(--rev-y), 0) scale(var(--rev-scale));
+  filter: blur(var(--rev-blur));
+  will-change: transform, opacity, filter;
+}
+
+/* Variantes opcionales por data-reveal="..." */
+html.js [data-reveal="up"]{ --rev-anim: rev-rise; --rev-y: 34px; --rev-scale: .99; --rev-blur: 4px; }
+html.js [data-reveal="down"]{ --rev-anim: rev-rise; --rev-y: -34px; --rev-scale: .99; --rev-blur: 4px; }
+html.js [data-reveal="left"]{ --rev-anim: rev-slide; --rev-x: -44px; --rev-scale: .99; --rev-blur: 4px; }
+html.js [data-reveal="right"]{ --rev-anim: rev-slide; --rev-x: 44px; --rev-scale: .99; --rev-blur: 4px; }
+html.js [data-reveal="fade"]{ --rev-anim: rev-fade; --rev-scale: 1; --rev-blur: 0px; }
+
+/* Cuando entra al viewport */
+html.js [data-reveal].is-in{
+  opacity: 1;
+  animation: var(--rev-anim) var(--rev-dur) var(--rev-ease) var(--rev-delay) both;
+  filter: blur(0);
+  will-change: auto;
+}
+
+/* Keyframes */
+@keyframes rev-zoom{
+  0%   { opacity: 0; transform: translate3d(0,0,0) scale(var(--rev-scale)); filter: blur(var(--rev-blur)); }
+  70%  { opacity: 1; transform: translate3d(0,0,0) scale(1.02); filter: blur(0); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+@keyframes rev-rise{
+  0%   { opacity: 0; transform: translate3d(0,var(--rev-y),0) scale(var(--rev-scale)); filter: blur(var(--rev-blur)); }
+  70%  { opacity: 1; transform: translate3d(0,-10px,0) scale(1.01); filter: blur(0); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+@keyframes rev-slide{
+  0%   { opacity: 0; transform: translate3d(var(--rev-x),0,0) scale(var(--rev-scale)); filter: blur(var(--rev-blur)); }
+  70%  { opacity: 1; transform: translate3d(0,0,0) scale(1.01); filter: blur(0); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+@keyframes rev-fade{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* HERO: “saltito” premium (títulos + slogan + botón) */
+html.js .hero [data-reveal]{
+  --rev-dur: 850ms;
+  --rev-delay: 0ms;
+  --rev-scale: .90;
+  --rev-blur: 0px;
+  --rev-anim: hero-pop;
+}
+
+@keyframes hero-pop{
+  0%   { opacity: 0; transform: translate3d(0,0,0) scale(.90); }
+  55%  { opacity: 1; transform: translate3d(0,0,0) scale(1.03); }
+  75%  { transform: translate3d(0,0,0) scale(.995); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  html.js [data-reveal]{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

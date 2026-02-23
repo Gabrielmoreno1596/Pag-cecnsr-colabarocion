@@ -1,6 +1,6 @@
 <?php
 $data = require __DIR__ . '/../data/metas.php';
-$imgBase = 'assets/partials/oferta-academica/oferta-ciclo1/image/';
+$imgBase = 'assets/img/oferta-academica/oferta-ciclo1/';
 ?>
 <section class="section-padding bg-light">
     <div class="content-wrapper">

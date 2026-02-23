@@ -168,3 +168,18 @@
   padding: 0.2rem 0.5rem;
   border-radius: 2px;
 }
+
+
+/* Reservar espacio mientras cargan imágenes (reduce CLS/“sube y baja” con lazy loading) */
+.band--galeria .masonry__item{
+  display: block;
+  min-height: 220px;
+  background: #f3f4f6;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.band--galeria .masonry__item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

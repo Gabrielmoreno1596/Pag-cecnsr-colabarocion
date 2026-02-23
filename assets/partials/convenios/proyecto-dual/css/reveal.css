@@ -1,0 +1,61 @@
+/* Reveal on scroll (IntersectionObserver) — estilo "premium"
+   - Fallback: sin JS, todo se ve normal.
+   - Con JS: elementos con [data-reveal] inician ocultos (opacity/scale) y animan al entrar.
+*/
+
+html.js [data-reveal]{
+  --rev-delay: 0ms;
+  --rev-dur: 820ms;
+  --rev-ease: cubic-bezier(.2,.8,.2,1);
+  --rev-x: 0px;
+  --rev-y: 0px;
+  --rev-scale: .92;
+  --rev-blur: 6px;
+  --rev-anim: none;
+
+  opacity: 0;
+  transform: translate3d(var(--rev-x), var(--rev-y), 0) scale(var(--rev-scale));
+  filter: blur(var(--rev-blur));
+  will-change: transform, opacity, filter;
+}
+
+html.js [data-reveal].is-in{
+  opacity: 1;
+  transform: translate3d(0,0,0) scale(1);
+  filter: blur(0);
+  animation: var(--rev-anim, none) var(--rev-dur) var(--rev-ease) var(--rev-delay) both;
+  will-change: auto;
+}
+
+/* Default keyframes: zoom desde el centro (con micro overshoot) */
+@keyframes rev-zoom{
+  0%   { opacity: 0; transform: translate3d(0,0,0) scale(var(--rev-scale)); filter: blur(var(--rev-blur)); }
+  70%  { opacity: 1; transform: translate3d(0,0,0) scale(1.02); filter: blur(0); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* HERO: "saltito" elegante (solo para elementos marcados con data-reveal="hero") */
+html.js [data-reveal="hero"]{
+  --rev-scale: .90;
+  --rev-blur: 0px;
+  --rev-anim: hero-pop;
+}
+
+@keyframes hero-pop{
+  0%   { opacity: 0; transform: translate3d(0,12px,0) scale(.92); }
+  60%  { opacity: 1; transform: translate3d(0,-6px,0) scale(1.02); }
+  82%  { transform: translate3d(0,3px,0) scale(1); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* Accesibilidad: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  html.js [data-reveal],
+  html.js [data-reveal].is-in{
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

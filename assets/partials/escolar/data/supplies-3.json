@@ -3,7 +3,7 @@
   "title": "Lista de útiles de Tercer Grado",
   "mineduc": [
     "3 cuadernos engrapados rayados 100 hojas (1 para inglés, 1 música, 1 informática).",
-    "1 cuaderno engrapado cuadriculado 100 hojas (para calculemos).",
+    "1 cuaderno engrapado cuadriculado 100 hojas (para números y formas).",
     "1 borrador de goma.",
     "1 caja de colores doble punta 12 unidades.",
     "1 sacapunta.",
@@ -12,7 +12,7 @@
     "1 regla de 20 cm."
   ],
   "others": [
-    "5 cuadernos rayados cosidos #3 (1 comunicamos (lenguaje), 1 sociales, 1 lectoescritura, 1 ciencias y educación en la fe) rotulados con nombre completo del estudiante.",
+    "4 cuadernos rayados cosidos #3 (1 Comunicación, 1 Ciudadania y Valores, 1 lectoescritura y 1 Ciencia y Tecnología) rotulados con nombre completo del estudiante.",
     "2 cuadernos engrapados cuadriculados #3 (8mm) (artística y ajedrez).",
     "1 flauta marca Yamaha o MAPED (no plástica).",
     "Paquete de libros (se puede adquirir en la institución).",
@@ -56,7 +56,7 @@
       "hint": "Elementos provistos por el Ministerio.",
       "items": [
         "3 cuadernos engrapados rayados 100 hojas (1 para inglés, 1 música, 1 informática).",
-        "1 cuaderno engrapado cuadriculado 100 hojas (para calculemos).",
+        "1 cuaderno engrapado cuadriculado 100 hojas (para números y formas).",
         "1 borrador de goma.",
         "1 caja de colores doble punta 12 unidades.",
         "1 sacapunta.",
@@ -70,7 +70,7 @@
       "label": "Otros materiales para utilizar",
       "hint": "Recomendados por el colegio.",
       "items": [
-        "5 cuadernos rayados cosidos #3 (1 comunicamos (lenguaje), 1 sociales, 1 lectoescritura, 1 ciencias y educación en la fe) rotulados con nombre completo del estudiante.",
+        "4 cuadernos rayados cosidos #3 (1 Comunicación, 1 Ciudadania y Valores, 1 lectoescritura y 1 Ciencia y Tecnología) rotulados con nombre completo del estudiante." ,
         "2 cuadernos engrapados cuadriculados #3 (8mm) (artística y ajedrez).",
         "1 flauta marca Yamaha o MAPED (no plástica).",
         "Paquete de libros (se puede adquirir en la institución).",

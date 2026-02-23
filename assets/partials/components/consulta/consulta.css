@@ -1,0 +1,724 @@
+/* ==========================================================================
+   Componente: Formulario de Consultas (Dark + Pro)
+   Ruta: assets/partials/components/consulta/consulta.css
+   ========================================================================== */
+
+:root {
+  --cq-bg: #050a12;
+  --cq-surface: rgba(14, 23, 38, 0.72);
+  --cq-surface-2: rgba(20, 32, 52, 0.7);
+
+  --cq-border: rgba(255, 255, 255, 0.1);
+  --cq-border-2: rgba(255, 255, 255, 0.14);
+
+  --cq-ink: rgba(255, 255, 255, 0.92);
+  --cq-muted: rgba(255, 255, 255, 0.68);
+
+  --cq-accent: #ffc300; /* tu dorado */
+  --cq-accent-2: #ffdf6d;
+
+  --cq-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+  --cq-radius: 18px;
+
+  --cq-focus: rgba(255, 195, 0, 0.35);
+  --cq-danger: #ff4d6d;
+
+  --cq-wa: #25d366;
+}
+
+/* ===== Contenedor general ===== */
+.band--consulta {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      900px 520px at 20% 10%,
+      rgba(255, 195, 0, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 520px at 95% 20%,
+      rgba(14, 165, 233, 0.16),
+      transparent 58%
+    ),
+    linear-gradient(180deg, #04070e 0%, #060b14 100%);
+}
+
+.band--consulta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      520px 420px at 25% 15%,
+      rgba(255, 195, 0, 0.08),
+      transparent 65%
+    ),
+    radial-gradient(
+      540px 480px at 85% 30%,
+      rgba(37, 211, 102, 0.08),
+      transparent 62%
+    ),
+    radial-gradient(
+      680px 520px at 50% 100%,
+      rgba(255, 255, 255, 0.04),
+      transparent 70%
+    );
+  pointer-events: none;
+}
+
+.consulta-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== Cabecera ===== */
+.consulta-head {
+  text-align: left;
+  max-width: 720px;
+  margin-bottom: 18px;
+}
+
+.consulta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font:
+    800 12px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cq-muted);
+  opacity: 0.95;
+}
+
+.consulta-eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cq-accent), transparent);
+  opacity: 0.9;
+}
+
+.consulta-title {
+  margin: 10px 0 6px;
+  font:
+    900 clamp(24px, 2.7vw, 36px) / 1.1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-ink);
+  letter-spacing: -0.02em;
+}
+
+.consulta-subtitle {
+  margin: 0;
+  font:
+    600 14px/1.5 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-muted);
+}
+
+/* ===== Card del formulario ===== */
+.consulta-form {
+  margin-top: 18px;
+  border-radius: var(--cq-radius);
+  padding: clamp(16px, 2.8vw, 26px);
+  border: 1px solid var(--cq-border);
+  background: linear-gradient(180deg, var(--cq-surface), rgba(8, 14, 26, 0.62));
+  box-shadow: var(--cq-shadow);
+
+  /* Glass effect */
+  backdrop-filter: blur(10px) saturate(130%);
+}
+
+.consulta-form::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Honeypot (anti-bots) */
+.consulta-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* ===== Grid ===== */
+.consulta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .consulta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Fields ===== */
+.consulta-field {
+  display: grid;
+  gap: 8px;
+}
+
+.consulta-field--full {
+  grid-column: 1 / -1;
+}
+
+.consulta-field span {
+  font:
+    700 12px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-muted);
+  letter-spacing: 0.02em;
+}
+
+.consulta-field span b {
+  color: var(--cq-accent);
+  font-weight: 900;
+}
+
+.consulta-field input,
+.consulta-field select,
+.consulta-field textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--cq-border);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 14, 0.62),
+    rgba(7, 14, 28, 0.85)
+  );
+  color: var(--cq-ink);
+
+  padding: 12px 14px;
+  font:
+    600 14px/1.2 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+
+  outline: none;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.consulta-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.consulta-field input::placeholder,
+.consulta-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.consulta-field input:focus,
+.consulta-field select:focus,
+.consulta-field textarea:focus {
+  border-color: rgba(255, 195, 0, 0.55);
+  box-shadow: 0 0 0 4px var(--cq-focus);
+}
+
+/* ===== Contacto preferido ===== */
+.consulta-contacto {
+  margin-top: 16px;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--cq-border);
+  background: linear-gradient(
+    180deg,
+    var(--cq-surface-2),
+    rgba(10, 18, 34, 0.6)
+  );
+}
+
+.consulta-contacto__title {
+  margin: 0 0 10px;
+  font:
+    800 13px/1.2 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-ink);
+}
+
+.consulta-radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.consulta-radio label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--cq-border);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--cq-muted);
+  cursor: pointer;
+
+  font:
+    700 12px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  transition:
+    transform 0.15s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.consulta-radio input {
+  accent-color: var(--cq-accent);
+}
+
+.consulta-radio label:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 195, 0, 0.42);
+  background: rgba(255, 195, 0, 0.08);
+  color: var(--cq-ink);
+}
+
+/* ===== Captcha ===== */
+.consulta-captcha {
+  margin-top: 14px;
+  padding-top: 10px;
+}
+
+/* ===== Actions ===== */
+.consulta-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Botón principal */
+.consulta-btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+
+  padding: 12px 16px;
+  border-radius: 14px;
+
+  font:
+    900 14px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  letter-spacing: 0.02em;
+
+  color: #06101d;
+  background: linear-gradient(180deg, var(--cq-accent), #f1b500);
+  box-shadow:
+    0 18px 32px rgba(255, 195, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  transition:
+    transform 0.15s ease,
+    filter 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.consulta-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+  box-shadow:
+    0 22px 40px rgba(255, 195, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.consulta-btn:active {
+  transform: translateY(-1px);
+}
+
+.consulta-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mensajes de estado */
+.consulta-status {
+  flex: 1 1 auto;
+  min-width: 240px;
+  font:
+    700 13px/1.35 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-muted);
+  opacity: 0.95;
+}
+
+/* Botón WhatsApp (aparece después del envío) */
+.consulta-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+
+  font:
+    900 14px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+
+  color: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(37, 211, 102, 0.34);
+
+  background: linear-gradient(
+    180deg,
+    rgba(37, 211, 102, 0.2),
+    rgba(37, 211, 102, 0.12)
+  );
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.consulta-wa::before {
+  content: "🟢";
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.consulta-wa:hover {
+  transform: translateY(-2px);
+  border-color: rgba(37, 211, 102, 0.55);
+  background: linear-gradient(
+    180deg,
+    rgba(37, 211, 102, 0.26),
+    rgba(37, 211, 102, 0.14)
+  );
+}
+
+/* ===== Ajustes responsive ===== */
+@media (max-width: 520px) {
+  .consulta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .consulta-btn,
+  .consulta-wa {
+    width: 100%;
+  }
+
+  .consulta-status {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+/* ===== Reduce motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .consulta-btn,
+  .consulta-wa,
+  .consulta-field input,
+  .consulta-field select,
+  .consulta-field textarea,
+  .consulta-radio label {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   EXTRA: Layout 2 columnas + panel (Dark Pro)
+   ========================================================================== */
+
+.consulta-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 18px;
+  align-items: start;
+  margin-top: 14px;
+}
+
+/* El form ya es card, pero acá le damos consistencia */
+.consulta-side {
+  position: relative;
+}
+
+.consulta-card {
+  border-radius: var(--cq-radius);
+  padding: 18px;
+  border: 1px solid var(--cq-border);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 32, 52, 0.65),
+    rgba(8, 14, 26, 0.6)
+  );
+  box-shadow: var(--cq-shadow);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+
+.consulta-card__head {
+  margin-bottom: 14px;
+}
+
+.consulta-card__title {
+  margin: 0 0 6px;
+  font:
+    900 16px/1.2 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-ink);
+}
+
+.consulta-card__sub {
+  margin: 0;
+  font:
+    600 13px/1.5 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-muted);
+}
+
+/* Info list */
+.consulta-info {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.consulta-info__item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.consulta-info__item i {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--cq-accent);
+  background: rgba(255, 195, 0, 0.1);
+  border: 1px solid rgba(255, 195, 0, 0.16);
+  flex: 0 0 auto;
+}
+
+.consulta-info__text {
+  display: grid;
+  gap: 4px;
+}
+
+.consulta-info__label {
+  font:
+    800 12px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-muted);
+  letter-spacing: 0.02em;
+}
+
+.consulta-info__value {
+  font:
+    700 13px/1.35 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-ink);
+  text-decoration: none;
+}
+
+a.consulta-info__value:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 195, 0, 0.45);
+}
+
+/* Accesos rápidos */
+.consulta-quick {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.consulta-quick__title {
+  margin: 0 0 10px;
+  font:
+    900 12px/1 system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--cq-muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.consulta-quick__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.consulta-quick__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--cq-ink);
+  text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.consulta-quick__btn i {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.consulta-quick__btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 195, 0, 0.3);
+  background: rgba(255, 195, 0, 0.06);
+}
+
+/* Responsive: panel baja */
+@media (max-width: 980px) {
+  .consulta-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   THEMES: Fondo adaptable según contexto
+   Uso: <section class="band band--consulta" data-theme="blue">
+   ========================================================================== */
+
+.band--consulta {
+  /* Variables por defecto (modo azul institucional elegante) */
+  --cq-bg-base-1: #061a33;
+  --cq-bg-base-2: #041225;
+
+  --cq-bg-a: rgba(14, 165, 233, 0.16); /* azul suave */
+  --cq-bg-b: rgba(255, 195, 0, 0.1); /* dorado MUY leve */
+  --cq-bg-c: rgba(255, 255, 255, 0.035); /* luz suave */
+
+  background:
+    radial-gradient(900px 520px at 12% 12%, var(--cq-bg-a), transparent 62%),
+    radial-gradient(800px 520px at 96% 18%, var(--cq-bg-b), transparent 60%),
+    radial-gradient(680px 520px at 50% 110%, var(--cq-bg-c), transparent 70%),
+    linear-gradient(180deg, var(--cq-bg-base-1) 0%, var(--cq-bg-base-2) 100%);
+}
+
+.band--consulta::before {
+  /* Overlay MUY sutil (para que no “ensucie” el azul) */
+  background:
+    radial-gradient(
+      520px 420px at 25% 15%,
+      rgba(255, 195, 0, 0.05),
+      transparent 68%
+    ),
+    radial-gradient(
+      540px 480px at 85% 30%,
+      rgba(14, 165, 233, 0.08),
+      transparent 65%
+    );
+  opacity: 0.75;
+}
+
+/* ===== Theme: BLUE (100% institucional, el que te recomiendo) ===== */
+.band--consulta[data-theme="blue"] {
+  --cq-bg-a: rgba(14, 165, 233, 0.18);
+  --cq-bg-b: rgba(255, 195, 0, 0.08);
+  --cq-bg-base-1: #071b36;
+  --cq-bg-base-2: #041225;
+}
+
+/* ===== Theme: GOLD (solo si estás en páginas tipo anuncios/ventas) ===== */
+.band--consulta[data-theme="gold"] {
+  --cq-bg-a: rgba(255, 195, 0, 0.16);
+  --cq-bg-b: rgba(14, 165, 233, 0.1);
+  --cq-bg-base-1: #0a0f1a;
+  --cq-bg-base-2: #060b14;
+}
+
+/* ===== Theme: NEUTRAL (sin colores, super sobrio) ===== */
+.band--consulta[data-theme="neutral"] {
+  --cq-bg-a: rgba(255, 255, 255, 0.05);
+  --cq-bg-b: rgba(255, 255, 255, 0.02);
+  --cq-bg-base-1: #060b14;
+  --cq-bg-base-2: #050a12;
+}
+
+/* ===== Theme: TRANSPARENT (usa el fondo de la página) ===== */
+.band--consulta[data-theme="transparent"] {
+  background: transparent !important;
+}
+
+.band--consulta[data-theme="transparent"]::before {
+  display: none !important;
+}
+
+/* Opcional: Ajuste de respiración para que no se vea “cortado” */
+.band--consulta {
+  padding-top: 28px;
+  padding-bottom: 38px;
+}

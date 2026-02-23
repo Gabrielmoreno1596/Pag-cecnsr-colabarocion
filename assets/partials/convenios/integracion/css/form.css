@@ -1,0 +1,53 @@
+/* CONTACTO */
+.int-cta {
+  background: linear-gradient(180deg, #fff, #f0f6ff);
+  padding: clamp(1.6rem, 3.5vw, 2.6rem) 0;
+}
+.cta-card {
+  max-width: 900px;
+  margin-inline: auto;
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  border-radius: 16px;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+.cta-card h2 {
+  color: var(--cecns-blue);
+  text-align: center;
+}
+.contact-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+}
+.contact-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: #374151;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
+}
+.contact-form .full {
+  grid-column: 1 / -1;
+}
+.contact-form button {
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 560px) {
+.contact-form .form-grid {
+
+    grid-template-columns: 1fr;
+  
+}
+
+
+}

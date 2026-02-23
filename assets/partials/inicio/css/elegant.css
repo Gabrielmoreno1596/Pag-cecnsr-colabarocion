@@ -1,0 +1,1071 @@
+/* =========================================================================
+   INICIO - CAPA "ELEGANTE" (solo estilos)
+   - No cambia el contenido: solo re-presenta lo existente
+   - Inspiración: hero con imagen + overlay, secciones tipo "bands",
+     glass panels, y rails con scroll-snap
+   ========================================================================= */
+
+:root {
+  --cecns-blue: #004080;
+  --cecns-gold: #ffc300;
+  --cecns-wine: #800020;
+  --mision-inicio: #ffdb60;
+
+  --ink: #0b1220;
+  --paper: #ffffff;
+  --mist: #f4f7fb;
+
+  --glass: rgba(10, 25, 45, 0.58);
+  --glass2: rgba(255, 255, 255, 0.1);
+  --stroke: rgba(255, 255, 255, 0.18);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* Tipografía un poco más editorial */
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+/* =========================================================================
+   HERO: fondo con imagen "fija" + overlay (el cambio de fondo lo maneja JS)
+   ========================================================================= */
+
+.hero {
+  /* Desactivamos el fondo plano del archivo base */
+  background: #004080 transparent !important;
+
+  /* HERO = exactamente el alto del viewport */
+  height: 100svh;
+  min-height: 100svh;
+
+  display: grid;
+  place-items: center;
+  padding: clamp(2.6rem, 4.8vw, 4.2rem) 6%;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Ajustes para asegurar contenido del hero en viewport (títulos + carrusel + CTA)
+   - ajustados en el bloque principal del HERO (sin duplicar reglas) */
+
+.photo-item {
+  width: clamp(220px, 28vw, 360px);
+  height: clamp(140px, 18vw, 220px);
+  border-radius: 18px;
+}
+
+@media (max-height: 760px) {
+  .hero {
+    padding: clamp(2.3rem, 4.2vw, 3.6rem) 6%;
+  }
+  .hero-slogan {
+    margin: 0.9rem auto 1.3rem auto;
+  }
+  .photo-roll-container {
+    margin-top: 0.9rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 14px;
+  }
+  .btn-primary {
+    margin-top: 1.2rem;
+  }
+}
+
+/* Capas inyectadas por JS (no requieren tocar hero.php) */
+.hero .hero-bg-layer {
+  position: fixed;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* fondo fijo (desktop) */
+  background-attachment: fixed;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 900ms ease;
+  filter: saturate(1.06) contrast(1.02);
+  pointer-events: none;
+}
+
+.hero .hero-bg-layer::after {
+  /* Overlay premium aplicado al fondo FIXED
+     para que el tinte del hero se mantenga también cuando el fondo se ve
+     “debajo” mientras haces scroll dentro del alto del hero. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      60% 70% at 50% 28%,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.55) 70%
+    ),
+    linear-gradient(180deg, rgba(0, 20, 50, 0.7), rgba(0, 20, 50, 0.6));
+  pointer-events: none;
+}
+
+@media (max-width: 992px) {
+  .hero .hero-bg-layer {
+    background-attachment: scroll;
+  }
+}
+/* Solo visible mientras el usuario está dentro del hero */
+.hero:not(.is-pinned) .hero-bg-layer {
+  opacity: 0 !important;
+}
+.hero.is-pinned.is-bg-ready .hero-bg-layer.is-active {
+  opacity: 1;
+}
+
+/* Zoom gradual del fondo (Ken Burns suave)
+   - Se aplica solo a la capa activa, sincronizado con el intervalo JS (6500ms).
+   - Respeta prefers-reduced-motion. */
+.hero .hero-bg-layer {
+  transform: scale(1);
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.hero.is-pinned.is-bg-ready .hero-bg-layer.is-active {
+  animation: heroKenBurns 6500ms linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero.is-pinned.is-bg-ready .hero-bg-layer.is-active {
+    animation: none !important;
+  }
+}
+
+.hero::after {
+  /* Capa muy sutil sobre el contenido (evita doble-oscurecer el hero) */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    70% 80% at 50% 25%,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.18) 70%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+}
+
+.hero-title {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.08;
+  text-shadow: 0 14px 38px rgba(0, 0, 0, 0.28);
+  font-size: clamp(1.9rem, 3.7vw, 3.1rem);
+}
+
+.hero-slogan {
+  max-width: 56ch;
+  margin: 1.1rem auto 1.9rem auto;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  opacity: 0.95;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* CTA */
+.btn-primary {
+  color: #092447;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
+  transform: translateY(0);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.26);
+}
+
+/* "photo roll" existente: lo hacemos más sutil y elegante */
+.photo-roll-container {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(1.2rem, 2.5vw, 2rem);
+}
+.photo-roll {
+  gap: 16px;
+  padding: 115px 6px 2px 6px;
+  opacity: 0.92;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.26));
+}
+.photo-item {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.photo-item img {
+  transform: scale(1.02);
+}
+
+/* =========================================================================
+   HERO: Photo-roll con movimiento continuo (marquee)
+   - Se activa solo cuando JS añade .is-marquee
+   - Pausa al hover o cuando la lightbox está abierta
+   ========================================================================= */
+
+.photo-roll-container.is-marquee {
+  overflow: hidden;
+  scrollbar-width: none;
+}
+.photo-roll-container.is-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-roll.is-marquee {
+  width: max-content;
+  animation: photoRollMarquee var(--roll-duration, 55s) linear infinite;
+  will-change: transform;
+}
+
+/*
+  Ajuste solicitado (Tarea 1):
+  - NO pausar el carrusel al pasar el cursor.
+  - Mantener la pausa solo cuando se abre el lightbox (clase .is-paused).
+*/
+.photo-roll-container.is-paused .photo-roll.is-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes photoRollMarquee {
+  from {
+    /*
+      Arranca en 0 y recorre exactamente el ancho de 1 set.
+      El valor real (px) lo define JS en --roll-shift.
+    */
+    transform: translateX(0);
+  }
+  to {
+    /* Movimiento continuo en la misma dirección, sin huecos */
+    transform: translateX(calc(-1 * var(--roll-shift, 0px)));
+  }
+}
+
+/* Cursor sutil para indicar que son clickeables */
+.photo-roll-container .photo-item {
+  cursor: pointer;
+}
+
+/* =========================================================================
+   HERO: Lightbox del photo-roll (independiente al de infraestructura)
+   ========================================================================= */
+
+.photo-roll-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 18px;
+  backdrop-filter: blur(6px);
+}
+
+.photo-roll-lightbox.is-open {
+  display: flex;
+}
+
+.photo-roll-lightbox__dialog {
+  position: relative;
+  width: min(92vw, 1100px);
+  max-height: 86vh;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.photo-roll-lightbox__media {
+  position: relative;
+}
+
+.photo-roll-lightbox__img {
+  width: 100%;
+  max-height: 84vh;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.photo-roll-lightbox__meta {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.photo-roll-lightbox__close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+}
+
+.photo-roll-lightbox__nav {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  line-height: 1;
+  transition:
+    transform 140ms ease,
+    background 140ms ease;
+}
+
+.photo-roll-lightbox__nav:hover,
+.photo-roll-lightbox__close:hover {
+  background: rgba(0, 0, 0, 0.62);
+  transform: scale(1.04);
+}
+
+.photo-roll-lightbox__nav:active,
+.photo-roll-lightbox__close:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 720px) {
+  .photo-roll-lightbox__dialog {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .photo-roll-lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .photo-roll-lightbox__prev {
+    left: -6px;
+  }
+  .photo-roll-lightbox__next {
+    right: -6px;
+  }
+}
+
+/* =========================================================================
+   BANDS / SECCIONES
+   ========================================================================= */
+
+.home-main {
+  background: var(--paper);
+}
+
+/* Banda parallax: el contenido pasa “sobre” el fondo */
+.band--parallax {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(0, 12, 30, 0.65), rgba(0, 12, 30, 0.46)),
+    var(--band-bg) center/cover no-repeat fixed;
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+}
+@media (max-width: 992px) {
+  .band--parallax {
+    background-attachment: scroll;
+  }
+}
+
+/* Banda clara (entre secciones) */
+.band--light {
+  /* background: linear-gradient(180deg, var(--paper), var(--mist)); */
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+}
+
+/* =========================================================================
+   BAND: Fondo fijo “pinned” (imitando el HERO)
+   - Uso controlado: solo en secciones clave
+   - Se activa solo cuando JS añade .has-fixed-bg
+   ========================================================================= */
+
+.band--pinned-bg.has-fixed-bg,
+.band--mvc.has-fixed-bg {
+  background: transparent !important;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.band--pinned-bg.has-fixed-bg > *,
+.band--mvc.has-fixed-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+.band--pinned-bg.has-fixed-bg .band-bg-layer,
+.band--mvc.has-fixed-bg .band-bg-layer {
+  position: fixed;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 900ms ease;
+  z-index: 0;
+  pointer-events: none;
+  filter: saturate(1.06) contrast(1.02);
+}
+
+.band--pinned-bg.has-fixed-bg .band-bg-layer::after,
+.band--mvc.has-fixed-bg .band-bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 12, 30, 0.72),
+    rgba(0, 12, 30, 0.42)
+  );
+}
+
+.band--pinned-bg.has-fixed-bg.is-pinned .band-bg-layer,
+.band--mvc.has-fixed-bg.is-pinned .band-bg-layer {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .band--pinned-bg.has-fixed-bg .band-bg-layer,
+  .band--mvc.has-fixed-bg .band-bg-layer {
+    background-attachment: scroll;
+  }
+}
+
+/* Títulos */
+.band--parallax .section-title,
+.band--parallax .sub-title {
+  color: var(--cecns-gold);
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+.section-title::after {
+  /* underline más fino */
+  height: 3px;
+  opacity: 0.95;
+}
+
+/* =========================================================================
+   ¿QUIÉNES SOMOS? (layout tipo referencia + carrusel)
+   - Mantiene el carrusel, solo reacomoda presentación
+   ========================================================================= */
+
+/* Fondo de banda (paleta institucional) */
+.band--qs.band--light {
+  background:
+    radial-gradient(
+      1200px 520px at 20% 10%,
+      rgba(255, 195, 0, 0.18),
+      rgba(255, 195, 0, 0) 55%
+    ),
+    linear-gradient(180deg, #003062, #002b58);
+}
+
+/* La sección debe aprovechar el viewport sin “cortar” el contenido */
+.band--qs .section-padding {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(14px, 2.4vh, 26px);
+  padding-top: clamp(34px, 6vh, 92px);
+  padding-bottom: clamp(34px, 6vh, 92px);
+}
+
+/* Contenedor principal: panel oscuro con 2 columnas (imagen izquierda, texto derecha) */
+.band--qs .history-flex-container {
+  max-width: min(1400px, 96vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.95fr) 1.05fr;
+  grid-template-areas: "media text";
+  gap: clamp(40px, 3vw, 44px);
+  align-items: center;
+  padding: clamp(18px, 3vw, 34px);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.28);
+  overflow: visible;
+}
+
+@media (max-width: 992px) {
+  .band--qs .history-flex-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "text";
+  }
+}
+
+/* Texto (similar a referencia: sobre fondo oscuro, sin “caja” extra) */
+.band--qs .history-text-block {
+  grid-area: text;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.band--qs .history-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(1.6rem, 2.2vw, 2.55rem);
+  line-height: 1.08;
+  margin-bottom: 0.8rem;
+}
+
+.band--qs .history-text-block p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+}
+
+.band--qs .history-list li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.band--qs .history-list i {
+  color: var(--cecns-gold);
+}
+
+/* CTA */
+.band--qs .qs-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.2rem;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffd45a, var(--cecns-gold));
+  color: #092447;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.band--qs .qs-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.26);
+}
+
+/* Bloque visual (carrusel dentro de tarjeta redondeada) */
+.band--qs .history-carousel-container {
+  grid-area: media;
+  position: relative;
+  border-radius: 28px;
+  overflow: visible; /* permite que el overlay sobresalga */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.26);
+  aspect-ratio: 4 / 3;
+  max-height: min(72vh, 560px);
+}
+
+/* Track: por defecto se muestra normal (seguro si falla JS) */
+.band--qs .history-carousel-track {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.band--qs .history-carousel-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Modo fade (solo cuando JS lo habilita) */
+.band--qs .history-carousel-track.is-fade {
+  position: relative;
+  height: 100%;
+}
+
+.band--qs .history-carousel-track.is-fade .history-carousel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 900ms ease;
+}
+
+.band--qs .history-carousel-track.is-fade .history-carousel-img.is-active {
+  opacity: 1;
+}
+
+/* Si el JS lo convierte a rail, desactivamos el “auto-slide” anterior */
+.band--qs .history-carousel-track.rail-track {
+  animation: none !important;
+}
+
+/* Stats overlay (inspirado en referencia, adaptado a paleta) */
+.band--qs .history-stats {
+  position: absolute;
+  left: 16px;
+  bottom: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 195, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  transform: translateY(34%);
+  z-index: 3;
+}
+
+.band--qs .history-stat__num {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 2.2vw, 2.1rem);
+  line-height: 1;
+  color: #0a2a55;
+  white-space: nowrap;
+}
+
+/* Micro énfasis durante el conteo */
+.band--qs .history-stat__num.is-counting {
+  animation: hsPop 520ms ease-out both;
+  will-change: transform, filter;
+}
+
+@keyframes hsPop {
+  0% {
+    transform: translateY(2px) scale(0.98);
+    filter: brightness(0.98);
+  }
+  55% {
+    transform: translateY(-1px) scale(1.06);
+    filter: brightness(1.06);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+}
+.band--qs .history-stat__label {
+  display: block;
+  margin-top: 4px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #0a2a55;
+  opacity: 0.95;
+}
+/* =========================================================================
+   Rails (Historia + Infra)
+   - Convierte los carruseles automáticos en rails controlables
+   ========================================================================= */
+
+.rail {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* Track scroll-snap */
+.rail-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: auto !important;
+  transform: none !important;
+  padding: 14px;
+  -webkit-overflow-scrolling: touch;
+}
+.rail-track::-webkit-scrollbar {
+  height: 8px;
+}
+.rail-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+.rail-track::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.rail-track > img {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  width: min(520px, 78vw);
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Botones */
+.rail-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 1.35rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease,
+    background 200ms ease;
+}
+.rail-btn:hover {
+  background: rgba(0, 0, 0, 0.48);
+  transform: translateY(-50%) scale(1.03);
+}
+.rail:hover .rail-btn {
+  opacity: 1;
+}
+.rail-btn.prev {
+  left: 10px;
+}
+.rail-btn.next {
+  right: 10px;
+}
+
+@media (max-width: 992px) {
+  .rail-btn {
+    display: none;
+  } /* en móvil, usar swipe */
+}
+
+/* Progreso */
+.rail-progress {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  overflow: hidden;
+}
+.rail-progress > span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: var(--cecns-gold);
+  border-radius: 999px;
+}
+
+/* Hook: aplica el rail a los carruseles existentes */
+.history-carousel-container.rail .history-carousel-track,
+.infra-carousel-container.rail .infra-carousel-track {
+  animation: none !important;
+}
+
+/* =========================================================================
+   Misión / Visión / Compromiso: cards premium
+   ========================================================================= */
+
+/* Nota: esta sección usa banda parallax; el título debe mantener buen contraste */
+.band--mvc .mvc-title {
+  color: var(--mision-inicio);
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.band--mvc .mission-vision-card {
+  border-radius: 18px;
+  /* Ocre del logo + look premium */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 214, 94, 0.98),
+    var(--cecns-gold)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+  color: rgba(255, 255, 255, 0.94);
+}
+.band--mvc .mission-vision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.14);
+}
+
+.band--mvc .mission-vision-card h3 {
+  color: rgba(255, 255, 255, 0.96);
+}
+.band--mvc .mission-vision-card p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Icono como "chip" */
+.band--mvc .mission-vision-card i {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  margin: 0 auto 10px auto;
+  color: #fff;
+  font-size: 1.35rem;
+}
+
+/* =========================================================================
+   Infraestructura (glass container)
+   ========================================================================= */
+
+.band--infra #infraestructura {
+  padding-top: 0;
+}
+.band--infra .infra-gallery-wrap {
+  /* Más “viewport-fit”: aprovecha el ancho del viewport sin romper el ritmo */
+  width: min(1400px, 94vw);
+  max-width: none;
+  margin: 0 auto;
+  /* background: rgba(255, 255, 255, 0.94); */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: clamp(14px, 1.4vw, 20px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid más alto: se adapta a viewport (las imágenes “llenan” mejor) */
+.band--infra .infra-gallery {
+  gap: clamp(10px, 1.2vw, 16px);
+  grid-auto-rows: minmax(150px, 18vh);
+}
+
+.band--infra .infra-thumb img {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+@media (min-width: 1400px) {
+  .band--infra .infra-gallery {
+    grid-auto-rows: minmax(160px, 19vh);
+  }
+}
+
+/* =========================================================================
+   Botón "Volver arriba" (inyectado por JS)
+   ========================================================================= */
+
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease,
+    background 200ms ease;
+  backdrop-filter: blur(10px);
+}
+.to-top:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+.to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Ajustes al aplicar rail sobre contenedores existentes */
+.history-carousel-container.rail,
+.infra-carousel-container.rail {
+  min-width: unset;
+  height: auto;
+  background: transparent;
+  overflow: hidden; /* mantiene bordes redondeados */
+  box-shadow: none; /* el shadow lo da .rail */
+  border-radius: 18px;
+}
+
+/* ¿Quiénes somos? - Ajuste solicitado (fondo vino #903456 cuando entra al viewport) */
+.history-text-block.is-in {
+  background-color: #00408000 !important;
+  color: #ffffff;
+}
+.history-text-block.is-in .history-subtitle,
+.history-text-block.is-in p,
+.history-text-block.is-in li {
+  color: #ffffff;
+}
+.history-text-block.is-in .history-list li i {
+  color: var(--cecns-gold);
+}
+
+/* Misión / Visión / Compromiso - Ajuste solicitado (tarjetas vino #903456) */
+.mission-vision-card.is-in {
+  background: #004080 !important;
+  color: #ffffff;
+}
+.mission-vision-card.is-in h3,
+.mission-vision-card.is-in p {
+  color: #ffffff;
+}
+.mission-vision-card.is-in i {
+  color: var(--cecns-gold);
+}
+
+/* =========================================================================
+   QS v4 - Ajustes de overlay/overflow y fit en viewport (solo sección QS)
+   - Evita que el carrusel se monte sobre el texto
+   - Quita fondo de history-flex-container (usa el fondo de la banda)
+   - Mantiene todo dentro del viewport; si el texto excede, permite scroll interno
+   ========================================================================= */
+
+.band--qs .section-padding {
+  /* Importante: padding incluido dentro del alto para no “cortar” contenido */
+  box-sizing: border-box;
+  min-height: 100svh;
+  /* reduce un poco el padding para pantallas bajas */
+  padding-top: clamp(18px, 3.6vh, 72px);
+  padding-bottom: clamp(18px, 3.6vh, 72px);
+  /* al ir a #quienes-somos con header sticky */
+  scroll-margin-top: 96px;
+}
+
+/* El contenedor ya no debe “pintar” una caja extra */
+.band--qs .history-flex-container {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible;
+  align-items: center;
+}
+
+/* Evita que los hijos del grid desborden (clave para que no se monten) */
+.band--qs .history-flex-container > * {
+  min-width: 0;
+}
+
+/* Asegura stacking correcto: texto siempre por encima si algo llegara a cruzarse */
+.band--qs .history-carousel-container {
+  z-index: 0;
+}
+.band--qs .history-text-block {
+  z-index: 1;
+  position: relative;
+}
+
+/* Limita el carrusel al tamaño de su columna, sin desbordes laterales */
+.band--qs .history-carousel-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible; /* permite que el stats sobresalga */
+}
+
+/* El track debe ocupar el alto del contenedor (especialmente en modo fade) */
+.band--qs .history-carousel-track {
+  height: 100%;
+}
+
+/* Ajuste de imagen: siempre cubre sin estirar, sin generar scroll horizontal */
+.band--qs .history-carousel-img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* Garantiza que el panel QS se mantenga dentro del viewport: si el texto es largo, scrollea adentro */
+@media (min-width: 980px) {
+  .band--qs .history-flex-container {
+    /* El título + gaps ocupan altura; esto evita que se “salga” */
+    max-height: calc(100svh - 220px);
+  }
+  .band--qs .history-carousel-container {
+    max-height: calc(100svh - 220px);
+    aspect-ratio: 4 / 3;
+  }
+  .band--qs .history-text-block {
+    max-height: calc(100svh - 220px);
+    overflow: auto;
+    padding-right: 6px; /* espacio para scrollbar */
+  }
+}
+
+/* Pantallas con poca altura: compacta un poco para asegurar el “fit” */
+@media (max-height: 760px) {
+  .band--qs .section-title {
+    margin-bottom: 8px;
+  }
+  .band--qs .history-flex-container {
+    gap: 18px;
+  }
+  .band--qs .qs-cta {
+    padding: 12px 18px;
+  }
+}
+
+/* Previene scroll horizontal accidental por sombras/overlays en QS */
+.band--qs {
+  overflow-x: clip;
+}

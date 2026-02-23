@@ -1,6 +1,6 @@
 <?php
 $data = require __DIR__ . '/../data/entorno.php';
-$baseImg = 'assets/partials/oferta-academica/oferta-inicial/image/';
+$baseImg = 'assets/img/oferta-academica/parv-inicial/';
 ?>
 
 <section class="section-padding bg-light" id="entorno">

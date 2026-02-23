@@ -22,46 +22,44 @@
     "Paquete de libros (se podrá adquirir en la institución)."
   ],
   "note": [
-    "Pueden adquirir los materiales en cualquier librería y de cualquier marca.",
-    "Por favor, todos los pliegos entregarlos sin enrollar ni doblar."
+    "MATERIALES DEL ESTUDIANTE DEBIDAMENTE ROTULADOS.",
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca."
   ],
   "all_students": [
-    "1 bote grande de alcohol gel.",
-    "1 pliego de cartón espuma.",
-    "1 yarda de plástico (carpeta) doble, color azul para forrar mesa de trabajo.",
-    "1 yarda de plástico transparente grueso para forrar mesa de trabajo.",
-    "1 rollo de nilón blanco.",
     "4 rollos de papel higiénico mil hojas.",
-    "Para agregar solo a las niñas: 50 páginas de color base 20, tamaño carta.",
-    "Para agregar solo a las niñas: 1 paquete de toallas sanitarias nocturnas.",
-    "Para agregar solo a las niñas: 1 blister dorival.",
-    "Para agregar solo a las niñas: 1 blister de loratadina.",
-    "Para agregar solo a los niños: 100 páginas blancas, base 20, tamaño carta.",
-    "Para agregar solo a los niños: 1 blister de acetaminofén MK.",
-    "Para agregar solo a los niños: 1 blister clorfeniramina.",
-    "Para agregar solo a los niños: 1 bote de silicón líquido de 250 ml."
+    "1 jabón de clorhexidina.",
+    "1 pliego cartulina dorada sin doblar.",
+    "1 esparadrapo.",
+    "5 gasas esterilizadas.",
+    "1 yarda de plástico (carpeta) doble, color azul para forrar mesa de trabajo.",
+    "1 yarda de plástico transparente grueso para forrar mesa de trabajo."
   ],
   "notes": [
-    "Pueden adquirir los materiales en cualquier librería y de cualquier marca.",
-    "Por favor, todos los pliegos entregarlos sin enrollar ni doblar."
+    "MATERIALES DEL ESTUDIANTE DEBIDAMENTE ROTULADOS.",
+    "Pueden adquirir los materiales en cualquier librería y de cualquier marca."
   ],
   "entregar_ninas": [
     "50 páginas de color base 20, tamaño carta.",
     "1 paquete de toallas sanitarias nocturnas.",
-    "1 blister dorival.",
-    "1 blister de loratadina."
+    "1 bote de jabón líquido para manos de 500ml.",
+    "1 blister de dorival.",
+    "1 pliego cartón espuma negro.",
+    "2 pliegos de papel bond base 20."
   ],
   "entregar_ninos": [
     "100 páginas blancas, base 20, tamaño carta.",
-    "1 blister de acetaminofén MK.",
-    "1 blister clorfeniramina.",
-    "1 bote de silicón líquido de 250 ml."
+    "1 pliego de cartón espuma blanco.",
+    "1 bote de silicón líquido de 250 ml.",
+    "2 rollos de tape grueso.",
+    "1 tirro grueso color natural.",
+    "1 tirro grueso de color (de cualquier color).",
+    "1 bote de resistol 250 ml."
   ],
   "sections": [
     {
       "key": "mineduc",
-      "label": "Paquete Escolar MINEDUCYT",
-      "hint": "Elementos provistos por el Ministerio.",
+      "label": "Paquete Escolar MINED",
+      "hint": "",
       "items": [
         "3 cuadernos #3 rayados y 2 cuadernos #3 cuadriculado (8 mm).",
         "1 cuaderno doble raya.",
@@ -75,8 +73,8 @@
     },
     {
       "key": "others",
-      "label": "Otros materiales para utilizar",
-      "hint": "Recomendados por el colegio.",
+      "label": "OTROS MATERIALES A UTILIZAR",
+      "hint": "",
       "items": [
         "6 cuadernos rayados cosidos #3 (Lenguaje, Sociales, Ciencias, Inglés, Alemán, Fe).",
         "3 cuadernos cuadros grandes, cosido #3 (Matemática, Ajedrez y Artística).",
@@ -90,37 +88,43 @@
     },
     {
       "key": "all_students",
-      "label": "Para todos los estudiantes de este grado",
-      "hint": "Útiles comunes por sección.",
+      "label": "MATERIALES A ENTREGAR EL PRIMER DÍA DE CLASES/2026 (NO SE RECIBIRÁN INCOMPLETOS)",
+      "hint": "TODAS LAS NIÑAS Y NIÑOS DE ESTE NIVEL DEBEN ENTREGAR:",
       "items": [
-        "1 bote grande de alcohol gel.",
-        "1 pliego de cartón espuma.",
+        "4 rollos de papel higiénico mil hojas.",
+        "1 jabón de clorhexidina.",
+        "1 pliego cartulina dorada sin doblar.",
+        "1 esparadrapo.",
+        "5 gasas esterilizadas.",
         "1 yarda de plástico (carpeta) doble, color azul para forrar mesa de trabajo.",
-        "1 yarda de plástico transparente grueso para forrar mesa de trabajo.",
-        "1 rollo de nilón blanco.",
-        "4 rollos de papel higiénico mil hojas."
+        "1 yarda de plástico transparente grueso para forrar mesa de trabajo."
       ]
     },
     {
       "key": "entregar_ninas",
-      "label": "Para agregar solo a las niñas",
+      "label": "PARA ENTREGAR SOLO NIÑAS",
       "hint": "",
       "items": [
         "50 páginas de color base 20, tamaño carta.",
         "1 paquete de toallas sanitarias nocturnas.",
-        "1 blister dorival.",
-        "1 blister de loratadina."
+        "1 bote de jabón líquido para manos de 500ml.",
+        "1 blister de dorival.",
+        "1 pliego cartón espuma negro.",
+        "2 pliegos de papel bond base 20."
       ]
     },
     {
       "key": "entregar_ninos",
-      "label": "Para agregar solo a los niños",
+      "label": "PARA ENTREGAR SOLO NIÑOS",
       "hint": "",
       "items": [
         "100 páginas blancas, base 20, tamaño carta.",
-        "1 blister de acetaminofén MK.",
-        "1 blister clorfeniramina.",
-        "1 bote de silicón líquido de 250 ml."
+        "1 pliego de cartón espuma blanco.",
+        "1 bote de silicón líquido de 250 ml.",
+        "2 rollos de tape grueso.",
+        "1 tirro grueso color natural.",
+        "1 tirro grueso de color (de cualquier color).",
+        "1 bote de resistol 250 ml."
       ]
     }
   ]

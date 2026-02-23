@@ -1,0 +1,9 @@
+@import url("./hero.css");
+@import url("./que-es.css");
+@import url("./informacion.css");
+@import url("./requisitos.css");
+@import url("./experiencias.css");
+@import url("./galeria.css");
+@import url("./components/reveal.css");
+
+/* Nota: este archivo agrega el efecto reveal sin alterar estilos existentes. */

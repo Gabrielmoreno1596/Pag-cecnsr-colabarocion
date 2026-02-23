@@ -1,0 +1,173 @@
+/* Auto-separado desde style-pi-4pe.css — sección: galeria */
+
+/* Galería */
+.gallery a {
+  display: block;
+}
+
+.gallery.masonry {
+  columns: 4 240px;
+  column-gap: 0.75rem;
+}
+
+.gallery.masonry a {
+  break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
+
+.gallery.masonry img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e6ebf1;
+  display: block;
+}
+
+@media (max-width: 900px) {
+.gallery.masonry {
+    columns: 3 200px;
+  }
+}
+
+@media (max-width: 640px) {
+.gallery.masonry {
+    columns: 2 160px;
+    column-gap: 0.6rem;
+  }
+}
+
+/* Fallback masonry */
+@supports not (columns: 2) {
+  .gallery.masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  .gallery.masonry a {
+    margin: 0;
+  }
+}
+
+/* galeria */
+/* ===== Carrusel infinito ===== */
+.inf-carousel {
+  background: #fbf8f2;
+  border-radius: 24px;
+  padding: clamp(1.6rem, 3vw, 2.4rem) 0;
+}
+
+.infinite-reel {
+  --gap: clamp(0.75rem, 2vw, 1rem);
+  --card-w: clamp(180px, 22vw, 260px);
+  --card-h: clamp(220px, 28vw, 320px);
+  --duration: 38s; /* velocidad del scroll */
+  overflow: hidden;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.infinite-reel .track {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  width: calc((var(--card-w) + var(--gap)) * 10); /* 10 cards (5 + 5) */
+  animation: ic-scroll var(--duration) linear infinite;
+}
+
+.infinite-reel .card {
+  flex: 0 0 var(--card-w);
+  height: var(--card-h);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #d9ab24;
+  box-shadow: 0 12px 30px rgba(2, 8, 23, 0.12);
+  transform-origin: center;
+  transition: transform 0.35s ease, box-shadow 0.3s ease;
+  padding: 0;
+}
+
+.infinite-reel .card:hover {
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: 0 18px 44px rgba(2, 8, 23, 0.18);
+}
+
+.infinite-reel .card:nth-child(odd) {
+  transform: rotate(0deg);
+}
+
+.infinite-reel .card:nth-child(even) {
+  transform: rotate(0deg);
+}
+
+.infinite-reel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: zoom-in;
+}
+
+/* Pausar animación al pasar el mouse o enfocar dentro */
+.infinite-reel:hover .track,
+.infinite-reel:focus-within .track {
+  animation-play-state: paused;
+}
+
+/* Respeta preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .infinite-reel .track {
+    animation: none;
+  }
+  .infinite-reel {
+    overflow-x: auto;
+  }
+}
+
+/* ===== Lightbox (reutiliza tu estilo refinado) ===== */
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+/* --- FIX 3: detalles de compactación para <= 420 px (S8) --- */
+@media (max-width: 420px) {
+  .container {
+    padding-inline: 14px;
+  }
+
+  .pi-hero {
+    padding-inline: 14px;
+  }
+
+  .pi-cta > a {
+    flex: 1 1 100%;
+    text-align: center;
+  } /* CTAs apilados */
+
+  /* aside e imagen del itinerario bien contenidas */
+  .itn__aside {
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .itn__media img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .itn__media figcaption {
+    font-size: 0.86rem;
+  }
+
+  /* carrusel infinito: cartas un poco más pequeñas en móviles muy estrechos */
+  .infinite-reel {
+    --card-w: clamp(150px, 62vw, 200px);
+    --card-h: clamp(200px, 40vw, 260px);
+  }
+}

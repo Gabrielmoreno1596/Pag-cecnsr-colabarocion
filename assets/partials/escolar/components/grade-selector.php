@@ -96,7 +96,7 @@ $levelColors = [
 <section class="school-hero">
     <div class="school-hero__inner">
         <div class="school-hero__content">
-            <h1 class="school-hero__title">Listas de utiles por nivel</h1>
+            <h1 class="school-hero__title">Listas de útiles por nivel</h1>
             <p class="school-hero__subtitle">Selecciona un nivel para ver los grados disponibles.</p>
         </div>
 
