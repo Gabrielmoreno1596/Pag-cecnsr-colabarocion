@@ -3,13 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/cecnsros/public_html
     - mkdir -p "$DEPLOYPATH"
-
-    # Sincroniza solo lo necesario y borra lo del repo que ya no existe,
-    # PERO respeta cgi-bin y responsables-app
-    - rsync -a --delete \
-        --exclude 'cgi-bin/' \
-        --exclude 'responsables-app/' \
-        --exclude '.git/' \
-        --exclude '.cpanel.yml' \
-        --exclude '.gitignore' \
-        ./ "$DEPLOYPATH"/
+    - rsync -a --delete --exclude 'cgi-bin/' --exclude 'responsables-app/' --exclude '.git/' --exclude '.cpanel.yml' --exclude '.gitignore' ./ "$DEPLOYPATH"/
