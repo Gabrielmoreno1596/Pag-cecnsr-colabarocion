@@ -4,14 +4,12 @@ deployment:
     - export DEPLOYPATH=/home/cecnsros/public_html
     - mkdir -p "$DEPLOYPATH"
 
-    # Limpia TODO en public_html EXCEPTO: cgi-bin y responsables-app
-    - find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 \
-        ! -name 'cgi-bin' \
-        ! -name 'responsables-app' \
-        -exec rm -rf {} +
-
-    # Copia todos los archivos del repo al docroot
-    - cp -r ./* "$DEPLOYPATH"/
-
-    # No publiques estos archivos
-    - rm -f "$DEPLOYPATH/.cpanel.yml" "$DEPLOYPATH/.gitignore" || true
+    # Sincroniza solo lo necesario y borra lo del repo que ya no existe,
+    # PERO respeta cgi-bin y responsables-app
+    - rsync -a --delete \
+        --exclude 'cgi-bin/' \
+        --exclude 'responsables-app/' \
+        --exclude '.git/' \
+        --exclude '.cpanel.yml' \
+        --exclude '.gitignore' \
+        ./ "$DEPLOYPATH"/
