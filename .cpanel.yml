@@ -3,4 +3,22 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/cecnsros/public_html
     - mkdir -p "$DEPLOYPATH"
-    - rsync -a --delete --exclude 'cgi-bin/' --exclude 'responsables-app/' --exclude 'carpeta-didactica/' --exclude '.git/' --exclude '.cpanel.yml' --exclude '.gitignore' ./ "$DEPLOYPATH"/
+    - /usr/bin/rsync -a assets/ "$DEPLOYPATH"/assets/
+    - /usr/bin/rsync -a aviso-legal.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a convenios-dual.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a convenios-integracion.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a convenios-pasch.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a convenios-psicologia.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a escolar.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a historia.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a index.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a mapa-del-sitio.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a nuevo-ingreso.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a oferta-bachillerato.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a oferta-ciclo1.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a oferta-ciclo2.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a oferta-ciclo3.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a oferta-inicial.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a pastoral-educativa.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a privacidad.php "$DEPLOYPATH"/
+    - /usr/bin/rsync -a quienes-somos.php "$DEPLOYPATH"/
