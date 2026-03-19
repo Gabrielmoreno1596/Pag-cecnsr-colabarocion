@@ -26,9 +26,9 @@
     <link rel="stylesheet" href="<?= asset('styles.css') ?>">
 
     <!-- Iconos / Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/1_CECNSR.png') ?>">
-    <link rel="shortcut icon" href="<?= asset('assets/1_CECNSR.png') ?>" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/1_CECNSR.png') ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('assets/img/logos/cecnsr.png') ?>">
+    <link rel="shortcut icon" href="<?= asset('assets/img/logos/cecnsr.png') ?>" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= asset('assets/img/logos/cecnsr.png') ?>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
