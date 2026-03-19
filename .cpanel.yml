@@ -3,22 +3,22 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/cecnsros/public_html
     - mkdir -p "$DEPLOYPATH"
-    - /usr/bin/rsync -a assets/ "$DEPLOYPATH"/assets/
-    - /usr/bin/rsync -a aviso-legal.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a convenios-dual.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a convenios-integracion.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a convenios-pasch.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a convenios-psicologia.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a escolar.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a historia.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a index.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a mapa-del-sitio.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a nuevo-ingreso.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a oferta-bachillerato.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a oferta-ciclo1.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a oferta-ciclo2.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a oferta-ciclo3.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a oferta-inicial.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a pastoral-educativa.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a privacidad.php "$DEPLOYPATH"/
-    - /usr/bin/rsync -a quienes-somos.php "$DEPLOYPATH"/
+    - /bin/cp -R assets "$DEPLOYPATH"/
+    - /bin/cp aviso-legal.php "$DEPLOYPATH"/
+    - /bin/cp convenios-dual.php "$DEPLOYPATH"/
+    - /bin/cp convenios-integracion.php "$DEPLOYPATH"/
+    - /bin/cp convenios-pasch.php "$DEPLOYPATH"/
+    - /bin/cp convenios-psicologia.php "$DEPLOYPATH"/
+    - /bin/cp escolar.php "$DEPLOYPATH"/
+    - /bin/cp historia.php "$DEPLOYPATH"/
+    - /bin/cp index.php "$DEPLOYPATH"/
+    - /bin/cp mapa-del-sitio.php "$DEPLOYPATH"/
+    - /bin/cp nuevo-ingreso.php "$DEPLOYPATH"/
+    - /bin/cp oferta-bachillerato.php "$DEPLOYPATH"/
+    - /bin/cp oferta-ciclo1.php "$DEPLOYPATH"/
+    - /bin/cp oferta-ciclo2.php "$DEPLOYPATH"/
+    - /bin/cp oferta-ciclo3.php "$DEPLOYPATH"/
+    - /bin/cp oferta-inicial.php "$DEPLOYPATH"/
+    - /bin/cp pastoral-educativa.php "$DEPLOYPATH"/
+    - /bin/cp privacidad.php "$DEPLOYPATH"/
+    - /bin/cp quienes-somos.php "$DEPLOYPATH"/
