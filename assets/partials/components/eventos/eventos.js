@@ -14,7 +14,12 @@
     cards.forEach((c) => io.observe(c));
 
     // Modal refs
+    // Saca el modal del contexto del componente para que `position: fixed`
+    // quede anclado al viewport real y no a un ancestro con filter/backdrop-filter.
+    if (modal.parentElement !== document.body) document.body.appendChild(modal);
+
     const closeEls = modal.querySelectorAll('[data-modal-close]');
+    const dialog = modal.querySelector('.events-modal__dialog');
     const elCover = modal.querySelector('[data-modal-cover]');
     const elTitle = modal.querySelector('[data-modal-title]');
     const elDate = modal.querySelector('[data-modal-date]');
@@ -23,6 +28,35 @@
 
     // Lightbox (foto grande)
     let lightbox = null;
+    let activeCard = null;
+    let activeTrigger = null;
+
+    const VIEWPORT_GAP = 16;
+
+    function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+    }
+
+    function placeModal() {
+        if (!dialog) return;
+
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        // Centrado real respecto al viewport.
+        dialog.style.setProperty('--modal-tx', '-50%');
+        dialog.style.setProperty('--modal-ty', '-50%');
+
+        const rect = dialog.getBoundingClientRect();
+        const modalW = Math.min(rect.width || 980, vw - VIEWPORT_GAP * 2);
+        const modalH = Math.min(rect.height || vh - VIEWPORT_GAP * 2, vh - VIEWPORT_GAP * 2);
+
+        const centerX = clamp(vw / 2, VIEWPORT_GAP + modalW / 2, vw - VIEWPORT_GAP - modalW / 2);
+        const centerY = clamp(vh / 2, VIEWPORT_GAP + modalH / 2, vh - VIEWPORT_GAP - modalH / 2);
+
+        dialog.style.setProperty('--modal-left', `${centerX}px`);
+        dialog.style.setProperty('--modal-top', `${centerY}px`);
+    }
 
     // ✅ Estado de navegación (por card)
     let lbImages = [];
@@ -104,7 +138,10 @@
         if (!modal.classList.contains('is-open')) document.body.style.overflow = '';
     }
 
-    function openModal(card) {
+    function openModal(card, triggerBtn = null) {
+        activeCard = card;
+        activeTrigger = null;
+
         const title = card.dataset.title || 'Evento';
         const date = card.dataset.date || '';
         const meta = card.dataset.meta || '';
@@ -137,11 +174,18 @@
         });
 
         modal.hidden = false;
-        requestAnimationFrame(() => modal.classList.add('is-open'));
+        requestAnimationFrame(() => {
+            placeModal();
+            modal.classList.add('is-open');
+            const closeBtn = modal.querySelector('.events-modal__close');
+            if (closeBtn) closeBtn.focus({ preventScroll: true });
+        });
         document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
+        activeCard = null;
+        activeTrigger = null;
         modal.classList.remove('is-open');
         if (lightbox && lightbox.style.display === 'block') closeLightbox();
         document.body.style.overflow = '';
@@ -151,10 +195,20 @@
     cards.forEach((card) => {
         const btn = card.querySelector('.events-card__hit');
         if (!btn) return;
-        btn.addEventListener('click', () => openModal(card));
+        btn.addEventListener('click', () => openModal(card, btn));
     });
 
     closeEls.forEach((b) => b.addEventListener('click', closeModal));
+
+
+
+    window.addEventListener('resize', () => {
+        if (!modal.hidden) placeModal();
+    });
+
+    window.addEventListener('scroll', () => {
+        if (!modal.hidden) placeModal();
+    }, { passive: true });
 
     window.addEventListener('keydown', (e) => {
         // ✅ Si lightbox está abierto: ESC cierra; flechas navegan

@@ -22,25 +22,25 @@ return [
     // Slides de fondo
     'slides' => [
         [
-            'src'     => asset('assets/img/pastoral-educativa/celebraciones/cancha-dramatizacion2.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/cancha-dramatizacion2.webp'),
             'alt'     => 'Estudiantes trabajando en aula',
             'loading' => 'eager',
             'decoding' => 'async',
         ],
         [
-            'src'     => asset('assets/img/pastoral-educativa/celebraciones/san-francisco-edu-inicial-parvularia.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/san-francisco-edu-inicial-parvularia.webp'),
             'alt'     => 'Celebración San Francisco en Educación Inicial y Parvularia',
             'loading' => 'lazy',
             'decoding' => 'async',
         ],
         [
-            'src'     => asset('assets/img/pastoral-educativa/celebraciones/san-francisco-tercer-ciclo.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/san-francisco-tercer-ciclo.webp'),
             'alt'     => 'Celebración San Francisco en Tercer Ciclo',
             'loading' => 'lazy',
             'decoding' => 'async',
         ],
         [
-            'src'     => asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-escenario2.jpeg'),
+            'src'     => asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-escenario2.webp'),
             'alt'     => 'Actividad pastoral en la cancha del centro educativo',
             'loading' => 'lazy',
             'decoding' => 'async',

@@ -8,7 +8,7 @@ return [
     'Coherencia con PI & 4PE, PASCH, Proyecto Dual y programas de becas.',
   ],
   'image' => [
-    'src' => asset('assets/img/convenios/integracion/proposito/integra-img2.jpeg'),
+    'src' => asset('assets/img/convenios/integracion/proposito/integra-img2.webp'),
     'alt' => 'Sesión plenaria con estudiantes',
   ],
 ];

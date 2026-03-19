@@ -6,27 +6,27 @@ return [
     'caption' => 'Proyectos, debates y uso de laboratorios especializados.',
     'photos'  => [
         [
-            'file' => 'iic1.jpeg',
+            'file' => 'iic1.webp',
             'alt'  => 'Actividad de Ciencias II Ciclo',
         ],
         [
-            'file' => 'iic2.jpeg',
+            'file' => 'iic2.webp',
             'alt'  => 'Taller de Alemán II Ciclo',
         ],
         [
-            'file' => 'iic3.jpeg',
+            'file' => 'iic3.webp',
             'alt'  => 'Laboratorio de Informática',
         ],
         [
-            'file' => 'iic4.jpeg',
+            'file' => 'iic4.webp',
             'alt'  => 'Debate estudiantil II Ciclo',
         ],
         [
-            'file' => 'iic5.jpeg',
+            'file' => 'iic5.webp',
             'alt'  => 'Deportes en II Ciclo',
         ],
         [
-            'file' => 'iic6.jpg',
+            'file' => 'iic6.webp',
             'alt'  => 'Deportes en II Ciclo',
         ],
     ],

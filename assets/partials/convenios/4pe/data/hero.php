@@ -40,12 +40,12 @@ return [
     'alt' => 'Sesión formativa de Psicología Individual en el CECNSR',
   ],
   'reel' => [
-    ['src' => "$base/hero/pi-4pe-img2.jpeg", 'alt' => 'Participantes durante taller'],
-    ['src' => "$base/hero/pi-4pe-img3.jpeg", 'alt' => 'Equipo docente y aliados'],
-    ['src' => "$base/hero/pi-4pe-img4.jpeg", 'alt' => 'Presentación en aula'],
-    ['src' => "$base/hero/pi-4pe-img5.jpeg", 'alt' => 'Presentación en aula'],
+    ['src' => "$base/hero/pi-4pe-img2.webp", 'alt' => 'Participantes durante taller'],
+    ['src' => "$base/hero/pi-4pe-img3.webp", 'alt' => 'Equipo docente y aliados'],
+    ['src' => "$base/hero/pi-4pe-img4.webp", 'alt' => 'Presentación en aula'],
+    ['src' => "$base/hero/pi-4pe-img5.webp", 'alt' => 'Presentación en aula'],
     // Repetidos para loop visual (manteniendo tu estructura original)
-    ['src' => "$base/hero/pi-4pe-img1.jpeg", 'alt' => 'Presentación en aula'],
-    ['src' => "$base/hero/pi-4pe-img2.jpeg", 'alt' => 'Presentación en aula'],
+    ['src' => "$base/hero/pi-4pe-img1.webp", 'alt' => 'Presentación en aula'],
+    ['src' => "$base/hero/pi-4pe-img2.webp", 'alt' => 'Presentación en aula'],
   ],
 ];

@@ -17,11 +17,11 @@ return [
     'closing' =>
     'Hoy, atendemos a más de 1500 estudiantes, buscando la excelencia y la superación del ser humano por el Evangelio y la Educación.',
     'carousel_images' => [
-        'h.jpeg',
-        'h1.jpeg',
-        'h2.jpeg',
-        'h3.jpeg',
-        'h4.jpeg',
-        'h5.jpeg',
+        'h.webp',
+        'h1.webp',
+        'h2.webp',
+        'h3.webp',
+        'h4.webp',
+        'h5.webp',
     ],
 ];

@@ -11,9 +11,9 @@ return [
             'pdf_label' => 'Ver bitácora',
             'pdf' => "$base/pdf/paschBitácora-Alemania-ALEMÁN-Alex.pdf",
             'images' => [
-                "$base/experiencias/pasch-img2.jpeg",
-                "$base/experiencias/pasch-img5.png",
-                "$base/experiencias/pasch-img6.png",
+                "$base/experiencias/pasch-img2.webp",
+                "$base/experiencias/pasch-img5.webp",
+                "$base/experiencias/pasch-img6.webp",
             ],
             'alts' => [
                 'Alex en curso juvenil',
@@ -27,9 +27,9 @@ return [
             'pdf_label' => 'Ver logbuch',
             'pdf' => "$base/pdf/pasch-Logbuch-Valeria-Meléndez-2APS.pdf",
             'images' => [
-                "$base/experiencias/pasch-valeria2.png",
-                "$base/experiencias/pasch-valeria1.png",
-                "$base/experiencias/pasch-img4.png",
+                "$base/experiencias/pasch-valeria2.webp",
+                "$base/experiencias/pasch-valeria1.webp",
+                "$base/experiencias/pasch-img4.webp",
             ],
             'alts' => [
                 'Valeria en campamento PASCH',
@@ -43,9 +43,9 @@ return [
             'pdf_label' => 'Ver memoria',
             'pdf' => "$base/pdf/paschMemoria-de-viaje-Mateo.pdf",
             'images' => [
-                "$base/experiencias/pasch-vijaron.jpeg",
-                "$base/experiencias/pasch-mateo1.png",
-                "$base/experiencias/pasch-mateo2.png",
+                "$base/experiencias/pasch-vijaron.webp",
+                "$base/experiencias/pasch-mateo1.webp",
+                "$base/experiencias/pasch-mateo2.webp",
             ],
             'alts' => [
                 'Mateo en Jungenkurs',

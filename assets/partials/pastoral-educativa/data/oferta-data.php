@@ -17,11 +17,11 @@ return [
             'rotator' => [
                 'interval' => 3800,
                 'images'  => [
-                    asset('assets/img/oferta-academica/parv-inicial/cancha-parvularia-nivel.jpeg'),
-                    asset('assets/img/oferta-academica/parv-inicial/est-parv-prof_Dina.jpeg'),
-                    asset('assets/img/oferta-academica/parv-inicial/parv-salon-p4a.jpeg'),
-                    asset('assets/img/oferta-academica/parv-inicial/parv-liliana-p425.jpeg'),
-                    asset('assets/img/oferta-academica/parv-inicial/parv-cancha-nivel2.jpeg'),
+                    asset('assets/img/oferta-academica/parv-inicial/cancha-parvularia-nivel.webp'),
+                    asset('assets/img/oferta-academica/parv-inicial/est-parv-prof_Dina.webp'),
+                    asset('assets/img/oferta-academica/parv-inicial/parv-salon-p4a.webp'),
+                    asset('assets/img/oferta-academica/parv-inicial/parv-liliana-p425.webp'),
+                    asset('assets/img/oferta-academica/parv-inicial/parv-cancha-nivel2.webp'),
                 ],
             ],
             'open' => true, // este aparece desplegado por defecto
@@ -37,9 +37,9 @@ return [
             'rotator' => [
                 'interval' => 3800,
                 'images'  => [
-                    asset('assets/img/oferta-academica/oferta-ciclo1/primer-ciclo-primer-grado.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo1/est-3er-grado-madre-iris.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo1/2-2do-visit-mineducyt.jpeg'),
+                    asset('assets/img/oferta-academica/oferta-ciclo1/primer-ciclo-primer-grado.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo1/est-3er-grado-madre-iris.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo1/2-2do-visit-mineducyt.webp'),
                 ],
             ],
         ],
@@ -54,9 +54,9 @@ return [
             'rotator' => [
                 'interval' => 3800,
                 'images'  => [
-                    asset('assets/img/oferta-academica/oferta-ciclo2/ii-ciclo-sexto-grado.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo2/ii-ciclo-sexto-grado2.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo2/cuarto-grado-visita-inge-Katia.jpeg'),
+                    asset('assets/img/oferta-academica/oferta-ciclo2/ii-ciclo-sexto-grado.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo2/ii-ciclo-sexto-grado2.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo2/cuarto-grado-visita-inge-Katia.webp'),
                 ],
             ],
         ],
@@ -71,11 +71,11 @@ return [
             'rotator' => [
                 'interval' => 3800,
                 'images'  => [
-                    asset('assets/img/oferta-academica/oferta-ciclo3/iiic3.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo3/iiic1.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo3/iiic10.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo3/iii-ciclo-trabajo-grupal2.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-ciclo3/retiro-tercer-ciclo.jpeg'),
+                    asset('assets/img/oferta-academica/oferta-ciclo3/iiic3.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo3/iiic1.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo3/iiic10.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo3/iii-ciclo-trabajo-grupal2.webp'),
+                    asset('assets/img/oferta-academica/oferta-ciclo3/retiro-tercer-ciclo.webp'),
                 ],
             ],
         ],
@@ -90,11 +90,11 @@ return [
             'rotator' => [
                 'interval' => 4200,
                 'images'  => [
-                    asset('assets/img/oferta-academica/oferta-bachillerato/estudiantes-gradas.jpeg'),
-                    asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-gradas-derecha.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-bachillerato/media-1ga.jpeg'),
-                    asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-escenario2.jpeg'),
-                    asset('assets/img/oferta-academica/oferta-bachillerato/aps-edu-media.jpeg'),
+                    asset('assets/img/oferta-academica/oferta-bachillerato/estudiantes-gradas.webp'),
+                    asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-gradas-derecha.webp'),
+                    asset('assets/img/oferta-academica/oferta-bachillerato/media-1ga.webp'),
+                    asset('assets/img/pastoral-educativa/celebraciones/cancha-desde-escenario2.webp'),
+                    asset('assets/img/oferta-academica/oferta-bachillerato/aps-edu-media.webp'),
                 ],
             ],
         ],

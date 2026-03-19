@@ -201,6 +201,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
+  padding: clamp(12px, 2vw, 24px);
 }
 
 .events-modal__backdrop {
@@ -211,22 +212,31 @@
 }
 
 .events-modal__dialog {
-  position: relative;
-  width: min(980px, calc(100% - 28px));
-  margin: 40px auto;
+  margin: 0;
+  position: fixed;
+  top: var(--modal-top, 50%);
+  left: var(--modal-left, 50%);
+  width: min(980px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
-  transform: translateY(10px);
+  transform: translate3d(var(--modal-tx, -50%), var(--modal-ty, -50%), 0);
   opacity: 0;
   transition:
     transform 0.25s ease,
-    opacity 0.25s ease;
+    opacity 0.25s ease,
+    top 0.2s ease,
+    left 0.2s ease;
+  will-change: top, left, transform, opacity;
 }
 
 .events-modal.is-open .events-modal__dialog {
-  transform: translateY(0);
+  margin: 0;
   opacity: 1;
 }
 
@@ -234,14 +244,21 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 42px;
+  z-index: 3;
+  min-width: 42px;
   height: 42px;
-  border-radius: 12px;
+  padding: 0 14px;
+  border-radius: 999px;
   border: 0;
   cursor: pointer;
   font-size: 24px;
+  font-weight: 700;
   line-height: 1;
-  background: rgba(255, 255, 255, 0.88);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
 }
 
@@ -291,6 +308,8 @@
 
 .events-modal__body {
   padding: 18px 18px 22px;
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .events-modal__grid {
@@ -409,5 +428,39 @@
     width: 40px;
     height: 40px;
     font-size: 26px;
+  }
+}
+
+
+
+@media (max-width: 720px) {
+  .events-modal {
+    padding: 12px;
+  }
+
+  .events-modal__dialog {
+  margin: 0;
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    border-radius: 16px;
+  }
+
+  .events-modal__hero {
+    min-height: 220px;
+  }
+
+  .events-modal__heroText {
+    padding: 18px;
+    padding-top: 78px;
+  }
+
+  .events-modal__close {
+    top: 10px;
+    right: 10px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0 12px;
+    font-size: 22px;
   }
 }

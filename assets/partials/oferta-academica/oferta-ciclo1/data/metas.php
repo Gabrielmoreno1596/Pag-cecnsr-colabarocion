@@ -22,11 +22,11 @@ return [
         'title' => 'Vida Estudiantil en I Ciclo',
         'caption' => 'Explora nuestras actividades, laboratorios y ambiente educativo.',
         'images' => [
-            'ic1.jpg',
-            'ic2.jpg',
-            'ic3.jpg',
-            'ic4.jpg',
-            'ic6.jpg',
+            'ic1.webp',
+            'ic2.webp',
+            'ic3.webp',
+            'ic4.webp',
+            'ic6.webp',
         ],
     ],
 ];

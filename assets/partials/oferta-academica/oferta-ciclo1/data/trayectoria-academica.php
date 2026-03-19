@@ -7,9 +7,9 @@ return [
             'title' => 'Consolidación de la Lectoescritura',
             'text' => 'En Primer Grado, se realiza la transición completa, enfocándose en consolidar el alfabeto, desarrollar el pensamiento lógico-matemático y comenzar la inmersión en el idioma alemán, sentando las bases de la disciplina de estudio.',
             'items' => [
-                '**Enfoque Principal:** Alfabetización Avanzada y Habilidades Motoras Finas.',
-                '**Nivel de Inglés:** Básico, con énfasis en vocabulario y estructuras simples.',
-                '**Actividad Clave:** Introducción a la Robótica Educativa.',
+                'Enfoque Principal:** Alfabetización Avanzada y Habilidades Motoras Finas.',
+                'Nivel de Inglés: Básico, con énfasis en vocabulario y estructuras simples.',
+                'Actividad Clave: Introducción a la Robótica Educativa.',
             ],
         ],
         [

@@ -52,7 +52,7 @@ return [
   ],
   'aside' => [
     'initial' => [
-      'src' => "$base/aside/pi-4pe-img3.jpeg",
+      'src' => "$base/aside/pi-4pe-img3.webp",
       'alt' => 'Sesión de trabajo colaborativo',
       'caption' => 'Trabajo colaborativo y servicio al bien común.',
       'credits' => '© CECNSR — Centro de Comunicaciones Salvadoreño-Alemán. Uso académico interno.',
@@ -63,7 +63,7 @@ return [
     ],
     'slides' => [
       [
-        'src' => "$base/aside/pi-4pe-img3.jpeg",
+        'src' => "$base/aside/pi-4pe-img3.webp",
         'alt' => 'Sesión de trabajo colaborativo',
         'caption' => 'Trabajo colaborativo y servicio al bien común.',
         'credits' => '© CECNSR — Centro de Comunicaciones Salvadoreño-Alemán. Uso académico interno.',
@@ -73,7 +73,7 @@ return [
         ],
       ],
       [
-        'src' => "$base/aside/pi-4pe-img2.jpeg",
+        'src' => "$base/aside/pi-4pe-img2.webp",
         'alt' => 'Participantes en dinámica grupal',
         'caption' => 'Aprendizaje activo con enfoque en convivencia.',
         'credits' => '© CECNSR — Archivo de formación. Uso académico interno.',
@@ -83,7 +83,7 @@ return [
         ],
       ],
       [
-        'src' => "$base/aside/pi-4pe-img1.jpeg",
+        'src' => "$base/aside/pi-4pe-img1.webp",
         'alt' => 'Exposición de contenidos y diálogo',
         'caption' => 'Intercambio de ideas y práctica guiada.',
         'credits' => '© CECNSR — Archivo institucional. Uso académico interno.',

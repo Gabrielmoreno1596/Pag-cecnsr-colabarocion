@@ -14,10 +14,10 @@ return [
   ],
   // para el slider del hero (crossfade). El 1º se pinta en HTML.
   'hero_images' => [
-    asset('assets/img/convenios/integracion/hero/integra-img1.jpeg'),
-    asset('assets/img/convenios/integracion/hero/integra-img2.jpeg'),
-    asset('assets/img/convenios/integracion/hero/integra-img3.jpeg'),
-    asset('assets/img/convenios/integracion/hero/integra-img5-salon.jpeg'),
+    asset('assets/img/convenios/integracion/hero/integra-img1.webp'),
+    asset('assets/img/convenios/integracion/hero/integra-img2.webp'),
+    asset('assets/img/convenios/integracion/hero/integra-img3.webp'),
+    asset('assets/img/convenios/integracion/hero/integra-img5-salon.webp'),
   ],
   'bg_aria' => 'Estudiantes en sesión formativa',
 ];

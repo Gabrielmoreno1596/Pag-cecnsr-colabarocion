@@ -118,7 +118,7 @@ $isUpcoming = function ($dateStr) use ($now) {
         <div class="events-modal__backdrop" data-modal-close></div>
 
         <div class="events-modal__dialog" role="dialog" aria-modal="true" aria-label="Detalle del evento">
-            <button class="events-modal__close" type="button" data-modal-close aria-label="Cerrar">×</button>
+            <button class="events-modal__close" type="button" data-modal-close aria-label="Cerrar"><span aria-hidden="true">×</span><span> Cerrar</span></button>
 
             <div class="events-modal__hero">
                 <div class="events-modal__cover" data-modal-cover></div>
